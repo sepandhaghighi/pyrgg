@@ -45,4 +45,4 @@ Remember to write a few tests for your code before sending pull requests.
 
 ## License
 
-<a href="https://github.com/sepandhaghighi/qpage/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>   
+<a href="https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>   
