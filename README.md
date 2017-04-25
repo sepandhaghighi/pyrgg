@@ -26,11 +26,12 @@ Just fill an issue and describe it. I'll check it ASAP!
 or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir"). 
 
 ## TODO		
-
-- [x] Small Graph 
+- [ ] Sizes
+  - [x] Small
+  - [ ] Medium
+  - [ ] Large
 - [x] Weighted Graph
 - [x] Directed Graph
-- [ ] Huge Graph Generation
 - [ ] Multithreading
 
 
