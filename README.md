@@ -1,5 +1,5 @@
 
-# Python Random Graph Generator							
+# Random Graph Generator							
 
 
 
