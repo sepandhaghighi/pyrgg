@@ -8,7 +8,7 @@ def get_input():
             raise Exception("There is file with this name")
         vertices=int(input("Vertices Number : "))
         max_weight=int(input("Max Weight : "))
-        min_weight = int(input("Main Weight : "))
+        min_weight = int(input("Min Weight : "))
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight}
     except Exception as e:
         print(e)
