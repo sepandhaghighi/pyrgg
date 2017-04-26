@@ -41,7 +41,6 @@ def branch_gen(random_edge,vertices_number,min_range,max_range):
             branch_list.append(random_tail)
             weight_list.append(random_weight)
             index += 1
-            print(index)
     return [branch_list,weight_list]
 def edge_gen(vertices_number,min_range,max_range):
     '''
@@ -59,7 +58,7 @@ def edge_gen(vertices_number,min_range,max_range):
     vertices_edge=[]
     weight_list=[]
     for i in vertices_id:
-        random_edge=random.randint(0,vertices_number)
+        random_edge=random.randint(0,min(16,vertices_number))
         temp_list=branch_gen(random_edge,vertices_number,min_range,max_range)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
