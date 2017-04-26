@@ -8,7 +8,8 @@
 <h1>Random Graph Generator</h1>
 <a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/quality-score.png?b=master"></a>
 <a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/build.png?b=master"></a>
-</div>
+</div>				
+				
 ## Overview
 Simple random graph generator based on <a href ="http://www.cse.psu.edu/~kxm85/software/GTgraph/index.html">GTgraph</a>
 
