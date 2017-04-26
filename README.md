@@ -1,8 +1,14 @@
 
-# Random Graph Generator							
+							
 
 
-
+<div align="center">
+<img src="http://www.shaghighi.ir/pyrgg/pyrgg-logo.png">
+<hr/>
+<h1>Random Graph Generator</h1>
+<a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/quality-score.png?b=master"></a>
+<a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/build.png?b=master"></a>
+</div>
 ## Overview
 Simple random graph generator based on <a href ="http://www.cse.psu.edu/~kxm85/software/GTgraph/index.html">GTgraph</a>
 
@@ -34,7 +40,10 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [x] Directed Graph
 - [ ] Multithreading
 
-
+## Sample Sites
+- [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr)
+- [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr)
+- [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/3000.gr)
 
 
 ## Contribution			
