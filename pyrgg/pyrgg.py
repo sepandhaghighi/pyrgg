@@ -2,6 +2,10 @@ import random
 import os
 import time
 def get_input():
+    '''
+    This function get input from user and return as dictionary
+    :return: inputs as dictionary
+    '''
     try:
         file_name=input("File Name : ")
         if file_name+".gr" in os.listdir():
@@ -15,6 +19,18 @@ def get_input():
 
 
 def branch_gen(random_edge,vertices_number,min_range,max_range):
+    '''
+    This function generate branch and weight vector of each vertex
+    :param random_edge: number of vertex edges
+    :type random_edge:int
+    :param vertices_number: number of vertices
+    :type vertices_number:int
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max range
+    :type max_range:int
+    :return: branch and weight list
+    '''
     index = 0
     branch_list = []
     weight_list=[]
@@ -28,6 +44,16 @@ def branch_gen(random_edge,vertices_number,min_range,max_range):
             print(index)
     return [branch_list,weight_list]
 def edge_gen(vertices_number,min_range,max_range):
+    '''
+    This function generate each vertex connection number
+    :param vertices_number: number of vertices
+    :type vertices_number:int
+    :param min_range: weight min_range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :return: list of 2 dictionary
+    '''
     temp=0
     vertices_id=list(range(1,vertices_number+1))
     vertices_edge=[]
@@ -40,6 +66,22 @@ def edge_gen(vertices_number,min_range,max_range):
         temp=temp+random_edge
     return [dict(zip(vertices_id,vertices_edge)),dict(zip(vertices_id,weight_list)),temp]
 def file_init(file,file_name,min_range,max_range,vertices,edge):
+    '''
+    This function initial output file
+    :param file: output file object
+    :param file_name: file name
+    :type file_name:str
+    :type file:file_object
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max range
+    :type max_range:int
+    :param vertices: vertices number
+    :type vertices:int
+    :param edge:  edge number
+    :type edge:int
+    :return: None
+    '''
     file.write("c FILE                  :"+file_name+".gr"+"\n")
     file.write("c No. of vertices       :"+str(vertices)+"\n")
     file.write("c No. of directed edges :"+str(edge)+"\n")
@@ -48,6 +90,18 @@ def file_init(file,file_name,min_range,max_range,vertices,edge):
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
 def file_maker(file_name,min_range,max_range,vertices):
+    '''
+    This function create output file and fill in
+    :param file_name: file name
+    :type file_name:str
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :param vertices: number of vertices
+    :type vertices:int
+    :return: None
+    '''
     try:
         file=open(file_name+".gr","w")
         dicts=edge_gen(vertices,min_range,max_range)
