@@ -1,0 +1,14 @@
+from .pyrgg import *
+if __name__=="__main__":
+    first_time=time.perf_counter()
+    input_dict=get_input()
+    file_name=input_dict["file_name"]
+    min_weight=input_dict["min_weight"]
+    max_weight=input_dict["max_weight"]
+    vertices_number=input_dict["vertices"]
+    edge_number=file_maker(file_name,min_weight,max_weight,vertices_number)
+    second_time=time.perf_counter()
+    elapsed_time=second_time-first_time
+    elapsed_time_format=time_convert(str(elapsed_time))
+    print("Graph Generated In "+elapsed_time_format)
+    logger(vertices_number,edge_number,file_name+".gr",elapsed_time_format)
