@@ -5,6 +5,18 @@ import datetime
 import sys
 
 def logger(vertices_number,edge_number,file_name,elapsed_time):
+    '''
+    This function save generated graphs log
+    :param vertices_number: nubmer of vertices
+    :type vertices_number:int
+    :param edge_number: Number of edges
+    :type edge_number:int;
+    :param file_name:  File Name
+    :type file_name:str
+    :param elapsed_time: Elapsed Time
+     :type elapsed_time : str
+    :return:  None
+    '''
     try:
         file = open("logfile.log", "a")
         file.write(str(datetime.datetime.now())+"\n")
