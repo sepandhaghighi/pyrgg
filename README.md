@@ -42,9 +42,9 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [ ] Multithreading
 
 ## Sample Sites
-- [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr)
-- [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr)
-- [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/3000.gr)
+- [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr.gz)
+- [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr.gz)
+- [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/3000.gr.gz)
 
 
 ## Contribution			
