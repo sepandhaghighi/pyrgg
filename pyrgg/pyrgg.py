@@ -1,9 +1,9 @@
 import random
 import os
-import time
 import datetime
 import sys
 
+Source_dir=os.getcwd()
 def logger(vertices_number,edge_number,file_name,elapsed_time):
     '''
     This function save generated graphs log

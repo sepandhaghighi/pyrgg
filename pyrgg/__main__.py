@@ -1,4 +1,5 @@
 from .pyrgg import *
+import time
 if __name__=="__main__":
     first_time=time.perf_counter()
     input_dict=get_input()
@@ -11,4 +12,5 @@ if __name__=="__main__":
     elapsed_time=second_time-first_time
     elapsed_time_format=time_convert(str(elapsed_time))
     print("Graph Generated In "+elapsed_time_format)
+    print("Where --> "+Source_dir)
     logger(vertices_number,edge_number,file_name+".gr",elapsed_time_format)
