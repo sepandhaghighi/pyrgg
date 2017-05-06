@@ -7,7 +7,9 @@ if __name__=="__main__":
     min_weight=input_dict["min_weight"]
     max_weight=input_dict["max_weight"]
     vertices_number=input_dict["vertices"]
-    edge_number=file_maker(file_name,min_weight,max_weight,vertices_number)
+    min_edge=input_dict["min_edge"]
+    max_edge=input_dict["max_edge"]
+    edge_number=file_maker(file_name,min_weight,max_weight,vertices_number,min_edge,max_edge)
     second_time=time.perf_counter()
     elapsed_time=second_time-first_time
     elapsed_time_format=time_convert(str(elapsed_time))

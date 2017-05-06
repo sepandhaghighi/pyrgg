@@ -71,7 +71,9 @@ def get_input():
         vertices=int(input("Vertices Number : "))
         max_weight=int(input("Max Weight : "))
         min_weight = int(input("Min Weight : "))
-        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight}
+        min_edge=int(input("Min Edge Number :"))
+        max_edge=int(input("Max Edge Number :"))
+        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge}
     except Exception as e:
         print(e)
         sys.exit()
@@ -101,7 +103,7 @@ def branch_gen(random_edge,vertices_number,min_range,max_range):
             weight_list.append(random_weight)
             index += 1
     return [branch_list,weight_list]
-def edge_gen(vertices_number,min_range,max_range):
+def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge):
     '''
     This function generate each vertex connection number
     :param vertices_number: number of vertices
@@ -117,7 +119,7 @@ def edge_gen(vertices_number,min_range,max_range):
     vertices_edge=[]
     weight_list=[]
     for i in vertices_id:
-        random_edge=random.randint(0,min(16,vertices_number))
+        random_edge=random.randint(min_edge,max_edge)
         temp_list=branch_gen(random_edge,vertices_number,min_range,max_range)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
@@ -147,7 +149,7 @@ def file_init(file,file_name,min_range,max_range,vertices,edge):
     file.write("c Min. weight           :"+str(min_range)+"\n")
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
-def file_maker(file_name,min_range,max_range,vertices):
+def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge):
     '''
     This function create output file and fill in
     :param file_name: file name
@@ -162,7 +164,7 @@ def file_maker(file_name,min_range,max_range,vertices):
     '''
     try:
         file=open(file_name+".gr","w")
-        dicts=edge_gen(vertices,min_range,max_range)
+        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge)
         edge_dic=dicts[0]
         weight_dic=dicts[1]
         edge_number=dicts[2]
