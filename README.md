@@ -3,7 +3,7 @@
 
 
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/pyrgg-logo.png">
+<img src="http://www.shaghighi.ir/pyrgg/pyrgg-logo.png" height=240px width=320px>
 <hr/>
 <h1>Random Graph Generator</h1>
 <a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/quality-score.png?b=master"></a>
