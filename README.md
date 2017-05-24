@@ -42,6 +42,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [x] Signed Weights
 - [x] Directed Graph
 - [x] Self loop
+- [x] Parallel Arc
 - [ ] Multithreading
 
 ## Sample Sites
