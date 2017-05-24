@@ -73,13 +73,25 @@ def get_input():
         min_weight = int(input("Min Weight : "))
         min_edge=int(input("Min Edge Number :"))
         max_edge=int(input("Max Edge Number :"))
-        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge}
+        sign_flag=int(input("Signed[1] or Unsigned[2]"))
+        if sign_flag not in [1,2]:
+            sign_flag=2
+        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag}
     except Exception as e:
         print(e)
         sys.exit()
 
-
-def branch_gen(random_edge,vertices_number,min_range,max_range):
+def sign_gen():
+    '''
+    This function return random sign
+    :return: 1 or -1
+    '''
+    flag=random.randint(0,1)
+    if flag==0:
+        return 1
+    else:
+        return -1
+def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
     '''
     This function generate branch and weight vector of each vertex
     :param random_edge: number of vertex edges
@@ -97,13 +109,16 @@ def branch_gen(random_edge,vertices_number,min_range,max_range):
     weight_list=[]
     while (index < random_edge):
         random_tail = random.randint(1, vertices_number + 1)
-        random_weight=random.randint(min_range,max_range)
+        if sign==2:
+            random_weight=random.randint(min_range,max_range)
+        else:
+            random_weight = sign_gen() * random.randint(min_range, max_range)
         if random_tail not in branch_list:
             branch_list.append(random_tail)
             weight_list.append(random_weight)
             index += 1
     return [branch_list,weight_list]
-def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge):
+def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
     '''
     This function generate each vertex connection number
     :param vertices_number: number of vertices
@@ -120,7 +135,7 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge):
     weight_list=[]
     for i in vertices_id:
         random_edge=random.randint(min_edge,max_edge)
-        temp_list=branch_gen(random_edge,vertices_number,min_range,max_range)
+        temp_list=branch_gen(random_edge,vertices_number,min_range,max_range,sign)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
         temp=temp+random_edge
@@ -151,7 +166,7 @@ def file_init(file,file_name,min_range,max_range,vertices,edge):
     file.write("c Min. weight           :"+str(min_range)+"\n")
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
-def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge):
+def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''
     This function create output file and fill in
     :param file_name: file name
@@ -166,14 +181,14 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge):
     '''
     try:
         file=open(file_name+".gr","w")
-        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge)
+        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
         edge_dic=dicts[0]
         weight_dic=dicts[1]
         edge_number=dicts[2]
         file_init(file,file_name,min_range,max_range,vertices,edge_number)
         for i in edge_dic.keys():
             for j,value in enumerate(edge_dic[i]):
-                file.write("c "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
+                file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
         file.close()
         return edge_number
     except Exception as e:
