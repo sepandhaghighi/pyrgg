@@ -72,7 +72,9 @@ def get_input():
         max_weight=int(input("Max Weight : "))
         min_weight = int(input("Min Weight : "))
         min_edge=int(input("Min Edge Number :"))
+        min_edge=max(0,min_edge)
         max_edge=int(input("Max Edge Number :"))
+        max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
         if sign_flag not in [1,2]:
             sign_flag=2
