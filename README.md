@@ -68,5 +68,7 @@ Remember to write a few tests for your code before sending pull requests.
 
 <div align="center">
 
-<img src="https://mpe.dimacs.rutgers.edu/doc/dimacs_logo.gif" alt="DIMACS">
+<img src="http://www.shaghighi.ir/pyrgg/dimacs_logo.gif" alt="DIMACS">
+
+
 </div>   
