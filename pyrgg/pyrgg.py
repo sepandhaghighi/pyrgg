@@ -125,6 +125,8 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge):
         weight_list.append(temp_list[1])
         temp=temp+random_edge
     return [dict(zip(vertices_id,vertices_edge)),dict(zip(vertices_id,weight_list)),temp]
+
+
 def file_init(file,file_name,min_range,max_range,vertices,edge):
     '''
     This function initial output file
