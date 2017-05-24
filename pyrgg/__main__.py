@@ -1,4 +1,4 @@
-from .pyrgg import *
+from pyrgg import *
 import time
 if __name__=="__main__":
     first_time=time.perf_counter()
