@@ -12,7 +12,7 @@
 </div>				
 				
 ## Overview
-Simple random graph generator based on <a href ="http://www.cse.psu.edu/~kxm85/software/GTgraph/index.html">GTgraph</a>
+Simple random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>
 
 
 
@@ -36,10 +36,12 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 ## TODO		
 - [ ] Sizes
   - [x] Small
-  - [ ] Medium
+  - [x] Medium
   - [ ] Large
 - [x] Weighted Graph
+	-[x] Signed Weights
 - [x] Directed Graph
+- [x] Self loop
 - [ ] Multithreading
 
 ## Sample Sites
