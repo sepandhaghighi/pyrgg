@@ -38,7 +38,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] Small
   - [x] Medium
   - [ ] Large
-- [x] Weighted Graph
+- [x] Weighted Graph															
 	-[x] Signed Weights
 - [x] Directed Graph
 - [x] Self loop
