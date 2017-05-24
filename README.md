@@ -60,4 +60,13 @@ Remember to write a few tests for your code before sending pull requests.
 
 ## License
 
-<a href="https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>   
+<a href="https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
+
+
+## Reference
+					
+
+<div align="center">
+
+<img src="https://mpe.dimacs.rutgers.edu/doc/dimacs_logo.gif" alt="DIMACS">
+</div>   
