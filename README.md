@@ -30,6 +30,8 @@ python setup.py install
 <div align="center">
 
 <img src="http://www.shaghighi.ir/pyrgg/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
+<br/>
+<img src="http://www.shaghighi.ir/pyrgg/output.jpg" alt="pyrgg output" title="pyrgg output">
 
 </div>
 
