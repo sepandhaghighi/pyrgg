@@ -31,7 +31,7 @@ python setup.py install
 
 <img src="http://www.shaghighi.ir/pyrgg/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
 <br/>
-<img src="http://www.shaghighi.ir/pyrgg/output.jpg" alt="pyrgg output" title="pyrgg output">
+<img src="http://www.shaghighi.ir/pyrgg/output.jpg" alt="pyrgg output" title="pyrgg output" width=800px>
 
 </div>
 
