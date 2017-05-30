@@ -25,7 +25,13 @@ python setup.py install
 
 
 ## Usage ##
-- Just enter number of vertices
+- Just enter number of vertices				
+
+<div align="center">
+
+<img src="http://www.shaghighi.ir/pyrgg/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
+
+</div>
 
 
 ## Issues & Bug Reports			
