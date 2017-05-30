@@ -25,7 +25,7 @@ python setup.py install
 
 
 ## Usage ##
-- Just enter number of vertices				
+			
 
 <div align="center">
 
