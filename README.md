@@ -79,7 +79,8 @@ Remember to write a few tests for your code before sending pull requests.
 <img src="http://www.shaghighi.ir/pyrgg/dimacs_logo.gif" alt="DIMACS">
 
 
-</div>   
+</div>  						
+ 
 ## Support on Beerpay
 Hey dude! Help me out for a couple of :beers:!
 
