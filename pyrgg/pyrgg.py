@@ -4,6 +4,7 @@ import datetime
 import sys
 
 Source_dir=os.getcwd()
+random_system=random.SystemRandom()
 def logger(vertices_number,edge_number,file_name,elapsed_time):
     '''
     This function save generated graphs log
@@ -88,7 +89,7 @@ def sign_gen():
     This function return random sign
     :return: 1 or -1
     '''
-    flag=random.randint(0,1)
+    flag=random_system.randint(0,1)
     if flag==0:
         return 1
     else:
@@ -110,11 +111,11 @@ def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
     branch_list = []
     weight_list=[]
     while (index < random_edge):
-        random_tail = random.randint(1, vertices_number + 1)
+        random_tail = random_system.randint(1, vertices_number + 1)
         if sign==2:
-            random_weight=random.randint(min_range,max_range)
+            random_weight=random_system.randint(min_range,max_range)
         else:
-            random_weight = sign_gen() * random.randint(min_range, max_range)
+            random_weight = sign_gen() * random_system.randint(min_range, max_range)
         if random_tail not in branch_list:
             branch_list.append(random_tail)
             weight_list.append(random_weight)
@@ -136,7 +137,7 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
     vertices_edge=[]
     weight_list=[]
     for i in vertices_id:
-        random_edge=random.randint(min_edge,max_edge)
+        random_edge=random_system.randint(min_edge,max_edge)
         temp_list=branch_gen(random_edge,vertices_number,min_range,max_range,sign)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
