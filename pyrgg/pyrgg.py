@@ -26,7 +26,7 @@ def logger(vertices_number,edge_number,file_name,elapsed_time):
         file.write("Elapsed Time : " + str(elapsed_time) + "\n")
         file.write("-------------------------------\n")
         file.close()
-    except Exception as e:
+    except Exception:
         if file.closed()==False:
             file.close()
         print("Error In Logger")
