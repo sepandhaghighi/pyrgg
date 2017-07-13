@@ -18,12 +18,20 @@ Simple random graph generator based on <a href ="http://www.diag.uniroma1.it/cha
 
 
 
-## Installation ##
-```python
+## Installation ##			
 
-python setup.py install
- 
-```
+### Source Code
+- Download [Version 0.1](https://github.com/sepandhaghighi/pyrgg/archive/v0.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
+
+- `python3 setup.py install` or `python setup.py install`				
+
+### PyPI
+
+
+- Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
+- `pip install pyrgg` or `pip3 install pyrgg`							
+			
+
 
 
 ## Usage ##
@@ -54,8 +62,9 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [x] Self loop
 - [x] Parallel Arc
 - [ ] Multithreading
+- [ ] GUI
 
-## Sample Sites
+## Sample Files
 - [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr.gz)
 - [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr.gz)
 - [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000000.gr.gz)
