@@ -87,6 +87,7 @@ Remember to write a few tests for your code before sending pull requests.
 Hey dude! Help me out for a couple of :beers:!				
 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add)](https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&utm_medium=referral&utm_content=sepandhaghighi/pyrgg&utm_campaign=badger)
 [![Beerpay](https://beerpay.io/sepandhaghighi/pyrgg/badge.svg?style=beer-square)](https://beerpay.io/sepandhaghighi/pyrgg)  [![Beerpay](https://beerpay.io/sepandhaghighi/pyrgg/make-wish.svg?style=flat-square)](https://beerpay.io/sepandhaghighi/pyrgg?focus=wish)									
 
 <h3>Bitcoin :</h3>					
