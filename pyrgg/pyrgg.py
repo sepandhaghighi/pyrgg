@@ -146,7 +146,7 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
     return [dict(zip(vertices_id,vertices_edge)),dict(zip(vertices_id,weight_list)),temp]
 
 
-def file_init(file,file_name,min_range,max_range,vertices,edge):
+def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge):
     '''
     This function initial output file
     :param file: output file object
@@ -168,6 +168,8 @@ def file_init(file,file_name,min_range,max_range,vertices,edge):
     file.write("c No. of directed edges :"+str(edge)+"\n")
     file.write("c Max. weight           :"+str(max_range)+"\n")
     file.write("c Min. weight           :"+str(min_range)+"\n")
+    file.write("c Min. edge           :" + str(min_edge) + "\n")
+    file.write("c Max. edge           :" + str(max_edge) + "\n")
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
 def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
@@ -189,7 +191,7 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
         edge_dic=dicts[0]
         weight_dic=dicts[1]
         edge_number=dicts[2]
-        file_init(file,file_name,min_range,max_range,vertices,edge_number)
+        file_init(file,file_name,min_range,max_range,vertices,edge_number,min_edge,max_edge)
         for i in edge_dic.keys():
             for j,value in enumerate(edge_dic[i]):
                 file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
