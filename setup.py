@@ -1,6 +1,6 @@
 from distutils.core import setup
 setup(
-  name = 'Python Graph Generator',
+  name = 'pyrgg',
   packages = ['pyrgg'],
   version = '0.1',
   description = 'Python Random Graph Generator',
