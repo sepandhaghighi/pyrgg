@@ -3,6 +3,7 @@ import os
 import datetime
 import sys
 
+
 Source_dir=os.getcwd()
 random_system=random.SystemRandom()
 def logger(vertices_number,edge_number,file_name,elapsed_time):
@@ -28,7 +29,7 @@ def logger(vertices_number,edge_number,file_name,elapsed_time):
         file.write("-------------------------------\n")
         file.close()
     except Exception:
-        if file.closed()==False:
+        if file.closed==False:
             file.close()
         print("Error In Logger")
 
@@ -194,10 +195,12 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
                 file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
         file.close()
         return edge_number
-    except Exception as e:
+    except Exception:
         print("Error In File Creation")
-        if file.closed()==False:
+        if file.closed==False:
             file.close()
+        os.remove(os.path.join(Source_dir,file_name)+".gr")
+        sys.exit()
 
 
 
