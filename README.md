@@ -81,7 +81,7 @@ Remember to write a few tests for your code before sending pull requests.
 
 ## Citing
 
-If you use pyrgg for your project homepage or something like this , please cite this ;-)
+If you use pyrgg in your research , please cite this ;-)
 
 <blockquote>
 <p>[1]Sepand Haghighi. pyrgg : Python Random Graph Generator 2017. doi:10.5281/zenodo.830031</p>
