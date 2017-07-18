@@ -64,6 +64,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [x] Parallel Arc
 - [ ] Multithreading
 - [ ] GUI
+- [ ] Erdős–Rényi_model
+- [ ] Tree
 
 ## Sample Files
 - [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr.gz)
