@@ -15,7 +15,8 @@
 </div>				
 				
 ## Overview
-Simple random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>
+pyrgg is a simple synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format
+this software generate input file for graph processing applications.  
 
 
 
@@ -75,7 +76,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 
 
 ## Application			
-Generate input file for parallel sparse graph applications benchmark like :			
+This software can be used for generation of input files in parallel sparse graph applications benchmark like :			
 
 
 - [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
