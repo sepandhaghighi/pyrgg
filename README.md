@@ -19,7 +19,7 @@ Simple random graph generator based on <a href ="http://www.diag.uniroma1.it/cha
 
 
 
-## Installation ##			
+## Installation		
 
 ### Source Code
 - Download [Version 0.1](https://github.com/sepandhaghighi/pyrgg/archive/v0.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
@@ -72,6 +72,18 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr.gz)
 - [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000000.gr.gz)
 - [Sample 4](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/5000000.gr.gz)
+
+
+## Application			
+Generate input file for parallel sparse graph applications benchmark like :			
+
+
+- [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
+- [Totem](https://github.com/netsyslab/Totem "Totem")
+- [Frog](https://github.com/AndrewStallman/Frog "Frog")
+- [CuSha](https://github.com/farkhor/CuSha "CuSha")
+
+
 
 
 ## Contribution			
