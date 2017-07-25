@@ -18,7 +18,8 @@ date: 18 July 2017
 						
 
 # Summary
-pyrgg is a synthetic random graph generator written in python based on DIMACS formats.
+pyrgg is a synthetic random graph generator based on DIMACS format
+this software generate input file for graph processing applications. 
 
 this application get :
 					

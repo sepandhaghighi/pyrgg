@@ -15,7 +15,7 @@
 </div>				
 				
 ## Overview
-pyrgg is a simple synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format
+pyrgg is a synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format
 this software generate input file for graph processing applications.  
 
 
@@ -91,7 +91,12 @@ This software can be used for generation of input files in parallel sparse graph
 
 You can fork the repository, improve or fix some part of it and then send the pull requests back if you want to see them here. I really appreciate that. ❤️			
 
-Remember to write a few tests for your code before sending pull requests. 
+Remember to write a few tests for your code before sending pull requests. 			
+
+## Similar Works
+- [Random Modular Network Generator](https://github.com/prathasah/random-modular-network-generator) Generates random graphs with tunable strength of community structure
+- [randomGraph](https://github.com/sdghafouri/randomGraph) very simple random graph generator in matlab
+- [Graph1](https://github.com/Saptaparni/Graph1) Random Graph Generator with Max capacity paths (C++)
 
 
 ## Citing
