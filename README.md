@@ -60,6 +60,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [ ] Large
 - [x] Weighted Graph															
 	- [x] Signed Weights
+- [x] Dense Graph
+- [x] Sparse Graph
 - [x] Directed Graph
 - [x] Self loop
 - [x] Parallel Arc
