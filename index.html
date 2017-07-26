@@ -1,84 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Pyrgg Doc</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head><body >
-    <div align="center">
-<a href="http://sepandhaghighi.github.io/pyrgg"><img src="http://www.shaghighi.ir/pyrgg/pyrgg-logo.png" height=240px width=320px></a>
-        <h2>Version 0.1</h2>
-    <p></p>
+<html>
+    <head>
+        <title>Orangetool</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <meta name="description" content="Pyrgg By Sepand Haghighi"/>
+        <meta property="og:title" content="pyrgg" />
+        <meta property="og:site_name" content="http://www.shaghighi.ir/pyrgg"/>
+        <meta property="og:description" content="pyrgg is a synthetic random graph generator based on DIMACS format this software generate input file for graph processing applications" />
+        <meta property="og:image" content="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" />
+    </head>
+    <body>
+        	
+        <div class="logo"  align="center">
+            <img src="images/pyrgg-logo.png" height="350px" width="500px">
+            <br/>
+            <h3 class="moduland"><a href="https://github.com/sepandhaghighi/pyrgg/archive/v0.1.zip">Version 0.1</a></h3>
+            <h2>Pyrgg is a synthetic random graph generator</h2>
+        </div>
+        <div class="button" align="center">
+        
+            <a href="https://github.com/sepandhaghighi/pyrgg/archive/master.zip" title="Download Source"><img src="images/download.png" height="128px" width="128px" alt="Download Source"></a>
+            <a href="https://github.com/sepandhaghighi/pyrgg" target="_blank" title="Pyrgg Github"><img src="images/github.png" alt="Pyrgg Github"></a>
+            <a href="http://www.shaghighi.ir/pyrgg/doc" target="_blank" title="Pyrgg Doc"><img src="images/doc.png" alt="Pyrgg Doc"></a>
+            <a href="http://www.moduland.ir" target="_blank" title="Moduland Website"><img src="images/moduland.jpg" height="128px" width="128px" alt="Moduland Website"></a>
+        </div>
+        
+        
+        <div id="login-footer" class="abs">
+        <p> Copyright (c) 2017 Moduland Co</p>
     </div>
-<p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr style="background:linear-gradient(red,green,blue);">
-<td align="center" colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>&nbsp;</strong></big></font></td></tr>
     
-<tr><td style="background:linear-gradient(90deg,red,green,blue);"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">
- <dl><dt><a name="-branch_gen"><strong>branch_gen</strong></a>(random_edge, vertices_number, min_range, max_range, sign)</dt><dd><tt>This&nbsp;function&nbsp;generate&nbsp;branch&nbsp;and&nbsp;weight&nbsp;vector&nbsp;of&nbsp;each&nbsp;vertex<br>
-:param&nbsp;random_edge:&nbsp;number&nbsp;of&nbsp;vertex&nbsp;edges<br>
-:type&nbsp;random_edge:int<br>
-:param&nbsp;vertices_number:&nbsp;number&nbsp;of&nbsp;vertices<br>
-:type&nbsp;vertices_number:int<br>
-:param&nbsp;min_range:&nbsp;weight&nbsp;min&nbsp;range<br>
-:type&nbsp;min_range:int<br>
-:param&nbsp;max_range:&nbsp;weight&nbsp;max&nbsp;range<br>
-:type&nbsp;max_range:int<br>
-:return:&nbsp;branch&nbsp;and&nbsp;weight&nbsp;list</tt></dd></dl>
- <dl><dt><a name="-edge_gen"><strong>edge_gen</strong></a>(vertices_number, min_range, max_range, min_edge, max_edge, sign)</dt><dd><tt>This&nbsp;function&nbsp;generate&nbsp;each&nbsp;vertex&nbsp;connection&nbsp;number<br>
-:param&nbsp;vertices_number:&nbsp;number&nbsp;of&nbsp;vertices<br>
-:type&nbsp;vertices_number:int<br>
-:param&nbsp;min_range:&nbsp;weight&nbsp;min_range<br>
-:type&nbsp;min_range:int<br>
-:param&nbsp;max_range:&nbsp;weight&nbsp;max_range<br>
-:type&nbsp;max_range:int<br>
-:return:&nbsp;list&nbsp;of&nbsp;2&nbsp;dictionary</tt></dd></dl>
- <dl><dt><a name="-file_init"><strong>file_init</strong></a>(file, file_name, min_range, max_range, vertices, edge, min_edge, max_edge)</dt><dd><tt>This&nbsp;function&nbsp;initial&nbsp;output&nbsp;file<br>
-:param&nbsp;file:&nbsp;output&nbsp;file&nbsp;object<br>
-:param&nbsp;file_name:&nbsp;file&nbsp;name<br>
-:type&nbsp;file_name:str<br>
-:type&nbsp;file:file_object<br>
-:param&nbsp;min_range:&nbsp;weight&nbsp;min&nbsp;range<br>
-:type&nbsp;min_range:int<br>
-:param&nbsp;max_range:&nbsp;weight&nbsp;max&nbsp;range<br>
-:type&nbsp;max_range:int<br>
-:param&nbsp;vertices:&nbsp;vertices&nbsp;number<br>
-:type&nbsp;vertices:int<br>
-:param&nbsp;edge:&nbsp;&nbsp;edge&nbsp;number<br>
-:type&nbsp;edge:int<br>
-:return:&nbsp;None</tt></dd></dl>
- <dl><dt><a name="-file_maker"><strong>file_maker</strong></a>(file_name, min_range, max_range, vertices, min_edge, max_edge, sign)</dt><dd><tt>This&nbsp;function&nbsp;create&nbsp;output&nbsp;file&nbsp;and&nbsp;fill&nbsp;in<br>
-:param&nbsp;file_name:&nbsp;file&nbsp;name<br>
-:type&nbsp;file_name:str<br>
-:param&nbsp;min_range:&nbsp;weight&nbsp;min&nbsp;range<br>
-:type&nbsp;min_range:int<br>
-:param&nbsp;max_range:&nbsp;weight&nbsp;max_range<br>
-:type&nbsp;max_range:int<br>
-:param&nbsp;vertices:&nbsp;number&nbsp;of&nbsp;vertices<br>
-:type&nbsp;vertices:int<br>
-:return:&nbsp;edge_number</tt></dd></dl>
- <dl><dt><a name="-get_input"><strong>get_input</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;get&nbsp;input&nbsp;from&nbsp;user&nbsp;and&nbsp;return&nbsp;as&nbsp;dictionary<br>
-:return:&nbsp;inputs&nbsp;as&nbsp;dictionary</tt></dd></dl>
- <dl><dt><a name="-logger"><strong>logger</strong></a>(vertices_number, edge_number, file_name, elapsed_time)</dt><dd><tt>This&nbsp;function&nbsp;save&nbsp;generated&nbsp;graphs&nbsp;log<br>
-:param&nbsp;vertices_number:&nbsp;nubmer&nbsp;of&nbsp;vertices<br>
-:type&nbsp;vertices_number:int<br>
-:param&nbsp;edge_number:&nbsp;Number&nbsp;of&nbsp;edges<br>
-:type&nbsp;edge_number:int;<br>
-:param&nbsp;file_name:&nbsp;&nbsp;File&nbsp;Name<br>
-:type&nbsp;file_name:str<br>
-:param&nbsp;elapsed_time:&nbsp;Elapsed&nbsp;Time<br>
-&nbsp;:type&nbsp;elapsed_time&nbsp;:&nbsp;str<br>
-:return:&nbsp;&nbsp;None</tt></dd></dl>
- <dl><dt><a name="-sign_gen"><strong>sign_gen</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;return&nbsp;random&nbsp;sign<br>
-:return:&nbsp;1&nbsp;or&nbsp;-1</tt></dd></dl>
- <dl><dt><a name="-time_convert"><strong>time_convert</strong></a>(input_string)</dt><dd><tt>This&nbsp;function&nbsp;convert&nbsp;input_string&nbsp;from&nbsp;sec&nbsp;to&nbsp;DD,HH,MM,SS&nbsp;Format<br>
-:param&nbsp;input_string:&nbsp;input&nbsp;time&nbsp;string&nbsp;&nbsp;in&nbsp;sec<br>
-:type&nbsp;input_string:str<br>
-:return:&nbsp;converted&nbsp;time&nbsp;as&nbsp;string</tt></dd></dl>
- <dl><dt><a name="-zero_insert"><strong>zero_insert</strong></a>(input_string)</dt><dd><tt>This&nbsp;function&nbsp;get&nbsp;a&nbsp;string&nbsp;as&nbsp;input&nbsp;if&nbsp;input&nbsp;is&nbsp;one&nbsp;digit&nbsp;add&nbsp;a&nbsp;zero<br>
-:param&nbsp;input_string:&nbsp;input&nbsp;digit&nbsp;az&nbsp;string<br>
-:type&nbsp;input_string:str<br>
-:return:&nbsp;modified&nbsp;output&nbsp;as&nbsp;str</tt></dd></dl>
-</td></tr></table>
+    
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
 
-</body></html>
+
+
+
+
+
+
+
+
+</html>
