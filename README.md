@@ -3,15 +3,16 @@
 
 
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/pyrgg-logo.png" height=240px width=320px>
+<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" height=240px width=320px>
 <hr/>
 <h1>Random Graph Generator</h1>
 <a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/quality-score.png?b=master"></a>
 <a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a>
 <a href="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/?branch=master"><img src="https://scrutinizer-ci.com/g/sepandhaghighi/pyrgg/badges/build.png?b=master"></a>
+<a href="http://www.shaghighi.ir/pyrgg"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
 <a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
 <a href="https://zenodo.org/badge/latestdoi/89410101"><img src="https://zenodo.org/badge/89410101.svg" alt="DOI"></a>
-<a href="http://sepandhaghighi.github.io/pyrgg"><img src="https://img.shields.io/badge/doc-latest-red.svg"></a>
+<a href="http://sepandhaghighi.github.io/pyrgg/doc"><img src="https://img.shields.io/badge/doc-latest-red.svg"></a>
 </div>				
 				
 ## Overview
@@ -37,13 +38,13 @@ this software generate input file for graph processing applications.
 
 
 ## Usage ##
-[Download Full Run Video](http://www.shaghighi.ir/pyrgg/FullRun.mkv "Video") (2.8 MB - MKV)( This video recorded by [simplescreenrecorder](http://www.maartenbaert.be/simplescreenrecorder/ "simplescreenrecorder") )				
+[Download Full Run Video](http://www.shaghighi.ir/pyrgg/videos/FullRun.mkv "Video") (2.8 MB - MKV)( This video recorded by [simplescreenrecorder](http://www.maartenbaert.be/simplescreenrecorder/ "simplescreenrecorder") )				
 
 <div align="center">
 
-<img src="http://www.shaghighi.ir/pyrgg/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
+<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
 <br/>
-<img src="http://www.shaghighi.ir/pyrgg/output.jpg" alt="pyrgg output" title="pyrgg output" width=800px>
+<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=800px>
 
 </div>
 
@@ -120,7 +121,7 @@ If you use pyrgg in your research , please cite this ;-)
 
 <div align="center">
 
-<img src="http://www.shaghighi.ir/pyrgg/dimacs_logo.gif" alt="DIMACS">
+<img src="http://www.shaghighi.ir/pyrgg/images/dimacs_logo.gif" alt="DIMACS">
 
 
 </div>  						
