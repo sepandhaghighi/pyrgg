@@ -4,8 +4,8 @@ tags:
   - graph
   - script
   - generator
-  - gpu
   - processing
+  - random
 authors:
  - name: Sepand Haghighi
    orcid: 0000-0001-9450-2375
