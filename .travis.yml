@@ -9,4 +9,5 @@ install:
   - python3 setup install
 
 script:
+  - cd sepandhaghighi/pyrgg
   - python3 -m pyrgg test
