@@ -6,7 +6,8 @@ import doctest
 
 
 Source_dir=os.getcwd()
-random_system=random.SystemRandom()
+#random_system=random.SystemRandom()
+random_system=random
 def logger(vertices_number,edge_number,file_name,elapsed_time):
     '''
     This function save generated graphs log
