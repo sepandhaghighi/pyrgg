@@ -2,6 +2,7 @@ import random
 import os
 import datetime
 import sys
+import doctest
 
 
 Source_dir=os.getcwd()
@@ -39,6 +40,8 @@ def zero_insert(input_string):
     :param input_string: input digit az string
     :type input_string:str
     :return: modified output as str
+    >>> zero_insert("22")
+    >>> '22'
     '''
     if len(input_string)==1:
         return "0"+input_string
@@ -203,6 +206,9 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
             file.close()
         os.remove(os.path.join(Source_dir,file_name)+".gr")
         sys.exit()
+
+def test():
+    doctest.testmod()
 
 
 
