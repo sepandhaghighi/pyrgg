@@ -26,13 +26,13 @@ this software generate input file for graph processing applications.
 ### Source Code
 - Download [Version 0.1](https://github.com/sepandhaghighi/pyrgg/archive/v0.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
 
-- `python3 setup.py install` or `python setup.py install`				
+- `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg` or `pip3 install pyrgg`							
+- `pip install pyrgg` or `pip3 install pyrgg` (Need root access)							
 			
 
 
@@ -45,6 +45,21 @@ this software generate input file for graph processing applications.
 <img src="http://www.shaghighi.ir/pyrgg/images/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
 <br/>
 <img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=800px>
+
+</div>
+
+
+## Test			
+
+
+
+`python3 -m pyrgg test` or `python -m pyrgg test`
+			
+
+<div align="center">
+
+<img src="http://www.shaghighi.ir/pyrgg/images/test.gif" alt="pyrgg test" title="pyrgg test">
+
 
 </div>
 
