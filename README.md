@@ -72,10 +72,10 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [ ] Tree
 
 ## Sample Files
-- [Sample 1](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/100.gr.gz)
-- [Sample 2](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000.gr.gz)
-- [Sample 3](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/1000000.gr.gz)
-- [Sample 4](https://github.com/sepandhaghighi/pyrgg/blob/master/datasets/5000000.gr.gz)
+- [Sample 1](https://www.dropbox.com/s/i80tnwuuv4iyqet/100.gr.gz?dl=0) (100 Vertices , 3KB)
+- [Sample 2](https://www.dropbox.com/s/lqk42pwu7o4xauv/1000.gr.gz?dl=0) (1000 Vertices , 13KB)
+- [Sample 3](https://www.dropbox.com/s/93dp8cjs6lnu83u/1000000.gr.gz?dl=0) (1000000 Vertices , 7MB)
+- [Sample 4](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
 
 
 ## Application			
