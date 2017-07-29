@@ -207,11 +207,6 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
         os.remove(os.path.join(Source_dir,file_name)+".gr")
         sys.exit()
 
-def test():
-    doctest.testmod()
-
-
-
 
 
 
