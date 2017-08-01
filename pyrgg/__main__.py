@@ -23,6 +23,7 @@ if __name__=="__main__":
     args=sys.argv
     if len(args)>1:
         if args[1].upper()=="TEST":
+            edge_number = file_maker("testfile", 0, 200, 10, 0, 2, 1)
             doctest.testfile("test.py",verbose=True)
         else:
             print("Bad Input!")
