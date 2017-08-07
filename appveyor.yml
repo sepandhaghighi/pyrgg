@@ -12,7 +12,7 @@ init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
-  - "python setup.py install"
+  - "%PYTHON%/python.exe setup.py install"
 
 test_script:
-  - "python -m pyrgg test"
+  - "%PYTHON%/python.exe -m pyrgg test"
