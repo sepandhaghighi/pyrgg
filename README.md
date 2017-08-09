@@ -56,11 +56,25 @@ this software generate input file for graph processing applications.
 `python3 -m pyrgg test` or `python -m pyrgg test`
 			
 This test run automatically in each commit ;-) 						
-
-Linux : <a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a>							
-
-Windows : <a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13?svg=true"></a>						
 			
+<div align="center">
+<table style="border:1px solid black">
+<tr>
+<th>Linux</th>
+<th>Windows</th>
+
+</tr>
+
+<tr>
+<td><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a></td>
+<td> <a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13?svg=true"></a>	</td>
+
+</tr>	
+
+</table>
+
+</div>	
+													
 <div align="center">
 
 <img src="http://www.shaghighi.ir/pyrgg/images/test.gif" alt="pyrgg test" title="pyrgg test">
