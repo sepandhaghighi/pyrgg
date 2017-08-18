@@ -315,5 +315,45 @@ a 97 80 30
 a 100 24 16
 a 100 38 10
 <BLANKLINE>
+>>> random.seed(2)
+>>> json_maker("testfile", 0, 200, 10, 0, 2, 0)
+7
+>>> file=open("testfile.json","r")
+>>> import json
+>>> testfile_1=json.load(file)
+>>> testfile_1["graph"]["nodes"][1]
+{'id': '2'}
+>>> testfile_1["graph"]["edges"][1]["source"]
+'5'
+>>> testfile_1["graph"]["edges"][1]["target"]
+'4'
+>>> testfile_1["graph"]["edges"][1]["weight"]
+'148'
+>>> random.seed(4)
+>>> json_maker("testfile2",0,50,30,0,4,0)
+41
+>>> file=open("testfile2.json","r")
+>>> testfile_2=json.load(file)
+>>> testfile_2["graph"]["nodes"][1]
+{'id': '2'}
+>>> testfile_2["graph"]["edges"][1]["source"]
+'2'
+>>> testfile_2["graph"]["edges"][1]["target"]
+'16'
+>>> testfile_2["graph"]["edges"][1]["weight"]
+'5'
+>>> random.seed(20)
+>>> json_maker("testfile3",10,30,100,0,4,2)
+191
+>>> file=open("testfile3.json","r")
+>>> testfile_3=json.load(file)
+>>> testfile_3["graph"]["nodes"][1]
+{'id': '2'}
+>>> testfile_3["graph"]["edges"][1]["source"]
+'3'
+>>> testfile_3["graph"]["edges"][1]["target"]
+'74'
+>>> testfile_3["graph"]["edges"][1]["weight"]
+'15'
 
 '''

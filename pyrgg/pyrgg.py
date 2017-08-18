@@ -82,9 +82,12 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
+        output_format=int(input("DIMACS[1] or JSON[2]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag}
+        if output_format not in [1,2]:
+            output_format=1
+        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
         print(e)
         sys.exit()
@@ -207,6 +210,47 @@ def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
             file.close()
         os.remove(os.path.join(Source_dir,file_name)+".gr")
         sys.exit()
+
+def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+    '''
+    This function create output file in json format
+    :param file_name: file name
+    :type file_name:str
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :param vertices: number of vertices
+    :type vertices:int
+    :return: edge_number
+    '''
+    try:
+        file = open(file_name + ".json", "w")
+        dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+        edge_dic = dicts[0]
+        weight_dic = dicts[1]
+        edge_number = dicts[2]
+        nodes='\t\t\t"nodes":[\n'
+        edges='\t\t\t"edges":[\n'
+        for i in edge_dic.keys():
+            nodes=nodes+'\t\t\t{\n\t\t\t\t'+'"id": '+'"'+str(i)+'"\n\t\t\t},\n'
+            for j,value in enumerate(edge_dic[i]):
+                edges=edges+'\t\t\t{\n\t\t\t\t"source": '+'"'+str(i)+'",\n\t\t\t\t'+'"target": '+'"'+str(value)+'",\n\t\t\t\t'+'"weight": '+'"'+str(weight_dic[i][j])+'"\n\t\t\t},\n'
+        nodes=nodes[:-2]+"\n\t\t],\n"
+        edges=edges[:-2]+"\n\t\t]\n\t}\n}"
+        file.write('{\n\t"graph": {\n')
+        file.write(nodes)
+        file.write(edges)
+        file.close()
+        return edge_number
+    except Exception:
+        print("Error In File Creation")
+        if file.closed == False:
+            file.close()
+        os.remove(os.path.join(Source_dir, file_name) + ".json")
+        sys.exit()
+
+
 
 
 

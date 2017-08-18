@@ -12,7 +12,10 @@ def run():
     min_edge = input_dict["min_edge"]
     max_edge = input_dict["max_edge"]
     sign = input_dict["sign"]
-    edge_number = file_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+    if input_dict["output_format"]==1:
+        edge_number = file_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+    else:
+        edge_number = json_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
