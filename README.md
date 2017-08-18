@@ -88,7 +88,10 @@ This test run automatically in each commit ;-)
 Just fill an issue and describe it. I'll check it ASAP!							
 or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir"). 
 
-## TODO		
+## TODO	
+- [x] Formats
+  - [x] DIMACS
+  - [x] JSON 	
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -110,6 +113,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2](https://www.dropbox.com/s/lqk42pwu7o4xauv/1000.gr.gz?dl=0) (1000 Vertices , 13KB)
 - [Sample 3](https://www.dropbox.com/s/93dp8cjs6lnu83u/1000000.gr.gz?dl=0) (1000000 Vertices , 7MB)
 - [Sample 4](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
+- [Sample 1-JSON](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 11KB)
+- [Sample 2-JSON](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 105KB)
 
 
 ## Application			
