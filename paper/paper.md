@@ -38,7 +38,7 @@ This application get :
 - max edge number(for each vertex)
 - min edge number(for each vertex)
 
-and generate graph in flat file format (*.gr).
+and generate graph in flat file format (*.gr) and JSON.
 
 ![outputformat](outputformat.jpg)
 
