@@ -13,7 +13,7 @@ def run():
     max_edge = input_dict["max_edge"]
     sign = input_dict["sign"]
     if input_dict["output_format"]==1:
-        edge_number = file_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+        edge_number = dimacs_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     else:
         edge_number = json_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     second_time = time.perf_counter()

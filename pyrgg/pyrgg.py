@@ -179,7 +179,7 @@ def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge
     file.write("c Max. edge           :" + str(max_edge) + "\n")
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
-def file_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''
     This function create output file and fill in
     :param file_name: file name
