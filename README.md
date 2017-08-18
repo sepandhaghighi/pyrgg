@@ -16,7 +16,7 @@
 </div>				
 				
 ## Overview
-pyrgg is a synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format
+pyrgg is a synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>/JSON format
 this software generate input file for graph processing applications.  
 
 

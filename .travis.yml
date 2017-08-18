@@ -1,5 +1,8 @@
 sudo: true
 
+os:
+  - linux
+  - osx
 language: python
 
 python:
@@ -10,4 +13,3 @@ install:
 
 script:
   - python3 -m pyrgg test
-  - cat testfile.gr
