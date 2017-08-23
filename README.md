@@ -15,10 +15,10 @@
 <a href="http://sepandhaghighi.github.io/pyrgg/doc"><img src="https://img.shields.io/badge/doc-latest-red.svg"></a>
 </div>				
 				
-## Overview
+## Overview			
 
-pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format written in python. 
-pyrgg also has this ability to generate graphs in other formats like JSON, CSV, ...
+pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats like <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>, JSON and CSV	
+
 
 ## Installation		
 
@@ -120,9 +120,11 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 
 ## Application
 
-pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format written in python. 
-pyrgg has the ability to generate graphs in different sizes and designed to provide input files for test, benchmark and performance analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs in DIMACS format.									
-pyrgg also has this ability to generate graphs in other formats like JSON, CSV, ...				
+
+pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats like DIMACS, JSON and CSV											
+pyrgg has the ability to generate graphs in different sizes and designed to provide input files for 
+test, benchmark and performance-analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs with these formats.		
+			
 
 - [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
 - [Totem](https://github.com/netsyslab/Totem "Totem")
