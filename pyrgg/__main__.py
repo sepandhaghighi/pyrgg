@@ -14,8 +14,10 @@ def run():
     sign = input_dict["sign"]
     if input_dict["output_format"]==1:
         edge_number = dimacs_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
-    else:
+    elif input_dict["output_format"]==2:
         edge_number = json_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+    else:
+        edge_number = csv_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))

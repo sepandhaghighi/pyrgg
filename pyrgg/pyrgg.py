@@ -82,10 +82,10 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("DIMACS[1] or JSON[2]"))
+        output_format=int(input("DIMACS[1] | JSON[2] | CSV[3]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in [1,2]:
+        if output_format not in [1,2,3]:
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
@@ -190,6 +190,8 @@ def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type max_range:int
     :param vertices: number of vertices
     :type vertices:int
+    :param sign: weight sign flag
+    :type sign: int
     :return: edge_number
     '''
     try:
@@ -222,6 +224,8 @@ def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type max_range:int
     :param vertices: number of vertices
     :type vertices:int
+    :param sign: weight sign flag
+    :type sign: int
     :return: edge_number
     '''
     try:
@@ -249,6 +253,39 @@ def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
             file.close()
         os.remove(os.path.join(Source_dir, file_name) + ".json")
         sys.exit()
+def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+    '''
+       This function create output file in csv format
+       :param file_name: file name
+       :type file_name:str
+       :param min_range: weight min range
+       :type min_range:int
+       :param max_range: weight max_range
+       :type max_range:int
+       :param vertices: number of vertices
+       :type vertices:int
+       :param sign: weight sign flag
+       :type sign: int
+       :return: edge_number
+    '''
+    try:
+        file=open(file_name+".csv","w")
+        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
+        edge_dic=dicts[0]
+        weight_dic=dicts[1]
+        edge_number=dicts[2]
+        for i in edge_dic.keys():
+            for j,value in enumerate(edge_dic[i]):
+                file.write(str(i)+","+str(value)+","+str(weight_dic[i][j])+"\n")
+        file.close()
+        return edge_number
+    except Exception:
+        print("Error In File Creation")
+        if file.closed==False:
+            file.close()
+        os.remove(os.path.join(Source_dir,file_name)+".csv")
+        sys.exit()
+
 
 
 
