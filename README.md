@@ -17,7 +17,7 @@
 				
 ## Overview
 
-pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS format written in python. 
+pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format written in python. 
 pyrgg also has this ability to generate graphs in other formats like JSON, CSV, ...
 
 ## Installation		
@@ -120,7 +120,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 
 ## Application
 
-pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS format written in python. 
+pyrgg is an easy to use synthetic random graph generator based on <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a> format written in python. 
 pyrgg has the ability to generate graphs in different sizes and designed to provide input files for test, benchmark and performance analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs in DIMACS format.									
 pyrgg also has this ability to generate graphs in other formats like JSON, CSV, ...				
 
