@@ -90,7 +90,10 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 ## TODO	
 - [x] Formats
   - [x] DIMACS
-  - [x] JSON 	
+  - [x] JSON 
+  - [ ] CSV
+  - [ ] el
+  - [ ] METIS	
 - [ ] Sizes
   - [x] Small
   - [x] Medium
