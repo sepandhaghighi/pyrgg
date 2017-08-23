@@ -20,7 +20,6 @@ def run():
         edge_number = csv_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     else:
         edge_number = wel_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
-    print("Generating . . . ")
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))

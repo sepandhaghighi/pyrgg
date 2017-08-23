@@ -17,7 +17,7 @@
 				
 ## Overview			
 
-pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats like <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>, JSON and CSV	
+pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>	
 
 
 ## Installation		
@@ -92,7 +92,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] DIMACS
   - [x] JSON 
   - [x] CSV
-  - [ ] METIS	
+  - [x] WEL	
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -121,16 +121,22 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 ## Application
 
 
-pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats like DIMACS, JSON and CSV											
+pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include DIMACS (.gr)										
 pyrgg has the ability to generate graphs in different sizes and designed to provide input files for 
-test, benchmark and performance-analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs with these formats.		
-			
+test, benchmark and performance-analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs with these formats.				
 
 - [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
 - [Totem](https://github.com/netsyslab/Totem "Totem")
 - [Frog](https://github.com/AndrewStallman/Frog "Frog")
 - [CuSha](https://github.com/farkhor/CuSha "CuSha")
 
+
+## Supported Formats 			
+
+- DIMACS(.gr)
+- CSV(.csv)
+- JSON(.json)
+- Weighted Edge List(.wel)				
 
 
 

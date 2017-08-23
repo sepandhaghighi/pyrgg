@@ -82,7 +82,7 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | WEL(.wel)[4]"))
+        output_format=int(input("DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | WEL(.wel)[4]"))
         if sign_flag not in [1,2]:
             sign_flag=2
         if output_format not in [1,2,3,4]:
