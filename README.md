@@ -116,6 +116,10 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 4-DIMACS](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
 - [Sample 1-JSON](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 11KB)
 - [Sample 2-JSON](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 105KB)
+- [Sample 1-CSV](https://www.dropbox.com/s/dmld0eadftnatr5/100.csv?dl=0) (100 Vertices , 3KB)
+- [Sample 2-CSV](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
+- [Sample 1-WEL](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
+- [Sample 2-WEL](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
 
 
 ## Application
