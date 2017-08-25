@@ -320,6 +320,7 @@ a 100 38 10
 7
 >>> file=open("testfile.json","r")
 >>> import json
+>>> import yaml
 >>> testfile_1=json.load(file)
 >>> testfile_1["graph"]["nodes"][1]
 {'id': '2'}
@@ -328,6 +329,15 @@ a 100 38 10
 >>> testfile_1["graph"]["edges"][1]["target"]
 '4'
 >>> testfile_1["graph"]["edges"][1]["weight"]
+'148'
+>>> json_to_yaml("testfile")
+>>> file=open("testfile.yaml","r")
+>>> testfile_1_yaml=yaml.load(file)
+>>> testfile_1_yaml["graph"]["edges"][1]["source"]
+'5'
+>>> testfile_1_yaml["graph"]["edges"][1]["target"]
+'4'
+>>> testfile_1_yaml["graph"]["edges"][1]["weight"]
 '148'
 >>> random.seed(4)
 >>> json_maker("testfile2",0,50,30,0,4,0)
@@ -342,6 +352,17 @@ a 100 38 10
 '16'
 >>> testfile_2["graph"]["edges"][1]["weight"]
 '5'
+>>> json_to_yaml("testfile2")
+>>> file=open("testfile2.yaml","r")
+>>> testfile_2_yaml=yaml.load(file)
+>>> testfile_2_yaml["graph"]["nodes"][1]
+{'id': '2'}
+>>> testfile_2_yaml["graph"]["edges"][1]["source"]
+'2'
+>>> testfile_2_yaml["graph"]["edges"][1]["target"]
+'16'
+>>> testfile_2_yaml["graph"]["edges"][1]["weight"]
+'5'
 >>> random.seed(20)
 >>> json_maker("testfile3",10,30,100,0,4,2)
 191
@@ -354,6 +375,17 @@ a 100 38 10
 >>> testfile_3["graph"]["edges"][1]["target"]
 '74'
 >>> testfile_3["graph"]["edges"][1]["weight"]
+'15'
+>>> json_to_yaml("testfile3")
+>>> file=open("testfile3.yaml","r")
+>>> testfile_3_yaml=yaml.load(file)
+>>> testfile_3_yaml["graph"]["nodes"][1]
+{'id': '2'}
+>>> testfile_3_yaml["graph"]["edges"][1]["source"]
+'3'
+>>> testfile_3_yaml["graph"]["edges"][1]["target"]
+'74'
+>>> testfile_3_yaml["graph"]["edges"][1]["weight"]
 '15'
 >>> random.seed(2)
 >>> csv_maker("testfile", 0, 200, 10, 0, 2, 0)

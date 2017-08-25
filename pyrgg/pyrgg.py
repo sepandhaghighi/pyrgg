@@ -2,6 +2,8 @@ import random
 import os
 import datetime
 import sys
+import yaml
+import json
 import doctest
 
 
@@ -82,10 +84,10 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | WEL(.wel)[4]"))
+        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in [1,2,3,4]:
+        if output_format not in [1,2,3,4,5]:
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
@@ -285,6 +287,29 @@ def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
             file.close()
         os.remove(os.path.join(Source_dir,file_name)+".csv")
         sys.exit()
+
+def json_to_yaml(filename):
+    '''
+    This function convert json file to yaml file
+    :param filename: filename
+    :type filename: str
+    :return: None
+    '''
+    try:
+        file=open(filename+".json","r")
+        yaml_data = yaml.safe_dump(json.load(file), default_flow_style=False)
+        file.close()
+        yaml_file=open(filename+".yaml","w")
+        yaml_file.write(yaml_data)
+        yaml_file.close()
+    except Exception:
+        print("Error In File Creation")
+        if yaml_file.closed == False:
+            yaml_file.close()
+        os.remove(os.path.join(Source_dir, filename) + ".yaml")
+        sys.exit()
+
+
 
 def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''

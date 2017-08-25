@@ -90,7 +90,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 ## TODO	
 - [x] Formats
   - [x] DIMACS
-  - [x] JSON 
+  - [x] JSON
+  - [x] YAML 
   - [x] CSV
   - [x] WEL	
 - [ ] Sizes
@@ -120,6 +121,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2-CSV](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
 - [Sample 1-WEL](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
 - [Sample 2-WEL](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
+- [Sample 1-YAML](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 3KB)
+- [Sample 2-YAML](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 12KB)
 
 
 ## Application
@@ -140,6 +143,7 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 - DIMACS(.gr)
 - CSV(.csv)
 - JSON(.json)
+- YAML(.yaml)
 - Weighted Edge List(.wel)				
 
 

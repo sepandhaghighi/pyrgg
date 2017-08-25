@@ -18,6 +18,9 @@ def run():
         edge_number = json_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     elif input_dict["output_format"]==3 :
         edge_number = csv_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+    elif input_dict["output_format"]==4:
+        edge_number = json_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
+        json_to_yaml(file_name)
     else:
         edge_number = wel_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     print("Generating . . . ")
