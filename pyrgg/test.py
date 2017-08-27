@@ -6,6 +6,10 @@ This function get a string as input if input is one digit add a zero
 :return: modified output as str
 >>> from pyrgg import *
 >>> import coverage
+>>> import random
+>>> import json
+>>> import yaml
+>>> import pickle
 >>> cov = coverage.Coverage()
 >>> cov.start()
 >>> zero_insert("22")
@@ -26,7 +30,6 @@ TypeError: object of type 'int' has no len()
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
->>> import random
 >>> random.seed(2)
 >>> sign_gen()
 1
@@ -342,9 +345,6 @@ a 100 38 10
 >>> json_maker("testfile", 0, 200, 10, 0, 2, 0)
 7
 >>> file=open("testfile.json","r")
->>> import json
->>> import yaml
->>> import pickle
 >>> testfile_1=json.load(file)
 >>> testfile_1["graph"]["nodes"][1]
 {'id': '2'}
