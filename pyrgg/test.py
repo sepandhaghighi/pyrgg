@@ -1066,6 +1066,23 @@ edge(26,26,-18).
 edge(26,19,28).
 edge(27,14,7).
 <BLANKLINE>
+>>> input_dic=get_input(input_func=print_test)
+>>> input_dic["sign"]
+2
+>>> input_dic['vertices']
+2
+>>> input_dic['min_edge']
+2
+>>> input_dic['min_weight']
+2
+>>> input_dic['output_format']
+2
+>>> input_dic['max_weight']
+2
+>>> input_dic['file_name']
+'2'
+>>> input_dic['max_edge']
+2
 >>> cov.stop()
 >>> cov.save()
 

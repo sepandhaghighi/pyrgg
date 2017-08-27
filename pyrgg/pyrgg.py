@@ -64,24 +64,24 @@ def time_convert(input_string):
     return zero_insert(str(input_day))+" days, "+zero_insert(str(input_hour))+" hour, "+zero_insert(str(input_minute))+" minutes, "+zero_insert(str(input_sec))+" seconds"
 
 
-def get_input():
+def get_input(input_func=input):
     '''
     This function get input from user and return as dictionary
     :return: inputs as dictionary
     '''
     try:
-        file_name=input("File Name : ")
+        file_name=input_func("File Name : ")
         if file_name+".gr" in os.listdir():
             raise Exception("There is file with this name")
-        vertices=int(input("Vertices Number : "))
-        max_weight=int(input("Max Weight : "))
-        min_weight = int(input("Min Weight : "))
-        min_edge=int(input("Min Edge Number :"))
+        vertices=int(input_func("Vertices Number : "))
+        max_weight=int(input_func("Max Weight : "))
+        min_weight = int(input_func("Min Weight : "))
+        min_edge=int(input_func("Min Edge Number :"))
         min_edge=max(0,min_edge)
-        max_edge=int(input("Max Edge Number :"))
+        max_edge=int(input_func("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
-        sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7]"))
+        sign_flag=int(input_func("Signed[1] or Unsigned[2]"))
+        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7]"))
         if sign_flag not in [1,2]:
             sign_flag=2
         if output_format not in list(range(1,8)):
@@ -358,6 +358,14 @@ def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.write(edges)
     file.close()
     return edge_number
+def print_test(a):
+    '''
+    This function added for get_input parameter injection testing
+    :param a: input
+    :type a:int
+    :return: static "2"
+    '''
+    return "2"
 
 
 
