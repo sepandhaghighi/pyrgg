@@ -13,6 +13,9 @@
 <a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
 <a href="https://zenodo.org/badge/latestdoi/89410101"><img src="https://zenodo.org/badge/89410101.svg" alt="DOI"></a>
 <a href="http://sepandhaghighi.github.io/pyrgg/doc"><img src="https://img.shields.io/badge/doc-latest-red.svg"></a>
+<a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
+  <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" />
+</a>
 </div>				
 				
 ## Overview			

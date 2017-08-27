@@ -11,7 +11,5 @@ install:
 
 script:
   - python3 -m pyrgg test
-  - coverage xml
-  - cat coverage.xml
 after_success:
   - codecov
