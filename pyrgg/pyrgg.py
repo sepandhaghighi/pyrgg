@@ -275,7 +275,7 @@ def json_to_yaml(filename):
     '''
     try:
         file=open(filename+".json","r")
-        json_data=json.load(file)
+        json_data=json.loads(file.read())
         yaml_file = open(filename + ".yaml", "w")
         yaml.safe_dump(json_data,yaml_file,default_flow_style=False)
         file.close()
