@@ -11,3 +11,5 @@ install:
 
 script:
   - python3 -m pyrgg test
+after_success:
+  - coveralls
