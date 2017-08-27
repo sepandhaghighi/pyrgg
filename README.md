@@ -94,6 +94,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] YAML 
   - [x] CSV
   - [x] WEL	
+  - [x] ASP
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -123,6 +124,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2-WEL](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
 - [Sample 1-YAML](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 3KB)
 - [Sample 2-YAML](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 12KB)
+- [Sample 1-LP](https://www.dropbox.com/s/4bufa1m4uamv48z/100.lp?dl=0) (100 Vertices , 7KB)
+- [Sample 2-LP](https://www.dropbox.com/s/w79fh1qva64namw/1000.lp?dl=0) (1000 Vertices , 76KB)
 
 
 ## Application
@@ -143,15 +146,23 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 - [DIMACS(.gr)](http://www.diag.uniroma1.it/challenge9/format.shtml)
 	```
 		p sp <number of vertices> <number of directed edge>
-		a <head> <tail> <weight>
-		...
-	
+		a <head_1> <tail_1> <weight_1>
+
+		.
+		.
+		.
+		
+		a <head_n> <tail_n> <weight_n>
 	```
 - [CSV(.csv)](https://en.wikipedia.org/wiki/Comma-separated_values)
 	```
-		<head>,<tail>,<weight>
-		...
+		<head_1>,<tail_1>,<weight_1>
 
+		.
+		.
+		.
+		
+		<head_n>,<tail_n>,<weight_n>
 	```
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
@@ -166,19 +177,26 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 				.
 				.
 				.
-
+				{
+					"id": "n"
+				}
 				],
 				"edges":[
 				{
-					"source": "head",
-					"target": "tail",
-					"weight": "weight"
+					"source": "head_1",
+					"target": "tail_1",
+					"weight": "weight_1"
 				},
 
 				.
 				.
 				.
 
+				{
+					"source": "head_n",
+					"target": "tail_n",
+					"weight": "weight_n"
+				},
 				]
 			}
 		}
@@ -187,13 +205,17 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 	```
 		graph:
   			edges:
-			- source: "head"
-    	  	target: "tail"
-    	  	weight: "weight"
+			- source: "head_1"
+    	  	target: "tail_1"
+    	  	weight: "weight_1"
 		
 			.
 			.
 			.
+
+			- source: "head_n"
+    	  	target: "tail_n"
+    	  	weight: "weight_n"
 						
 			nodes:
   			- id: '1'
@@ -202,12 +224,31 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 			.
 			.
 
+			- id: 'n'
+
 	```
 - [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
 	```
-		<head> <tail> <weight>
-		...
-
+		<head_1> <tail_1> <weight_1>
+		
+		.
+		.
+		.
+		
+		<head_n> <tail_n> <weight_n>	
+	```
+- [ASP(.lp)](https://www.mat.unical.it/aspcomp2013/MaximalClique)
+	```
+		node(1).
+		.
+		.
+		.
+		node(n).
+		edge(head_1,tail_1,weight_1).
+		.
+		.
+		.
+		edge(head_n,tail_n,weight_n).
 	```			
 
 
