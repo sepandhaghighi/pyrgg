@@ -84,10 +84,10 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5]"))
+        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in [1,2,3,4,5]:
+        if output_format not in list(range(1,7)):
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
@@ -342,6 +342,44 @@ def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
         if file.closed==False:
             file.close()
         os.remove(os.path.join(Source_dir,file_name)+".wel")
+        sys.exit()
+
+def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+    '''
+    This function create output file in ASP format
+    :param file_name: file name
+    :type file_name:str
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :param vertices: number of vertices
+    :type vertices:int
+    :param sign: weight sign flag
+    :type sign: int
+    :return: edge_number
+    '''
+    try:
+        file = open(file_name + ".lp", "w")
+        dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+        edge_dic = dicts[0]
+        weight_dic = dicts[1]
+        edge_number = dicts[2]
+        nodes=''
+        edges=''
+        for i in edge_dic.keys():
+            nodes=nodes+'node('+str(i)+").\n"
+            for j,value in enumerate(edge_dic[i]):
+                edges=edges+'edge('+str(i)+","+str(value)+","+str(weight_dic[i][j])+").\n"
+        file.write(nodes)
+        file.write(edges)
+        file.close()
+        return edge_number
+    except Exception:
+        print("Error In File Creation")
+        if file.closed == False:
+            file.close()
+        os.remove(os.path.join(Source_dir, file_name) + ".lp")
         sys.exit()
 
 

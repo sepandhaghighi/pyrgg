@@ -140,11 +140,75 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 
 ## Supported Formats 			
 
-- DIMACS(.gr)
-- CSV(.csv)
-- JSON(.json)
-- YAML(.yaml)
-- Weighted Edge List(.wel)				
+- [DIMACS(.gr)](http://www.diag.uniroma1.it/challenge9/format.shtml)
+	```
+		p sp <number of vertices> <number of directed edge>
+		a <head> <tail> <weight>
+		...
+	
+	```
+- [CSV(.csv)](https://en.wikipedia.org/wiki/Comma-separated_values)
+	```
+		<head>,<tail>,<weight>
+		...
+
+	```
+- [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
+
+	```
+		{
+		"graph": {
+				"nodes":[
+				{
+					"id": "1"
+				},
+
+				.
+				.
+				.
+
+				],
+				"edges":[
+				{
+					"source": "head",
+					"target": "tail",
+					"weight": "weight"
+				},
+
+				.
+				.
+				.
+
+				]
+			}
+		}
+	```
+- [YAML(.yaml)](https://en.wikipedia.org/wiki/YAML)
+	```
+		graph:
+  			edges:
+			- source: "head"
+    	  	target: "tail"
+    	  	weight: "weight"
+		
+			.
+			.
+			.
+						
+			nodes:
+  			- id: '1'
+  
+  			.
+			.
+			.
+
+	```
+- [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
+	```
+		<head> <tail> <weight>
+		...
+
+	```			
 
 
 

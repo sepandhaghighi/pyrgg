@@ -937,5 +937,105 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'sign'
+>>> random.seed(2)
+>>> lp_maker("testfile", 0, 200, 10, 0, 2, 0)
+7
+>>> file=open("testfile.lp","r")
+>>> print(file.read())
+node(1).
+node(2).
+node(3).
+node(4).
+node(5).
+node(6).
+node(7).
+node(8).
+node(9).
+node(10).
+edge(4,3,-64).
+edge(5,4,148).
+edge(5,11,110).
+edge(6,7,-139).
+edge(6,8,-9).
+edge(8,8,-97).
+edge(9,9,143).
+<BLANKLINE>
+>>> random.seed(4)
+>>> lp_maker("testfile2",0,50,30,0,4,0)
+41
+>>> file=open("testfile2.lp","r")
+>>> print(file.read())
+node(1).
+node(2).
+node(3).
+node(4).
+node(5).
+node(6).
+node(7).
+node(8).
+node(9).
+node(10).
+node(11).
+node(12).
+node(13).
+node(14).
+node(15).
+node(16).
+node(17).
+node(18).
+node(19).
+node(20).
+node(21).
+node(22).
+node(23).
+node(24).
+node(25).
+node(26).
+node(27).
+node(28).
+node(29).
+node(30).
+edge(1,10,46).
+edge(2,16,5).
+edge(2,3,25).
+edge(2,18,-48).
+edge(4,17,-17).
+edge(5,27,16).
+edge(6,31,41).
+edge(7,26,-12).
+edge(7,6,-18).
+edge(8,3,-42).
+edge(8,13,11).
+edge(9,16,-5).
+edge(10,27,0).
+edge(10,30,-36).
+edge(10,23,-48).
+edge(10,17,26).
+edge(11,20,-27).
+edge(11,15,14).
+edge(11,10,-2).
+edge(14,21,-33).
+edge(14,18,-44).
+edge(14,11,43).
+edge(15,3,-12).
+edge(16,9,22).
+edge(16,14,-40).
+edge(16,18,20).
+edge(19,9,7).
+edge(20,30,18).
+edge(20,15,2).
+edge(21,23,18).
+edge(21,24,-1).
+edge(22,10,-9).
+edge(22,25,-39).
+edge(24,20,28).
+edge(24,10,16).
+edge(25,20,21).
+edge(25,19,23).
+edge(25,2,-10).
+edge(26,26,-18).
+edge(26,19,28).
+edge(27,14,7).
+<BLANKLINE>
 
 '''
