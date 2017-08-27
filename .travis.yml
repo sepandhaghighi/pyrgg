@@ -7,9 +7,11 @@ python:
 
 install:
   - pip3 install -r requirements.txt
-  - python3 setup.py install
 
 script:
-  - python3 -m pyrgg test
+  - cd pyrgg
+  - python3 test.py
+  - cd ..
+  - python3 setup.py install
 after_success:
   - codecov

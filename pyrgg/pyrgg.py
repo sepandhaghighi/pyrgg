@@ -87,7 +87,7 @@ def get_input():
         if output_format not in list(range(1,8)):
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
-    except Exception as e:
+    except Exception:
         print("[Error] Bad Input!")
         sys.exit()
 
