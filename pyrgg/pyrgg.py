@@ -32,9 +32,7 @@ def logger(vertices_number,edge_number,file_name,elapsed_time):
         file.write("-------------------------------\n")
         file.close()
     except Exception:
-        if file.closed==False:
-            file.close()
-        print("Error In Logger")
+        print("[Error] Logger Faild!")
 
 def zero_insert(input_string):
     '''
@@ -90,7 +88,7 @@ def get_input():
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
-        print(e)
+        print("[Error] Bad Input!")
         sys.exit()
 
 def sign_gen():
@@ -197,24 +195,17 @@ def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number
     '''
-    try:
-        file=open(file_name+".gr","w")
-        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-        edge_dic=dicts[0]
-        weight_dic=dicts[1]
-        edge_number=dicts[2]
-        file_init(file,file_name,min_range,max_range,vertices,edge_number,min_edge,max_edge)
-        for i in edge_dic.keys():
-            for j,value in enumerate(edge_dic[i]):
-                file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
-        file.close()
-        return edge_number
-    except Exception:
-        print("Error In File Creation")
-        if file.closed==False:
-            file.close()
-        os.remove(os.path.join(Source_dir,file_name)+".gr")
-        sys.exit()
+    file=open(file_name+".gr","w")
+    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
+    edge_dic=dicts[0]
+    weight_dic=dicts[1]
+    edge_number=dicts[2]
+    file_init(file,file_name,min_range,max_range,vertices,edge_number,min_edge,max_edge)
+    for i in edge_dic.keys():
+        for j,value in enumerate(edge_dic[i]):
+            file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
+    file.close()
+    return edge_number
 
 def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''
@@ -231,31 +222,24 @@ def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number
     '''
-    try:
-        file = open(file_name + ".json", "w")
-        dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
-        edge_dic = dicts[0]
-        weight_dic = dicts[1]
-        edge_number = dicts[2]
-        nodes='\t\t\t"nodes":[\n'
-        edges='\t\t\t"edges":[\n'
-        for i in edge_dic.keys():
-            nodes=nodes+'\t\t\t{\n\t\t\t\t'+'"id": '+'"'+str(i)+'"\n\t\t\t},\n'
-            for j,value in enumerate(edge_dic[i]):
-                edges=edges+'\t\t\t{\n\t\t\t\t"source": '+'"'+str(i)+'",\n\t\t\t\t'+'"target": '+'"'+str(value)+'",\n\t\t\t\t'+'"weight": '+'"'+str(weight_dic[i][j])+'"\n\t\t\t},\n'
-        nodes=nodes[:-2]+"\n\t\t],\n"
-        edges=edges[:-2]+"\n\t\t]\n\t}\n}"
-        file.write('{\n\t"graph": {\n')
-        file.write(nodes)
-        file.write(edges)
-        file.close()
-        return edge_number
-    except Exception:
-        print("Error In File Creation")
-        if file.closed == False:
-            file.close()
-        os.remove(os.path.join(Source_dir, file_name) + ".json")
-        sys.exit()
+    file = open(file_name + ".json", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    nodes='\t\t\t"nodes":[\n'
+    edges='\t\t\t"edges":[\n'
+    for i in edge_dic.keys():
+        nodes=nodes+'\t\t\t{\n\t\t\t\t'+'"id": '+'"'+str(i)+'"\n\t\t\t},\n'
+        for j,value in enumerate(edge_dic[i]):
+            edges=edges+'\t\t\t{\n\t\t\t\t"source": '+'"'+str(i)+'",\n\t\t\t\t'+'"target": '+'"'+str(value)+'",\n\t\t\t\t'+'"weight": '+'"'+str(weight_dic[i][j])+'"\n\t\t\t},\n'
+    nodes=nodes[:-2]+"\n\t\t],\n"
+    edges=edges[:-2]+"\n\t\t]\n\t}\n}"
+    file.write('{\n\t"graph": {\n')
+    file.write(nodes)
+    file.write(edges)
+    file.close()
+    return edge_number
 def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''
        This function create output file in csv format
@@ -271,23 +255,16 @@ def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
        :type sign: int
        :return: edge_number
     '''
-    try:
-        file=open(file_name+".csv","w")
-        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-        edge_dic=dicts[0]
-        weight_dic=dicts[1]
-        edge_number=dicts[2]
-        for i in edge_dic.keys():
-            for j,value in enumerate(edge_dic[i]):
-                file.write(str(i)+","+str(value)+","+str(weight_dic[i][j])+"\n")
-        file.close()
-        return edge_number
-    except Exception:
-        print("Error In File Creation")
-        if file.closed==False:
-            file.close()
-        os.remove(os.path.join(Source_dir,file_name)+".csv")
-        sys.exit()
+    file=open(file_name+".csv","w")
+    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
+    edge_dic=dicts[0]
+    weight_dic=dicts[1]
+    edge_number=dicts[2]
+    for i in edge_dic.keys():
+        for j,value in enumerate(edge_dic[i]):
+            file.write(str(i)+","+str(value)+","+str(weight_dic[i][j])+"\n")
+    file.close()
+    return edge_number
 
 def json_to_yaml(filename):
     '''
@@ -303,12 +280,8 @@ def json_to_yaml(filename):
         yaml_file=open(filename+".yaml","w")
         yaml_file.write(yaml_data)
         yaml_file.close()
-    except Exception:
-        print("Error In File Creation")
-        if yaml_file.closed == False:
-            yaml_file.close()
-        os.remove(os.path.join(Source_dir, filename) + ".yaml")
-        sys.exit()
+    except FileNotFoundError:
+        print("[Error] Bad Input File")
 
 
 def json_to_pickle(filename):
@@ -324,13 +297,8 @@ def json_to_pickle(filename):
         pickle.dump(json.load(file),pickle_file)
         pickle_file.close()
         file.close()
-    except Exception as e:
-        print(e)
-        print("Error In File Creation")
-        if pickle_file.closed == False:
-            pickle_file.close()
-        os.remove(os.path.join(Source_dir, filename) + ".p")
-        sys.exit()
+    except FileNotFoundError:
+        print("[Error] Bad Input File")
 
 
 def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
@@ -348,23 +316,16 @@ def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
        :type sign: int
        :return: edge_number
     '''
-    try:
-        file=open(file_name+".wel","w")
-        dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-        edge_dic=dicts[0]
-        weight_dic=dicts[1]
-        edge_number=dicts[2]
-        for i in edge_dic.keys():
-            for j,value in enumerate(edge_dic[i]):
-                file.write(str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
-        file.close()
-        return edge_number
-    except Exception:
-        print("Error In File Creation")
-        if file.closed==False:
-            file.close()
-        os.remove(os.path.join(Source_dir,file_name)+".wel")
-        sys.exit()
+    file=open(file_name+".wel","w")
+    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
+    edge_dic=dicts[0]
+    weight_dic=dicts[1]
+    edge_number=dicts[2]
+    for i in edge_dic.keys():
+        for j,value in enumerate(edge_dic[i]):
+            file.write(str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
+    file.close()
+    return edge_number
 
 def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     '''
@@ -381,28 +342,21 @@ def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number
     '''
-    try:
-        file = open(file_name + ".lp", "w")
-        dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
-        edge_dic = dicts[0]
-        weight_dic = dicts[1]
-        edge_number = dicts[2]
-        nodes=''
-        edges=''
-        for i in edge_dic.keys():
-            nodes=nodes+'node('+str(i)+").\n"
-            for j,value in enumerate(edge_dic[i]):
-                edges=edges+'edge('+str(i)+","+str(value)+","+str(weight_dic[i][j])+").\n"
-        file.write(nodes)
-        file.write(edges)
-        file.close()
-        return edge_number
-    except Exception:
-        print("Error In File Creation")
-        if file.closed == False:
-            file.close()
-        os.remove(os.path.join(Source_dir, file_name) + ".lp")
-        sys.exit()
+    file = open(file_name + ".lp", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    nodes=''
+    edges=''
+    for i in edge_dic.keys():
+        nodes=nodes+'node('+str(i)+").\n"
+        for j,value in enumerate(edge_dic[i]):
+            edges=edges+'edge('+str(i)+","+str(value)+","+str(weight_dic[i][j])+").\n"
+    file.write(nodes)
+    file.write(edges)
+    file.close()
+    return edge_number
 
 
 
