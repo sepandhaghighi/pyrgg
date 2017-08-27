@@ -294,7 +294,8 @@ def json_to_pickle(filename):
     try:
         file=open(filename+".json","r")
         pickle_file=open(filename+".p","wb")
-        pickle.dump(json.load(file),pickle_file)
+        json_data=json.loads(file.read())
+        pickle.dump(json_data,pickle_file)
         pickle_file.close()
         file.close()
     except FileNotFoundError:
