@@ -10,7 +10,7 @@ This function get a string as input if input is one digit add a zero
 >>> import json
 >>> import yaml
 >>> import pickle
->>> cov = coverage.Coverage(omit=['*/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages/yaml/*']
+>>> cov = coverage.Coverage(omit=['*/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages/yaml/*'])
 >>> cov.start()
 >>> logger(100,50,"test","2min")
 >>> zero_insert("22")
