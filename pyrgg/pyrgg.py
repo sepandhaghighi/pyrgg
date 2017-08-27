@@ -4,7 +4,6 @@ import datetime
 import sys
 import yaml
 import json
-import doctest
 import pickle
 
 Source_dir=os.getcwd()
@@ -146,7 +145,9 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
     vertices_id=list(range(1,vertices_number+1))
     vertices_edge=[]
     weight_list=[]
-    for i in vertices_id:
+    i=0
+    while(i<len(vertices_id)):
+        i+=1
         random_edge=random_system.randint(min_edge,max_edge)
         temp_list=branch_gen(random_edge,vertices_number,min_range,max_range,sign)
         vertices_edge.append(temp_list[0])
