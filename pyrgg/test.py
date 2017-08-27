@@ -12,6 +12,7 @@ This function get a string as input if input is one digit add a zero
 >>> import pickle
 >>> cov = coverage.Coverage()
 >>> cov.start()
+>>> logger(100,50,"test","2min")
 >>> zero_insert("22")
 '22'
 >>> zero_insert("320")
@@ -341,6 +342,10 @@ a 97 80 30
 a 100 24 16
 a 100 38 10
 <BLANKLINE>
+>>> dimacs_maker("testfile", 0, 200, 10, 0,0)
+Traceback (most recent call last):
+        ...
+TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
 >>> json_maker("testfile", 0, 200, 10, 0, 2, 0)
 7
