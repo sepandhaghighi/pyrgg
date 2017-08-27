@@ -5,7 +5,7 @@ import sys
 import yaml
 import json
 import doctest
-
+import pickle
 
 Source_dir=os.getcwd()
 #random_system=random.SystemRandom()
@@ -84,10 +84,10 @@ def get_input():
         max_edge=int(input("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input("Signed[1] or Unsigned[2]"))
-        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6]"))
+        output_format=int(input("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in list(range(1,7)):
+        if output_format not in list(range(1,8)):
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception as e:
@@ -309,6 +309,27 @@ def json_to_yaml(filename):
         os.remove(os.path.join(Source_dir, filename) + ".yaml")
         sys.exit()
 
+
+def json_to_pickle(filename):
+    '''
+    This function convert json file to yaml file
+    :param filename: filename
+    :type filename: str
+    :return: None
+    '''
+    try:
+        file=open(filename+".json","r")
+        pickle_file=open(filename+".p","wb")
+        pickle.dump(json.load(file),pickle_file)
+        pickle_file.close()
+        file.close()
+    except Exception as e:
+        print(e)
+        print("Error In File Creation")
+        if pickle_file.closed == False:
+            pickle_file.close()
+        os.remove(os.path.join(Source_dir, filename) + ".p")
+        sys.exit()
 
 
 def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
