@@ -275,10 +275,10 @@ def json_to_yaml(filename):
     '''
     try:
         file=open(filename+".json","r")
-        yaml_data = yaml.safe_dump(json.load(file), default_flow_style=False)
+        json_data=json.load(file)
+        yaml_file = open(filename + ".yaml", "w")
+        yaml.safe_dump(json_data,yaml_file,default_flow_style=False)
         file.close()
-        yaml_file=open(filename+".yaml","w")
-        yaml_file.write(yaml_data)
         yaml_file.close()
     except FileNotFoundError:
         print("[Error] Bad Input File")
