@@ -10,8 +10,6 @@ This function get a string as input if input is one digit add a zero
 >>> import json
 >>> import yaml
 >>> import pickle
->>> cov = coverage.Coverage()
->>> cov.start()
 >>> zero_insert("22")
 '22'
 >>> zero_insert("320")
@@ -1065,7 +1063,5 @@ edge(26,26,-18).
 edge(26,19,28).
 edge(27,14,7).
 <BLANKLINE>
->>> cov.stop()
->>> cov.save()
 
 '''
