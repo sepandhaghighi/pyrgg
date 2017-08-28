@@ -20,8 +20,9 @@
 				
 ## Overview			
 
-pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS</a>	
-
+pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS(.gr)	</a> 									
+pyrgg has the ability to generate graphs in different sizes and designed to provide input files for 
+test, benchmark and performance-analysis of graph processing frameworks, but it can be used in any other research program that include graphs with these formats.		
 
 ## Installation		
 
@@ -135,17 +136,20 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2-Pickle](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 209KB)
 
 
-## Application
+## Example Of Usage
 
 
-pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include DIMACS (.gr)										
-pyrgg has the ability to generate graphs in different sizes and designed to provide input files for 
-test, benchmark and performance-analysis of graph processing frameworks(some of them mentioned here), but it can be used in any other research program that include graphs with these formats.				
+- Generate synthetic data for graph processing frameworks (some of them mentioned here) performance-analysis 			 
+	- [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
+	- [Totem](https://github.com/netsyslab/Totem "Totem")
+	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
+	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
+<div align="center">
+<img src="http://www.shaghighi.ir/pyrgg/images/performance.png>
+<p>Example. Performance comparison between Medusa and Basic implementation (RMAT&Random are synthetic)</p>
+</div>
 
-- [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
-- [Totem](https://github.com/netsyslab/Totem "Totem")
-- [Frog](https://github.com/AndrewStallman/Frog "Frog")
-- [CuSha](https://github.com/farkhor/CuSha "CuSha")
+- Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
 
 
 ## Supported Formats 			
