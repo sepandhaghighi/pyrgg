@@ -99,6 +99,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] CSV
   - [x] WEL	
   - [x] ASP
+  - [x] TGF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -255,6 +256,20 @@ test, benchmark and performance-analysis of graph processing frameworks(some of 
 		.
 		.
 		edge(head_n,tail_n,weight_n).
+	```
+- [Trivial_Graph_Format(.tgf)](https://en.wikipedia.org/wiki/Trivial_Graph_Format)
+	```
+		1
+		.
+		.
+		.
+		n
+		#
+		1 2 weight_1
+		.
+		.
+		.
+		n k weight_n
 	```
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
 

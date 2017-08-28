@@ -358,6 +358,37 @@ def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.write(edges)
     file.close()
     return edge_number
+def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+    '''
+    This function create output file in Trivial Graph Format
+    :param file_name: file name
+    :type file_name:str
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :param vertices: number of vertices
+    :type vertices:int
+    :param sign: weight sign flag
+    :type sign: int
+    :return: edge_number
+    '''
+    file = open(file_name + ".tgf", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    nodes=''
+    edges=''
+    for i in edge_dic.keys():
+        nodes=nodes+str(i)+"\n"
+        for j,value in enumerate(edge_dic[i]):
+            edges=edges+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n"
+    file.write(nodes)
+    file.write("#\n")
+    file.write(edges)
+    file.close()
+    return edge_number
 def print_test(a):
     '''
     This function added for get_input parameter injection testing
