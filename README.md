@@ -148,7 +148,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/images/performance.png>
+<img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
 <p>Example. Performance comparison between Medusa and Basic implementation (RMAT&Random are synthetic)</p>
 </div>
 
