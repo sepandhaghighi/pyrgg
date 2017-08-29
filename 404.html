@@ -1,18 +1,61 @@
 <html>
 	<head>
 		<title>Page not found</title>
+     <style type="text/css">
+        body{
+            font-family: 'Baloo Bhaina', cursive;
+        }
+        .return p{
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .return a{
+            font-size: 30px;
+            text-decoration: none;
+            border: 4px solid red;
+            color: red;
+            padding: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: auto;
+        }
         
+        .return a:hover{
+            opacity: 0.4;
+        }
+        .Error-page{
+            
+            text-align:center;
+            margin: auto;
+            margin-top:20px;
+        }
+        img{
+            width: 550px;
+            height: 400px;
+        }
+        @media all and (max-width: 1024px) {
+            img{
+                width: 90%;
+                height: 40%;
+            }
+            
+            
+        }
+    </style>
 		
 </head>
+    
 	<body >
-		<div style="margin-top:200px;text-align:center;" >
-		<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" height=240px width=320px alt="pyrgg logo">
+        <div class="Error-page" >
+		<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" alt="pyrgg logo">
         <br/>
-        <p style="font-size:30px; text-decoration:None;">Page not found</p>
-        <a href="http://www.shaghighi.ir/pyrgg" style="font-size:30px;border:2px groove;border-radius:23px;text-decoration:None;padding:5px;background:azure; ">Home</a>
-            
+        <div class="return">
+            <p style="font-size:30px; text-decoration:None;">Page not found</p>
+            <a href="http://www.shaghighi.ir/pyrgg">Back</a>
+         </div>   
         </div>
-	</body>
+        
+	</body>   
 
 
 </html>
