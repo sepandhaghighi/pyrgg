@@ -81,10 +81,10 @@ def get_input(input_func=input):
         max_edge=int(input_func("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input_func("Signed[1] or Unsigned[2]"))
-        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7]"))
+        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] "))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in list(range(1,8)):
+        if output_format not in list(range(1,9)):
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception:
@@ -386,6 +386,34 @@ def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
             edges=edges+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n"
     file.write(nodes)
     file.write("#\n")
+    file.write(edges)
+    file.close()
+    return edge_number
+def dl_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+    '''
+    This function create output file in UCINET DL Format
+    :param file_name: file name
+    :type file_name:str
+    :param min_range: weight min range
+    :type min_range:int
+    :param max_range: weight max_range
+    :type max_range:int
+    :param vertices: number of vertices
+    :type vertices:int
+    :param sign: weight sign flag
+    :type sign: int
+    :return: edge_number
+    '''
+    file = open(file_name + ".dl", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    edges=''
+    for i in edge_dic.keys():
+        for j,value in enumerate(edge_dic[i]):
+            edges=edges+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n"
+    file.write("dl\nformat=edgelist1\nn="+str(vertices)+"\ndata:\n")
     file.write(edges)
     file.close()
     return edge_number

@@ -101,6 +101,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] WEL	
   - [x] ASP
   - [x] TGF
+  - [x] UCINET DL
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -136,6 +137,9 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2-Pickle](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 209KB)
 - [Sample 1-TGF](https://www.dropbox.com/s/tehb6f3gz2o5v9c/100.tgf?dl=0) (100 Vertices , 4KB)
 - [Sample 2-TGF](https://www.dropbox.com/s/9mjeq4w973189cc/1000.tgf?dl=0) (1000 Vertices , 61KB)
+- [Sample 1-UCINET DL](https://www.dropbox.com/s/82wrl86uowwjud2/100.dl?dl=0) (100 Vertices , 8KB)
+- [Sample 2-UCINET DL](https://www.dropbox.com/s/kbzbsy47uvfqdsi/1000.dl?dl=0) (1000 Vertices , 729KB)
+
 
 
 
@@ -277,6 +281,18 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 		.
 		.
 		n k weight_n
+	```
+- [UCINET DL Format(.dl)](https://sites.google.com/site/ucinetsoftware/home)
+	```
+		dl
+		format=edgelist1
+		n=<number of vertices>
+		data:
+		1 2 weight_1
+		.
+		.
+		.
+		n k weight_n	
 	```
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
 
