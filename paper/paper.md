@@ -1,5 +1,5 @@
 ---
-title: 'pyrgg: Python Random Graph Generator'
+title: 'Pyrgg: Python Random Graph Generator'
 tags:
   - graph
   - script
@@ -18,11 +18,12 @@ date: 18 July 2017
 						
 
 # Summary
-Pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include DIMACS																										
+
+Pyrgg is an easy to use synthetic random graph generator written in python, that support variant graph file formats include DIMACS.																										
 Pyrgg has the ability to generate graphs in different sizes and designed to provide input files for 
 test, benchmark and performance analysis of graph-processing frameworks, but it can be used in any other research program that include graphs with these formats.			
 
-Pyrgg can generate graphs with this specs :
+Graph Specifications :
 
 - Weighted
 - Signed
@@ -31,16 +32,23 @@ Pyrgg can generate graphs with this specs :
 - Sparse
 - Dense  
 
-This application get :
-					
-- vertices number
-- max weight
-- min weight
-- max edge number(for each vertex)
-- min edge number(for each vertex)
+Supported Formats:
 
-and generate graph in flat file format
+- DIMACS(.gr)
+- CSV(.csv)
+- JSON(.json)
+- YAML(.yaml)
+- Weighted Edge List(.wel)
+- ASP(.lp)
+- Trivial Graph Format(.tgf)
+- UCINET DL Format(.dl)
+- Pickle(.p)
 
-![outputformat](outputformat.jpg)
+
+See README.md from the Pyrgg repository for further details
+
+website : pyrgg.shaghighi.ir
+
+![Pyrgg Logo](pyrgg-logo.png)
 
 # References
