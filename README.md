@@ -47,7 +47,7 @@ test, benchmark and performance-analysis of graph processing frameworks, but it 
 
 <img src="http://www.shaghighi.ir/pyrgg/images/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
 <br/>
-<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=800px>
+<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=600px>
 
 </div>
 
