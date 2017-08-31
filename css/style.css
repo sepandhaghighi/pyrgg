@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "baloo";
+    src: url("../fonts/baloo.ttf");
+}
 .logo{
     vertical-align: middle;
     margin: auto;
@@ -7,7 +11,7 @@
 
 body{
     background-color:white;
-    font-family: 'Baloo Bhaina', cursive;
+    font-family: "baloo";
     margin: 0;
     
 }
@@ -52,7 +56,7 @@ hr{
 
 
 #login-footer p{
-    font-family: 'Baloo Bhaina', cursive;
+    font-family: "baloo";
     vertical-align: center;
     margin:auto;
 }
