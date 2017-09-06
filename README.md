@@ -151,11 +151,11 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
 <img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
-<p>Example. Performance comparison between Medusa and Basic implementation of SSSP</p>
+<p>Fig. 1. Performance comparison between Medusa and Basic implementation of SSSP</p>
 <img src="http://www.shaghighi.ir/pyrgg/images/graph_table.png" width="580px" height="320px">
-<p>Graphs Details</p>
+<p>Table. 1. Characteristics of graphs</p>
 <img src="http://www.shaghighi.ir/pyrgg/images/random.png">
-<p>Rand Graph Generation</p>
+<p>Fig. 2. Rand Graph Generation</p>
 </div>
 
 - Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
