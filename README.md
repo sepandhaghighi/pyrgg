@@ -153,7 +153,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 <img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
 <p>Example. Performance comparison between Medusa and Basic implementation (RMAT&Random are synthetic)</p>
 <div align="center">
-<table style="border:1px solid black;" align="center">
+<table style="border:1px solid black;margin:1em auto;">
 <tr>
 <th>Graph</th>
 <th>Vertices (10^6)</th>
