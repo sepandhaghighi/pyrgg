@@ -19,7 +19,7 @@
 				
 ## Overview			
 pyrgg is an easy-to-use synthetic random graph generator written in Python which supports various graph file formats including <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS .gr </a> files.
-pyrgg has the ability to generate graphs of different sizes and is designed to provide input files for broad range of applications, including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks.
+pyrgg has the ability to generate graphs of different sizes and is designed to provide input files for broad range of graph-based research applications, including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks.
 
 
 ## Installation		
