@@ -12,6 +12,7 @@ def run():
     min_edge = input_dict["min_edge"]
     max_edge = input_dict["max_edge"]
     sign = input_dict["sign"]
+    print("Generating . . . ")
     if input_dict["output_format"]==1:
         edge_number = dimacs_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
     elif input_dict["output_format"]==2:
@@ -30,7 +31,6 @@ def run():
         json_to_pickle(file_name)
     else:
         edge_number=dl_maker(file_name, min_weight, max_weight, vertices_number, min_edge, max_edge, sign)
-    print("Generating . . . ")
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
