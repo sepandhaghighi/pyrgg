@@ -152,6 +152,81 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 <div align="center">
 <img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
 <p>Example. Performance comparison between Medusa and Basic implementation (RMAT&Random are synthetic)</p>
+<div align="center">
+<table style="border:1px solid black">
+<tr>
+<th>Graph</th>
+<th>Vertices (10^6)</th>
+<th>Edges (10^6)</th>
+<th>Max d</th>
+<th> Class</th>
+</tr>
+
+<tr>
+<td align="center">RMAT</td>
+<td align="center">1</td>
+<td align="center">16</td>
+<td align="center">1742</td>
+<td align="center">Synthetic</td>
+</tr>	
+<tr>
+<td align="center">Rand</td>
+<td align="center">1</td>
+<td align="center">19.5</td>
+<td align="center">38</td>
+<td align="center">Synthetic</td>
+</tr>
+<tr>
+<td align="center">BIP</td>
+<td align="center">4</td>
+<td align="center">16</td>
+<td align="center">40</td>
+<td align="center">Real-World</td>
+</tr>	
+<tr>
+<td align="center">Wiki</td>
+<td align="center">2.4</td>
+<td align="center">5</td>
+<td align="center">100022</td>
+<td align="center">Real-World</td>
+</tr>
+<tr>
+<td align="center">Road</td>
+<td align="center">2</td>
+<td align="center">5.5</td>
+<td align="center">12</td>
+<td align="center">Real-World</td>
+</tr>
+
+<tr>
+<td align="center">KKT</td>
+<td align="center">2.1</td>
+<td align="center">13</td>
+<td align="center">95</td>
+<td align="center">Real-World</td>
+</tr>
+
+<tr>
+<td align="center">Cite</td>
+<td align="center">0.4</td>
+<td align="center">32.1</td>
+<td align="center">1188</td>
+<td align="center">Real-World</td>
+</tr>
+
+<tr>
+<td align="center">Huge</td>
+<td align="center">21.2</td>
+<td align="center">63.6</td>
+<td align="center">3</td>
+<td align="center">Real-World</td>
+</tr>
+
+</table>
+<p>Graphs Details</p>
+</div>
+<img src="http://www.shaghighi.ir/pyrgg/images/random.png">
+<p>Random Graph Generation</p>
 </div>
 
 - Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
