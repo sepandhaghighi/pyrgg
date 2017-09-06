@@ -151,7 +151,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
 <img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
-<p>Example. Performance comparison between Medusa and Basic implementation (RMAT&Random are synthetic)</p>
+<p>Example. Performance comparison between Medusa and Basic implementation of SSSP</p>
 <img src="http://www.shaghighi.ir/pyrgg/images/graph_table.png" width="580px" height="320px">
 <p>Graphs Details</p>
 <img src="http://www.shaghighi.ir/pyrgg/images/random.png">
