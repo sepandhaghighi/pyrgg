@@ -9,6 +9,29 @@ import pickle
 Source_dir=os.getcwd()
 #random_system=random.SystemRandom()
 random_system=random
+
+def convert_bytes(num):
+    """
+    convert num to idiomatic byte unit
+    :param num: the input number.
+    :type num:int
+    :return: str
+    """
+    for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
+        if num < 1024.0:
+            return "%3.1f %s" % (num, x)
+        num /= 1024.0
+def filesize(fileaddr):
+    '''
+    This function calculate output file size
+    :param fileaddr: file addresses
+    :type fileaddr:str
+    :return: file size for print as string
+    '''
+    file_info=os.stat(fileaddr)
+    file_size= file_info.st_size
+    print("Graph File Size : "+convert_bytes(file_size))
+
 def logger(vertices_number,edge_number,file_name,elapsed_time):
     '''
     This function save generated graphs log
@@ -81,10 +104,10 @@ def get_input(input_func=input):
         max_edge=int(input_func("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input_func("Signed[1] or Unsigned[2]"))
-        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4] | WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] "))
+        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
         if sign_flag not in [1,2]:
             sign_flag=2
-        if output_format not in list(range(1,9)):
+        if output_format not in list(range(1,10)):
             output_format=1
         return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
     except Exception:

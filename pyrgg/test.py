@@ -13,6 +13,12 @@ This function get a string as input if input is one digit add a zero
 >>> cov = coverage.Coverage(omit=['*/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages/yaml/*'])
 >>> cov.start()
 >>> logger(100,50,"test","2min")
+>>> convert_bytes(200)
+'200.0 bytes'
+>>> convert_bytes(6000)
+'5.9 KB'
+>>> convert_bytes(80000)
+'78.1 KB'
 >>> zero_insert("22")
 '22'
 >>> zero_insert("320")
@@ -1253,6 +1259,54 @@ data:
 26 19 28
 27 14 7
 <BLANKLINE>
+>>> filesize("testfile.csv")
+Graph File Size : 64.0 bytes
+>>> filesize("testfile.dl")
+Graph File Size : 99.0 bytes
+>>> filesize("testfile.gr")
+Graph File Size : 294.0 bytes
+>>> filesize("testfile.json")
+Graph File Size : 858.0 bytes
+>>> filesize("testfile.lp")
+Graph File Size : 214.0 bytes
+>>> filesize("testfile.p")
+Graph File Size : 421.0 bytes
+>>> filesize("testfile.tgf")
+Graph File Size : 98.0 bytes
+>>> filesize("testfile.wel")
+Graph File Size : 64.0 bytes
+>>> filesize("testfile.yaml")
+Graph File Size : 531.0 bytes
+>>> filesize("testfile2.csv")
+Graph File Size : 401.0 bytes
+>>> filesize("testfile2.dl")
+Graph File Size : 436.0 bytes
+>>> filesize("testfile2.gr")
+Graph File Size : 701.0 bytes
+>>> filesize("testfile2.json")
+Graph File Size : 3.9 KB
+>>> filesize("testfile2.lp")
+Graph File Size : 1009.0 bytes
+>>> filesize("testfile2.p")
+Graph File Size : 1.9 KB
+>>> filesize("testfile2.tgf")
+Graph File Size : 515.0 bytes
+>>> filesize("testfile2.wel")
+Graph File Size : 401.0 bytes
+>>> filesize("testfile2.yaml")
+Graph File Size : 2.6 KB
+>>> filesize("testfile3.csv")
+Graph File Size : 1.8 KB
+>>> filesize("testfile3.gr")
+Graph File Size : 2.4 KB
+>>> filesize("testfile3.json")
+Graph File Size : 16.8 KB
+>>> filesize("testfile3.p")
+Graph File Size : 10.8 KB
+>>> filesize("testfile3.wel")
+Graph File Size : 1.8 KB
+>>> filesize("testfile3.yaml")
+Graph File Size : 11.4 KB
 >>> cov.stop()
 >>> cov.save()
 
