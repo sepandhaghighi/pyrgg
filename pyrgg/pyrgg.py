@@ -104,7 +104,7 @@ def get_input(input_func=input):
         max_edge=int(input_func("Max Edge Number :"))
         max_edge=min(max_edge,vertices)
         sign_flag=int(input_func("Signed[1] or Unsigned[2]"))
-        output_format=int(input_func("Graph Format : DIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
+        output_format=int(input_func("Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
         if sign_flag not in [1,2]:
             sign_flag=2
         if output_format not in list(range(1,10)):
