@@ -47,6 +47,7 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 <img src="http://www.shaghighi.ir/pyrgg/images/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
 <br/>
 <img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=600px>
+<p>Fig. 1. DIMACS .gr output format</p>
 
 </div>
 
@@ -151,10 +152,6 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/images/performance.png">
-<p>Fig. 1. Performance comparison between Medusa and Basic implementation of SSSP</p>
-<img src="http://www.shaghighi.ir/pyrgg/images/graph_table.png" width="580px" height="320px">
-<p>Table. 1. Characteristics of graphs</p>
 <img src="http://www.shaghighi.ir/pyrgg/images/random.png">
 <p>Fig. 2. Rand Graph Generation</p>
 </div>
