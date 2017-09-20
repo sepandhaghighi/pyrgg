@@ -26,7 +26,7 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.1](https://github.com/sepandhaghighi/pyrgg/archive/v0.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
+- Download [Version 0.2](https://github.com/sepandhaghighi/pyrgg/archive/v0.2.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
