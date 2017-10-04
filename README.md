@@ -312,11 +312,22 @@ Remember to write a few tests for your code before sending pull requests.
 
 ## Citing
 
-If you use pyrgg in your research , please cite this ;-)
+If you use pyrgg in your research , please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
 
-<blockquote>
-<p>[1]Sepand Haghighi. pyrgg : Python Random Graph Generator 2017. doi:10.5281/zenodo.845502</p>
-</blockquote>
+<pre>
+@article{Haghighi2017,
+  doi = {10.21105/joss.00331},
+  url = {https://doi.org/10.21105/joss.00331},
+  year  = {2017},
+  month = {sep},
+  publisher = {The Open Journal},
+  volume = {2},
+  number = {17},
+  author = {Sepand Haghighi},
+  title = {Pyrgg: Python Random Graph Generator},
+  journal = {The Journal of Open Source Software}
+}
+</pre>
  			
 
 ## License
