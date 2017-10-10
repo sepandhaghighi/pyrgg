@@ -40,14 +40,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 
 
 
-## Usage ##
-[Download Full Run Video](http://www.shaghighi.ir/pyrgg/videos/FullRun.mkv "Video") (2.8 MB - MKV)( This video recorded by [simplescreenrecorder](http://www.maartenbaert.be/simplescreenrecorder/ "simplescreenrecorder") )				
+## Usage			
 
 <div align="center">
 
-<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg.gif" alt="pyrgg usage" title="pyrgg usage">
+<a href="https://asciinema.org/a/141608" target="_blank"><img src="https://asciinema.org/a/141608.png" /></a>
+
 <br/>
-<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=600px>
+<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=600px height=800px>
 <p>Fig. 1. DIMACS .gr output format</p>
 
 </div>
