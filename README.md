@@ -103,12 +103,14 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] ASP
   - [x] TGF
   - [x] UCINET DL
+  - [ ] GEXF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
   - [ ] Large
 - [x] Weighted Graph															
 	- [x] Signed Weights
+- [ ] Unweighted Graph
 - [x] Dense Graph
 - [x] Sparse Graph
 - [x] Directed Graph
