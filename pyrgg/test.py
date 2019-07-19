@@ -2,6 +2,7 @@
 '''
 >>> from pyrgg import *
 >>> import random
+>>> import os
 >>> import json
 >>> import yaml
 >>> import pickle
@@ -1252,53 +1253,30 @@ data:
 26 19 28
 27 14 7
 <BLANKLINE>
->>> filesize("testfile.csv")
-Graph File Size : 64.0 bytes
->>> filesize("testfile.dl")
-Graph File Size : 99.0 bytes
->>> filesize("testfile.gr")
-Graph File Size : 294.0 bytes
->>> filesize("testfile.json")
-Graph File Size : 858.0 bytes
->>> filesize("testfile.lp")
-Graph File Size : 214.0 bytes
->>> filesize("testfile.p")
-Graph File Size : 421.0 bytes
->>> filesize("testfile.tgf")
-Graph File Size : 98.0 bytes
->>> filesize("testfile.wel")
-Graph File Size : 64.0 bytes
->>> filesize("testfile.yaml")
-Graph File Size : 531.0 bytes
->>> filesize("testfile2.csv")
-Graph File Size : 401.0 bytes
->>> filesize("testfile2.dl")
-Graph File Size : 436.0 bytes
->>> filesize("testfile2.gr")
-Graph File Size : 701.0 bytes
->>> filesize("testfile2.json")
-Graph File Size : 3.9 KB
->>> filesize("testfile2.lp")
-Graph File Size : 1009.0 bytes
->>> filesize("testfile2.p")
-Graph File Size : 1.9 KB
->>> filesize("testfile2.tgf")
-Graph File Size : 515.0 bytes
->>> filesize("testfile2.wel")
-Graph File Size : 401.0 bytes
->>> filesize("testfile2.yaml")
-Graph File Size : 2.6 KB
->>> filesize("testfile3.csv")
-Graph File Size : 1.8 KB
->>> filesize("testfile3.gr")
-Graph File Size : 2.4 KB
->>> filesize("testfile3.json")
-Graph File Size : 16.8 KB
->>> filesize("testfile3.p")
-Graph File Size : 10.8 KB
->>> filesize("testfile3.wel")
-Graph File Size : 1.8 KB
->>> filesize("testfile3.yaml")
-Graph File Size : 11.4 KB
+>>> file.close()
+>>> os.remove("testfile.csv")
+>>> os.remove("testfile.dl")
+>>> os.remove("testfile.gr")
+>>> os.remove("testfile.json")
+>>> os.remove("testfile.lp")
+>>> os.remove("testfile.p")
+>>> os.remove("testfile.tgf")
+>>> os.remove("testfile.wel")
+>>> os.remove("testfile.yaml")
+>>> os.remove("testfile2.csv")
+>>> os.remove("testfile2.dl")
+>>> os.remove("testfile2.gr")
+>>> os.remove("testfile2.json")
+>>> os.remove("testfile2.lp")
+>>> os.remove("testfile2.p")
+>>> os.remove("testfile2.tgf")
+>>> os.remove("testfile2.wel")
+>>> os.remove("testfile2.yaml")
+>>> os.remove("testfile3.csv")
+>>> os.remove("testfile3.gr")
+>>> os.remove("testfile3.json")
+>>> os.remove("testfile3.p")
+>>> os.remove("testfile3.wel")
+>>> os.remove("testfile3.yaml")
 
 '''

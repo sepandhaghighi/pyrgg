@@ -63,8 +63,6 @@ def zero_insert(input_string):
     :param input_string: input digit az string
     :type input_string:str
     :return: modified output as str
-    >>> zero_insert("22")
-    >>> '22'
     '''
     if len(input_string)==1:
         return "0"+input_string
