@@ -1278,5 +1278,6 @@ data:
 >>> os.remove("testfile3.p")
 >>> os.remove("testfile3.wel")
 >>> os.remove("testfile3.yaml")
+>>> os.remove("logfile.log")
 
 '''
