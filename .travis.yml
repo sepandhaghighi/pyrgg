@@ -1,15 +1,34 @@
-sudo: true
-
 language: python
 
-python:
-  - 3.5
-
+matrix:
+    include:
+        - os: linux
+          python: 3.7
+          dist: xenial
+        - os: linux
+          python: 3.6
+        - os: linux
+          python: 3.5
+        - os: linux
+          python: 3.4
+        - os: linux
+          python: 2.7
+        - os: osx
+          language: generic
+          env: TOXENV=py27
+    allow_failures:
+        - os: osx
+          language: generic
+          env: TOXENV=py27
 install:
-  - pip3 install -r requirements.txt
-  - python3 setup.py install
-
+  - pip install -r requirements.txt
+  - python setup.py install
+  - python -m pyrgg test
+before_script:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install --upgrade --upgrade-strategy=only-if-needed -r dev-requirements.txt --user ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then pip install --upgrade --upgrade-strategy=only-if-needed -r dev-requirements.txt ; fi
+  - chmod +x test.sh
 script:
-  - python3 -m pyrgg test
+  - test.sh
 after_success:
   - codecov
