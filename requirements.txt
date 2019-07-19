@@ -1,4 +1,1 @@
-pyyaml
-codecov
-
-
+pyyaml>=3.12
