@@ -19,6 +19,9 @@ init:
 install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"
   - "%PYTHON%/python.exe setup.py install"
+  - "%PYTHON%/python.exe -m pyrgg test"
 
 test_script:
-  - "%PYTHON%/python.exe -m pyrgg test"
+  - "%PYTHON%/Scripts/pip.exe install -r dev-requirements.txt"
+  - "%PYTHON%/python.exe -m pytest pyrgg --cov=pyrgg --cov-report=term"
+  
