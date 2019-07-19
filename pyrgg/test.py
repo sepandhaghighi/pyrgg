@@ -1,17 +1,10 @@
 
 '''
-This function get a string as input if input is one digit add a zero
-:param input_string: input digit az string
-:type input_string:str
-:return: modified output as str
 >>> from pyrgg import *
->>> import coverage
 >>> import random
 >>> import json
 >>> import yaml
 >>> import pickle
->>> cov = coverage.Coverage(omit=['*/home/travis/virtualenv/python3.5.3/lib/python3.5/site-packages/yaml/*'])
->>> cov.start()
 >>> logger(100,50,"test","2min")
 >>> convert_bytes(200)
 '200.0 bytes'
@@ -1307,7 +1300,5 @@ Graph File Size : 10.8 KB
 Graph File Size : 1.8 KB
 >>> filesize("testfile3.yaml")
 Graph File Size : 11.4 KB
->>> cov.stop()
->>> cov.save()
 
 '''
