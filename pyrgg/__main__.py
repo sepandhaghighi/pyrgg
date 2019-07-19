@@ -52,7 +52,8 @@ if __name__=="__main__":
     args=sys.argv
     if len(args)>1:
         if args[1].upper()=="TEST":
-            doctest.testfile("test.py",verbose=True)
+            error_flag = doctest.testfile("test.py",verbose=False)[0]
+            sys.exit(error_flag)
         else:
             print("Bad Input!")
             print("Test (Run doctest)")
