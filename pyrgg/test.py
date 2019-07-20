@@ -1070,19 +1070,19 @@ edge(27,14,7).
 >>> input_dic["sign"]
 2
 >>> input_dic['vertices']
-2
+18
 >>> input_dic['min_edge']
-2
+17
 >>> input_dic['min_weight']
-2
+13
 >>> input_dic['output_format']
-2
+1
 >>> input_dic['max_weight']
-2
+13
 >>> input_dic['file_name']
-'2'
+'12'
 >>> input_dic['max_edge']
-2
+17
 >>> random.seed(2)
 >>> tgf_maker("testfile", 0, 200, 10, 0, 2, 0)
 7

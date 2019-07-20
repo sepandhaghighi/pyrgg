@@ -442,10 +442,10 @@ def print_test(a):
     '''
     This function added for get_input parameter injection testing
     :param a: input
-    :type a:int
-    :return: static "2"
+    :type a: int
+    :return: return len(a) as str
     '''
-    return "2"
+    return str(len(a))
 
 
 
