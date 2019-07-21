@@ -13,6 +13,16 @@ Source_dir = os.getcwd()
 # random_system=random.SystemRandom()
 random_system = random
 
+def line(num=11, char="#"):
+    """
+    Print line of char.
+    :param num: number of character in this line
+    :type num : int
+    :param char: character
+    :type char : str
+    :return: None
+    """
+    print(char * num)
 
 def convert_bytes(num):
     """
