@@ -330,6 +330,20 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Graph1](https://github.com/Saptaparni/Graph1) Random Graph Generator with Max capacity paths (C++)
 
 
+## Dependencies
+
+<table>
+	<tr> 
+		<td align="center">master</td>	
+		<td align="center">dev</td>	
+	</tr>
+	<tr>
+		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=master"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
+		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=dev"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=dev" alt="Requirements Status" /></a></td>
+	</tr>
+</table>
+
+
 ## Citing
 
 If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
