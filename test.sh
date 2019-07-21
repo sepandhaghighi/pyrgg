@@ -1,5 +1,6 @@
   set -e
   set -x
+  python version_check.py
   python -m pytest test --cov=pyrgg --cov-report=term
   if [ "$TRAVIS_PYTHON_VERSION" = '3.6' ]
   then
