@@ -1,7 +1,3 @@
-
-							
-
-
 <div align="center">
 <img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" height=240px width=320px>
 <hr/>
@@ -15,6 +11,7 @@
 <a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
   <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=shield"/></a>
 
 </div>				
 				
@@ -336,6 +333,9 @@ If you use pyrgg in your research , please cite the [JOSS paper](http://joss.the
 <a href="https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
 
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_large)
+
 ## Reference
 					
 
@@ -362,4 +362,4 @@ Hey dude! Help me out for a couple of :beers:!
 
 <h3>Payping (For Iranian citizens) :</h3>
 
-<a href="http://www.payping.net/sepandhaghighi" target="__blank"><img src="http://www.qpage.ir/images/payping.png" height=100px width=100px></a>	
+<a href="http://www.payping.net/sepandhaghighi" target="__blank"><img src="http://www.qpage.ir/images/payping.png" height=100px width=100px></a>
