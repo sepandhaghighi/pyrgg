@@ -8,9 +8,10 @@ import yaml
 import json
 import pickle
 
-Source_dir=os.getcwd()
-#random_system=random.SystemRandom()
-random_system=random
+Source_dir = os.getcwd()
+# random_system=random.SystemRandom()
+random_system = random
+
 
 def convert_bytes(num):
     """
@@ -24,6 +25,8 @@ def convert_bytes(num):
         if num < 1024.0:
             return "%3.1f %s" % (num, x)
         num /= 1024.0
+
+
 def filesize(fileaddr):
     """
     Calculate output file size.
@@ -32,11 +35,12 @@ def filesize(fileaddr):
     :type fileaddr: str
     :return: file size for print as string
     """
-    file_info=os.stat(fileaddr)
-    file_size= file_info.st_size
-    print("Graph File Size : "+convert_bytes(file_size))
+    file_info = os.stat(fileaddr)
+    file_size = file_info.st_size
+    print("Graph File Size : " + convert_bytes(file_size))
 
-def logger(vertices_number,edge_number,file_name,elapsed_time):
+
+def logger(vertices_number, edge_number, file_name, elapsed_time):
     """
     Save generated graphs log.
 
@@ -52,15 +56,16 @@ def logger(vertices_number,edge_number,file_name,elapsed_time):
     """
     try:
         file = open("logfile.log", "a")
-        file.write(str(datetime.datetime.now())+"\n")
-        file.write("Filename : "+file_name+"\n")
-        file.write("Vertices : "+str(vertices_number)+"\n")
-        file.write("Edges : "+str(edge_number)+"\n")
+        file.write(str(datetime.datetime.now()) + "\n")
+        file.write("Filename : " + file_name + "\n")
+        file.write("Vertices : " + str(vertices_number) + "\n")
+        file.write("Edges : " + str(edge_number) + "\n")
         file.write("Elapsed Time : " + str(elapsed_time) + "\n")
         file.write("-------------------------------\n")
         file.close()
     except Exception:
         print("[Error] Logger Faild!")
+
 
 def zero_insert(input_string):
     """
@@ -70,9 +75,10 @@ def zero_insert(input_string):
     :type input_string: str
     :return: modified output as str
     """
-    if len(input_string)==1:
-        return "0"+input_string
+    if len(input_string) == 1:
+        return "0" + input_string
     return input_string
+
 
 def time_convert(input_string):
     """
@@ -82,14 +88,15 @@ def time_convert(input_string):
     :type input_string: str
     :return: converted time as str
     """
-    input_sec=float(input_string)
-    input_minute=input_sec//60
-    input_sec=int(input_sec-input_minute*60)
-    input_hour=input_minute//60
-    input_minute=int(input_minute-input_hour*60)
-    input_day=int(input_hour//24)
-    input_hour=int(input_hour-input_day*24)
-    return zero_insert(str(input_day))+" days, "+zero_insert(str(input_hour))+" hour, "+zero_insert(str(input_minute))+" minutes, "+zero_insert(str(input_sec))+" seconds"
+    input_sec = float(input_string)
+    input_minute = input_sec // 60
+    input_sec = int(input_sec - input_minute * 60)
+    input_hour = input_minute // 60
+    input_minute = int(input_minute - input_hour * 60)
+    input_day = int(input_hour // 24)
+    input_hour = int(input_hour - input_day * 24)
+    return zero_insert(str(input_day)) + " days, " + zero_insert(str(input_hour)) + " hour, " + \
+        zero_insert(str(input_minute)) + " minutes, " + zero_insert(str(input_sec)) + " seconds"
 
 
 def get_input(input_func=input):
@@ -101,26 +108,36 @@ def get_input(input_func=input):
     :return: inputs as dict
     """
     try:
-        file_name=input_func("File Name : ")
-        if file_name+".gr" in os.listdir():
+        file_name = input_func("File Name : ")
+        if file_name + ".gr" in os.listdir():
             raise Exception("There is file with this name")
-        vertices=int(input_func("Vertices Number : "))
-        max_weight=int(input_func("Max Weight : "))
+        vertices = int(input_func("Vertices Number : "))
+        max_weight = int(input_func("Max Weight : "))
         min_weight = int(input_func("Min Weight : "))
-        min_edge=int(input_func("Min Edge Number :"))
-        min_edge=max(0,min_edge)
-        max_edge=int(input_func("Max Edge Number :"))
-        max_edge=min(max_edge,vertices)
-        sign_flag=int(input_func("Signed[1] or Unsigned[2]"))
-        output_format=int(input_func("Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
-        if sign_flag not in [1,2]:
-            sign_flag=2
-        if output_format not in list(range(1,10)):
-            output_format=1
-        return {"file_name":file_name,"vertices":vertices,"max_weight":max_weight,"min_weight":min_weight,"min_edge":min_edge,"max_edge":max_edge,"sign":sign_flag,"output_format":output_format}
+        min_edge = int(input_func("Min Edge Number :"))
+        min_edge = max(0, min_edge)
+        max_edge = int(input_func("Max Edge Number :"))
+        max_edge = min(max_edge, vertices)
+        sign_flag = int(input_func("Signed[1] or Unsigned[2]"))
+        output_format = int(input_func(
+            "Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
+        if sign_flag not in [1, 2]:
+            sign_flag = 2
+        if output_format not in list(range(1, 10)):
+            output_format = 1
+        return {
+            "file_name": file_name,
+            "vertices": vertices,
+            "max_weight": max_weight,
+            "min_weight": min_weight,
+            "min_edge": min_edge,
+            "max_edge": max_edge,
+            "sign": sign_flag,
+            "output_format": output_format}
     except Exception:
         print("[Error] Bad Input!")
         sys.exit()
+
 
 def sign_gen():
     """
@@ -128,12 +145,13 @@ def sign_gen():
 
     :return: 1 or -1
     """
-    flag=random_system.randint(0,1)
-    if flag==0:
+    flag = random_system.randint(0, 1)
+    if flag == 0:
         return 1
     return -1
 
-def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
+
+def branch_gen(random_edge, vertices_number, min_range, max_range, sign):
     """
     Generate branch and weight vector of each vertex.
 
@@ -149,19 +167,21 @@ def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
     """
     index = 0
     branch_list = []
-    weight_list=[]
+    weight_list = []
     while (index < random_edge):
         random_tail = random_system.randint(1, vertices_number + 1)
-        if sign==2:
-            random_weight=random_system.randint(min_range,max_range)
+        if sign == 2:
+            random_weight = random_system.randint(min_range, max_range)
         else:
             random_weight = sign_gen() * random_system.randint(min_range, max_range)
         if random_tail not in branch_list:
             branch_list.append(random_tail)
             weight_list.append(random_weight)
             index += 1
-    return [branch_list,weight_list]
-def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
+    return [branch_list, weight_list]
+
+
+def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign):
     """
     Generate each vertex connection number.
 
@@ -173,22 +193,36 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
     :type max_range: int
     :return: list of dicts
     """
-    temp=0
-    vertices_id=list(range(1,vertices_number+1))
-    vertices_edge=[]
-    weight_list=[]
-    i=0
-    while(i<len(vertices_id)):
-        i+=1
-        random_edge=random_system.randint(min_edge,max_edge)
-        temp_list=branch_gen(random_edge,vertices_number,min_range,max_range,sign)
+    temp = 0
+    vertices_id = list(range(1, vertices_number + 1))
+    vertices_edge = []
+    weight_list = []
+    i = 0
+    while(i < len(vertices_id)):
+        i += 1
+        random_edge = random_system.randint(min_edge, max_edge)
+        temp_list = branch_gen(
+            random_edge,
+            vertices_number,
+            min_range,
+            max_range,
+            sign)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
-        temp=temp+random_edge
-    return [dict(zip(vertices_id,vertices_edge)),dict(zip(vertices_id,weight_list)),temp]
+        temp = temp + random_edge
+    return [dict(zip(vertices_id, vertices_edge)),
+            dict(zip(vertices_id, weight_list)), temp]
 
 
-def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge):
+def file_init(
+        file,
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        edge,
+        min_edge,
+        max_edge):
     """
     Initialize output file.
 
@@ -206,16 +240,24 @@ def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge
     :type edge: int
     :return: None
     """
-    file.write("c FILE                  :"+file_name+".gr"+"\n")
-    file.write("c No. of vertices       :"+str(vertices)+"\n")
-    file.write("c No. of directed edges :"+str(edge)+"\n")
-    file.write("c Max. weight           :"+str(max_range)+"\n")
-    file.write("c Min. weight           :"+str(min_range)+"\n")
+    file.write("c FILE                  :" + file_name + ".gr" + "\n")
+    file.write("c No. of vertices       :" + str(vertices) + "\n")
+    file.write("c No. of directed edges :" + str(edge) + "\n")
+    file.write("c Max. weight           :" + str(max_range) + "\n")
+    file.write("c Min. weight           :" + str(min_range) + "\n")
     file.write("c Min. edge           :" + str(min_edge) + "\n")
     file.write("c Max. edge           :" + str(max_edge) + "\n")
-    file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
+    file.write("p sp " + str(vertices) + " " + str(edge) + "\n")
 
-def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+def dimacs_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file and fill in.
 
@@ -231,19 +273,36 @@ def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number as int
     """
-    file=open(file_name+".gr","w")
-    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-    edge_dic=dicts[0]
-    weight_dic=dicts[1]
-    edge_number=dicts[2]
-    file_init(file,file_name,min_range,max_range,vertices,edge_number,min_edge,max_edge)
+    file = open(file_name + ".gr", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    file_init(
+        file,
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        edge_number,
+        min_edge,
+        max_edge)
     for i in edge_dic.keys():
-        for j,value in enumerate(edge_dic[i]):
-            file.write("a "+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
+        for j, value in enumerate(edge_dic[i]):
+            file.write("a " + str(i) + " " + str(value) +
+                       " " + str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
-def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+def json_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in json format.
 
@@ -264,20 +323,31 @@ def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes='\t\t\t"nodes":[\n'
-    edges='\t\t\t"edges":[\n'
+    nodes = '\t\t\t"nodes":[\n'
+    edges = '\t\t\t"edges":[\n'
     for i in edge_dic.keys():
-        nodes=nodes+'\t\t\t{\n\t\t\t\t'+'"id": '+'"'+str(i)+'"\n\t\t\t},\n'
-        for j,value in enumerate(edge_dic[i]):
-            edges=edges+'\t\t\t{\n\t\t\t\t"source": '+'"'+str(i)+'",\n\t\t\t\t'+'"target": '+'"'+str(value)+'",\n\t\t\t\t'+'"weight": '+'"'+str(weight_dic[i][j])+'"\n\t\t\t},\n'
-    nodes=nodes[:-2]+"\n\t\t],\n"
-    edges=edges[:-2]+"\n\t\t]\n\t}\n}"
+        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
+            '"id": ' + '"' + str(i) + '"\n\t\t\t},\n'
+        for j, value in enumerate(edge_dic[i]):
+            edges = edges + '\t\t\t{\n\t\t\t\t"source": ' + '"' + str(i) + '",\n\t\t\t\t' + '"target": ' + '"' + str(
+                value) + '",\n\t\t\t\t' + '"weight": ' + '"' + str(weight_dic[i][j]) + '"\n\t\t\t},\n'
+    nodes = nodes[:-2] + "\n\t\t],\n"
+    edges = edges[:-2] + "\n\t\t]\n\t}\n}"
     file.write('{\n\t"graph": {\n')
     file.write(nodes)
     file.write(edges)
     file.close()
     return edge_number
-def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+
+def csv_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in csv format.
 
@@ -293,16 +363,18 @@ def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number as int
     """
-    file=open(file_name+".csv","w")
-    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-    edge_dic=dicts[0]
-    weight_dic=dicts[1]
-    edge_number=dicts[2]
+    file = open(file_name + ".csv", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
     for i in edge_dic.keys():
-        for j,value in enumerate(edge_dic[i]):
-            file.write(str(i)+","+str(value)+","+str(weight_dic[i][j])+"\n")
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + "," + str(value) + "," +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
+
 
 def json_to_yaml(filename):
     """
@@ -313,10 +385,10 @@ def json_to_yaml(filename):
     :return: None
     """
     try:
-        file=open(filename+".json","r")
-        json_data=json.loads(file.read())
+        file = open(filename + ".json", "r")
+        json_data = json.loads(file.read())
         yaml_file = open(filename + ".yaml", "w")
-        yaml.safe_dump(json_data,yaml_file,default_flow_style=False)
+        yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
         file.close()
         yaml_file.close()
     except FileNotFoundError:
@@ -332,17 +404,24 @@ def json_to_pickle(filename):
     :return: None
     """
     try:
-        file=open(filename+".json","r")
-        pickle_file=open(filename+".p","wb")
-        json_data=json.loads(file.read())
-        pickle.dump(json_data,pickle_file)
+        file = open(filename + ".json", "r")
+        pickle_file = open(filename + ".p", "wb")
+        json_data = json.loads(file.read())
+        pickle.dump(json_data, pickle_file)
         pickle_file.close()
         file.close()
     except FileNotFoundError:
         print("[Error] Bad Input File")
 
 
-def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+def wel_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in wel format.
 
@@ -358,18 +437,27 @@ def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     :type sign: int
     :return: edge_number as int
     """
-    file=open(file_name+".wel","w")
-    dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
-    edge_dic=dicts[0]
-    weight_dic=dicts[1]
-    edge_number=dicts[2]
+    file = open(file_name + ".wel", "w")
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
     for i in edge_dic.keys():
-        for j,value in enumerate(edge_dic[i]):
-            file.write(str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n")
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + " " + str(value) + " " +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
-def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+def lp_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in ASP format.
 
@@ -390,17 +478,27 @@ def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes=''
-    edges=''
+    nodes = ''
+    edges = ''
     for i in edge_dic.keys():
-        nodes=nodes+'node('+str(i)+").\n"
-        for j,value in enumerate(edge_dic[i]):
-            edges=edges+'edge('+str(i)+","+str(value)+","+str(weight_dic[i][j])+").\n"
+        nodes = nodes + 'node(' + str(i) + ").\n"
+        for j, value in enumerate(edge_dic[i]):
+            edges = edges + \
+                'edge(' + str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + ").\n"
     file.write(nodes)
     file.write(edges)
     file.close()
     return edge_number
-def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+
+def tgf_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in Trivial Graph Format (TGF).
 
@@ -421,18 +519,28 @@ def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes=''
-    edges=''
+    nodes = ''
+    edges = ''
     for i in edge_dic.keys():
-        nodes=nodes+str(i)+"\n"
-        for j,value in enumerate(edge_dic[i]):
-            edges=edges+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n"
+        nodes = nodes + str(i) + "\n"
+        for j, value in enumerate(edge_dic[i]):
+            edges = edges + str(i) + " " + str(value) + \
+                " " + str(weight_dic[i][j]) + "\n"
     file.write(nodes)
     file.write("#\n")
     file.write(edges)
     file.close()
     return edge_number
-def dl_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
+
+
+def dl_maker(
+        file_name,
+        min_range,
+        max_range,
+        vertices,
+        min_edge,
+        max_edge,
+        sign):
     """
     Create output file in UCINET DL Format.
 
@@ -453,14 +561,17 @@ def dl_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    edges=''
+    edges = ''
     for i in edge_dic.keys():
-        for j,value in enumerate(edge_dic[i]):
-            edges=edges+str(i)+" "+str(value)+" "+str(weight_dic[i][j])+"\n"
-    file.write("dl\nformat=edgelist1\nn="+str(vertices)+"\ndata:\n")
+        for j, value in enumerate(edge_dic[i]):
+            edges = edges + str(i) + " " + str(value) + \
+                " " + str(weight_dic[i][j]) + "\n"
+    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
     file.write(edges)
     file.close()
     return edge_number
+
+
 def print_test(a):
     """
     Added for get_input parameter injection testing.

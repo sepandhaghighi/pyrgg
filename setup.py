@@ -5,10 +5,12 @@ try:
 except ImportError:
     from distutils.core import setup
 
+
 def get_requires():
     """Read requirements.txt."""
     requirements = open("requirements.txt", "r").read()
     return list(filter(lambda x: x != "", requirements.split()))
+
 
 def read_description():
     """Read README.md and CHANGELOG.md."""
@@ -27,23 +29,40 @@ def read_description():
                    including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks.
                    Pyrgg target audiences are computer scientists who study graph algorithms and graph processing frameworks.'''
 
+
 setup(
-  name = 'pyrgg',
-  packages = ['pyrgg'],
-  version = '0.2',
-  description = 'Python Random Graph Generator',
-  long_description=read_description(),
-  long_description_content_type='text/markdown',
-  author = 'Sepand Haghighi',
-  author_email = 'sepand@qpage.ir',
-  url = 'https://github.com/sepandhaghighi/pyrgg',
-  download_url = 'https://github.com/sepandhaghighi/pyrgg/tarball/v0.2',
-  keywords = ['random', 'graph', 'python3','python','generator',"graph-process","generator",
-              "moduland","DIMACS","JSON","YAML","Pickle","CSV","WEL","ASP","TGF","UCINET",
-              ],
-  install_requires=get_requires(),
-  python_requires='>=3.4',
-  classifiers=[
+    name='pyrgg',
+    packages=['pyrgg'],
+    version='0.2',
+    description='Python Random Graph Generator',
+    long_description=read_description(),
+    long_description_content_type='text/markdown',
+    author='Sepand Haghighi',
+    author_email='sepand@qpage.ir',
+    url='https://github.com/sepandhaghighi/pyrgg',
+    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v0.2',
+    keywords=[
+        'random',
+        'graph',
+        'python3',
+        'python',
+        'generator',
+        "graph-process",
+        "generator",
+        "moduland",
+        "DIMACS",
+        "JSON",
+        "YAML",
+        "Pickle",
+        "CSV",
+        "WEL",
+        "ASP",
+        "TGF",
+        "UCINET",
+    ],
+    install_requires=get_requires(),
+    python_requires='>=3.4',
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
@@ -66,5 +85,5 @@ setup(
         'Topic :: Scientific/Engineering :: Mathematics',
         'Topic :: Scientific/Engineering :: Physics',
     ],
-  license='MIT',
+    license='MIT',
 )
