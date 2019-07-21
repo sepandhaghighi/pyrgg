@@ -57,6 +57,7 @@ def run():
     logger(vertices_number, edge_number, file_name + ".gr", elapsed_time_format)
 if __name__=="__main__":
     args=sys.argv
+
     if len(args)>1:
         if args[1].upper()=="TEST":
             error_flag = doctest.testfile("test.py",verbose=False)[0]
@@ -66,4 +67,10 @@ if __name__=="__main__":
             print("Test (Run doctest)")
             print("Without arg --> Normal Run")
     else:
-        run()
+        EXIT_FLAG = False
+        while not EXIT_FLAG:
+            run()
+            INPUTINDEX = input("Press [R] to restart Pyrgg or any other key to exit.")
+            if INPUTINDEX.upper() != "R":
+                EXITFLAG = True
+
