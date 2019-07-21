@@ -16,6 +16,7 @@ random_system = random
 def line(num=11, char="#"):
     """
     Print line of char.
+    
     :param num: number of character in this line
     :type num : int
     :param char: character
