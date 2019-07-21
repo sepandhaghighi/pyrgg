@@ -7,6 +7,7 @@ import sys
 import yaml
 import json
 import pickle
+from pyrgg.params import *
 
 PYRGG_VERSION = "0.2"
 Source_dir = os.getcwd()
@@ -16,7 +17,7 @@ random_system = random
 def line(num=11, char="#"):
     """
     Print line of char.
-    
+
     :param num: number of character in this line
     :type num : int
     :param char: character
@@ -120,32 +121,44 @@ def get_input(input_func=input):
     :return: inputs as dict
     """
     try:
-        file_name = input_func("File Name : ")
-        if file_name + ".gr" in os.listdir():
-            raise Exception("There is file with this name")
-        vertices = int(input_func("Vertices Number : "))
-        max_weight = int(input_func("Max Weight : "))
-        min_weight = int(input_func("Min Weight : "))
-        min_edge = int(input_func("Min Edge Number :"))
-        min_edge = max(0, min_edge)
-        max_edge = int(input_func("Max Edge Number :"))
-        max_edge = min(max_edge, vertices)
-        sign_flag = int(input_func("Signed[1] or Unsigned[2]"))
-        output_format = int(input_func(
-            "Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]"))
-        if sign_flag not in [1, 2]:
-            sign_flag = 2
-        if output_format not in list(range(1, 10)):
-            output_format = 1
-        return {
-            "file_name": file_name,
-            "vertices": vertices,
-            "max_weight": max_weight,
-            "min_weight": min_weight,
-            "min_edge": min_edge,
-            "max_edge": max_edge,
-            "sign": sign_flag,
-            "output_format": output_format}
+        result_dict = {
+            "file_name": "",
+            "vertices": 0,
+            "max_weight": 0,
+            "min_weight": 0,
+            "min_edge": 0,
+            "max_edge": 0,
+            "sign": 1,
+            "output_format": 1}
+        MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
+        MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
+        for item in MENU_ITEMS_KEYS1:
+            exit_flag = False
+            while not exit_flag:
+                try:
+                    if item != "file_name" :
+                        result_dict[item] = int(input_func(MENU_ITEMS1[item]))
+                    else:
+                        result_dict[item] = input_func(MENU_ITEMS1[item])
+                    exit_flag = True
+                except Exception:
+                    print("[Error] Bad Input!")
+
+        for item in MENU_ITEMS_KEYS2:
+            exit_flag = False
+            while not exit_flag:
+                try:
+                    result_dict[item] = int(input_func(MENU_ITEMS2[item]))
+                    exit_flag = True
+                except Exception:
+                    print("[Error] Bad Input!")
+        result_dict["min_edge"] = max(0, result_dict["min_edge"])
+        result_dict["max_edge"] = min(result_dict["max_edge"], result_dict["vertices"])
+        if result_dict["sign"] not in [1, 2]:
+            result_dict["sign"] = 2
+        if result_dict["output_format"] not in list(range(1, 10)):
+            result_dict["output_format"] = 1
+        return result_dict
     except Exception:
         print("[Error] Bad Input!")
         sys.exit()
