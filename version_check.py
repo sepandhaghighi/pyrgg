@@ -19,9 +19,10 @@ CHANGELOG_ITEMS = [
     "https://github.com/sepandhaghighi/pyrgg/compare/v{0}...dev",
     "[{0}]:"]
 HTML_ITEMS = ["Version {0}"]
-PARAMS_ITEMS = ['VERSION = "{0}"']
+PARAMS_ITEMS = ['PYRGG_VERSION = "{0}"']
 FILES = {
-    "setup.py": SETUP_ITEMS, "README.md": README_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS}
+    "setup.py": SETUP_ITEMS, "README.md": README_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS, os.path.join(
+                            "pyrgg", "pyrgg.py"): PARAMS_ITEMS}
 
 TEST_NUMBER = len(FILES.keys())
 
