@@ -26,7 +26,7 @@ RC_ITEMS =["filevers=({0}, {1}, {2}, {3})","prodvers=({0}, {1}, {2}, {3})","(u'F
 PARAMS_ITEMS = ['PYRGG_VERSION = "{0}"']
 FILES = {
     "setup.py": SETUP_ITEMS, "README.md": README_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS, os.path.join(
-                            "pyrgg", "pyrgg.py"): PARAMS_ITEMS}
+                            "pyrgg", "params.py"): PARAMS_ITEMS}
 
 TEST_NUMBER = len(FILES.keys()) +1
 
