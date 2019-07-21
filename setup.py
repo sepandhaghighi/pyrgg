@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+"""Setup module."""
 from distutils.core import setup
 setup(
   name = 'pyrgg',

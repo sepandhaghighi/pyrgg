@@ -1,8 +1,15 @@
+# -*- coding: utf-8 -*-
+"""Pyrgg main."""
 from .pyrgg import *
 import time
 import sys
 import doctest
 def run():
+    """
+    Run proper converter.
+
+    :return: None
+    """
     first_time = time.perf_counter()
     input_dict = get_input()
     file_name = input_dict["file_name"]

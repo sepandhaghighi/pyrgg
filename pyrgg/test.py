@@ -1,23 +1,24 @@
-
-'''
+# -*- coding: utf-8 -*-
+"""Test file."""
+"""
 >>> from pyrgg import *
 >>> import random
 >>> import os
 >>> import json
 >>> import yaml
 >>> import pickle
->>> logger(100,50,"test","2min")
+>>> logger(100,50,'test','2min')
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)
 '5.9 KB'
 >>> convert_bytes(80000)
 '78.1 KB'
->>> zero_insert("22")
+>>> zero_insert('22')
 '22'
->>> zero_insert("320")
+>>> zero_insert('320')
 '320'
->>> zero_insert("2")
+>>> zero_insert('2')
 '02'
 >>> zero_insert(22)
 Traceback (most recent call last):
@@ -25,9 +26,9 @@ Traceback (most recent call last):
 TypeError: object of type 'int' has no len()
 >>> time_convert('33')
 '00 days, 00 hour, 00 minutes, 33 seconds'
->>> time_convert("15000")
+>>> time_convert('15000')
 '00 days, 04 hour, 10 minutes, 00 seconds'
->>> time_convert("sadasdasd")
+>>> time_convert('sadasdasd')
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
@@ -58,9 +59,9 @@ Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> dimacs_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.gr","r")
+>>> file=open('testfile.gr','r')
 >>> print(file.read())
 c FILE                  :testfile.gr
 c No. of vertices       :10
@@ -79,9 +80,9 @@ a 8 8 -97
 a 9 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker("testfile2",0,50,30,0,4,0)
+>>> dimacs_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.gr","r")
+>>> file=open('testfile2.gr','r')
 >>> print(file.read())
 c FILE                  :testfile2.gr
 c No. of vertices       :30
@@ -134,9 +135,9 @@ a 26 19 28
 a 27 14 7
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker("testfile3",10,30,100,0,4,2)
+>>> dimacs_maker('testfile3',10,30,100,0,4,2)
 191
->>> file=open("testfile3.gr","r")
+>>> file=open('testfile3.gr','r')
 >>> print(file.read())
 c FILE                  :testfile3.gr
 c No. of vertices       :100
@@ -338,116 +339,116 @@ a 97 80 30
 a 100 24 16
 a 100 38 10
 <BLANKLINE>
->>> dimacs_maker("testfile", 0, 200, 10, 0,0)
+>>> dimacs_maker('testfile', 0, 200, 10, 0,0)
 Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> json_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> json_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.json","r")
+>>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
->>> testfile_1["graph"]["nodes"][1]
+>>> testfile_1['graph']['nodes'][1]
 {'id': '2'}
->>> testfile_1["graph"]["edges"][1]["source"]
+>>> testfile_1['graph']['edges'][1]['source']
 '5'
->>> testfile_1["graph"]["edges"][1]["target"]
+>>> testfile_1['graph']['edges'][1]['target']
 '4'
->>> testfile_1["graph"]["edges"][1]["weight"]
+>>> testfile_1['graph']['edges'][1]['weight']
 '148'
->>> json_to_yaml("testfile")
->>> file=open("testfile.yaml","r")
+>>> json_to_yaml('testfile')
+>>> file=open('testfile.yaml','r')
 >>> testfile_1_yaml=yaml.load(file)
->>> testfile_1_yaml["graph"]["edges"][1]["source"]
+>>> testfile_1_yaml['graph']['edges'][1]['source']
 '5'
->>> testfile_1_yaml["graph"]["edges"][1]["target"]
+>>> testfile_1_yaml['graph']['edges'][1]['target']
 '4'
->>> testfile_1_yaml["graph"]["edges"][1]["weight"]
+>>> testfile_1_yaml['graph']['edges'][1]['weight']
 '148'
->>> json_to_pickle("testfile")
->>> testfile_1_p=pickle.load( open( "testfile.p", "rb" ) )
->>> testfile_1_p["graph"]["edges"][1]["source"]
+>>> json_to_pickle('testfile')
+>>> testfile_1_p=pickle.load( open( 'testfile.p', 'rb' ) )
+>>> testfile_1_p['graph']['edges'][1]['source']
 '5'
->>> testfile_1_p["graph"]["edges"][1]["target"]
+>>> testfile_1_p['graph']['edges'][1]['target']
 '4'
->>> testfile_1_p["graph"]["edges"][1]["weight"]
+>>> testfile_1_p['graph']['edges'][1]['weight']
 '148'
 >>> random.seed(4)
->>> json_maker("testfile2",0,50,30,0,4,0)
+>>> json_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.json","r")
+>>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
->>> testfile_2["graph"]["nodes"][1]
+>>> testfile_2['graph']['nodes'][1]
 {'id': '2'}
->>> testfile_2["graph"]["edges"][1]["source"]
+>>> testfile_2['graph']['edges'][1]['source']
 '2'
->>> testfile_2["graph"]["edges"][1]["target"]
+>>> testfile_2['graph']['edges'][1]['target']
 '16'
->>> testfile_2["graph"]["edges"][1]["weight"]
+>>> testfile_2['graph']['edges'][1]['weight']
 '5'
->>> json_to_yaml("testfile2")
->>> file=open("testfile2.yaml","r")
+>>> json_to_yaml('testfile2')
+>>> file=open('testfile2.yaml','r')
 >>> testfile_2_yaml=yaml.load(file)
->>> testfile_2_yaml["graph"]["nodes"][1]
+>>> testfile_2_yaml['graph']['nodes'][1]
 {'id': '2'}
->>> testfile_2_yaml["graph"]["edges"][1]["source"]
+>>> testfile_2_yaml['graph']['edges'][1]['source']
 '2'
->>> testfile_2_yaml["graph"]["edges"][1]["target"]
+>>> testfile_2_yaml['graph']['edges'][1]['target']
 '16'
->>> testfile_2_yaml["graph"]["edges"][1]["weight"]
+>>> testfile_2_yaml['graph']['edges'][1]['weight']
 '5'
->>> json_to_pickle("testfile2")
->>> testfile_2_p=pickle.load( open( "testfile2.p", "rb" ) )
->>> testfile_2_p["graph"]["edges"][1]["source"]
+>>> json_to_pickle('testfile2')
+>>> testfile_2_p=pickle.load( open( 'testfile2.p', 'rb' ) )
+>>> testfile_2_p['graph']['edges'][1]['source']
 '2'
->>> testfile_2_p["graph"]["edges"][1]["target"]
+>>> testfile_2_p['graph']['edges'][1]['target']
 '16'
->>> testfile_2_p["graph"]["edges"][1]["weight"]
+>>> testfile_2_p['graph']['edges'][1]['weight']
 '5'
 >>> random.seed(20)
->>> json_maker("testfile3",10,30,100,0,4,2)
+>>> json_maker('testfile3',10,30,100,0,4,2)
 191
->>> file=open("testfile3.json","r")
+>>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
->>> testfile_3["graph"]["nodes"][1]
+>>> testfile_3['graph']['nodes'][1]
 {'id': '2'}
->>> testfile_3["graph"]["edges"][1]["source"]
+>>> testfile_3['graph']['edges'][1]['source']
 '3'
->>> testfile_3["graph"]["edges"][1]["target"]
+>>> testfile_3['graph']['edges'][1]['target']
 '74'
->>> testfile_3["graph"]["edges"][1]["weight"]
+>>> testfile_3['graph']['edges'][1]['weight']
 '15'
->>> json_to_yaml("testfile3")
->>> file=open("testfile3.yaml","r")
+>>> json_to_yaml('testfile3')
+>>> file=open('testfile3.yaml','r')
 >>> testfile_3_yaml=yaml.load(file)
->>> testfile_3_yaml["graph"]["nodes"][1]
+>>> testfile_3_yaml['graph']['nodes'][1]
 {'id': '2'}
->>> testfile_3_yaml["graph"]["edges"][1]["source"]
+>>> testfile_3_yaml['graph']['edges'][1]['source']
 '3'
->>> testfile_3_yaml["graph"]["edges"][1]["target"]
+>>> testfile_3_yaml['graph']['edges'][1]['target']
 '74'
->>> testfile_3_yaml["graph"]["edges"][1]["weight"]
+>>> testfile_3_yaml['graph']['edges'][1]['weight']
 '15'
->>> json_to_yaml("testfile24")
+>>> json_to_yaml('testfile24')
 [Error] Bad Input File
->>> json_to_pickle("testfile24")
+>>> json_to_pickle('testfile24')
 [Error] Bad Input File
->>> json_maker("testfile", 0, 200, 10, 0, 0)
+>>> json_maker('testfile', 0, 200, 10, 0, 0)
 Traceback (most recent call last):
         ...
 TypeError: json_maker() missing 1 required positional argument: 'sign'
->>> json_to_pickle("testfile3")
->>> testfile_3_p=pickle.load( open( "testfile3.p", "rb" ) )
->>> testfile_3_p["graph"]["edges"][1]["source"]
+>>> json_to_pickle('testfile3')
+>>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
+>>> testfile_3_p['graph']['edges'][1]['source']
 '3'
->>> testfile_3_p["graph"]["edges"][1]["target"]
+>>> testfile_3_p['graph']['edges'][1]['target']
 '74'
->>> testfile_3_p["graph"]["edges"][1]["weight"]
+>>> testfile_3_p['graph']['edges'][1]['weight']
 '15'
 >>> random.seed(2)
->>> csv_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> csv_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.csv","r")
+>>> file=open('testfile.csv','r')
 >>> print(file.read())
 4,3,-64
 5,4,148
@@ -458,9 +459,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 9,9,143
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker("testfile2",0,50,30,0,4,0)
+>>> csv_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.csv","r")
+>>> file=open('testfile2.csv','r')
 >>> print(file.read())
 1,10,46
 2,16,5
@@ -505,9 +506,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 27,14,7
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker("testfile3",10,30,100,0,4,2)
+>>> csv_maker('testfile3',10,30,100,0,4,2)
 191
->>> file=open("testfile3.csv","r")
+>>> file=open('testfile3.csv','r')
 >>> print(file.read())
 1,34,30
 3,74,15
@@ -701,14 +702,14 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 100,24,16
 100,38,10
 <BLANKLINE>
->>> csv_maker("testfile", 0, 200, 10, 0,0)
+>>> csv_maker('testfile', 0, 200, 10, 0,0)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> wel_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> wel_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.wel","r")
+>>> file=open('testfile.wel','r')
 >>> print(file.read())
 4 3 -64
 5 4 148
@@ -719,9 +720,9 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 9 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker("testfile2",0,50,30,0,4,0)
+>>> wel_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.wel","r")
+>>> file=open('testfile2.wel','r')
 >>> print(file.read())
 1 10 46
 2 16 5
@@ -766,9 +767,9 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 27 14 7
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker("testfile3",10,30,100,0,4,2)
+>>> wel_maker('testfile3',10,30,100,0,4,2)
 191
->>> file=open("testfile3.wel","r")
+>>> file=open('testfile3.wel','r')
 >>> print(file.read())
 1 34 30
 3 74 15
@@ -962,14 +963,14 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 100 24 16
 100 38 10
 <BLANKLINE>
->>> wel_maker("testfile", 0, 200, 10, 0,0)
+>>> wel_maker('testfile', 0, 200, 10, 0,0)
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> lp_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> lp_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.lp","r")
+>>> file=open('testfile.lp','r')
 >>> print(file.read())
 node(1).
 node(2).
@@ -990,9 +991,9 @@ edge(8,8,-97).
 edge(9,9,143).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker("testfile2",0,50,30,0,4,0)
+>>> lp_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.lp","r")
+>>> file=open('testfile2.lp','r')
 >>> print(file.read())
 node(1).
 node(2).
@@ -1067,7 +1068,7 @@ edge(26,19,28).
 edge(27,14,7).
 <BLANKLINE>
 >>> input_dic=get_input(input_func=print_test)
->>> input_dic["sign"]
+>>> input_dic['sign']
 2
 >>> input_dic['vertices']
 18
@@ -1084,9 +1085,9 @@ edge(27,14,7).
 >>> input_dic['max_edge']
 17
 >>> random.seed(2)
->>> tgf_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.tgf","r")
+>>> file=open('testfile.tgf','r')
 >>> print(file.read())
 1
 2
@@ -1108,9 +1109,9 @@ edge(27,14,7).
 9 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker("testfile2",0,50,30,0,4,0)
+>>> tgf_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.tgf","r")
+>>> file=open('testfile2.tgf','r')
 >>> print(file.read())
 1
 2
@@ -1186,9 +1187,9 @@ edge(27,14,7).
 27 14 7
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker("testfile", 0, 200, 10, 0, 2, 0)
+>>> dl_maker('testfile', 0, 200, 10, 0, 2, 0)
 7
->>> file=open("testfile.dl","r")
+>>> file=open('testfile.dl','r')
 >>> print(file.read())
 dl
 format=edgelist1
@@ -1203,9 +1204,9 @@ data:
 9 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker("testfile2",0,50,30,0,4,0)
+>>> dl_maker('testfile2',0,50,30,0,4,0)
 41
->>> file=open("testfile2.dl","r")
+>>> file=open('testfile2.dl','r')
 >>> print(file.read())
 dl
 format=edgelist1
@@ -1254,30 +1255,30 @@ data:
 27 14 7
 <BLANKLINE>
 >>> file.close()
->>> os.remove("testfile.csv")
->>> os.remove("testfile.dl")
->>> os.remove("testfile.gr")
->>> os.remove("testfile.json")
->>> os.remove("testfile.lp")
->>> os.remove("testfile.p")
->>> os.remove("testfile.tgf")
->>> os.remove("testfile.wel")
->>> os.remove("testfile.yaml")
->>> os.remove("testfile2.csv")
->>> os.remove("testfile2.dl")
->>> os.remove("testfile2.gr")
->>> os.remove("testfile2.json")
->>> os.remove("testfile2.lp")
->>> os.remove("testfile2.p")
->>> os.remove("testfile2.tgf")
->>> os.remove("testfile2.wel")
->>> os.remove("testfile2.yaml")
->>> os.remove("testfile3.csv")
->>> os.remove("testfile3.gr")
->>> os.remove("testfile3.json")
->>> os.remove("testfile3.p")
->>> os.remove("testfile3.wel")
->>> os.remove("testfile3.yaml")
->>> os.remove("logfile.log")
+>>> os.remove('testfile.csv')
+>>> os.remove('testfile.dl')
+>>> os.remove('testfile.gr')
+>>> os.remove('testfile.json')
+>>> os.remove('testfile.lp')
+>>> os.remove('testfile.p')
+>>> os.remove('testfile.tgf')
+>>> os.remove('testfile.wel')
+>>> os.remove('testfile.yaml')
+>>> os.remove('testfile2.csv')
+>>> os.remove('testfile2.dl')
+>>> os.remove('testfile2.gr')
+>>> os.remove('testfile2.json')
+>>> os.remove('testfile2.lp')
+>>> os.remove('testfile2.p')
+>>> os.remove('testfile2.tgf')
+>>> os.remove('testfile2.wel')
+>>> os.remove('testfile2.yaml')
+>>> os.remove('testfile3.csv')
+>>> os.remove('testfile3.gr')
+>>> os.remove('testfile3.json')
+>>> os.remove('testfile3.p')
+>>> os.remove('testfile3.wel')
+>>> os.remove('testfile3.yaml')
+>>> os.remove('logfile.log')
 
-'''
+"""

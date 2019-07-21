@@ -76,7 +76,7 @@ def zero_insert(input_string):
 
 def time_convert(input_string):
     """
-    This function convert input_string from sec to DD,HH,MM,SS format.
+    Convert input_string from sec to DD,HH,MM,SS format.
 
     :param input_string: input time string  in sec
     :type input_string: str
@@ -191,7 +191,7 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
 
 def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge):
     """
-    Initial output file.
+    Initialize output file.
 
     :param file: output file object
     :param file_name: file name
