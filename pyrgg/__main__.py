@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Pyrgg main."""
-from .pyrgg import *
+from pyrgg.pyrgg import *
 import time
 import sys
 import doctest
