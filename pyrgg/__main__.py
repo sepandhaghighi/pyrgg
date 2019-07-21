@@ -71,6 +71,6 @@ if __name__=="__main__":
         EXIT_FLAG = False
         while not EXIT_FLAG:
             run()
-            INPUTINDEX = input("Press [R] to restart Pyrgg or any other key to exit.")
+            INPUTINDEX = str(input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":
                 EXITFLAG = True
