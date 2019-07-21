@@ -12,6 +12,7 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+
 def line(num=11, char="#"):
     """
     Print line of char.
@@ -23,6 +24,7 @@ def line(num=11, char="#"):
     :return: None
     """
     print(char * num)
+
 
 def convert_bytes(num):
     """
@@ -134,7 +136,7 @@ def get_input(input_func=input):
             exit_flag = False
             while not exit_flag:
                 try:
-                    if item != "file_name" :
+                    if item != "file_name":
                         result_dict[item] = int(input_func(MENU_ITEMS1[item]))
                     else:
                         result_dict[item] = input_func(MENU_ITEMS1[item])
@@ -151,7 +153,9 @@ def get_input(input_func=input):
                 except Exception:
                     print("[Error] Bad Input!")
         result_dict["min_edge"] = max(0, result_dict["min_edge"])
-        result_dict["max_edge"] = min(result_dict["max_edge"], result_dict["vertices"])
+        result_dict["max_edge"] = min(
+            result_dict["max_edge"],
+            result_dict["vertices"])
         if result_dict["sign"] not in [1, 2]:
             result_dict["sign"] = 2
         if result_dict["output_format"] not in list(range(1, 10)):
