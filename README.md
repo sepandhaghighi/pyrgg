@@ -97,7 +97,7 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg` or `pip3 install pyrgg` (Need root access)							
+- `pip install pyrgg==0.2` or `pip3 install pyrgg==0.2` (Need root access)							
 			
 
 
