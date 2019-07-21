@@ -306,12 +306,13 @@ def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     return edge_number
 
 def json_to_yaml(filename):
-    '''
-    This function convert json file to yaml file
+    """
+    Convert json file to yaml file.
+
     :param filename: filename
     :type filename: str
     :return: None
-    '''
+    """
     try:
         file=open(filename+".json","r")
         json_data=json.loads(file.read())
@@ -324,12 +325,13 @@ def json_to_yaml(filename):
 
 
 def json_to_pickle(filename):
-    '''
-    This function convert json file to yaml file
+    """
+    Convert json file to yaml file.
+
     :param filename: filename
     :type filename: str
     :return: None
-    '''
+    """
     try:
         file=open(filename+".json","r")
         pickle_file=open(filename+".p","wb")
@@ -342,20 +344,21 @@ def json_to_pickle(filename):
 
 
 def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-       This function create output file in wel format
-       :param file_name: file name
-       :type file_name:str
-       :param min_range: weight min range
-       :type min_range:int
-       :param max_range: weight max_range
-       :type max_range:int
-       :param vertices: number of vertices
-       :type vertices:int
-       :param sign: weight sign flag
-       :type sign: int
-       :return: edge_number
-    '''
+    """
+    Create output file in wel format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_range: weight min range
+    :type min_range: int
+    :param max_range: weight max_range
+    :type max_range: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param sign: weight sign flag
+    :type sign: int
+    :return: edge_number as int
+    """
     file=open(file_name+".wel","w")
     dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
     edge_dic=dicts[0]
@@ -368,20 +371,21 @@ def wel_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     return edge_number
 
 def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-    This function create output file in ASP format
+    """
+    Create output file in ASP format.
+
     :param file_name: file name
-    :type file_name:str
+    :type file_name: str
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
+    :type max_range: int
     :param vertices: number of vertices
-    :type vertices:int
+    :type vertices: int
     :param sign: weight sign flag
     :type sign: int
-    :return: edge_number
-    '''
+    :return: edge_number as int
+    """
     file = open(file_name + ".lp", "w")
     dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
     edge_dic = dicts[0]
@@ -398,20 +402,21 @@ def lp_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.close()
     return edge_number
 def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-    This function create output file in Trivial Graph Format
+    """
+    Create output file in Trivial Graph Format (TGF).
+
     :param file_name: file name
-    :type file_name:str
+    :type file_name: str
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
+    :type max_range: int
     :param vertices: number of vertices
-    :type vertices:int
+    :type vertices: int
     :param sign: weight sign flag
     :type sign: int
-    :return: edge_number
-    '''
+    :return: edge_number as int
+    """
     file = open(file_name + ".tgf", "w")
     dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
     edge_dic = dicts[0]
@@ -429,20 +434,21 @@ def tgf_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.close()
     return edge_number
 def dl_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-    This function create output file in UCINET DL Format
+    """
+    Create output file in UCINET DL Format.
+
     :param file_name: file name
-    :type file_name:str
+    :type file_name: str
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
+    :type max_range: int
     :param vertices: number of vertices
-    :type vertices:int
+    :type vertices: int
     :param sign: weight sign flag
     :type sign: int
-    :return: edge_number
-    '''
+    :return: edge_number as int
+    """
     file = open(file_name + ".dl", "w")
     dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
     edge_dic = dicts[0]
@@ -457,12 +463,13 @@ def dl_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.close()
     return edge_number
 def print_test(a):
-    '''
-    This function added for get_input parameter injection testing
+    """
+    Added for get_input parameter injection testing.
+
     :param a: input
     :type a: int
-    :return: return len(a) as str
-    '''
+    :return: len(a) as str
+    """
     return str(len(a))
 
 
