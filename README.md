@@ -380,7 +380,7 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=large"/></a>
 
 
-## Reference
+## References
 					
 
 <div align="center">
