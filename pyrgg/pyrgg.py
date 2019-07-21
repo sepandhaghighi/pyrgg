@@ -470,13 +470,3 @@ def print_test(a):
     :return: len(a) as str
     """
     return str(len(a))
-
-
-
-
-
-
-
-
-
-
