@@ -9,9 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `CHANGELOG.md`
 - `dev-requirements.txt`
 - `requirements.txt`
+- `CODE_OF_CONDUCT.md`
+- `ISSUE_TEMPLATE.md`
+- `PULL_REQUEST_TEMPLATE.md`
+- `CONTRIBUTING.md`
 ### Changed
 - Test system modified
 - `README.md` modified
+- Docstrings modified
 
 ## [0.2] - 2017-09-20
 ### Added
