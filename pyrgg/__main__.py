@@ -129,6 +129,7 @@ def run():
 
 if __name__ == "__main__":
     tprint("Pyrgg", "larry3d")
+    tprint("v" + PYRGG_VERSION)
     args = sys.argv
     if len(args) > 1:
         if args[1].upper() == "TEST":
