@@ -131,8 +131,7 @@ def sign_gen():
     flag=random_system.randint(0,1)
     if flag==0:
         return 1
-    else:
-        return -1
+    return -1
 
 def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
     """
