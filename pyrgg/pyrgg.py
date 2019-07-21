@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+"""Pyrgg module."""
 import random
 import os
 import datetime
@@ -12,9 +14,10 @@ random_system=random
 
 def convert_bytes(num):
     """
-    convert num to idiomatic byte unit
+    Convert num to idiomatic byte unit.
+
     :param num: the input number.
-    :type num:int
+    :type num: int
     :return: str
     """
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
@@ -22,29 +25,31 @@ def convert_bytes(num):
             return "%3.1f %s" % (num, x)
         num /= 1024.0
 def filesize(fileaddr):
-    '''
-    This function calculate output file size
+    """
+    Calculate output file size.
+
     :param fileaddr: file addresses
-    :type fileaddr:str
+    :type fileaddr: str
     :return: file size for print as string
-    '''
+    """
     file_info=os.stat(fileaddr)
     file_size= file_info.st_size
     print("Graph File Size : "+convert_bytes(file_size))
 
 def logger(vertices_number,edge_number,file_name,elapsed_time):
-    '''
-    This function save generated graphs log
-    :param vertices_number: nubmer of vertices
+    """
+    Save generated graphs log.
+
+    :param vertices_number: number of vertices
     :type vertices_number:int
-    :param edge_number: Number of edges
-    :type edge_number:int;
-    :param file_name:  File Name
-    :type file_name:str
-    :param elapsed_time: Elapsed Time
-     :type elapsed_time : str
+    :param edge_number: number of edges
+    :type edge_number: int
+    :param file_name: file name
+    :type file_name: str
+    :param elapsed_time: elapsed time
+    :type elapsed_time : str
     :return:  None
-    '''
+    """
     try:
         file = open("logfile.log", "a")
         file.write(str(datetime.datetime.now())+"\n")
@@ -58,23 +63,25 @@ def logger(vertices_number,edge_number,file_name,elapsed_time):
         print("[Error] Logger Faild!")
 
 def zero_insert(input_string):
-    '''
-    This function get a string as input if input is one digit add a zero
+    """
+    Get a string as input if input is one digit add a zero.
+
     :param input_string: input digit az string
-    :type input_string:str
+    :type input_string: str
     :return: modified output as str
-    '''
+    """
     if len(input_string)==1:
         return "0"+input_string
     return input_string
 
 def time_convert(input_string):
-    '''
-    This function convert input_string from sec to DD,HH,MM,SS Format
+    """
+    This function convert input_string from sec to DD,HH,MM,SS format.
+
     :param input_string: input time string  in sec
-    :type input_string:str
-    :return: converted time as string
-    '''
+    :type input_string: str
+    :return: converted time as str
+    """
     input_sec=float(input_string)
     input_minute=input_sec//60
     input_sec=int(input_sec-input_minute*60)
@@ -86,10 +93,13 @@ def time_convert(input_string):
 
 
 def get_input(input_func=input):
-    '''
-    This function get input from user and return as dictionary
-    :return: inputs as dictionary
-    '''
+    """
+    Get input from user and return as dictionary.
+
+    :param input_func : input function
+    :type input_func : function object
+    :return: inputs as dict
+    """
     try:
         file_name=input_func("File Name : ")
         if file_name+".gr" in os.listdir():
@@ -113,28 +123,31 @@ def get_input(input_func=input):
         sys.exit()
 
 def sign_gen():
-    '''
-    This function return random sign
+    """
+    Return random sign.
+
     :return: 1 or -1
-    '''
+    """
     flag=random_system.randint(0,1)
     if flag==0:
         return 1
     else:
         return -1
+
 def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
-    '''
-    This function generate branch and weight vector of each vertex
+    """
+    Generate branch and weight vector of each vertex.
+
     :param random_edge: number of vertex edges
-    :type random_edge:int
+    :type random_edge: int
     :param vertices_number: number of vertices
-    :type vertices_number:int
+    :type vertices_number: int
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max range
-    :type max_range:int
+    :type max_range: int
     :return: branch and weight list
-    '''
+    """
     index = 0
     branch_list = []
     weight_list=[]
@@ -150,16 +163,17 @@ def branch_gen(random_edge,vertices_number,min_range,max_range,sign):
             index += 1
     return [branch_list,weight_list]
 def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
-    '''
-    This function generate each vertex connection number
+    """
+    Generate each vertex connection number.
+
     :param vertices_number: number of vertices
-    :type vertices_number:int
+    :type vertices_number: int
     :param min_range: weight min_range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
-    :return: list of 2 dictionary
-    '''
+    :type max_range: int
+    :return: list of dicts
+    """
     temp=0
     vertices_id=list(range(1,vertices_number+1))
     vertices_edge=[]
@@ -176,22 +190,23 @@ def edge_gen(vertices_number,min_range,max_range,min_edge,max_edge,sign):
 
 
 def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge):
-    '''
-    This function initial output file
+    """
+    Initial output file.
+
     :param file: output file object
     :param file_name: file name
-    :type file_name:str
-    :type file:file_object
+    :type file_name: str
+    :type file: file_object
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max range
-    :type max_range:int
+    :type max_range: int
     :param vertices: vertices number
-    :type vertices:int
+    :type vertices: int
     :param edge:  edge number
-    :type edge:int
+    :type edge: int
     :return: None
-    '''
+    """
     file.write("c FILE                  :"+file_name+".gr"+"\n")
     file.write("c No. of vertices       :"+str(vertices)+"\n")
     file.write("c No. of directed edges :"+str(edge)+"\n")
@@ -202,20 +217,21 @@ def file_init(file,file_name,min_range,max_range,vertices,edge,min_edge,max_edge
     file.write("p sp "+str(vertices)+" "+str(edge)+"\n")
 
 def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-    This function create output file and fill in
+    """
+    Create output file and fill in.
+
     :param file_name: file name
-    :type file_name:str
+    :type file_name: str
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
+    :type max_range: int
     :param vertices: number of vertices
-    :type vertices:int
+    :type vertices: int
     :param sign: weight sign flag
     :type sign: int
-    :return: edge_number
-    '''
+    :return: edge_number as int
+    """
     file=open(file_name+".gr","w")
     dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
     edge_dic=dicts[0]
@@ -229,20 +245,21 @@ def dimacs_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     return edge_number
 
 def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-    This function create output file in json format
+    """
+    Create output file in json format.
+
     :param file_name: file name
-    :type file_name:str
+    :type file_name: str
     :param min_range: weight min range
-    :type min_range:int
+    :type min_range: int
     :param max_range: weight max_range
-    :type max_range:int
+    :type max_range: int
     :param vertices: number of vertices
-    :type vertices:int
+    :type vertices: int
     :param sign: weight sign flag
     :type sign: int
-    :return: edge_number
-    '''
+    :return: edge_number as int
+    """
     file = open(file_name + ".json", "w")
     dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
     edge_dic = dicts[0]
@@ -262,20 +279,21 @@ def json_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
     file.close()
     return edge_number
 def csv_maker(file_name,min_range,max_range,vertices,min_edge,max_edge,sign):
-    '''
-       This function create output file in csv format
-       :param file_name: file name
-       :type file_name:str
-       :param min_range: weight min range
-       :type min_range:int
-       :param max_range: weight max_range
-       :type max_range:int
-       :param vertices: number of vertices
-       :type vertices:int
-       :param sign: weight sign flag
-       :type sign: int
-       :return: edge_number
-    '''
+    """
+    Create output file in csv format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_range: weight min range
+    :type min_range: int
+    :param max_range: weight max_range
+    :type max_range: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param sign: weight sign flag
+    :type sign: int
+    :return: edge_number as int
+    """
     file=open(file_name+".csv","w")
     dicts=edge_gen(vertices,min_range,max_range,min_edge,max_edge,sign)
     edge_dic=dicts[0]
