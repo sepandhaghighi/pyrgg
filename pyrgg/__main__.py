@@ -4,6 +4,7 @@ from .pyrgg import *
 import time
 import sys
 import doctest
+from art import tprint
 def run():
     """
     Run proper converter.
@@ -56,8 +57,8 @@ def run():
     print("Where --> " + Source_dir)
     logger(vertices_number, edge_number, file_name + ".gr", elapsed_time_format)
 if __name__=="__main__":
+    tprint("Pyrgg","larry3d")
     args=sys.argv
-
     if len(args)>1:
         if args[1].upper()=="TEST":
             error_flag = doctest.testfile("test.py",verbose=False)[0]
