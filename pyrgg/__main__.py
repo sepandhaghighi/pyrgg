@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pyrgg main."""
 from pyrgg.pyrgg import *
+from pyrgg.params import *
 import time
 import sys
 import doctest
@@ -119,7 +120,7 @@ def run():
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
     print("Graph Generated In " + elapsed_time_format)
-    print("Where --> " + Source_dir)
+    print("Where --> " + SOURCE_DIR)
     logger(
         vertices_number,
         edge_number,

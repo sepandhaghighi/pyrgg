@@ -9,8 +9,6 @@ import json
 import pickle
 from pyrgg.params import *
 
-PYRGG_VERSION = "0.2"
-Source_dir = os.getcwd()
 # random_system=random.SystemRandom()
 random_system = random
 

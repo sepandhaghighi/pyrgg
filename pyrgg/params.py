@@ -13,3 +13,8 @@ MENU_ITEMS2 = {"vertices": "Vertices Number : ",
             "sign": "Signed[1] or Unsigned[2]"}
 
 
+PYRGG_VERSION = "0.2"
+
+SOURCE_DIR = os.getcwd()
+
+
