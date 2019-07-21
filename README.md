@@ -14,7 +14,28 @@
   <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 
-</div>				
+</div>	
+
+----------
+## Table of contents					
+   * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
+   * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
+   * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
+   * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
+   * [Todo](https://github.com/sepandhaghighi/pyrgg#todo)
+   * [Sample Files](https://github.com/sepandhaghighi/pyrgg#sample-files)
+   * [Example Of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
+   * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
+   * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
+   * [Dependencies](https://github.com/sepandhaghighi/pyrgg#dependencies)
+   * [Contribution](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CONTRIBUTING.md)
+   * [References](https://github.com/sepandhaghighi/pyrgg#references)
+   * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
+   * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
+   * [License](https://github.com/sepandhaghighi/pyrgg#license)
+   * [Donate](https://github.com/sepandhaghighi/pyrgg#donate-to-our-project)
+   * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
+   * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
 				
 ## Overview			
 Pyrgg is an easy-to-use synthetic random graph generator written in Python which supports various graph file formats including <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS .gr </a> files.
