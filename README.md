@@ -102,8 +102,15 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ### Conda
 
 - Check [Conda Managing Package](https://conda.io)
-- `conda install -c sepandhaghighi pyrgg` (Need root access)			
+- `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
+### System Requirements
+Pyrgg will likely run on a modern dual core PC. Typical configuration is:
+
+- Dual Core CPU (2.0 Ghz+)
+- 4GB of RAM
+
+Note that it may run on lower end equipment though good performance is not guaranteed.		
 
 
 ## Usage			
