@@ -7,6 +7,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.gr
+*.json
+*.csv
+*.wel
+*.lp
+*.p
+*.dl
+*.tgf
+
 # C extensions
 *.so
 
