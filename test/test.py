@@ -8,6 +8,9 @@
 >>> import pickle
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2}
+True
 >>> logger(100,50,'test','2min')
 >>> convert_bytes(200)
 '200.0 bytes'
