@@ -5,7 +5,6 @@ from pyrgg.params import *
 import time
 import sys
 import doctest
-from art import tprint
 
 GENERATOR_MENU = {1:dimacs_maker,2:json_maker,3:csv_maker,4:json_maker,5:wel_maker,6:lp_maker,7:json_maker,8:dl_maker,9:tgf_maker}
 
@@ -51,9 +50,7 @@ def run():
 
 
 if __name__ == "__main__":
-    tprint("Pyrgg", "larry3d")
-    tprint("v" + PYRGG_VERSION)
-    line(50)
+    description_print()
     args = sys.argv
     if len(args) > 1:
         if args[1].upper() == "TEST":

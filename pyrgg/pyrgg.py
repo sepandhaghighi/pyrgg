@@ -7,11 +7,74 @@ import sys
 import yaml
 import json
 import pickle
+from art import tprint
+from art import tprint
 from pyrgg.params import *
 
 # random_system=random.SystemRandom()
 random_system = random
 
+def left_justify(words, width):
+    """
+    Left justify words.
+
+    :param words: list of words
+    :type words : list
+    :param width: width of each line
+    :type width: int
+    :return: left justified words as list
+    """
+    return ' '.join(words).ljust(width)
+
+
+def justify(words, width):
+    """
+    Justify input words.
+
+    :param words: list of words
+    :type words : list
+    :param width: width of each line
+    :type width : int
+    :return: list of justified words as list
+    """
+    line = []
+    col = 0
+    for word in words:
+        if line and col + len(word) > width:
+            if len(line) == 1:
+                yield left_justify(line, width)
+            else:
+                # After n + 1 spaces are placed between each pair of
+                # words, there are r spaces left over; these result in
+                # wider spaces at the left.
+                n, r = divmod(width - col + 1, len(line) - 1)
+                narrow = ' ' * (n + 1)
+                if r == 0:
+                    yield narrow.join(line)
+                else:
+                    wide = ' ' * (n + 2)
+                    yield wide.join(line[:r] + [narrow.join(line[r:])])
+            line, col = [], 0
+        line.append(word)
+        col += len(word) + 1
+    if line:
+        yield left_justify(line, width)
+
+def description_print():
+    """
+    Print justified description for overview in console.
+
+    :return: None
+    """
+
+    tprint("Pyrgg", "larry3d")
+    tprint("v" + PYRGG_VERSION)
+    print(PYRGG_LINKS)
+    line(40)
+    print("\n")
+    print("\n".join(justify(PYRGG_DESCRIPTION.split(),100)))
+    print("\n")
+    line(40)
 
 def line(num=11, char="#"):
     """
