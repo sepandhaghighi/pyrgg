@@ -7,12 +7,11 @@ import sys
 import yaml
 import json
 import pickle
-from art import tprint
-from art import tprint
 from pyrgg.params import *
 
 # random_system=random.SystemRandom()
 random_system = random
+
 
 def left_justify(words, width):
     """
@@ -66,9 +65,6 @@ def description_print():
 
     :return: None
     """
-
-    tprint("Pyrgg", "larry3d")
-    tprint("v" + PYRGG_VERSION)
     print(PYRGG_LINKS)
     line(40)
     print("\n")

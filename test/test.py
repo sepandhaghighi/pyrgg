@@ -8,6 +8,24 @@
 >>> import pickle
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
+>>> description_print()
+Webpage : http://pyrgg.shaghighi.ir/
+Repository : https://github.com/sepandhaghighi/pyrgg
+Paper : https://doi.org/10.21105/joss.00331
+* If you use Pyrgg in your research, please cite our paper
+<BLANKLINE>
+########################################
+<BLANKLINE>
+<BLANKLINE>
+Pyrgg  is  an  easy-to-use synthetic random graph generator written in Python which supports various
+graph file formats including DIMACS .gr files. Pyrgg has the ability to generate graphs of different
+sizes  and  is designed to provide input files for broad range of graph-based research applications,
+including  but  not  limited  to  testing, benchmarking and performance-analysis of graph processing
+frameworks.  Pyrgg  target  audiences  are  computer scientists who study graph algorithms and graph
+processing frameworks.
+<BLANKLINE>
+<BLANKLINE>
+########################################
 >>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2}
 True
