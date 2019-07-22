@@ -14,12 +14,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `PULL_REQUEST_TEMPLATE.md`
 - `CONTRIBUTING.md`
 - `version_check.py`
+- `pyrgg_profile.py`
 ### Changed
 - Test system modified
 - `README.md` modified
 - Docstrings modified
 - `get_input` function modified
 - `edge_gen` function modified
+- Parameters moved to `params.py`
 
 ## [0.2] - 2017-09-20
 ### Added
