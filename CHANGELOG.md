@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Test system modified
 - `README.md` modified
 - Docstrings modified
+- `get_input` function modified
+- `edge_gen` function modified
 
 ## [0.2] - 2017-09-20
 ### Added
