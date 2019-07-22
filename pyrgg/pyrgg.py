@@ -120,10 +120,6 @@ def input_filter(input_dict):
     :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
-    filtered_dict["min_edge"] = max(0, filtered_dict["min_edge"])
-    filtered_dict["max_edge"] = min(
-        filtered_dict["max_edge"],
-        filtered_dict["vertices"])
     if filtered_dict["min_edge"] < 0:
         filtered_dict["min_edge"] = -1 * filtered_dict["min_edge"]
     if filtered_dict["max_edge"] < 0:
@@ -132,6 +128,8 @@ def input_filter(input_dict):
         temp = filtered_dict["min_edge"]
         filtered_dict["min_edge"] = filtered_dict["max_edge"]
         filtered_dict["max_edge"] = temp
+    filtered_dict["max_edge"] = min(filtered_dict["max_edge"],filtered_dict["vertices"])
+    filtered_dict["min_edge"] = min(filtered_dict["min_edge"], filtered_dict["vertices"])
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
     if filtered_dict["output_format"] not in list(range(1, 10)):
