@@ -6,6 +6,8 @@
 >>> import json
 >>> import yaml
 >>> import pickle
+>>> logger(2,2,2,2)
+[Error] Logger Faild!
 >>> logger(100,50,'test','2min')
 >>> convert_bytes(200)
 '200.0 bytes'
@@ -31,6 +33,8 @@ TypeError: object of type 'int' has no len()
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
+>>> line(12,"*")
+************
 >>> random.seed(2)
 >>> sign_gen()
 1
@@ -457,6 +461,8 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 8,8,-97
 9,9,143
 <BLANKLINE>
+>>> filesize('testfile.csv')
+Graph File Size : 64.0 bytes
 >>> random.seed(4)
 >>> csv_maker('testfile2',0,50,30,0,4,0)
 41
