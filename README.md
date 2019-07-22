@@ -97,7 +97,11 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
 - `pip install pyrgg==0.2` or `pip3 install pyrgg==0.2` (Need root access)							
-			
+
+### Conda
+
+- Check [Conda Managing Package](https://conda.io)
+- `conda install -c sepandhaghighi pyrgg` (Need root access)			
 
 
 
