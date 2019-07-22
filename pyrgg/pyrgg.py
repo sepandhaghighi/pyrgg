@@ -111,6 +111,32 @@ def time_convert(input_string):
     return zero_insert(str(input_day)) + " days, " + zero_insert(str(input_hour)) + " hour, " + \
         zero_insert(str(input_minute)) + " minutes, " + zero_insert(str(input_sec)) + " seconds"
 
+def input_filter(input_dict):
+    """
+    Filter input data.
+
+    :param input_dict: input dictionary
+    :type input_dict: dict
+    :return: filtered data as dict
+    """
+    filtered_dict = input_dict.copy()
+    filtered_dict["min_edge"] = max(0, filtered_dict["min_edge"])
+    filtered_dict["max_edge"] = min(
+        filtered_dict["max_edge"],
+        filtered_dict["vertices"])
+    if filtered_dict["min_edge"] < 0:
+        filtered_dict["min_edge"] = -1 * filtered_dict["min_edge"]
+    if filtered_dict["max_edge"] < 0:
+        filtered_dict["max_edge"] = -1 * filtered_dict["max_edge"]
+    if filtered_dict["min_edge"] > filtered_dict["max_edge"]:
+        temp = filtered_dict["min_edge"]
+        filtered_dict["min_edge"] = filtered_dict["max_edge"]
+        filtered_dict["max_edge"] = temp
+    if filtered_dict["sign"] not in [1, 2]:
+        filtered_dict["sign"] = 2
+    if filtered_dict["output_format"] not in list(range(1, 10)):
+        filtered_dict["output_format"] = 1
+    return filtered_dict
 
 def get_input(input_func=input):
     """
@@ -152,14 +178,7 @@ def get_input(input_func=input):
                     exit_flag = True
                 except Exception:
                     print("[Error] Bad Input!")
-        result_dict["min_edge"] = max(0, result_dict["min_edge"])
-        result_dict["max_edge"] = min(
-            result_dict["max_edge"],
-            result_dict["vertices"])
-        if result_dict["sign"] not in [1, 2]:
-            result_dict["sign"] = 2
-        if result_dict["output_format"] not in list(range(1, 10)):
-            result_dict["output_format"] = 1
+        result_dict = input_filter(result_dict)
         return result_dict
     except Exception:
         print("[Error] Bad Input!")
