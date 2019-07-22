@@ -461,8 +461,6 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 8,8,-97
 9,9,143
 <BLANKLINE>
->>> filesize('testfile.csv')
-Graph File Size : 64.0 bytes
 >>> random.seed(4)
 >>> csv_maker('testfile2',0,50,30,0,4,0)
 41
