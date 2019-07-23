@@ -99,7 +99,7 @@ def convert_bytes(num):
         num /= 1024.0
 
 
-def filesize(fileaddr):
+def filesize(fileaddr):  # pragma: no cover
     """
     Calculate output file size.
 
