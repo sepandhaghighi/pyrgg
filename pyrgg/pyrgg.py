@@ -211,12 +211,13 @@ def get_input(input_func=input):
         result_dict = {
             "file_name": "",
             "vertices": 0,
-            "max_weight": 0,
-            "min_weight": 0,
+            "max_weight": 1,
+            "min_weight": 1,
             "min_edge": 0,
             "max_edge": 0,
             "sign": 1,
-            "output_format": 1}
+            "output_format": 1,
+            "weight":1}
         MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
         MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
         for item in MENU_ITEMS_KEYS1:
@@ -233,6 +234,8 @@ def get_input(input_func=input):
 
         for item in MENU_ITEMS_KEYS2:
             exit_flag = False
+            if result_dict["weight"] == 2 and (item == "max_weight" or item == "min_weight"):
+                continue
             while not exit_flag:
                 try:
                     result_dict[item] = int(input_func(MENU_ITEMS2[item]))
