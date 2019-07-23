@@ -234,7 +234,7 @@ def get_input(input_func=input):
 
         for item in MENU_ITEMS_KEYS2:
             exit_flag = False
-            if result_dict["weight"] == 2 and (item == "max_weight" or item == "min_weight"):
+            if result_dict["weight"] !=1 and (item == "max_weight" or item == "min_weight"):
                 continue
             while not exit_flag:
                 try:
