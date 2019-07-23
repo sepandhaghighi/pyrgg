@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `CONTRIBUTING.md`
 - `version_check.py`
 - `pyrgg_profile.py`
+- Unweighted graph
 ### Changed
 - Test system modified
 - `README.md` modified
