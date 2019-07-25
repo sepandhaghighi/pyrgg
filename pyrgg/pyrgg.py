@@ -307,9 +307,7 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign):
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
     weight_list = []
-    i = 0
-    while(i < len(vertices_id)):
-        i += 1
+    for i in vertices_id:
         if min_edge != max_edge:
             random_edge = random_system.randint(min_edge, max_edge)
         else:
