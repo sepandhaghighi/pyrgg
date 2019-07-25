@@ -261,7 +261,7 @@ def sign_gen():
     return -1
 
 
-def branch_gen(random_edge, vertices_number, min_range, max_range, sign):
+def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range, sign, direct, used_vertices):
     """
     Generate branch and weight vector of each vertex.
 
@@ -278,8 +278,13 @@ def branch_gen(random_edge, vertices_number, min_range, max_range, sign):
     index = 0
     branch_list = []
     weight_list = []
+    all_vertices = list(range(1, vertices_number + 1))
     while (index < random_edge):
-        random_tail = random_system.randint(1, vertices_number + 1)
+        reference_vertices = all_vertices
+        if direct == 2:
+            reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
+        random_tail = random_system.choice(reference_vertices)
+        used_vertices[random_tail].append(vertex_index)
         if sign == 2:
             random_weight = random_system.randint(min_range, max_range)
         else:
@@ -291,7 +296,7 @@ def branch_gen(random_edge, vertices_number, min_range, max_range, sign):
     return [branch_list, weight_list]
 
 
-def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign):
+def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, direct):
     """
     Generate each vertex connection number.
 
@@ -307,17 +312,21 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign):
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
     weight_list = []
+    used_vertices = {k:[] for k in vertices_id}
     for i in vertices_id:
         if min_edge != max_edge:
             random_edge = random_system.randint(min_edge, max_edge)
         else:
             random_edge = min_edge
         temp_list = branch_gen(
+            i,
             random_edge,
             vertices_number,
             min_range,
             max_range,
-            sign)
+            sign,
+            direct,
+            used_vertices)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
         temp = temp + random_edge
