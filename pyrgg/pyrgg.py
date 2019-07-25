@@ -265,6 +265,8 @@ def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range,
     """
     Generate branch and weight vector of each vertex.
 
+    :param vertex_index: origin vertex index
+    :type vertex_index: int
     :param random_edge: number of vertex edges
     :type random_edge: int
     :param vertices_number: number of vertices
@@ -273,6 +275,10 @@ def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range,
     :type min_range: int
     :param max_range: weight max range
     :type max_range: int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: branch and weight list
     """
     index = 0
@@ -306,6 +312,10 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, di
     :type min_range: int
     :param max_range: weight max_range
     :type max_range: int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: list of dicts
     """
     temp = 0
@@ -392,6 +402,8 @@ def dimacs_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".gr", "w")
@@ -438,6 +450,8 @@ def json_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".json", "w")
@@ -484,6 +498,8 @@ def csv_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".csv", "w")
@@ -559,6 +575,8 @@ def wel_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".wel", "w")
@@ -596,6 +614,8 @@ def lp_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".lp", "w")
@@ -638,6 +658,8 @@ def tgf_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".tgf", "w")
@@ -681,6 +703,8 @@ def dl_maker(
     :type vertices: int
     :param sign: weight sign flag
     :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
     :return: edge_number as int
     """
     file = open(file_name + ".dl", "w")
