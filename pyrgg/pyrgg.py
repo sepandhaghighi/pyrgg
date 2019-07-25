@@ -195,6 +195,8 @@ def input_filter(input_dict):
     filtered_dict["min_edge"] = min(filtered_dict["min_edge"], filtered_dict["vertices"])
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
+    if filtered_dict["direct"] not in [1,2]:
+        filtered_dict["direct"] = 1
     if filtered_dict["output_format"] not in list(range(1, 10)):
         filtered_dict["output_format"] = 1
     return filtered_dict
