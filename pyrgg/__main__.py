@@ -24,6 +24,7 @@ def run():
     min_edge = input_dict["min_edge"]
     max_edge = input_dict["max_edge"]
     sign = input_dict["sign"]
+    direct = input_dict["direct"]
     print("Generating . . . ")
     edge_number = GENERATOR_MENU[input_dict["output_format"]](
             file_name,
@@ -32,7 +33,8 @@ def run():
             vertices_number,
             min_edge,
             max_edge,
-            sign)
+            sign,
+            direct)
     if input_dict["output_format"] == 4 :
         json_to_yaml(file_name)
     if input_dict["output_format"] == 7 :

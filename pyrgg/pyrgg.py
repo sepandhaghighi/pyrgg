@@ -217,7 +217,8 @@ def get_input(input_func=input):
             "max_edge": 0,
             "sign": 1,
             "output_format": 1,
-            "weight":1}
+            "weight":1,
+            "direct":1}
         MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
         MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
         for item in MENU_ITEMS_KEYS1:
