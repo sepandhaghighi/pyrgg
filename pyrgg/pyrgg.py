@@ -377,7 +377,8 @@ def dimacs_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file and fill in.
 
@@ -394,7 +395,7 @@ def dimacs_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".gr", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -422,7 +423,8 @@ def json_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in json format.
 
@@ -439,7 +441,7 @@ def json_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".json", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -467,7 +469,8 @@ def csv_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in csv format.
 
@@ -484,7 +487,7 @@ def csv_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".csv", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -541,7 +544,8 @@ def wel_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in wel format.
 
@@ -558,7 +562,7 @@ def wel_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".wel", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -577,7 +581,8 @@ def lp_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in ASP format.
 
@@ -594,7 +599,7 @@ def lp_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".lp", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -618,7 +623,8 @@ def tgf_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in Trivial Graph Format (TGF).
 
@@ -635,7 +641,7 @@ def tgf_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".tgf", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -660,7 +666,8 @@ def dl_maker(
         vertices,
         min_edge,
         max_edge,
-        sign):
+        sign,
+        direct):
     """
     Create output file in UCINET DL Format.
 
@@ -677,7 +684,7 @@ def dl_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".dl", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign)
+    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
