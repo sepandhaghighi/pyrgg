@@ -288,10 +288,10 @@ def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range,
     branch_list = []
     weight_list = []
     all_vertices = list(range(1, vertices_number + 1))
-    while (index < random_edge):
-        reference_vertices = all_vertices
-        if direct == 2:
-            reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
+    reference_vertices = all_vertices
+    if direct == 2:
+        reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
+    while (index < max(random_edge,len(reference_vertices))):
         random_tail = random_system.choice(reference_vertices)
         used_vertices[random_tail].append(vertex_index)
         if sign == 2:
