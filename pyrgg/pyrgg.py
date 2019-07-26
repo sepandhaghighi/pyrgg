@@ -292,12 +292,14 @@ def branch_gen(vertex_index, random_edge, min_range, max_range, sign, direct, al
     reference_vertices = all_vertices
     if direct == 2 and (vertex_index in used_vertices.keys()):
         reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
-    while (index < min(random_edge,len(reference_vertices))):
+    threhold = min(random_edge,len(reference_vertices))
+    while (index < threhold):
         random_tail = random_system.choice(reference_vertices)
-        if random_tail in used_vertices.keys():
-            used_vertices[random_tail].append(vertex_index)
-        else:
-            used_vertices[random_tail] = [vertex_index]
+        if direct == 2:
+            if random_tail in used_vertices.keys():
+                used_vertices[random_tail].append(vertex_index)
+            else:
+                used_vertices[random_tail] = [vertex_index]
         if sign == 2:
             random_weight = random_system.randint(min_range, max_range)
         else:
