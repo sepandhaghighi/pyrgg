@@ -7,7 +7,17 @@ import sys
 import doctest
 from art import tprint
 
-GENERATOR_MENU = {1:dimacs_maker,2:json_maker,3:csv_maker,4:json_maker,5:wel_maker,6:lp_maker,7:json_maker,8:dl_maker,9:tgf_maker}
+GENERATOR_MENU = {
+    1: dimacs_maker,
+    2: json_maker,
+    3: csv_maker,
+    4: json_maker,
+    5: wel_maker,
+    6: lp_maker,
+    7: json_maker,
+    8: dl_maker,
+    9: tgf_maker}
+
 
 def run():
     """
@@ -27,17 +37,17 @@ def run():
     direct = input_dict["direct"]
     print("Generating . . . ")
     edge_number = GENERATOR_MENU[input_dict["output_format"]](
-            file_name,
-            min_weight,
-            max_weight,
-            vertices_number,
-            min_edge,
-            max_edge,
-            sign,
-            direct)
-    if input_dict["output_format"] == 4 :
+        file_name,
+        min_weight,
+        max_weight,
+        vertices_number,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
+    if input_dict["output_format"] == 4:
         json_to_yaml(file_name)
-    if input_dict["output_format"] == 7 :
+    if input_dict["output_format"] == 7:
         json_to_pickle(file_name)
     filesize(file_name + SUFFIX_MENU[input_dict["output_format"]])
     second_time = time.perf_counter()

@@ -59,6 +59,7 @@ def justify(words, width):
     if line:
         yield left_justify(line, width)
 
+
 def description_print():
     """
     Print justified description for overview in console.
@@ -68,9 +69,10 @@ def description_print():
     print(PYRGG_LINKS)
     line(40)
     print("\n")
-    print("\n".join(justify(PYRGG_DESCRIPTION.split(),100)))
+    print("\n".join(justify(PYRGG_DESCRIPTION.split(), 100)))
     print("\n")
     line(40)
+
 
 def line(num=11, char="#"):
     """
@@ -170,6 +172,7 @@ def time_convert(input_string):
     return zero_insert(str(input_day)) + " days, " + zero_insert(str(input_hour)) + " hour, " + \
         zero_insert(str(input_minute)) + " minutes, " + zero_insert(str(input_sec)) + " seconds"
 
+
 def input_filter(input_dict):
     """
     Filter input data.
@@ -191,15 +194,20 @@ def input_filter(input_dict):
         temp = filtered_dict["min_edge"]
         filtered_dict["min_edge"] = filtered_dict["max_edge"]
         filtered_dict["max_edge"] = temp
-    filtered_dict["max_edge"] = min(filtered_dict["max_edge"],filtered_dict["vertices"])
-    filtered_dict["min_edge"] = min(filtered_dict["min_edge"], filtered_dict["vertices"])
+    filtered_dict["max_edge"] = min(
+        filtered_dict["max_edge"],
+        filtered_dict["vertices"])
+    filtered_dict["min_edge"] = min(
+        filtered_dict["min_edge"],
+        filtered_dict["vertices"])
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
-    if filtered_dict["direct"] not in [1,2]:
+    if filtered_dict["direct"] not in [1, 2]:
         filtered_dict["direct"] = 1
     if filtered_dict["output_format"] not in list(range(1, 10)):
         filtered_dict["output_format"] = 1
     return filtered_dict
+
 
 def get_input(input_func=input):
     """
@@ -219,8 +227,8 @@ def get_input(input_func=input):
             "max_edge": 0,
             "sign": 1,
             "output_format": 1,
-            "weight":1,
-            "direct":1}
+            "weight": 1,
+            "direct": 1}
         MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
         MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
         for item in MENU_ITEMS_KEYS1:
@@ -237,7 +245,8 @@ def get_input(input_func=input):
 
         for item in MENU_ITEMS_KEYS2:
             exit_flag = False
-            if result_dict["weight"] !=1 and (item == "max_weight" or item == "min_weight"):
+            if result_dict["weight"] != 1 and (
+                    item == "max_weight" or item == "min_weight"):
                 continue
             while not exit_flag:
                 try:
@@ -264,7 +273,15 @@ def sign_gen():
     return -1
 
 
-def branch_gen(vertex_index, random_edge, min_range, max_range, sign, direct, all_vertices, used_vertices):
+def branch_gen(
+        vertex_index,
+        random_edge,
+        min_range,
+        max_range,
+        sign,
+        direct,
+        all_vertices,
+        used_vertices):
     """
     Generate branch and weight vector of each vertex.
 
@@ -291,8 +308,9 @@ def branch_gen(vertex_index, random_edge, min_range, max_range, sign, direct, al
     weight_list = []
     reference_vertices = all_vertices
     if direct == 2 and (vertex_index in used_vertices.keys()):
-        reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
-    threhold = min(random_edge,len(reference_vertices))
+        reference_vertices = list(
+            set(reference_vertices) - set(used_vertices[vertex_index]))
+    threhold = min(random_edge, len(reference_vertices))
     while (index < threhold):
         random_tail = random_system.choice(reference_vertices)
         if direct == 2:
@@ -311,7 +329,14 @@ def branch_gen(vertex_index, random_edge, min_range, max_range, sign, direct, al
     return [branch_list, weight_list]
 
 
-def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, direct):
+def edge_gen(
+        vertices_number,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct):
     """
     Generate each vertex connection number.
 
@@ -423,7 +448,14 @@ def dimacs_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".gr", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -475,7 +507,14 @@ def json_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".json", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -527,7 +566,14 @@ def csv_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".csv", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -608,7 +654,14 @@ def wel_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".wel", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -651,7 +704,14 @@ def lp_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".lp", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -699,7 +759,14 @@ def tgf_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".tgf", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -748,7 +815,14 @@ def dl_maker(
     :return: edge_number as int
     """
     file = open(file_name + ".dl", "w")
-    dicts = edge_gen(vertices, min_range, max_range, min_edge, max_edge, sign, direct)
+    dicts = edge_gen(
+        vertices,
+        min_range,
+        max_range,
+        min_edge,
+        max_edge,
+        sign,
+        direct)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]

@@ -16,9 +16,16 @@ MENU_ITEMS2 = {"vertices": "Vertices Number : ",
                "direct": "Directed[1] or Undirected[2]"}
 
 
-
-
-SUFFIX_MENU = {1:".gr",2:".json",3:".csv",4:".yaml",5:".wel",6:".lp",7:".p",8:".dl",9:".tgf"}
+SUFFIX_MENU = {
+    1: ".gr",
+    2: ".json",
+    3: ".csv",
+    4: ".yaml",
+    5: ".wel",
+    6: ".lp",
+    7: ".p",
+    8: ".dl",
+    9: ".tgf"}
 
 
 PYRGG_VERSION = "0.2"
