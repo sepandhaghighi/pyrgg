@@ -47,8 +47,7 @@ of graph processing frameworks. Pyrgg target audiences are computer scientists w
 '''
 
 
-DIMACS_FIX = """
-c FILE                  :{0}.gr
+DIMACS_FIX = """c FILE                  :{0}.gr
 c No. of vertices       :{1}
 c No. of edges          :{2}
 c Max. weight           :{3}
