@@ -56,5 +56,4 @@ c Min. weight           :{4}
 c Min. edge             :{5}
 c Max. edge             :{6}
 p sp {1} {2}
-
 """
