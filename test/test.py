@@ -66,11 +66,12 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> sign_gen()
 -1
 >>> used_vertices = {k:[] for k in range(1,41)}
+>>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,40,1,20,1,1,used_vertices)
+>>> branch_gen(1,10,1,20,1,1,all_vertices ,used_vertices)
 [[4, 24, 17, 3, 26, 29, 2, 21, 34, 12], [3, 10, 20, 14, -18, -2, -15, -14, 18, 8]]
 >>> random.seed(20)
->>> branch_gen(1,4,40,1,20,2,1,used_vertices)
+>>> branch_gen(1,4,1,20,2,1,all_vertices,used_vertices)
 [[10, 7, 37, 2], [9, 11, 6, 14]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):

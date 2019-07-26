@@ -264,7 +264,7 @@ def sign_gen():
     return -1
 
 
-def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range, sign, direct, used_vertices):
+def branch_gen(vertex_index, random_edge, min_range, max_range, sign, direct, all_vertices, used_vertices):
     """
     Generate branch and weight vector of each vertex.
 
@@ -272,8 +272,6 @@ def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range,
     :type vertex_index: int
     :param random_edge: number of vertex edges
     :type random_edge: int
-    :param vertices_number: number of vertices
-    :type vertices_number: int
     :param min_range: weight min range
     :type min_range: int
     :param max_range: weight max range
@@ -282,18 +280,24 @@ def branch_gen(vertex_index, random_edge, vertices_number, min_range, max_range,
     :type sign: int
     :param direct: directed and undirected graph flag
     :type direct: int
+    :param all_vertices : all vertices list
+    :type all_vertices : list
+    :param used_vertices: used vertices dictionary
+    :type used_vertices: dict
     :return: branch and weight list
     """
     index = 0
     branch_list = []
     weight_list = []
-    all_vertices = list(range(1, vertices_number + 1))
     reference_vertices = all_vertices
-    if direct == 2:
+    if direct == 2 and (vertex_index in used_vertices.keys()):
         reference_vertices = list(set(reference_vertices) - set(used_vertices[vertex_index]))
     while (index < min(random_edge,len(reference_vertices))):
         random_tail = random_system.choice(reference_vertices)
-        used_vertices[random_tail].append(vertex_index)
+        if random_tail in used_vertices.keys():
+            used_vertices[random_tail].append(vertex_index)
+        else:
+            used_vertices[random_tail] = [vertex_index]
         if sign == 2:
             random_weight = random_system.randint(min_range, max_range)
         else:
@@ -325,7 +329,7 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, di
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
     weight_list = []
-    used_vertices = {k:[] for k in vertices_id}
+    used_vertices = {}
     for i in vertices_id:
         if min_edge != max_edge:
             random_edge = random_system.randint(min_edge, max_edge)
@@ -334,11 +338,11 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, di
         temp_list = branch_gen(
             i,
             random_edge,
-            vertices_number,
             min_range,
             max_range,
             sign,
             direct,
+            vertices_id,
             used_vertices)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
