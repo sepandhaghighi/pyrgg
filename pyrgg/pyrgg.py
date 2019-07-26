@@ -276,8 +276,8 @@ def sign_gen():
 def branch_gen(
         vertex_index,
         random_edge,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         sign,
         direct,
         all_vertices,
@@ -289,10 +289,10 @@ def branch_gen(
     :type vertex_index: int
     :param random_edge: number of vertex edges
     :type random_edge: int
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -319,9 +319,9 @@ def branch_gen(
             else:
                 used_vertices[random_tail] = [vertex_index]
         if sign == 2:
-            random_weight = random_system.randint(min_range, max_range)
+            random_weight = random_system.randint(min_weight, max_weight)
         else:
-            random_weight = sign_gen() * random_system.randint(min_range, max_range)
+            random_weight = sign_gen() * random_system.randint(min_weight, max_weight)
         if random_tail not in branch_list:
             branch_list.append(random_tail)
             weight_list.append(random_weight)
@@ -331,8 +331,8 @@ def branch_gen(
 
 def edge_gen(
         vertices_number,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -342,10 +342,10 @@ def edge_gen(
 
     :param vertices_number: number of vertices
     :type vertices_number: int
-    :param min_range: weight min_range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param min_edge : minimum edge number
     :type min_edge : int
     :param max_edge : maximum edge number
@@ -368,8 +368,8 @@ def edge_gen(
         temp_list = branch_gen(
             i,
             random_edge,
-            min_range,
-            max_range,
+            min_weight,
+            max_weight,
             sign,
             direct,
             vertices_id,
@@ -384,8 +384,8 @@ def edge_gen(
 def dimacs_init(
         file,
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         edge,
         min_edge,
@@ -398,10 +398,10 @@ def dimacs_init(
     :param file_name: file name
     :type file_name: str
     :type file: file_object
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: vertices number
     :type vertices: int
     :param edge:  edge number
@@ -412,13 +412,13 @@ def dimacs_init(
     :type max_edge : int
     :return: None
     """
-    file.write(DIMACS_FIX.format(file_name,str(vertices),str(edge),str(max_range),str(min_range),str(min_edge),str(max_edge)))
+    file.write(DIMACS_FIX.format(file_name,str(vertices),str(edge),str(max_weight),str(min_weight),str(min_edge),str(max_edge)))
 
 
 def dimacs_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -429,10 +429,10 @@ def dimacs_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -448,8 +448,8 @@ def dimacs_maker(
     file = open(file_name + ".gr", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -460,8 +460,8 @@ def dimacs_maker(
     dimacs_init(
         file,
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         edge_number,
         min_edge,
@@ -477,8 +477,8 @@ def dimacs_maker(
 
 def json_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -489,10 +489,10 @@ def json_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -508,8 +508,8 @@ def json_maker(
     file = open(file_name + ".json", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -536,8 +536,8 @@ def json_maker(
 
 def csv_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -548,10 +548,10 @@ def csv_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -567,8 +567,8 @@ def csv_maker(
     file = open(file_name + ".csv", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -624,8 +624,8 @@ def json_to_pickle(filename):
 
 def wel_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -636,10 +636,10 @@ def wel_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -655,8 +655,8 @@ def wel_maker(
     file = open(file_name + ".wel", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -674,8 +674,8 @@ def wel_maker(
 
 def lp_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -686,10 +686,10 @@ def lp_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -705,8 +705,8 @@ def lp_maker(
     file = open(file_name + ".lp", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -729,8 +729,8 @@ def lp_maker(
 
 def tgf_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -741,10 +741,10 @@ def tgf_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -760,8 +760,8 @@ def tgf_maker(
     file = open(file_name + ".tgf", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
@@ -785,8 +785,8 @@ def tgf_maker(
 
 def dl_maker(
         file_name,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         vertices,
         min_edge,
         max_edge,
@@ -797,10 +797,10 @@ def dl_maker(
 
     :param file_name: file name
     :type file_name: str
-    :param min_range: weight min range
-    :type min_range: int
-    :param max_range: weight max_range
-    :type max_range: int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
     :param vertices: number of vertices
     :type vertices: int
     :param min_edge : minimum edge number
@@ -816,8 +816,8 @@ def dl_maker(
     file = open(file_name + ".dl", "w")
     dicts = edge_gen(
         vertices,
-        min_range,
-        max_range,
+        min_weight,
+        max_weight,
         min_edge,
         max_edge,
         sign,
