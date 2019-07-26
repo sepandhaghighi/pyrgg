@@ -45,3 +45,16 @@ including DIMACS .gr files. Pyrgg has the ability to generate graphs of differen
 for broad range of graph-based research applications, including but not limited to testing, benchmarking and performance-analysis
 of graph processing frameworks. Pyrgg target audiences are computer scientists who study graph algorithms and graph processing frameworks.
 '''
+
+
+DIMACS_FIX = """
+c FILE                  :{0}.gr
+c No. of vertices       :{1}
+c No. of edges          :{2}
+c Max. weight           :{3}
+c Min. weight           :{4}
+c Min. edge             :{5}
+c Max. edge             :{6}
+p sp {1} {2}
+
+"""

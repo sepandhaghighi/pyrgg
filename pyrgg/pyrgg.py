@@ -381,7 +381,7 @@ def edge_gen(
             dict(zip(vertices_id, weight_list)), temp]
 
 
-def file_init(
+def dimacs_init(
         file,
         file_name,
         min_range,
@@ -389,9 +389,10 @@ def file_init(
         vertices,
         edge,
         min_edge,
-        max_edge):
+        max_edge,
+        direct):
     """
-    Initialize output file.
+    Initialize dimacs output file.
 
     :param file: output file object
     :param file_name: file name
@@ -405,16 +406,13 @@ def file_init(
     :type vertices: int
     :param edge:  edge number
     :type edge: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :return: None
     """
-    file.write("c FILE                  :" + file_name + ".gr" + "\n")
-    file.write("c No. of vertices       :" + str(vertices) + "\n")
-    file.write("c No. of directed edges :" + str(edge) + "\n")
-    file.write("c Max. weight           :" + str(max_range) + "\n")
-    file.write("c Min. weight           :" + str(min_range) + "\n")
-    file.write("c Min. edge           :" + str(min_edge) + "\n")
-    file.write("c Max. edge           :" + str(max_edge) + "\n")
-    file.write("p sp " + str(vertices) + " " + str(edge) + "\n")
+    file.write(DIMACS_FIX.format(file_name,str(vertices),str(edge),str(max_range),str(min_range),str(min_edge),str(max_edge)))
 
 
 def dimacs_maker(
@@ -459,7 +457,7 @@ def dimacs_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    file_init(
+    dimacs_init(
         file,
         file_name,
         min_range,
@@ -467,7 +465,8 @@ def dimacs_maker(
         vertices,
         edge_number,
         min_edge,
-        max_edge)
+        max_edge,
+        direct)
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
             file.write("a " + str(i) + " " + str(value) +

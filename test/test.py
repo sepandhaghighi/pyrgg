@@ -94,7 +94,7 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> print(file.read())
 c FILE                  :testfile.gr
 c No. of vertices       :10
-c No. of directed edges :7
+c No. of edges          :7
 c Max. weight           :200
 c Min. weight           :0
 c Min. edge           :0
@@ -115,11 +115,11 @@ a 10 9 143
 >>> print(file.read())
 c FILE                  :testfile2.gr
 c No. of vertices       :30
-c No. of directed edges :41
+c No. of edges          :41
 c Max. weight           :50
 c Min. weight           :0
-c Min. edge           :0
-c Max. edge           :4
+c Min. edge             :0
+c Max. edge             :4
 p sp 30 41
 a 1 10 46
 a 2 16 5
@@ -170,11 +170,11 @@ a 27 14 7
 >>> print(file.read())
 c FILE                  :testfile3.gr
 c No. of vertices       :100
-c No. of directed edges :189
+c No. of edges          :189
 c Max. weight           :30
 c Min. weight           :10
-c Min. edge           :0
-c Max. edge           :4
+c Min. edge             :0
+c Max. edge             :4
 p sp 100 189
 a 1 34 30
 a 3 74 15
