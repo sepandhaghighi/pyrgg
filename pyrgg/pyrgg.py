@@ -336,11 +336,10 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, di
     vertices_edge = []
     weight_list = []
     used_vertices = {}
+    random_edge = min_edge
     for i in vertices_id:
         if min_edge != max_edge:
             random_edge = random_system.randint(min_edge, max_edge)
-        else:
-            random_edge = min_edge
         temp_list = branch_gen(
             i,
             random_edge,
