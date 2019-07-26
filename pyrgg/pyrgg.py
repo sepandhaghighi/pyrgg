@@ -321,6 +321,10 @@ def edge_gen(vertices_number, min_range, max_range, min_edge, max_edge, sign, di
     :type min_range: int
     :param max_range: weight max_range
     :type max_range: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -409,6 +413,10 @@ def dimacs_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -457,6 +465,10 @@ def json_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -505,6 +517,10 @@ def csv_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -582,6 +598,10 @@ def wel_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -621,6 +641,10 @@ def lp_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -665,6 +689,10 @@ def tgf_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
@@ -710,6 +738,10 @@ def dl_maker(
     :type max_range: int
     :param vertices: number of vertices
     :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
     :param sign: weight sign flag
     :type sign: int
     :param direct: directed and undirected graph flag
