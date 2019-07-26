@@ -412,7 +412,15 @@ def dimacs_init(
     :type max_edge : int
     :return: None
     """
-    file.write(DIMACS_FIX.format(file_name,str(vertices),str(edge),str(max_weight),str(min_weight),str(min_edge),str(max_edge)))
+    file.write(
+        DIMACS_FIX.format(
+            file_name,
+            str(vertices),
+            str(edge),
+            str(max_weight),
+            str(min_weight),
+            str(min_edge),
+            str(max_edge)))
 
 
 def dimacs_maker(
