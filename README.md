@@ -104,6 +104,10 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - Check [Conda Managing Package](https://conda.io)
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
+### Exe Version (Only Windows)
+- Download [Exe-Version 0.2](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.2/PYRGG-0.2.exe)
+- Run `PYRGG-0.2.exe`
+
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
 

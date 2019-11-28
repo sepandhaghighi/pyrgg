@@ -17,6 +17,8 @@ SETUP_ITEMS = [
     'https://github.com/sepandhaghighi/pyrgg/tarball/v{0}']
 README_ITEMS = [
     "[Version {0}](https://github.com/sepandhaghighi/pyrgg/archive/v{0}.zip)",
+    "[Exe-Version {0}](https://github.com/sepandhaghighi/pyrgg/releases/download/v{0}/PYRGG-{0}.exe)",
+    "Run `PYRGG-{0}.exe`",
     "pip install pyrgg=={0}",
     "pip3 install pyrgg=={0}"]
 CHANGELOG_ITEMS = [
