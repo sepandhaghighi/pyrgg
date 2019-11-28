@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `version_check.py`
 - `pyrgg_profile.py`
 - Unweighted graph
+- Undirected graph
 - Exe version
 ### Changed
 - Test system modified
