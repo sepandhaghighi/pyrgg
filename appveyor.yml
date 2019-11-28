@@ -42,4 +42,3 @@ test_script:
   - "%PYTHON%/Scripts/pip.exe install -r dev-requirements.txt"
   - "%PYTHON%/python.exe -m pytest test --cov=pyrgg --cov-report=term"
   - "%PYTHON%/python.exe otherfile/version_check.py"
-  

@@ -1,5 +1,5 @@
-  #!/bin/bash
-  # Dump Environment (so that we can check PATH, UT_FLAGS, etc.)
+#!/bin/bash
+# Dump Environment (so that we can check PATH, UT_FLAGS, etc.)
  set -e
  set -x
  IS_IN_TRAVIS=false
