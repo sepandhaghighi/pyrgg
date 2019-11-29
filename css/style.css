@@ -2,6 +2,64 @@
     font-family: "baloo";
     src: url("../fonts/Baloo.ttf");
 }
+@font-face {
+    font-family: "consola";
+    src: url("../fonts/consola.ttf");
+}
+
+.github{
+    overflow-y: hidden;
+    float: left;
+    text-align:left;
+    position: fixed;
+    margin-left: 10px;
+    padding: 10px;
+    background-color:bisque;
+    opacity: 0.7;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+
+.github iframe{
+    display: inline;
+    text-align: left;
+}
+.pip span{
+    color:crimson;
+}
+.pip p{
+    border: 5px solid black;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    
+}
+.note{
+    text-align: left;
+    padding-left: 0px;
+    display: table;
+}
+.note-index{
+    display: inline-block;
+    text-align: left;
+}
+
+.download{
+    display: inline-block;
+    text-align: left;
+}
+
+.justify{
+    text-align: justify;
+}
+
+.citation{
+    text-align: center;
+    
+}
+.version{
+    color: darkorange;
+}
 .logo{
     vertical-align: middle;
     margin: auto;
@@ -9,6 +67,14 @@
     margin-top: 10px;
 }
 
+.consola{
+    font-family: "consola";
+    text-align: left;
+    display: inline-block;
+    font-size: 20px;
+    border :1px solid black;
+    padding: 4px;
+}
 body{
     background-color:white;
     font-family: "baloo";
@@ -16,10 +82,10 @@ body{
     
 }
 li { list-style-position: inside }
-.orange_image{
-    height: 350px;
-    width: 500px;
-    opacity: 0.7;
+.PYRGG_image{
+    width: 602px;
+    height: 354px;
+    opacity: 0.6;
 }
 
 .moduland{
@@ -41,8 +107,8 @@ a:hover{
     opacity: 0.3;
 }
 hr{
-    border-color: darkorange;
-    border-style:double;
+    border-color: black;
+    border-style: groove;
 }
 .fork-pc{
     top: 0;
@@ -85,7 +151,7 @@ hr{
 .help {
     width: 80%;
     margin: auto;
-    font-size: 37px;
+    font-size: 28px;
     text-align: justify;
     font-size-adjust: auto;
     hyphens: auto;
@@ -94,7 +160,7 @@ hr{
 .main_text{
     width: 80%;
     margin: auto;
-    font-size: 37px;
+    font-size:28px;
     text-align: center;
     font-size-adjust: auto;
     hyphens: auto;
@@ -102,13 +168,13 @@ hr{
 .functions{
     width: 80%;
     margin: auto;
-    font-size: 33px;
+    font-size: 28px;
     text-align: center;
     font-size-adjust: auto;
     hyphens: auto;
 }
 .fomart-title{
-    font-size: 37px;
+    font-size: 28px;
 }
 .help h3{
     text-align: center;
@@ -232,6 +298,32 @@ button {
     height: 100%;
 }
 @media all and (max-width: 1024px) {
+.PYRGG_image{
+    width: 301px;
+    height: 177px;
+    opacity: 0.6;
+}
+.siteWrapper {
+    overflow-x: hidden;
+        
+}
+.github{
+    bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 5px;
+    border: None;
+    left: 0px;
+    border-radius: 0px;
+    position: relative;
+    text-align: center;
+}
+    .justify{
+    text-align: center;
+}
+    .consola{
+        font-size: 13px;
+    }
   #login-footer {
         position: relative;
         display: none;
@@ -246,27 +338,33 @@ button {
     width: 90%;
     height: 50%;
 }
-    .orange_image{
-    width: 90%;
-    height: 50%;
-}
 
 .help {
         width: 95%;
-        font-size: 40px;
+        font-size: 28px;
         text-align: center;
         hyphens: auto;
     }
 
     .main_text{
            width: 95%;
-        font-size: 40px;
+        font-size: 20px;
         text-align: center;
         hyphens: auto;
     }
+    .download{
+        padding-left: 0px;
+        display: table;
+    }
+    .note li{
+        font-size: 17px;
+    }
+    .pip{
+        font-size: 20px;
+    }
     .functions{
             width: 95%;
-        font-size: 30px;
+        font-size: 28px;
         hyphens: auto;
     }
     .format-title{
