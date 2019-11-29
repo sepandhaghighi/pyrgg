@@ -6,10 +6,27 @@ environment:
     - PYTHON: "C:\\Python35"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "32"
-
     - PYTHON: "C:\\Python35"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python37"
+      PYTHON_VERSION: "3.7.0"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python37"
+      PYTHON_VERSION: "3.7.0"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6.0"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6.0"
+      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python34"
+      PYTHON_VERSION: "3.4.0"
+      PYTHON_ARCH: "64"
+    - PYTHON: "C:\\Python34"
+      PYTHON_VERSION: "3.4.0"
+      PYTHON_ARCH: "32"
 
 
 
@@ -22,3 +39,6 @@ install:
 
 test_script:
   - "%PYTHON%/python.exe -m pyrgg test"
+  - "%PYTHON%/Scripts/pip.exe install -r dev-requirements.txt"
+  - "%PYTHON%/python.exe -m pytest test --cov=pyrgg --cov-report=term"
+  - "%PYTHON%/python.exe otherfile/version_check.py"

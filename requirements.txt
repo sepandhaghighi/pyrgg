@@ -1,4 +1,2 @@
-pyyaml
-codecov
-
-
+pyyaml>=3.12
+art>=0.7

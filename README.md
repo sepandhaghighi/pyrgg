@@ -6,38 +6,115 @@
 <img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" height=240px width=320px>
 <hr/>
 <h1>Random Graph Generator</h1>
-<a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a>
+
 <a href="http://www.shaghighi.ir/pyrgg"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
 <a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
-<a href="https://zenodo.org/badge/latestdoi/89410101"><img src="https://zenodo.org/badge/89410101.svg" alt="DOI"></a>
-<a href="http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26"><img src="http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26/status.svg"></a>
-<a href="http://sepandhaghighi.github.io/pyrgg/doc"><img src="https://img.shields.io/badge/doc-latest-red.svg"></a>
+<a href="https://anaconda.org/sepandhaghighi/pyrgg"><img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg"></a>
 <a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
   <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 
-</div>				
+</div>	
+
+----------
+## Table of contents					
+   * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
+   * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
+   * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
+   * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
+   * [Todo](https://github.com/sepandhaghighi/pyrgg#todo)
+   * [Sample Files](https://github.com/sepandhaghighi/pyrgg#sample-files)
+   * [Example Of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
+   * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
+   * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
+   * [Dependencies](https://github.com/sepandhaghighi/pyrgg#dependencies)
+   * [Contribution](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CONTRIBUTING.md)
+   * [References](https://github.com/sepandhaghighi/pyrgg#references)
+   * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
+   * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
+   * [License](https://github.com/sepandhaghighi/pyrgg#license)
+   * [Donate](https://github.com/sepandhaghighi/pyrgg#donate-to-our-project)
+   * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
+   * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
 				
 ## Overview			
 Pyrgg is an easy-to-use synthetic random graph generator written in Python which supports various graph file formats including <a href ="http://www.diag.uniroma1.it/challenge9/format.shtml">DIMACS .gr </a> files.
 Pyrgg has the ability to generate graphs of different sizes and is designed to provide input files for broad range of graph-based research applications, including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks.
 Pyrgg target audiences are computer scientists who study graph algorithms and graph processing frameworks.
 
+<table>
+	<tr> 
+		<td align="center">Open Hub</td>
+		<td align="center"><a href="https://www.openhub.net/p/pyrgg"><img src="https://www.openhub.net/p/pyrgg/widgets/project_thin_badge.gif"></a></td>	
+	</tr>
+	<tr>
+		<td align="center">PyPI Counter</td>
+		<td align="center"><a href="http://pepy.tech/count/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
+	</tr>
+	<tr>
+		<td align="center">Github Stars</td>
+		<td align="center"><a href="https://github.com/sepandhaghighi/pyrgg"><img src="https://img.shields.io/github/stars/sepandhaghighi/pyrgg.svg?style=social&label=Stars"></a></td>
+	</tr>
+</table>
+
+
+
+<table>
+	<tr> 
+		<td align="center">Branch</td>
+		<td align="center">master</td>	
+		<td align="center">dev</td>	
+	</tr>
+	<tr>
+		<td align="center">Travis</td>
+		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a></td>
+		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=dev"></a></a></td>
+	</tr>
+	<tr>
+		<td align="center">AppVeyor</td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/master?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/dev?svg=true"></a></td>
+	</tr>
+</table>
+
+
+<table>
+	<tr> 
+		<td align="center">Code Quality</td>
+		<td align="center"><a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
+		<td align="center"><a href="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg"><img src="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg/badge" alt="CodeFactor" /></a></td>		
+	</tr>
+</table>
+
 
 ## Installation		
 
 ### Source Code
-- Download [Version 0.2](https://github.com/sepandhaghighi/pyrgg/archive/v0.2.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/master.zip)
+- Download [Version 0.3](https://github.com/sepandhaghighi/pyrgg/archive/v0.3.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
-
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg` or `pip3 install pyrgg` (Need root access)							
-			
+- `pip install pyrgg==0.3` or `pip3 install pyrgg==0.3` (Need root access)							
 
+### Conda
+
+- Check [Conda Managing Package](https://conda.io)
+- `conda install -c sepandhaghighi pyrgg` (Need root access)	
+
+### Exe Version (Only Windows)
+- Download [Exe-Version 0.3](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.3/PYRGG-0.3.exe)
+- Run `PYRGG-0.3.exe`
+
+### System Requirements
+Pyrgg will likely run on a modern dual core PC. Typical configuration is:
+
+- Dual Core CPU (2.0 Ghz+)
+- 4GB of RAM
+
+Note that it may run on lower end equipment though good performance is not guaranteed.		
 
 
 ## Usage			
@@ -45,44 +122,6 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 <div align="center">
 
 <a href="https://asciinema.org/a/141608" target="_blank"><img src="https://asciinema.org/a/141608.png" /></a>
-
-<br/>
-<img src="http://www.shaghighi.ir/pyrgg/images/output.jpg" alt="pyrgg output" title="pyrgg output" width=600px height=800px>
-<p>Fig. 1. DIMACS .gr output format</p>
-
-</div>
-
-
-## Test			
-
-
-
-`python3 -m pyrgg test` or `python -m pyrgg test`
-			
-This test run automatically in each commit ;-) 						
-			
-<div align="center">
-<table style="border:1px solid black">
-<tr>
-<th>Linux</th>
-<th>Windows</th>
-
-</tr>
-
-<tr>
-<td><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a></td>
-<td> <a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13?svg=true"></a>	</td>
-
-</tr>	
-
-</table>
-
-</div>	
-													
-<div align="center">
-
-<img src="http://www.shaghighi.ir/pyrgg/images/test.gif" alt="pyrgg test" title="pyrgg test">
-
 
 </div>
 
@@ -103,12 +142,14 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] ASP
   - [x] TGF
   - [x] UCINET DL
+  - [ ] GEXF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
   - [ ] Large
 - [x] Weighted Graph															
 	- [x] Signed Weights
+- [x] Unweighted Graph
 - [x] Dense Graph
 - [x] Sparse Graph
 - [x] Directed Graph
@@ -154,7 +195,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
 <img src="http://www.shaghighi.ir/pyrgg/images/random.png">
-<p>Fig. 2. Rand Graph Generation</p>
+<p>Fig. 1. Rand Graph Generation</p>
 </div>
 
 - Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
@@ -296,14 +337,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 		n k weight_n	
 	```
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
-
-
-
-## Contribution			
-
-You can fork the repository, improve or fix some part of it and then send the pull requests back if you want to see them here. I really appreciate that. ❤️			
-
-Remember to write a few tests for your code before sending pull requests. 			
+ 			
 
 ## Similar Works
 - [Random Modular Network Generator](https://github.com/prathasah/random-modular-network-generator) Generates random graphs with tunable strength of community structure
@@ -311,9 +345,23 @@ Remember to write a few tests for your code before sending pull requests.
 - [Graph1](https://github.com/Saptaparni/Graph1) Random Graph Generator with Max capacity paths (C++)
 
 
+## Dependencies
+
+<table>
+	<tr> 
+		<td align="center">master</td>	
+		<td align="center">dev</td>	
+	</tr>
+	<tr>
+		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=master"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
+		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=dev"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=dev" alt="Requirements Status" /></a></td>
+	</tr>
+</table>
+
+
 ## Citing
 
-If you use pyrgg in your research , please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
+If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
 
 <pre>
 @article{Haghighi2017,
@@ -329,14 +377,25 @@ If you use pyrgg in your research , please cite the [JOSS paper](http://joss.the
   journal = {The Journal of Open Source Software}
 }
 </pre>
+
+<table>
+	<tr> 
+		<td align="center">JOSS</td>
+		<td align="center"><a href="http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26"><img src="http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26/status.svg"></a></td>	
+	</tr>
+	<tr>
+		<td align="center">Zenodo</td>
+		<td align="center"><a href="https://zenodo.org/badge/latestdoi/89410101"><img src="https://zenodo.org/badge/89410101.svg" alt="DOI"></a></td>
+	</tr>
+</table>
  			
 
 ## License
 
-<a href="https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=large"/></a>
 
 
-## Reference
+## References
 					
 
 <div align="center">
@@ -346,13 +405,8 @@ If you use pyrgg in your research , please cite the [JOSS paper](http://joss.the
 
 </div>  						
  
-## Donate to our project
-<h3>Beerpay :</h3>				
-
-Hey dude! Help me out for a couple of :beers:!				
-
-
-[![Beerpay](https://beerpay.io/sepandhaghighi/pyrgg/badge.svg?style=beer-square)](https://beerpay.io/sepandhaghighi/pyrgg)  [![Beerpay](https://beerpay.io/sepandhaghighi/pyrgg/make-wish.svg?style=flat-square)](https://beerpay.io/sepandhaghighi/pyrgg?focus=wish)									
+## Donate to our project		
+							
 
 <h3>Bitcoin :</h3>					
 

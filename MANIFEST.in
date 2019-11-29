@@ -1,0 +1,9 @@
+include LICENSE
+include *.md
+include *.spec
+include *.txt
+include *.yml
+include *.ini
+recursive-include paper *.bib
+recursive-include paper *.md
+recursive-include paper *.pdf
