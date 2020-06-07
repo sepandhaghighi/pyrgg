@@ -59,7 +59,7 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
-TypeError: branch_gen() missing 4 required positional arguments: 'sign', 'direct', 'all_vertices', and 'used_vertices'
+TypeError: branch_gen() missing 5 required positional arguments: 'sign', 'direct', 'self_loop', 'all_vertices', and 'used_vertices'
 >>> random.seed(2)
 >>> edge_gen(20,0,400,2,10,1,1,1)
 [{1: [3, 6], 2: [20, 6, 13, 15, 1], 3: [13, 6, 8, 11, 17, 18, 14], 4: [12, 13, 17, 9, 15, 19, 8], 5: [20, 16, 17, 7], 6: [20, 1, 4, 2, 8, 17, 14], 7: [12, 1, 3, 5, 6, 19, 11], 8: [15, 13, 8, 11, 19, 17], 9: [9, 14, 18, 2, 5, 4, 8], 10: [15, 3, 20, 14, 1], 11: [14, 17, 4, 6, 7, 15, 18, 19], 12: [19, 16, 17, 12, 14, 10, 1, 7, 15, 9], 13: [20, 13, 4], 14: [2, 12, 17, 14, 10, 6, 9, 3, 5], 15: [2, 13, 11], 16: [10, 18, 11, 17, 6, 8, 19, 15, 13, 9], 17: [16, 11, 8, 13, 15, 6, 19, 4], 18: [9, 20, 7, 1, 3], 19: [15, 20, 13, 5, 16, 10, 12], 20: [19, 10, 5, 18, 9, 11, 13, 7]}, {1: [184, -128], 2: [297, -326, -278, -18, -238], 3: [-269, 120, 90, 69, -263, 228, -303], 4: [-82, -335, 250, -256, -179, -249, -358], 5: [-395, -155, -159, -262], 6: [174, 381, 294, -302, 386, 136, 29], 7: [127, 58, 20, 376, 197, 126, -15], 8: [135, 242, 338, 12, -249, -73], 9: [-310, 358, 343, -17, 87, -325, 126], 10: [128, 319, -131, -269, 18], 11: [56, 123, 10, 53, 266, -158, -108, 214], 12: [48, -9, 312, -353, 53, 396, -30, 2, 385, 62], 13: [-328, 354, 316], 14: [-148, -72, -368, -348, -118, -305, -356, 36, -34], 15: [151, 362, -88], 16: [79, -49, 366, -86, -360, -183, 238, 304, 201, -129], 17: [-280, 389, 206, 160, -332, 8, -110, -285], 18: [250, 4, 179, -272, -345], 19: [-257, -88, -345, 83, -237, 5, 275], 20: [-104, -332, -353, -39, -155, -334, 260, -305]}, 128]
@@ -69,7 +69,7 @@ TypeError: branch_gen() missing 4 required positional arguments: 'sign', 'direct
 >>> edge_gen(0,400,2,10,1)
 Traceback (most recent call last):
         ...
-TypeError: edge_gen() missing 2 required positional arguments: 'sign' and 'direct'
+TypeError: edge_gen() missing 3 required positional arguments: 'sign', 'direct', and 'self_loop'
 >>> random.seed(2)
 >>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
@@ -352,7 +352,7 @@ a 99 38 10
 >>> dimacs_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 2 required positional arguments: 'sign' and 'direct'
+TypeError: dimacs_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
 >>> json_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
@@ -446,7 +446,7 @@ TypeError: dimacs_maker() missing 2 required positional arguments: 'sign' and 'd
 >>> json_maker('testfile', 0, 200, 10, 0, 0,1)
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 2 required positional arguments: 'sign' and 'direct'
+TypeError: json_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
@@ -713,7 +713,7 @@ TypeError: json_maker() missing 2 required positional arguments: 'sign' and 'dir
 >>> csv_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 2 required positional arguments: 'sign' and 'direct'
+TypeError: csv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
 >>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
@@ -972,7 +972,7 @@ TypeError: csv_maker() missing 2 required positional arguments: 'sign' and 'dire
 >>> wel_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 2 required positional arguments: 'sign' and 'direct'
+TypeError: wel_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
 >>> lp_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
