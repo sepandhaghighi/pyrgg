@@ -312,7 +312,7 @@ def branch_gen(
     index = 0
     branch_list = []
     weight_list = []
-    reference_vertices = all_vertices
+    reference_vertices = all_vertices[:]
     if direct == 2 and (vertex_index in used_vertices.keys()):
         reference_vertices = list(
             set(reference_vertices) - set(used_vertices[vertex_index]))
