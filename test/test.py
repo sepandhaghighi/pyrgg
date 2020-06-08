@@ -1277,6 +1277,59 @@ data:
 26 19 28
 27 14 7
 <BLANKLINE>
+>>> random.seed(4)
+>>> dimacs_maker('testfile4',0,50,30,0,4,0,1,2)
+41
+>>> file=open('testfile4.gr','r')
+>>> print(file.read())
+c FILE                  :testfile4.gr
+c No. of vertices       :30
+c No. of edges          :39
+c Max. weight           :50
+c Min. weight           :0
+c Min. edge             :0
+c Max. edge             :4
+p sp 30 39
+a 1 11 46
+a 2 17 5
+a 2 4 25
+a 2 19 -48
+a 4 18 -17
+a 5 28 16
+a 6 1 -17
+a 7 6 -18
+a 8 3 -42
+a 8 14 11
+a 9 17 -5
+a 10 28 0
+a 10 11 -48
+a 10 18 26
+a 10 15 -27
+a 11 6 19
+a 11 9 5
+a 11 2 -40
+a 12 18 -44
+a 12 11 43
+a 13 3 -12
+a 14 9 22
+a 14 15 -40
+a 14 19 20
+a 17 9 7
+a 18 6 -29
+a 18 1 22
+a 20 25 -1
+a 20 11 -20
+a 21 26 -39
+a 23 20 28
+a 23 10 16
+a 24 20 21
+a 24 19 23
+a 24 2 -10
+a 25 27 -18
+a 25 19 28
+a 26 14 7
+a 30 20 38
+<BLANKLINE>
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.dl')
@@ -1298,6 +1351,7 @@ data:
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
 >>> os.remove('testfile3.gr')
+>>> os.remove('testfile4.gr')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile3.p')
 >>> os.remove('testfile3.wel')
