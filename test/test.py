@@ -1279,7 +1279,7 @@ data:
 <BLANKLINE>
 >>> random.seed(4)
 >>> dimacs_maker('testfile4',0,50,30,0,4,0,1,2)
-41
+39
 >>> file=open('testfile4.gr','r')
 >>> print(file.read())
 c FILE                  :testfile4.gr
