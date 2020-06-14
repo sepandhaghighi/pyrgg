@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Self loop control
+- Github action
 ### Changed
 - `appveyor.yml` updated
 ## [0.3] - 2019-11-29
