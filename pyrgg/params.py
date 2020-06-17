@@ -29,7 +29,7 @@ SUFFIX_MENU = {
     9: ".tgf"}
 
 
-PYRGG_VERSION = "0.3"
+PYRGG_VERSION = "0.4"
 
 SOURCE_DIR = os.getcwd()
 
