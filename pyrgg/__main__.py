@@ -25,8 +25,8 @@ def run():
 
     :return: None
     """
-    first_time = time.perf_counter()
     input_dict = get_input()
+    first_time = time.perf_counter()
     file_name = input_dict["file_name"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
