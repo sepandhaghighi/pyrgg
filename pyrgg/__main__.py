@@ -84,4 +84,4 @@ if __name__ == "__main__":
             INPUTINDEX = str(
                 input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":
-                EXITFLAG = True
+                EXIT_FLAG = True
