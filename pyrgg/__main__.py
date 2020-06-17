@@ -25,8 +25,8 @@ def run():
 
     :return: None
     """
-    first_time = time.perf_counter()
     input_dict = get_input()
+    first_time = time.perf_counter()
     file_name = input_dict["file_name"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
@@ -35,6 +35,7 @@ def run():
     max_edge = input_dict["max_edge"]
     sign = input_dict["sign"]
     direct = input_dict["direct"]
+    self_loop = input_dict["self_loop"]
     print("Generating . . . ")
     edge_number = GENERATOR_MENU[input_dict["output_format"]](
         file_name,
@@ -44,7 +45,8 @@ def run():
         min_edge,
         max_edge,
         sign,
-        direct)
+        direct,
+        self_loop)
     if input_dict["output_format"] == 4:
         json_to_yaml(file_name)
     if input_dict["output_format"] == 7:
@@ -82,4 +84,4 @@ if __name__ == "__main__":
             INPUTINDEX = str(
                 input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":
-                EXITFLAG = True
+                EXIT_FLAG = True

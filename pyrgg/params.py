@@ -13,7 +13,8 @@ MENU_ITEMS2 = {"vertices": "Vertices Number : ",
                "min_edge": "Min Edge Number :",
                "max_edge": "Max Edge Number :",
                "sign": "Signed[1] or Unsigned[2]",
-               "direct": "Directed[1] or Undirected[2]"}
+               "direct": "Directed[1] or Undirected[2]",
+               "self_loop": "Self Loop[1] or No Self Loop[2]"}
 
 
 SUFFIX_MENU = {
@@ -28,7 +29,7 @@ SUFFIX_MENU = {
     9: ".tgf"}
 
 
-PYRGG_VERSION = "0.3"
+PYRGG_VERSION = "0.4"
 
 SOURCE_DIR = os.getcwd()
 

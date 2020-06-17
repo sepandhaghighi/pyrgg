@@ -26,11 +26,11 @@ processing frameworks.
 <BLANKLINE>
 <BLANKLINE>
 ########################################
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19, "direct": 2})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2}
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19, "direct": 2,"self_loop": 2})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2,"self_loop": 2}
 True
->>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": 1,"output_format": 1, "direct": 2})
->>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': 1, "direct": 2}
+>>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": 1,"output_format": 1, "direct": 2,"self_loop": 10})
+>>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': 1, "direct": 2,"self_loop": 1}
 True
 >>> logger(100,50,'test','2min')
 >>> convert_bytes(200)
@@ -68,27 +68,27 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,1,20,1,1,all_vertices ,used_vertices)
+>>> branch_gen(1,10,1,20,1,1,1,all_vertices ,used_vertices)
 [[4, 24, 17, 3, 26, 29, 2, 21, 34, 12], [3, 10, 20, 14, -18, -2, -15, -14, 18, 8]]
 >>> random.seed(20)
->>> branch_gen(1,4,1,20,2,1,all_vertices,used_vertices)
+>>> branch_gen(1,4,1,20,2,1,1,all_vertices,used_vertices)
 [[10, 7, 37, 2], [9, 11, 6, 14]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
 TypeError: branch_gen() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> edge_gen(20,0,400,2,10,1,1)
+>>> edge_gen(20,0,400,2,10,1,1,1)
 [{1: [3, 6], 2: [20, 6, 13, 15, 1], 3: [13, 6, 8, 11, 17, 18, 14], 4: [12, 13, 17, 9, 15, 19, 8], 5: [20, 16, 17, 7], 6: [20, 1, 4, 2, 8, 17, 14], 7: [12, 1, 3, 5, 6, 19, 11], 8: [15, 13, 8, 11, 19, 17], 9: [9, 14, 18, 2, 5, 4, 8], 10: [15, 3, 20, 14, 1], 11: [14, 17, 4, 6, 7, 15, 18, 19], 12: [19, 16, 17, 12, 14, 10, 1, 7, 15, 9], 13: [20, 13, 4], 14: [2, 12, 17, 14, 10, 6, 9, 3, 5], 15: [2, 13, 11], 16: [10, 18, 11, 17, 6, 8, 19, 15, 13, 9], 17: [16, 11, 8, 13, 15, 6, 19, 4], 18: [9, 20, 7, 1, 3], 19: [15, 20, 13, 5, 16, 10, 12], 20: [19, 10, 5, 18, 9, 11, 13, 7]}, {1: [184, -128], 2: [297, -326, -278, -18, -238], 3: [-269, 120, 90, 69, -263, 228, -303], 4: [-82, -335, 250, -256, -179, -249, -358], 5: [-395, -155, -159, -262], 6: [174, 381, 294, -302, 386, 136, 29], 7: [127, 58, 20, 376, 197, 126, -15], 8: [135, 242, 338, 12, -249, -73], 9: [-310, 358, 343, -17, 87, -325, 126], 10: [128, 319, -131, -269, 18], 11: [56, 123, 10, 53, 266, -158, -108, 214], 12: [48, -9, 312, -353, 53, 396, -30, 2, 385, 62], 13: [-328, 354, 316], 14: [-148, -72, -368, -348, -118, -305, -356, 36, -34], 15: [151, 362, -88], 16: [79, -49, 366, -86, -360, -183, 238, 304, 201, -129], 17: [-280, 389, 206, 160, -332, 8, -110, -285], 18: [250, 4, 179, -272, -345], 19: [-257, -88, -345, 83, -237, 5, 275], 20: [-104, -332, -353, -39, -155, -334, 260, -305]}, 128]
 >>> random.seed(11)
->>> edge_gen(20,0,100,2,10,2,1)
+>>> edge_gen(20,0,100,2,10,2,1,1)
 [{1: [18, 15, 17, 7, 20, 4, 10, 3, 2], 2: [15, 20, 6, 1, 3, 2, 8, 7], 3: [10, 1, 3, 9, 18], 4: [11, 8, 10, 3, 4, 13], 5: [1, 7], 6: [13, 3, 7, 9, 11, 14, 4, 8, 2], 7: [6, 18, 15, 7, 5, 13, 9, 10, 19], 8: [5, 15], 9: [20, 10], 10: [3, 7, 8], 11: [12, 15, 19, 13, 5, 8, 7], 12: [7, 13, 20, 14, 4, 2, 9, 16, 17, 3], 13: [16, 20, 3, 7, 1], 14: [14, 8, 2, 10, 17, 5], 15: [5, 11, 17, 2, 16, 10, 1], 16: [16, 10, 5], 17: [15, 12, 2], 18: [11, 3, 16, 14], 19: [19, 20, 13, 3, 4, 14, 11, 15, 18], 20: [17, 10, 3, 1, 4, 20, 16, 11, 15, 8]}, {1: [99, 57, 75, 23, 23, 57, 18, 68, 76], 2: [83, 83, 79, 67, 7, 24, 76, 66], 3: [63, 84, 58, 52, 10], 4: [97, 65, 3, 72, 51, 8], 5: [27, 6], 6: [90, 72, 99, 43, 1, 97, 17, 90, 59], 7: [87, 24, 65, 93, 53, 14, 75, 2, 12], 8: [27, 33], 9: [42, 49], 10: [11, 74, 1], 11: [79, 16, 61, 23, 39, 78, 20], 12: [87, 61, 10, 6, 13, 65, 30, 37, 22, 16], 13: [71, 78, 35, 26, 8], 14: [57, 7, 22, 47, 73, 11], 15: [57, 84, 74, 2, 45, 4, 76], 16: [8, 40, 9], 17: [69, 94, 94], 18: [45, 87, 9, 3], 19: [1, 84, 48, 11, 32, 93, 49, 59, 10], 20: [3, 76, 61, 29, 63, 84, 32, 84, 63, 41]}, 119]
 >>> edge_gen(0,400,2,10,1)
 Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0, 1)
+>>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -109,7 +109,7 @@ a 9 8 -97
 a 10 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile2',0,50,30,0,4,0,1)
+>>> dimacs_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -164,7 +164,7 @@ a 26 19 28
 a 27 14 7
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,2,1)
+>>> dimacs_maker('testfile3',10,30,100,0,4,2,1,1)
 189
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -366,12 +366,12 @@ a 96 80 30
 a 99 24 16
 a 99 38 10
 <BLANKLINE>
->>> dimacs_maker('testfile', 0, 200, 10, 0,0)
+>>> dimacs_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, 0, 1)
+>>> json_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -401,7 +401,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> testfile_1_p['graph']['edges'][1]['weight']
 '148'
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,0,1)
+>>> json_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -433,7 +433,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> testfile_2_p['graph']['edges'][1]['weight']
 '5'
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,2,1)
+>>> json_maker('testfile3',10,30,100,0,4,2,1,1)
 189
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -460,7 +460,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 [Error] Bad Input File
 >>> json_to_pickle('testfile24')
 [Error] Bad Input File
->>> json_maker('testfile', 0, 200, 10, 0, 0)
+>>> json_maker('testfile', 0, 200, 10, 0, 0,1)
 Traceback (most recent call last):
         ...
 TypeError: json_maker() missing 1 required positional argument: 'sign'
@@ -473,7 +473,7 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> testfile_3_p['graph']['edges'][1]['weight']
 '15'
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1)
+>>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -486,7 +486,7 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 10,9,143
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,0,1)
+>>> csv_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -533,7 +533,7 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 27,14,7
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,2,1)
+>>> csv_maker('testfile3',10,30,100,0,4,2,1,1)
 189
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -727,12 +727,12 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 99,24,16
 99,38,10
 <BLANKLINE>
->>> csv_maker('testfile', 0, 200, 10, 0,0)
+>>> csv_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1)
+>>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -745,7 +745,7 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 10 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker('testfile2',0,50,30,0,4,0,1)
+>>> wel_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -792,7 +792,7 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 27 14 7
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,2,1)
+>>> wel_maker('testfile3',10,30,100,0,4,2,1,1)
 189
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -986,12 +986,12 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 99 24 16
 99 38 10
 <BLANKLINE>
->>> wel_maker('testfile', 0, 200, 10, 0,0)
+>>> wel_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> lp_maker('testfile', 0, 200, 10, 0, 2, 0,1)
+>>> lp_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1014,7 +1014,7 @@ edge(9,8,-97).
 edge(10,9,143).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker('testfile2',0,50,30,0,4,0,1)
+>>> lp_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1108,7 +1108,7 @@ edge(27,14,7).
 >>> input_dic['max_edge']
 17
 >>> random.seed(2)
->>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1)
+>>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1132,7 +1132,7 @@ edge(27,14,7).
 10 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker('testfile2',0,50,30,0,4,0,1)
+>>> tgf_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1210,7 +1210,7 @@ edge(27,14,7).
 27 14 7
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker('testfile', 0, 200, 10, 0, 2, 0,1)
+>>> dl_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1227,7 +1227,7 @@ data:
 10 9 143
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker('testfile2',0,50,30,0,4,0,1)
+>>> dl_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
@@ -1277,6 +1277,59 @@ data:
 26 19 28
 27 14 7
 <BLANKLINE>
+>>> random.seed(4)
+>>> dimacs_maker('testfile4',0,50,30,0,4,0,1,2)
+39
+>>> file=open('testfile4.gr','r')
+>>> print(file.read())
+c FILE                  :testfile4.gr
+c No. of vertices       :30
+c No. of edges          :39
+c Max. weight           :50
+c Min. weight           :0
+c Min. edge             :0
+c Max. edge             :4
+p sp 30 39
+a 1 11 46
+a 2 17 5
+a 2 4 25
+a 2 19 -48
+a 4 18 -17
+a 5 28 16
+a 6 1 -17
+a 7 6 -18
+a 8 3 -42
+a 8 14 11
+a 9 17 -5
+a 10 28 0
+a 10 11 -48
+a 10 18 26
+a 10 15 -27
+a 11 6 19
+a 11 9 5
+a 11 2 -40
+a 12 18 -44
+a 12 11 43
+a 13 3 -12
+a 14 9 22
+a 14 15 -40
+a 14 19 20
+a 17 9 7
+a 18 6 -29
+a 18 1 22
+a 20 25 -1
+a 20 11 -20
+a 21 26 -39
+a 23 20 28
+a 23 10 16
+a 24 20 21
+a 24 19 23
+a 24 2 -10
+a 25 27 -18
+a 25 19 28
+a 26 14 7
+a 30 20 38
+<BLANKLINE>
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.dl')
@@ -1298,6 +1351,7 @@ data:
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
 >>> os.remove('testfile3.gr')
+>>> os.remove('testfile4.gr')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile3.p')
 >>> os.remove('testfile3.wel')

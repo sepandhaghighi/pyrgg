@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.4] - 2020-06-17
+### Added
+- Self loop control
+- Github action
+### Changed
+- `appveyor.yml` updated
 ## [0.3] - 2019-11-29
 ### Added
 - `__version__` variable
@@ -44,7 +50,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON format
 - README
 
-[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v0.3...dev
+[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v0.4...dev
+[0.4]: https://github.com/sepandhaghighi/pyrgg/compare/v0.3...v0.4
 [0.3]: https://github.com/sepandhaghighi/pyrgg/compare/v0.2...v0.3
 [0.2]: https://github.com/sepandhaghighi/pyrgg/compare/v0.1...v0.2
 [0.1]: https://github.com/sepandhaghighi/pyrgg/compare/1e238cd...v0.1
