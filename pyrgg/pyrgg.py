@@ -330,10 +330,10 @@ def branch_gen(
             random_weight = random_system.randint(min_weight, max_weight)
         else:
             random_weight = sign_gen() * random_system.randint(min_weight, max_weight)
-        if random_tail not in branch_list:
-            branch_list.append(random_tail)
-            weight_list.append(random_weight)
-            index += 1
+        branch_list.append(random_tail)
+        weight_list.append(random_weight)
+        index += 1
+        reference_vertices.remove(random_tail)
     return [branch_list, weight_list]
 
 
