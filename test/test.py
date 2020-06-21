@@ -9,7 +9,7 @@
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> description_print()
-Webpage : http://pyrgg.shaghighi.ir/
+Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
 Paper : https://doi.org/10.21105/joss.00331
 * If you use Pyrgg in your research, please cite our paper
