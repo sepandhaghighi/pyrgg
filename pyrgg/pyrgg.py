@@ -615,6 +615,7 @@ def csv_maker(
     file.close()
     return edge_number
 
+
 def tsv_maker(
         file_name,
         min_weight,
@@ -667,6 +668,7 @@ def tsv_maker(
                        str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
+
 
 def json_to_yaml(filename):
     """
