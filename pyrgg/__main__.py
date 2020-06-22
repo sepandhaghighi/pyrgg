@@ -16,7 +16,8 @@ GENERATOR_MENU = {
     6: lp_maker,
     7: json_maker,
     8: dl_maker,
-    9: tgf_maker}
+    9: tgf_maker,
+    10: tsv_maker}
 
 
 def run():

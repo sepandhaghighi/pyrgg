@@ -206,7 +206,7 @@ def input_filter(input_dict):
         filtered_dict["direct"] = 1
     if filtered_dict["self_loop"] not in [1, 2]:
         filtered_dict["self_loop"] = 1
-    if filtered_dict["output_format"] not in list(range(1, 10)):
+    if filtered_dict["output_format"] not in list(range(1, 11)):
         filtered_dict["output_format"] = 1
     return filtered_dict
 
@@ -615,6 +615,58 @@ def csv_maker(
     file.close()
     return edge_number
 
+def tsv_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop):
+    """
+    Create output file in tsv format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".tsv", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + "\t" + str(value) + "\t" +
+                       str(weight_dic[i][j]) + "\n")
+    file.close()
+    return edge_number
 
 def json_to_yaml(filename):
     """
