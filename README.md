@@ -138,6 +138,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] YAML
   - [x] Pickle 
   - [x] CSV
+  - [x] TSV
   - [x] WEL	
   - [x] ASP
   - [x] TGF
