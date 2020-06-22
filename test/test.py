@@ -493,8 +493,24 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 9,8,-97
 10,9,143
 <BLANKLINE>
+>>> random.seed(2)
+>>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
+7
+>>> file=open('testfile.tsv','r')
+>>> print(file.read())
+4	3	-64
+5	4	148
+5	3	-163
+6	9	-139
+7	9	-9
+9	8	-97
+10	9	143
+<BLANKLINE>
 >>> random.seed(4)
 >>> csv_maker('testfile2',0,50,30,0,4,0,1,1)
+41
+>>> random.seed(4)
+>>> tsv_maker('testfile2',0,50,30,0,4,0,1,1)
 41
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -542,6 +558,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 <BLANKLINE>
 >>> random.seed(20)
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1)
+197
+>>> random.seed(20)
+>>> tsv_maker('testfile3',10,30,100,0,4,2,1,1)
 197
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -747,6 +766,10 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
+>>> tsv_maker('testfile', 0, 200, 10, 0,0,1)
+Traceback (most recent call last):
+        ...
+TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
 >>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1,1)
 7
@@ -1356,6 +1379,7 @@ a 30 20 38
 <BLANKLINE>
 >>> file.close()
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
@@ -1365,6 +1389,7 @@ a 30 20 38
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
 >>> os.remove('testfile2.csv')
+>>> os.remove('testfile2.tsv')
 >>> os.remove('testfile2.dl')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile2.json')
@@ -1374,6 +1399,7 @@ a 30 20 38
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile3.tsv')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile4.gr')
 >>> os.remove('testfile3.json')

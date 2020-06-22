@@ -466,6 +466,9 @@ TypeError: json_maker() missing 2 required positional arguments: 'direct' and 's
 >>> random.seed(2)
 >>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
 7
+>>> random.seed(2)
+>>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1)
+7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
 4,3,-64
@@ -1286,6 +1289,7 @@ data:
 <BLANKLINE>
 >>> file.close()
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
