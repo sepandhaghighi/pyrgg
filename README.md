@@ -224,6 +224,18 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 		
 		<head_n>,<tail_n>,<weight_n>
 	```
+
+- [TSV(.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values)
+	```
+		<head_1>	<tail_1>	<weight_1>
+
+		.
+		.
+		.
+		
+		<head_n>	<tail_n>	<weight_n>
+	```
+
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
 	```
