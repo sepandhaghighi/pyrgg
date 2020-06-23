@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- TSV format
+### Changed
+- `branch_gen` function modified
+- Website changed to [https://www.pyrgg.ir](https://www.pyrgg.ir)
 ## [0.4] - 2020-06-17
 ### Added
 - Self loop control
