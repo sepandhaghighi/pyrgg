@@ -129,7 +129,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. I'll check it ASAP!							
-or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir"). 
+or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
 
 ## TODO	
 - [x] Formats
