@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TSV format
 ### Changed
 - `branch_gen` function modified
+- Website changed to [https://www.pyrgg.ir](https://www.pyrgg.ir)
 ## [0.4] - 2020-06-17
 ### Added
 - Self loop control
