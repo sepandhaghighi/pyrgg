@@ -15,7 +15,8 @@ MENU_ITEMS2 = {"vertices": "Vertices Number : ",
                "max_edge": "Max Edge Number :",
                "sign": "Signed[1] or Unsigned[2]",
                "direct": "Directed[1] or Undirected[2]",
-               "self_loop": "Self Loop[1] or No Self Loop[2]"}
+               "self_loop": "Self Loop[1] or No Self Loop[2]",
+               "multigraph": "Simple[1] or Multigraph[2]"}
 
 
 SUFFIX_MENU = {

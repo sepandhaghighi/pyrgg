@@ -206,6 +206,8 @@ def input_filter(input_dict):
         filtered_dict["direct"] = 1
     if filtered_dict["self_loop"] not in [1, 2]:
         filtered_dict["self_loop"] = 1
+    if filtered_dict["multigraph"] not in [1, 2]:
+        filtered_dict["multigraph"] = 1
     if filtered_dict["output_format"] not in list(range(1, 11)):
         filtered_dict["output_format"] = 1
     return filtered_dict
