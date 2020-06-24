@@ -319,7 +319,8 @@ def branch_gen(
     branch_list = []
     weight_list = []
     reference_vertices = all_vertices[:]
-    if direct == 2 and (vertex_index in used_vertices.keys()) and multigraph == 1:
+    if direct == 2 and (
+            vertex_index in used_vertices.keys()) and multigraph == 1:
         reference_vertices = list(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if self_loop == 2 and vertex_index in reference_vertices:
