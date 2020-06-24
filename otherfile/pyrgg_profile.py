@@ -3,4 +3,4 @@
 from pyrgg import *
 
 
-dimacs_maker('profile', 1, 5000, 30000, 1, 60, 0, 1,1)
+dimacs_maker('profile', 1, 5000, 30000, 1, 60, 0, 1, 1, 1)
