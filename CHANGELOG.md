@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - TSV format
+- Multigraph control
 ### Changed
 - `branch_gen` function modified
 - Website changed to [https://www.pyrgg.ir](https://www.pyrgg.ir)
