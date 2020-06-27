@@ -32,7 +32,7 @@ SUFFIX_MENU = {
     10: ".tsv"}
 
 
-PYRGG_VERSION = "0.4"
+PYRGG_VERSION = "0.5"
 
 SOURCE_DIR = os.getcwd()
 
