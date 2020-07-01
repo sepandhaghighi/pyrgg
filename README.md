@@ -90,14 +90,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.4](https://github.com/sepandhaghighi/pyrgg/archive/v0.4.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 0.5](https://github.com/sepandhaghighi/pyrgg/archive/v0.5.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==0.4` or `pip3 install pyrgg==0.4` (Need root access)							
+- `pip install pyrgg==0.5` or `pip3 install pyrgg==0.5` (Need root access)							
 
 ### Conda
 
@@ -105,8 +105,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.4](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.4/PYRGG-0.4.exe)
-- Run `PYRGG-0.4.exe`
+- Download [Exe-Version 0.5](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.5/PYRGG-0.5.exe)
+- Run `PYRGG-0.5.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -129,7 +129,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. I'll check it ASAP!							
-or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir"). 
+or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
 
 ## TODO	
 - [x] Formats
@@ -138,6 +138,7 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
   - [x] YAML
   - [x] Pickle 
   - [x] CSV
+  - [x] TSV
   - [x] WEL	
   - [x] ASP
   - [x] TGF
@@ -169,6 +170,8 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 - [Sample 2-JSON](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 105KB)
 - [Sample 1-CSV](https://www.dropbox.com/s/dmld0eadftnatr5/100.csv?dl=0) (100 Vertices , 3KB)
 - [Sample 2-CSV](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
+- [Sample 1-TSV](https://www.dropbox.com/s/j3zgs4kx2paxe75/100.tsv?dl=0) (100 Vertices , 29KB)
+- [Sample 2-TSV](https://www.dropbox.com/s/ykagmjgwlpim6dq/1000.tsv?dl=0) (1000 Vertices , 420KB)
 - [Sample 1-WEL](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
 - [Sample 2-WEL](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
 - [Sample 1-YAML](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 3KB)
@@ -224,6 +227,18 @@ or send an email to [sepand@qpage.ir](mailto:sepand@qpage.ir "sepand@qpage.ir").
 		
 		<head_n>,<tail_n>,<weight_n>
 	```
+
+- [TSV(.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values)
+	```
+		<head_1>	<tail_1>	<weight_1>
+
+		.
+		.
+		.
+		
+		<head_n>	<tail_n>	<weight_n>
+	```
+
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
 	```

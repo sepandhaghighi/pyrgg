@@ -16,7 +16,8 @@ GENERATOR_MENU = {
     6: lp_maker,
     7: json_maker,
     8: dl_maker,
-    9: tgf_maker}
+    9: tgf_maker,
+    10: tsv_maker}
 
 
 def run():
@@ -36,6 +37,7 @@ def run():
     sign = input_dict["sign"]
     direct = input_dict["direct"]
     self_loop = input_dict["self_loop"]
+    multigraph = input_dict["multigraph"]
     print("Generating . . . ")
     edge_number = GENERATOR_MENU[input_dict["output_format"]](
         file_name,
@@ -46,7 +48,8 @@ def run():
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     if input_dict["output_format"] == 4:
         json_to_yaml(file_name)
     if input_dict["output_format"] == 7:

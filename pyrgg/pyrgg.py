@@ -206,7 +206,9 @@ def input_filter(input_dict):
         filtered_dict["direct"] = 1
     if filtered_dict["self_loop"] not in [1, 2]:
         filtered_dict["self_loop"] = 1
-    if filtered_dict["output_format"] not in list(range(1, 10)):
+    if filtered_dict["multigraph"] not in [1, 2]:
+        filtered_dict["multigraph"] = 1
+    if filtered_dict["output_format"] not in list(range(1, 11)):
         filtered_dict["output_format"] = 1
     return filtered_dict
 
@@ -231,7 +233,8 @@ def get_input(input_func=input):
             "output_format": 1,
             "weight": 1,
             "direct": 1,
-            "self_loop": 1}
+            "self_loop": 1,
+            "multigraph": 1}
         MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
         MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
         for item in MENU_ITEMS_KEYS1:
@@ -284,6 +287,7 @@ def branch_gen(
         sign,
         direct,
         self_loop,
+        multigraph,
         all_vertices,
         used_vertices):
     """
@@ -303,6 +307,8 @@ def branch_gen(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :param all_vertices : all vertices list
     :type all_vertices : list
     :param used_vertices: used vertices dictionary
@@ -313,7 +319,8 @@ def branch_gen(
     branch_list = []
     weight_list = []
     reference_vertices = all_vertices[:]
-    if direct == 2 and (vertex_index in used_vertices.keys()):
+    if direct == 2 and (
+            vertex_index in used_vertices.keys()) and multigraph == 1:
         reference_vertices = list(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if self_loop == 2 and vertex_index in reference_vertices:
@@ -330,10 +337,11 @@ def branch_gen(
             random_weight = random_system.randint(min_weight, max_weight)
         else:
             random_weight = sign_gen() * random_system.randint(min_weight, max_weight)
-        if random_tail not in branch_list:
-            branch_list.append(random_tail)
-            weight_list.append(random_weight)
-            index += 1
+        branch_list.append(random_tail)
+        weight_list.append(random_weight)
+        index += 1
+        if multigraph == 1:
+            reference_vertices.remove(random_tail)
     return [branch_list, weight_list]
 
 
@@ -345,7 +353,8 @@ def edge_gen(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Generate each vertex connection number.
 
@@ -365,6 +374,8 @@ def edge_gen(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: list of dicts
     """
     temp = 0
@@ -384,6 +395,7 @@ def edge_gen(
             sign,
             direct,
             self_loop,
+            multigraph,
             vertices_id,
             used_vertices)
         vertices_edge.append(temp_list[0])
@@ -444,7 +456,8 @@ def dimacs_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file and fill in.
 
@@ -466,6 +479,8 @@ def dimacs_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".gr", "w")
@@ -477,7 +492,8 @@ def dimacs_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -508,7 +524,8 @@ def json_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in json format.
 
@@ -530,6 +547,8 @@ def json_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".json", "w")
@@ -541,7 +560,8 @@ def json_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -571,7 +591,8 @@ def csv_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in csv format.
 
@@ -593,6 +614,8 @@ def csv_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".csv", "w")
@@ -604,13 +627,72 @@ def csv_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
             file.write(str(i) + "," + str(value) + "," +
+                       str(weight_dic[i][j]) + "\n")
+    file.close()
+    return edge_number
+
+
+def tsv_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in tsv format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".tsv", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + "\t" + str(value) + "\t" +
                        str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
@@ -663,7 +745,8 @@ def wel_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in wel format.
 
@@ -685,6 +768,8 @@ def wel_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".wel", "w")
@@ -696,7 +781,8 @@ def wel_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -717,7 +803,8 @@ def lp_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in ASP format.
 
@@ -739,6 +826,8 @@ def lp_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".lp", "w")
@@ -750,7 +839,8 @@ def lp_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -776,7 +866,8 @@ def tgf_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in Trivial Graph Format (TGF).
 
@@ -798,6 +889,8 @@ def tgf_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".tgf", "w")
@@ -809,7 +902,8 @@ def tgf_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
@@ -836,7 +930,8 @@ def dl_maker(
         max_edge,
         sign,
         direct,
-        self_loop):
+        self_loop,
+        multigraph):
     """
     Create output file in UCINET DL Format.
 
@@ -858,6 +953,8 @@ def dl_maker(
     :type direct: int
     :param self_loop: self loop flag
     :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
     :return: edge_number as int
     """
     file = open(file_name + ".dl", "w")
@@ -869,7 +966,8 @@ def dl_maker(
         max_edge,
         sign,
         direct,
-        self_loop)
+        self_loop,
+        multigraph)
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]

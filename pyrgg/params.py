@@ -4,7 +4,8 @@ import os
 
 MENU_ITEMS1 = {
     "file_name": "File Name : ",
-    "output_format": "Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9]",
+    "output_format": "Graph Format : \nDIMACS(.gr)[1] | JSON(.json)[2] | CSV(.csv)[3] | YAML(.yaml)[4]\n| WEL(.wel)[5] | ASP(.lp)[6] | Pickle(.p)[7] | UCINET DL Format(.dl)[8] | TGF(.tgf)[9] | TSV("
+                     ".tsv)[10]",
     "weight": "Weighted[1] or Unweighted[2]"}
 
 MENU_ITEMS2 = {"vertices": "Vertices Number : ",
@@ -14,7 +15,8 @@ MENU_ITEMS2 = {"vertices": "Vertices Number : ",
                "max_edge": "Max Edge Number :",
                "sign": "Signed[1] or Unsigned[2]",
                "direct": "Directed[1] or Undirected[2]",
-               "self_loop": "Self Loop[1] or No Self Loop[2]"}
+               "self_loop": "Self Loop[1] or No Self Loop[2]",
+               "multigraph": "Simple[1] or Multigraph[2]"}
 
 
 SUFFIX_MENU = {
@@ -26,15 +28,16 @@ SUFFIX_MENU = {
     6: ".lp",
     7: ".p",
     8: ".dl",
-    9: ".tgf"}
+    9: ".tgf",
+    10: ".tsv"}
 
 
-PYRGG_VERSION = "0.4"
+PYRGG_VERSION = "0.5"
 
 SOURCE_DIR = os.getcwd()
 
 PYRGG_LINKS = """
-Webpage : http://pyrgg.shaghighi.ir/
+Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
 Paper : https://doi.org/10.21105/joss.00331
 * If you use Pyrgg in your research, please cite our paper
