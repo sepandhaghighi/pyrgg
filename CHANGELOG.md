@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `dl_maker` function optimized
 - `tgf_maker` function optimized
 - `lp_maker` function optimized
-
 ## [0.5] - 2020-07-01
 ### Added
 - TSV format
