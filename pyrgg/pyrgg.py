@@ -854,15 +854,11 @@ def lp_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes = ''
-    edges = ''
     for i in edge_dic.keys():
-        nodes = nodes + 'node(' + str(i) + ").\n"
+        file.write('node(' + str(i) + ").\n")
+    for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            edges = edges + \
-                'edge(' + str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + ").\n"
-    file.write(nodes)
-    file.write(edges)
+            file.write('edge(' + str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + ").\n")
     file.close()
     return edge_number
 
