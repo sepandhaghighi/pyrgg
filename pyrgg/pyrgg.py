@@ -973,13 +973,10 @@ def dl_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    edges = ''
+    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            edges = edges + str(i) + " " + str(value) + \
-                " " + str(weight_dic[i][j]) + "\n"
-    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
-    file.write(edges)
+            file.write(str(i) + " " + str(value) + " " + str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
