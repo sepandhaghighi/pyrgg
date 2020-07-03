@@ -26,6 +26,9 @@ matrix:
           python: 3.8-dev
           dist: xenial
         - os: linux
+          python: 3.9-dev
+          dist: xenial
+        - os: linux
           python: nightly
           dist: xenial
     allow_failures:
@@ -33,6 +36,9 @@ matrix:
           python: 2.7
         - os: linux
           python: 3.4
+        - os: linux
+          python: 3.9-dev
+          dist: xenial
 install:
   - chmod +x .travis/install.sh
   - .travis/install.sh
