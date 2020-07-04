@@ -858,11 +858,14 @@ def mtx_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
+    max_edge_length = len(str(vertices))
     file.write("%%MatrixMarket matrix coordinate real general\n")
-    file.write("{0}  {0}  {1}\n".format(str(vertices),str(edge_number)))
+    file.write("{0}    {0}    {1}\n".format(str(vertices),str(edge_number)))
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + 4*" " + str(value) + 4*" " +
+            shift1 = (max_edge_length - len(str(i))) + 4
+            shift2 = (max_edge_length - len(str(value))) + 4
+            file.write(str(i) + shift1*" " + str(value) + shift2*" " +
                        str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
