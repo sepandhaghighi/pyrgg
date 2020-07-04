@@ -808,6 +808,65 @@ def wel_maker(
     file.close()
     return edge_number
 
+def mtx_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in Matrix Market format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".mtx", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    file.write("%%MatrixMarket matrix coordinate real general\n")
+    file.write("{0}  {0}  {1}\n".format(str(vertices),str(edge_number)))
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + 4*" " + str(value) + 4*" " +
+                       str(weight_dic[i][j]) + "\n")
+    file.close()
+    return edge_number
+
 
 def lp_maker(
         file_name,
