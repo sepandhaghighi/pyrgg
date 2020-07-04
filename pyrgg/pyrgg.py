@@ -570,12 +570,17 @@ def json_maker(
     edges = '\t\t\t"edges":[\n'
     file.write('{\n\t"graph": {\n')
     file.write(nodes)
-    for i,value in enumerate(edge_dic.keys()):
-        nodes = '\t\t\t{\n\t\t\t\t' + \
-            '"id": ' + '"' + str(value) + '"\n\t\t\t},\n'
-        if i == len(edge_dic)-1:
-            nodes = nodes[:-2] + "\n\t\t],\n"
+    for i in edge_dic.keys():
+        nodes = ""
+        if first_line:
+            first_line = False
+        else:
+            nodes += ",\n"
+        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
+            '"id": ' + '"' + str(i) + '"\n\t\t\t}'
         file.write(nodes)
+    file.write("\n\t\t],\n")
+    first_line = True
     file.write(edges)
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
