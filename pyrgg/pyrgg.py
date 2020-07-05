@@ -808,6 +808,7 @@ def wel_maker(
     file.close()
     return edge_number
 
+
 def mtx_maker(
         file_name,
         min_weight,
@@ -860,12 +861,12 @@ def mtx_maker(
     edge_number = dicts[2]
     max_edge_length = len(str(vertices))
     file.write("%%MatrixMarket matrix coordinate real general\n")
-    file.write("{0}    {0}    {1}\n".format(str(vertices),str(edge_number)))
+    file.write("{0}    {0}    {1}\n".format(str(vertices), str(edge_number)))
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
             shift1 = (max_edge_length - len(str(i))) + 4
             shift2 = (max_edge_length - len(str(value))) + 4
-            file.write(str(i) + shift1*" " + str(value) + shift2*" " +
+            file.write(str(i) + shift1 * " " + str(value) + shift2 * " " +
                        str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
@@ -925,7 +926,8 @@ def lp_maker(
         file.write('node(' + str(i) + ").\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write('edge(' + str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + ").\n")
+            file.write('edge(' + str(i) + "," + str(value) +
+                       "," + str(weight_dic[i][j]) + ").\n")
     file.close()
     return edge_number
 
@@ -985,7 +987,8 @@ def tgf_maker(
     file.write("#\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " + str(weight_dic[i][j]) + "\n")
+            file.write(str(i) + " " + str(value) + " " +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
@@ -1043,7 +1046,8 @@ def dl_maker(
     file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " + str(weight_dic[i][j]) + "\n")
+            file.write(str(i) + " " + str(value) + " " +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
