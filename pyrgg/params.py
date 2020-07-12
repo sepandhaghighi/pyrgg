@@ -4,7 +4,7 @@ import os
 
 MENU_ITEMS1 = {
     "file_name": "File Name : ",
-    "output_format": "Graph Formats : \n1- DIMACS(.gr)\n2- JSON(.json)\n3- CSV(.csv)\n4- YAML(.yaml)\n5- WEL(.wel)\n6- ASP(.lp)\n7- Pickle(.p)\n8- UCINET DL Format(.dl)\n9- TGF(.tgf)\n10- TSV("
+    "output_format": "Graph Formats : \n1- DIMACS(.gr)\n2- JSON(.json)\n3- CSV(.csv)\n4- YAML(.yaml)\n5- WEL(.wel)\n6- ASP(.lp)\n7- Pickle(.p)\n8- UCINET DL(.dl)\n9- TGF(.tgf)\n10- TSV("
                      ".tsv)\n11- Matrix Market(.mtx)\n",
     "weight": "Weighted[1] or Unweighted[2]"}
 
