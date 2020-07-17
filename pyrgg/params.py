@@ -33,7 +33,7 @@ SUFFIX_MENU = {
     11: ".mtx"}
 
 
-PYRGG_VERSION = "0.5"
+PYRGG_VERSION = "0.6"
 
 SOURCE_DIR = os.getcwd()
 
