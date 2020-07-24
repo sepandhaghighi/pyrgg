@@ -467,8 +467,23 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
+>>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> random.seed(2)
 >>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
+>>> file=open('testfile.mtx','r')
+>>> print(file.read())
+%%MatrixMarket matrix coordinate real general
+10    10    7
+4     3     -64
+5     4     148
+5     3     -163
+6     9     -139
+7     9     -9
+9     8     -97
+10    9     143
+<BLANKLINE>
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
 4,3,-64

@@ -208,7 +208,7 @@ def input_filter(input_dict):
         filtered_dict["self_loop"] = 1
     if filtered_dict["multigraph"] not in [1, 2]:
         filtered_dict["multigraph"] = 1
-    if filtered_dict["output_format"] not in list(range(1, 11)):
+    if filtered_dict["output_format"] not in list(range(1, 12)):
         filtered_dict["output_format"] = 1
     return filtered_dict
 
@@ -565,19 +565,34 @@ def json_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
+    first_line = True
     nodes = '\t\t\t"nodes":[\n'
     edges = '\t\t\t"edges":[\n'
-    for i in edge_dic.keys():
-        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
-            '"id": ' + '"' + str(i) + '"\n\t\t\t},\n'
-        for j, value in enumerate(edge_dic[i]):
-            edges = edges + '\t\t\t{\n\t\t\t\t"source": ' + '"' + str(i) + '",\n\t\t\t\t' + '"target": ' + '"' + str(
-                value) + '",\n\t\t\t\t' + '"weight": ' + '"' + str(weight_dic[i][j]) + '"\n\t\t\t},\n'
-    nodes = nodes[:-2] + "\n\t\t],\n"
-    edges = edges[:-2] + "\n\t\t]\n\t}\n}"
     file.write('{\n\t"graph": {\n')
     file.write(nodes)
+    for i in edge_dic.keys():
+        nodes = ""
+        if first_line:
+            first_line = False
+        else:
+            nodes += ",\n"
+        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
+            '"id": ' + '"' + str(i) + '"\n\t\t\t}'
+        file.write(nodes)
+    file.write("\n\t\t],\n")
+    first_line = True
     file.write(edges)
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            edges = ""
+            if first_line:
+                first_line = False
+            else:
+                edges += ",\n"
+            edges = edges + '\t\t\t{\n\t\t\t\t"source": ' + '"' + str(i) + '",\n\t\t\t\t' + '"target": ' + '"' + str(
+                value) + '",\n\t\t\t\t' + '"weight": ' + '"' + str(weight_dic[i][j]) + '"\n\t\t\t}'
+            file.write(edges)
+    file.write("\n\t\t]\n\t}\n}")
     file.close()
     return edge_number
 
@@ -794,6 +809,69 @@ def wel_maker(
     return edge_number
 
 
+def mtx_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in Matrix Market format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".mtx", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    max_edge_length = len(str(vertices))
+    file.write("%%MatrixMarket matrix coordinate real general\n")
+    file.write("{0}    {0}    {1}\n".format(str(vertices), str(edge_number)))
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            shift1 = (max_edge_length - len(str(i))) + 4
+            shift2 = (max_edge_length - len(str(value))) + 4
+            file.write(str(i) + shift1 * " " + str(value) + shift2 * " " +
+                       str(weight_dic[i][j]) + "\n")
+    file.close()
+    return edge_number
+
+
 def lp_maker(
         file_name,
         min_weight,
@@ -844,15 +922,12 @@ def lp_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes = ''
-    edges = ''
     for i in edge_dic.keys():
-        nodes = nodes + 'node(' + str(i) + ").\n"
+        file.write('node(' + str(i) + ").\n")
+    for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            edges = edges + \
-                'edge(' + str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + ").\n"
-    file.write(nodes)
-    file.write(edges)
+            file.write('edge(' + str(i) + "," + str(value) +
+                       "," + str(weight_dic[i][j]) + ").\n")
     file.close()
     return edge_number
 
@@ -907,16 +982,13 @@ def tgf_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    nodes = ''
-    edges = ''
     for i in edge_dic.keys():
-        nodes = nodes + str(i) + "\n"
-        for j, value in enumerate(edge_dic[i]):
-            edges = edges + str(i) + " " + str(value) + \
-                " " + str(weight_dic[i][j]) + "\n"
-    file.write(nodes)
+        file.write(str(i) + "\n")
     file.write("#\n")
-    file.write(edges)
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + " " + str(value) + " " +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 
@@ -971,13 +1043,11 @@ def dl_maker(
     edge_dic = dicts[0]
     weight_dic = dicts[1]
     edge_number = dicts[2]
-    edges = ''
+    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            edges = edges + str(i) + " " + str(value) + \
-                " " + str(weight_dic[i][j]) + "\n"
-    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
-    file.write(edges)
+            file.write(str(i) + " " + str(value) + " " +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
 

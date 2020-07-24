@@ -6,6 +6,7 @@
 >>> import json
 >>> import yaml
 >>> import pickle
+>>> from scipy.io import mmread
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> description_print()
@@ -708,6 +709,18 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 10,9,143
 <BLANKLINE>
 >>> random.seed(2)
+>>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> g = mmread("testfile.mtx")
+>>> print(g)
+  (3, 2)	-64.0
+  (4, 3)	148.0
+  (4, 2)	-163.0
+  (5, 8)	-139.0
+  (6, 8)	-9.0
+  (8, 7)	-97.0
+  (9, 8)	143.0
+>>> random.seed(2)
 >>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> file=open('testfile.tsv','r')
@@ -724,8 +737,54 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> csv_maker('testfile2',0,50,30,0,4,0,1,1,1)
 41
 >>> random.seed(4)
+>>> mtx_maker('testfile2',0,50,30,0,4,0,1,1,1)
+41
+>>> random.seed(4)
 >>> tsv_maker('testfile2',0,50,30,0,4,0,1,1,1)
 41
+>>> g = mmread("testfile2.mtx")
+>>> print(g)
+  (0, 9)	46.0
+  (1, 15)	5.0
+  (1, 2)	25.0
+  (1, 19)	-48.0
+  (3, 16)	-17.0
+  (4, 26)	16.0
+  (5, 29)	41.0
+  (6, 25)	-12.0
+  (6, 5)	-18.0
+  (7, 2)	-42.0
+  (7, 13)	11.0
+  (8, 15)	-5.0
+  (9, 26)	0.0
+  (9, 9)	-48.0
+  (9, 17)	26.0
+  (9, 14)	-27.0
+  (10, 5)	19.0
+  (10, 9)	5.0
+  (10, 1)	-40.0
+  (11, 16)	-44.0
+  (11, 10)	43.0
+  (12, 2)	-12.0
+  (13, 8)	22.0
+  (13, 14)	-40.0
+  (13, 19)	20.0
+  (16, 8)	7.0
+  (17, 29)	18.0
+  (17, 14)	2.0
+  (18, 22)	18.0
+  (18, 24)	-1.0
+  (19, 9)	-9.0
+  (19, 25)	-39.0
+  (21, 19)	28.0
+  (21, 9)	16.0
+  (22, 19)	21.0
+  (22, 18)	23.0
+  (22, 1)	-10.0
+  (23, 25)	-18.0
+  (23, 18)	28.0
+  (24, 13)	7.0
+  (28, 19)	38.0
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
 1,10,46
@@ -774,8 +833,64 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
 197
 >>> random.seed(20)
+>>> mtx_maker('testfile3',10,30,100,0,4,2,1,1,1)
+197
+>>> random.seed(20)
 >>> tsv_maker('testfile3',10,30,100,0,4,2,1,1,1)
 197
+>>> g = mmread("testfile3.mtx")
+>>> print(g)
+  (0, 33)	30.0
+  (2, 73)	15.0
+  (2, 3)	23.0
+  (3, 9)	13.0
+  (3, 17)	20.0
+  (3, 62)	28.0
+  (4, 52)	16.0
+  (4, 25)	20.0
+  (4, 82)	20.0
+  (5, 54)	12.0
+  (5, 81)	26.0
+  (6, 51)	12.0
+  (6, 26)	28.0
+  (6, 32)	11.0
+  (7, 12)	12.0
+  (8, 32)	19.0
+  (9, 88)	18.0
+  (9, 20)	29.0
+  (12, 90)	17.0
+  (12, 28)	28.0
+  (13, 7)	10.0
+  (14, 38)	18.0
+  (14, 17)	30.0
+  (14, 44)	29.0
+  (14, 95)	24.0
+  :	:
+  (86, 11)	26.0
+  (86, 3)	19.0
+  (86, 4)	18.0
+  (87, 33)	19.0
+  (87, 69)	22.0
+  (89, 1)	11.0
+  (89, 74)	15.0
+  (90, 29)	30.0
+  (92, 53)	11.0
+  (92, 0)	29.0
+  (92, 98)	16.0
+  (93, 69)	27.0
+  (93, 59)	12.0
+  (93, 36)	24.0
+  (94, 37)	20.0
+  (94, 13)	24.0
+  (94, 25)	14.0
+  (94, 82)	30.0
+  (97, 23)	16.0
+  (97, 24)	17.0
+  (98, 0)	13.0
+  (98, 7)	17.0
+  (99, 64)	30.0
+  (99, 78)	22.0
+  (99, 87)	18.0
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
 1,34,30
@@ -980,9 +1095,16 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> csv_maker('testfile3',10,30,100,0,4,2,2,1,2)
 198
 >>> random.seed(20)
+>>> mtx_maker('testfile3',10,30,100,0,4,2,2,1,2)
+198
+>>> random.seed(20)
 >>> tsv_maker('testfile3',10,30,100,0,4,2,2,1,2)
 198
 >>> csv_maker('testfile', 0, 200, 10, 0,0,1)
+Traceback (most recent call last):
+        ...
+TypeError: csv_maker() missing 1 required positional argument: 'sign'
+>>> mtx_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
@@ -1603,6 +1725,7 @@ a 30 20 38
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.tsv')
+>>> os.remove('testfile.mtx')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
@@ -1612,6 +1735,7 @@ a 30 20 38
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
 >>> os.remove('testfile2.csv')
+>>> os.remove('testfile2.mtx')
 >>> os.remove('testfile2.tsv')
 >>> os.remove('testfile2.dl')
 >>> os.remove('testfile2.gr')
@@ -1622,6 +1746,7 @@ a 30 20 38
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile3.mtx')
 >>> os.remove('testfile3.tsv')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile4.gr')
