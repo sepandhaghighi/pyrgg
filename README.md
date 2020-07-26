@@ -363,6 +363,15 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
        .
        <head_n>    <tail_n>    <weight_n> 
    ```
+- Graph Line(.gl)
+	```
+	   <head_1> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	   <head_2> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	   .
+	   .
+	   .
+	   <head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	```
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
 
