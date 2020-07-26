@@ -992,6 +992,64 @@ def tgf_maker(
     file.close()
     return edge_number
 
+def gl_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in Graph Line(GL).
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".gl", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    for i in edge_dic.keys():
+        line_data = str(i)
+        for j, value in enumerate(edge_dic[i]):
+            line_data += " " + str(value)+":"+str(weight_dic[i][j])
+        file.write(line_data + "\n")
+    file.close()
+    return edge_number
+
 
 def dl_maker(
         file_name,
