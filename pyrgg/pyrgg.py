@@ -992,6 +992,7 @@ def tgf_maker(
     file.close()
     return edge_number
 
+
 def gl_maker(
         file_name,
         min_weight,
@@ -1045,7 +1046,7 @@ def gl_maker(
     for i in edge_dic.keys():
         line_data = str(i)
         for j, value in enumerate(edge_dic[i]):
-            line_data += " " + str(value)+":"+str(weight_dic[i][j])
+            line_data += " " + str(value) + ":" + str(weight_dic[i][j])
         file.write(line_data + "\n")
     file.close()
     return edge_number
