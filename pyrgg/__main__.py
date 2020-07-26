@@ -18,7 +18,7 @@ GENERATOR_MENU = {
     8: dl_maker,
     9: tgf_maker,
     10: tsv_maker,
-    11: mtx_maker
+    11: mtx_maker,
     12: gl_maker}
 
 

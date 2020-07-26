@@ -186,6 +186,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-UCINET DL](https://www.dropbox.com/s/kbzbsy47uvfqdsi/1000.dl?dl=0) (1000 Vertices , 729KB)
 - [Sample 1-MTX](https://www.dropbox.com/s/ztw3vg0roups82q/100.mtx?dl=0) (100 Vertices , 59KB)
 - [Sample 2-MTX](https://www.dropbox.com/s/skjjvbbzrpvryl4/1000.mtx?dl=0) (1000 Vertices , 1.8MB)
+- [Sample 1-GL](https://www.dropbox.com/s/obmmb5nw1lca9z3/100.gl?dl=0) (100 Vertices , 17KB)
+- [Sample 2-GL](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
 
 
 
