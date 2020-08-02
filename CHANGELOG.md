@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Graph Line format
+### Changed
+- Menu optimized
 ## [0.6] - 2020-07-24
 ### Added
 - Matrix Market format
