@@ -484,6 +484,22 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 9     8     -97
 10    9     143
 <BLANKLINE>
+>>> random.seed(2)
+>>> gl_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gl','r')
+>>> print(file.read())
+1
+2
+3
+4 3:-64
+5 4:148 3:-163
+6 9:-139
+7 9:-9
+8
+9 8:-97
+10 9:143
+<BLANKLINE>
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
 4,3,-64
@@ -1313,6 +1329,8 @@ data:
 >>> os.remove('testfile.tgf')
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
+>>> os.remove('testfile.mtx')
+>>> os.remove('testfile.gl')
 >>> os.remove('testfile2.csv')
 >>> os.remove('testfile2.dl')
 >>> os.remove('testfile2.gr')
