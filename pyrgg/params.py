@@ -34,7 +34,7 @@ SUFFIX_MENU = {
     12: ".gl"}
 
 
-PYRGG_VERSION = "0.6"
+PYRGG_VERSION = "0.7"
 
 SOURCE_DIR = os.getcwd()
 
