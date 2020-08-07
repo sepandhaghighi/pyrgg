@@ -3,20 +3,20 @@
 import os
 
 MENU_ITEMS1 = {
-    "file_name": "File Name : ",
-    "output_format": "Graph Formats : \n1- DIMACS(.gr)\n2- JSON(.json)\n3- CSV(.csv)\n4- YAML(.yaml)\n5- WEL(.wel)\n6- ASP(.lp)\n7- Pickle(.p)\n8- UCINET DL(.dl)\n9- TGF(.tgf)\n10- TSV("
-                     ".tsv)\n11- Matrix Market(.mtx)\n",
-    "weight": "Weighted[1] or Unweighted[2]"}
+    "file_name": "- File Name : ",
+    "output_format": "- Graph Formats : \n1- DIMACS(.gr)\n2- JSON(.json)\n3- CSV(.csv)\n4- YAML(.yaml)\n5- WEL(.wel)\n6- ASP(.lp)\n7- Pickle(.p)\n8- UCINET DL(.dl)\n9- TGF(.tgf)\n10- TSV("
+                     ".tsv)\n11- Matrix Market(.mtx)\n12- Graph Line(.gl)\n",
+    "weight": "- Weighted[1] or Unweighted[2]"}
 
-MENU_ITEMS2 = {"vertices": "Vertices Number : ",
-               "max_weight": "Max Weight : ",
-               "min_weight": "Min Weight : ",
-               "min_edge": "Min Edge Number :",
-               "max_edge": "Max Edge Number :",
-               "sign": "Signed[1] or Unsigned[2]",
-               "direct": "Directed[1] or Undirected[2]",
-               "self_loop": "Self Loop[1] or No Self Loop[2]",
-               "multigraph": "Simple[1] or Multigraph[2]"}
+MENU_ITEMS2 = {"vertices": "- Vertices Number : ",
+               "max_weight": "- Max Weight : ",
+               "min_weight": "- Min Weight : ",
+               "min_edge": "- Min Edge Number :",
+               "max_edge": "- Max Edge Number :",
+               "sign": "- Signed[1] or Unsigned[2]",
+               "direct": "- Directed[1] or Undirected[2]",
+               "self_loop": "- Self Loop[1] or No Self Loop[2]",
+               "multigraph": "- Simple[1] or Multigraph[2]"}
 
 
 SUFFIX_MENU = {
@@ -30,10 +30,11 @@ SUFFIX_MENU = {
     8: ".dl",
     9: ".tgf",
     10: ".tsv",
-    11: ".mtx"}
+    11: ".mtx",
+    12: ".gl"}
 
 
-PYRGG_VERSION = "0.6"
+PYRGG_VERSION = "0.7"
 
 SOURCE_DIR = os.getcwd()
 

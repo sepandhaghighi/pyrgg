@@ -90,14 +90,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.6](https://github.com/sepandhaghighi/pyrgg/archive/v0.6.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 0.7](https://github.com/sepandhaghighi/pyrgg/archive/v0.7.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==0.6` or `pip3 install pyrgg==0.6` (Need root access)							
+- `pip install pyrgg==0.7` or `pip3 install pyrgg==0.7` (Need root access)							
 
 ### Conda
 
@@ -105,8 +105,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.6](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.6/PYRGG-0.6.exe)
-- Run `PYRGG-0.6.exe`
+- Download [Exe-Version 0.7](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.7/PYRGG-0.7.exe)
+- Run `PYRGG-0.7.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -186,6 +186,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-UCINET DL](https://www.dropbox.com/s/kbzbsy47uvfqdsi/1000.dl?dl=0) (1000 Vertices , 729KB)
 - [Sample 1-MTX](https://www.dropbox.com/s/ztw3vg0roups82q/100.mtx?dl=0) (100 Vertices , 59KB)
 - [Sample 2-MTX](https://www.dropbox.com/s/skjjvbbzrpvryl4/1000.mtx?dl=0) (1000 Vertices , 1.8MB)
+- [Sample 1-GL](https://www.dropbox.com/s/obmmb5nw1lca9z3/100.gl?dl=0) (100 Vertices , 17KB)
+- [Sample 2-GL](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
 
 
 
@@ -363,6 +365,15 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
        .
        <head_n>    <tail_n>    <weight_n> 
    ```
+- Graph Line(.gl)
+	```
+	   <head_1> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	   <head_2> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	   .
+	   .
+	   .
+	   <head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	```
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
 
