@@ -201,7 +201,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
-<img src="http://uupload.ir/files/rag1_screenshot_from_2020-08-08_11-23-40.png">
+<img src="https://www.pyrgg.ir/images/random.png">
 <p>Fig. 1. Rand Graph Generation</p>
 </div>
 
