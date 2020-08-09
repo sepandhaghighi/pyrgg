@@ -374,6 +374,25 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	   .
 	   <head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
 	```
+
+- GDF(.gdf)
+	```
+	   nodedef>name VARCHAR,label VARCHAR
+       node_1,node_1_label
+       node_2,node_2_label
+       .
+       .
+       .
+       node_n,node_n_label
+       edgedef>node1 VARCHAR,node2 VARCHAR, weight DOUBLE
+       node_1,node_2,weight_1
+       node_1,node_3,weight_2
+       .
+       .
+       .
+       node_n,node_2,weight_n 
+	```
+
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
 
