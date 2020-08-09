@@ -1162,7 +1162,7 @@ def gdf_maker(
     edge_number = dicts[2]
     file.write("nodedef>name VARCHAR,label VARCHAR\n")
     for i in edge_dic.keys():
-        file.write(str(i) + "," + +"Node{0}".format(str(i))+"\n")
+        file.write(str(i) + "," + "Node{0}".format(str(i))+"\n")
     file.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
