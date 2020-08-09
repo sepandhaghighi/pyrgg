@@ -1110,6 +1110,66 @@ def dl_maker(
     file.close()
     return edge_number
 
+def gdf_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in GDF Format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".gdf", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    file.write("nodedef>name VARCHAR,label VARCHAR\n")
+    for i in edge_dic.keys():
+        file.write(str(i) + "," + +"Node{0}".format(str(i))+"\n")
+    file.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + "\n")
+    file.close()
+    return edge_number
+
 
 def print_test(a):
     """
