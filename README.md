@@ -121,7 +121,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 <div align="center">
 
-<a href="https://asciinema.org/a/141608" target="_blank"><img src="https://asciinema.org/a/141608.png" /></a>
+<a href="https://asciinema.org/a/352310" target="_blank"><img src="https://asciinema.org/a/352310.svg" /></a>
 
 </div>
 
@@ -201,7 +201,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/images/random.png">
+<img src="https://www.pyrgg.ir/images/random.png">
 <p>Fig. 1. Rand Graph Generation</p>
 </div>
 
