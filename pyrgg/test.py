@@ -485,6 +485,31 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 10    9     143
 <BLANKLINE>
 >>> random.seed(2)
+>>> gdf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gdf','r')
+>>> print(file.read())
+nodedef>name VARCHAR,label VARCHAR
+1,Node1
+2,Node2
+3,Node3
+4,Node4
+5,Node5
+6,Node6
+7,Node7
+8,Node8
+9,Node9
+10,Node10
+edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
+4,3,-64
+5,4,148
+5,3,-163
+6,9,-139
+7,9,-9
+9,8,-97
+10,9,143
+<BLANKLINE>
+>>> random.seed(2)
 >>> gl_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> file=open('testfile.gl','r')
@@ -1330,6 +1355,7 @@ data:
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
 >>> os.remove('testfile.mtx')
+>>> os.remove('testfile.gdf')
 >>> os.remove('testfile.gl')
 >>> os.remove('testfile2.csv')
 >>> os.remove('testfile2.dl')
