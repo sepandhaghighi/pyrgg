@@ -467,6 +467,98 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
+>>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gml','r')
+>>> print(file.read())
+graph
+[
+  multigraph 0
+  directed  1
+  node
+  [
+   id 1
+  ]
+  node
+  [
+   id 2
+  ]
+  node
+  [
+   id 3
+  ]
+  node
+  [
+   id 4
+  ]
+  node
+  [
+   id 5
+  ]
+  node
+  [
+   id 6
+  ]
+  node
+  [
+   id 7
+  ]
+  node
+  [
+   id 8
+  ]
+  node
+  [
+   id 9
+  ]
+  node
+  [
+   id 10
+  ]
+  edge
+  [
+   source 4
+   target 3
+   value -64
+  ]
+  edge
+  [
+   source 5
+   target 4
+   value 148
+  ]
+  edge
+  [
+   source 5
+   target 3
+   value -163
+  ]
+  edge
+  [
+   source 6
+   target 9
+   value -139
+  ]
+  edge
+  [
+   source 7
+   target 9
+   value -9
+  ]
+  edge
+  [
+   source 9
+   target 8
+   value -97
+  ]
+  edge
+  [
+   source 10
+   target 9
+   value 143
+  ]
+]
+>>> random.seed(2)
 >>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
@@ -1345,6 +1437,7 @@ data:
 <BLANKLINE>
 >>> file.close()
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.gml')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')

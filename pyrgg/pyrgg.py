@@ -1226,7 +1226,7 @@ def gml_maker(
     header = header.format(mulrigraph_flag,directed_flag)
     file.write(header)
     for i in edge_dic.keys():
-        file.write("  node\n  [\n   id "+str(i)+"\n"+"  ]\n")
+        file.write("  node\n  [\n   id "+str(i)+"\n"+'   label "Node {0}"\n'.format(str(i))+"  ]\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
             file.write("  edge\n  [\n   source " + str(i) + "\n" +"   target " +str(value)+"\n"+"   value " +str(weight_dic[i][j])+"\n"+"  ]\n")
