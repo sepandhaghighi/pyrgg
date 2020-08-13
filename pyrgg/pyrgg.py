@@ -1170,6 +1170,70 @@ def gdf_maker(
     file.close()
     return edge_number
 
+def gml_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in GML Format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".gml", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'
+    mulrigraph_flag = str(int(abs((1-multigraph))))
+    directed_flag = str(int(2-direct))
+    header = header.format(mulrigraph_flag,directed_flag)
+    file.write(header)
+    for i in edge_dic.keys():
+        file.write("  node\n  [\n   id "+str(i)+"\n"+"  ]\n")
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write("  edge\n  [\n   source " + str(i) + "\n" +"   target " +str(value)+"\n"+"   value " +str(weight_dic[i][j])+"\n"+"  ]\n")
+    file.write("]")
+    file.close()
+    return edge_number
+
 
 def print_test(a):
     """
