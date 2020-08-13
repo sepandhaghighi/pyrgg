@@ -208,7 +208,8 @@ def input_filter(input_dict):
         filtered_dict["self_loop"] = 1
     if filtered_dict["multigraph"] not in [1, 2]:
         filtered_dict["multigraph"] = 1
-    if filtered_dict["output_format"] not in list(range(1, len(SUFFIX_MENU) + 1)):
+    if filtered_dict["output_format"] not in list(
+            range(1, len(SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
     return filtered_dict
 
@@ -1110,6 +1111,7 @@ def dl_maker(
     file.close()
     return edge_number
 
+
 def gdf_maker(
         file_name,
         min_weight,
@@ -1162,13 +1164,15 @@ def gdf_maker(
     edge_number = dicts[2]
     file.write("nodedef>name VARCHAR,label VARCHAR\n")
     for i in edge_dic.keys():
-        file.write(str(i) + "," + "Node{0}".format(str(i))+"\n")
+        file.write(str(i) + "," + "Node{0}".format(str(i)) + "\n")
     file.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + "," + str(value) + "," + str(weight_dic[i][j]) + "\n")
+            file.write(str(i) + "," + str(value) + "," +
+                       str(weight_dic[i][j]) + "\n")
     file.close()
     return edge_number
+
 
 def gml_maker(
         file_name,
@@ -1221,15 +1225,30 @@ def gml_maker(
     weight_dic = dicts[1]
     edge_number = dicts[2]
     header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'
-    mulrigraph_flag = str(int(abs((1-multigraph))))
-    directed_flag = str(int(2-direct))
-    header = header.format(mulrigraph_flag,directed_flag)
+    mulrigraph_flag = str(int(abs((1 - multigraph))))
+    directed_flag = str(int(2 - direct))
+    header = header.format(mulrigraph_flag, directed_flag)
     file.write(header)
     for i in edge_dic.keys():
-        file.write("  node\n  [\n   id "+str(i)+"\n"+'   label "Node {0}"\n'.format(str(i))+"  ]\n")
+        file.write(
+            "  node\n  [\n   id " +
+            str(i) +
+            "\n" +
+            '   label "Node {0}"\n'.format(
+                str(i)) +
+            "  ]\n")
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
-            file.write("  edge\n  [\n   source " + str(i) + "\n" +"   target " +str(value)+"\n"+"   value " +str(weight_dic[i][j])+"\n"+"  ]\n")
+            file.write("  edge\n  [\n   source " +
+                       str(i) +
+                       "\n" +
+                       "   target " +
+                       str(value) +
+                       "\n" +
+                       "   value " +
+                       str(weight_dic[i][j]) +
+                       "\n" +
+                       "  ]\n")
     file.write("]")
     file.close()
     return edge_number
