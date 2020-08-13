@@ -478,42 +478,52 @@ graph
   node
   [
    id 1
+   label "Node 1"
   ]
   node
   [
    id 2
+   label "Node 2"
   ]
   node
   [
    id 3
+   label "Node 3"
   ]
   node
   [
    id 4
+   label "Node 4"
   ]
   node
   [
    id 5
+   label "Node 5"
   ]
   node
   [
    id 6
+   label "Node 6"
   ]
   node
   [
    id 7
+   label "Node 7"
   ]
   node
   [
    id 8
+   label "Node 8"
   ]
   node
   [
    id 9
+   label "Node 9"
   ]
   node
   [
    id 10
+   label "Node 10"
   ]
   edge
   [
