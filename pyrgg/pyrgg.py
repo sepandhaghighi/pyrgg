@@ -1225,9 +1225,9 @@ def gml_maker(
     weight_dic = dicts[1]
     edge_number = dicts[2]
     header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'
-    mulrigraph_flag = str(int(abs((1 - multigraph))))
+    multigraph_flag = str(int(abs((1 - multigraph))))
     directed_flag = str(int(2 - direct))
-    header = header.format(mulrigraph_flag, directed_flag)
+    header = header.format(multigraph_flag, directed_flag)
     file.write(header)
     for i in edge_dic.keys():
         file.write(
