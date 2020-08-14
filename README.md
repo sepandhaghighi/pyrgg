@@ -403,7 +403,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 
 - [GML(.gml)](https://en.wikipedia.org/wiki/Graph_Modelling_Language)
 	```
-	   graph
+       graph
 	   [
          multigraph 0
          directed  0
@@ -420,6 +420,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
          .
          .
          .
+         node
          [
           id n
           label "Node n"
