@@ -143,6 +143,10 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
   - [x] ASP
   - [x] TGF
   - [x] UCINET DL
+  - [x] GML
+  - [x] GDF
+  - [x] Matrix Market
+  - [x] Graph Line
   - [ ] GEXF
 - [ ] Sizes
   - [x] Small
@@ -190,6 +194,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-GL](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
 - [Sample 1-GDF](https://www.dropbox.com/s/7dqox0f8e1f859s/100.gdf?dl=0) (100 Vertices , 21KB)
 - [Sample 2-GDF](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
+- [Sample 1-GML](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
+- [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
 
 
 
@@ -393,6 +399,54 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
        .
        .
        node_n,node_2,weight_n 
+	```
+
+- [GML(.gml)](https://en.wikipedia.org/wiki/Graph_Modelling_Language)
+	```
+       graph
+	   [
+         multigraph 0
+         directed  0
+         node
+         [
+          id 1
+          label "Node 1"
+         ]
+         node
+         [
+          id 2
+          label "Node 2"
+         ]
+         .
+         .
+         .
+         node
+         [
+          id n
+          label "Node n"
+         ]
+         edge
+         [
+          source 1
+          target 2
+          value W1
+         ]
+         edge
+         [
+          source 2
+          target 4
+          value W2
+         ]
+         .
+         .
+         .
+         edge
+         [
+          source n
+          target r
+          value Wn
+         ]
+       ]
 	```
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	

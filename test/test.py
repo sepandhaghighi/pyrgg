@@ -7,6 +7,7 @@
 >>> import yaml
 >>> import pickle
 >>> from scipy.io import mmread
+>>> from networkx.readwrite.gml import read_gml
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> description_print()
@@ -1920,7 +1921,32 @@ a 26 14 7
 a 30 20 38
 <BLANKLINE>
 >>> file.close()
+>>> random.seed(2)
+>>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> gml1 = read_gml("testfile.gml")
+>>> type(gml1)
+<class 'networkx.classes.digraph.DiGraph'>
+>>> random.seed(4)
+>>> gml_maker('testfile2',0,50,30,0,4,0,1,1,2)
+41
+>>> gml2 = read_gml("testfile2.gml")
+>>> type(gml2)
+<class 'networkx.classes.multidigraph.MultiDiGraph'>
+>>> random.seed(20)
+>>> gml_maker('testfile3',0,50,30,0,4,0,2,1,2)
+43
+>>> gml3 = read_gml("testfile3.gml")
+>>> type(gml3)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(120)
+>>> gml_maker('testfile4',0,50,30,0,4,0,2,1,1)
+52
+>>> gml4 = read_gml("testfile4.gml")
+>>> type(gml4)
+<class 'networkx.classes.graph.Graph'>
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.gml')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.mtx')
@@ -1934,6 +1960,7 @@ a 30 20 38
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
 >>> os.remove('testfile2.csv')
+>>> os.remove('testfile2.gml')
 >>> os.remove('testfile2.gdf')
 >>> os.remove('testfile2.mtx')
 >>> os.remove('testfile2.tsv')
@@ -1947,12 +1974,14 @@ a 30 20 38
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile3.gml')
 >>> os.remove('testfile3.gdf')
 >>> os.remove('testfile3.mtx')
 >>> os.remove('testfile3.tsv')
 >>> os.remove('testfile3.gl')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile4.gr')
+>>> os.remove('testfile4.gml')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile3.p')
 >>> os.remove('testfile3.wel')

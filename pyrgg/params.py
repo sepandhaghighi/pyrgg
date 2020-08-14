@@ -5,7 +5,7 @@ import os
 MENU_ITEMS1 = {
     "file_name": "- File Name : ",
     "output_format": "- Graph Formats : \n1- DIMACS(.gr)\n2- JSON(.json)\n3- CSV(.csv)\n4- YAML(.yaml)\n5- WEL(.wel)\n6- ASP(.lp)\n7- Pickle(.p)\n8- UCINET DL(.dl)\n9- TGF(.tgf)\n10- TSV("
-                     ".tsv)\n11- Matrix Market(.mtx)\n12- Graph Line(.gl)\n13- GDF(.gdf)\n",
+                     ".tsv)\n11- Matrix Market(.mtx)\n12- Graph Line(.gl)\n13- GDF(.gdf)\n14- GML(.gml)\n",
     "weight": "- Weighted[1] or Unweighted[2]"}
 
 MENU_ITEMS2 = {"vertices": "- Vertices Number : ",
@@ -32,7 +32,8 @@ SUFFIX_MENU = {
     10: ".tsv",
     11: ".mtx",
     12: ".gl",
-    13: ".gdf"}
+    13: ".gdf",
+    14: ".gml"}
 
 
 PYRGG_VERSION = "0.7"

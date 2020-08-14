@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - GDF format
+- GML format
 ### Changed
 - CLI snapshots updated
+- `AUTHORS.md` updated
 ## [0.7] - 2020-08-07
 ### Added
 - Graph Line format
