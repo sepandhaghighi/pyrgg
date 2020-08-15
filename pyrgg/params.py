@@ -36,7 +36,7 @@ SUFFIX_MENU = {
     14: ".gml"}
 
 
-PYRGG_VERSION = "0.7"
+PYRGG_VERSION = "0.8"
 
 SOURCE_DIR = os.getcwd()
 

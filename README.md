@@ -90,14 +90,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.7](https://github.com/sepandhaghighi/pyrgg/archive/v0.7.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 0.8](https://github.com/sepandhaghighi/pyrgg/archive/v0.8.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==0.7` or `pip3 install pyrgg==0.7` (Need root access)							
+- `pip install pyrgg==0.8` or `pip3 install pyrgg==0.8` (Need root access)							
 
 ### Conda
 
@@ -105,8 +105,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.7](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.7/PYRGG-0.7.exe)
-- Run `PYRGG-0.7.exe`
+- Download [Exe-Version 0.8](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.8/PYRGG-0.8.exe)
+- Run `PYRGG-0.8.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
