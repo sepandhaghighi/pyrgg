@@ -843,8 +843,7 @@ def wel_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".wel", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -853,15 +852,10 @@ def wel_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".wel", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
