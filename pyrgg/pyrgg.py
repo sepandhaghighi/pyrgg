@@ -129,14 +129,13 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
     :return:  None
     """
     try:
-        file = open("logfile.log", "a")
-        file.write(str(datetime.datetime.now()) + "\n")
-        file.write("Filename : " + file_name + "\n")
-        file.write("Vertices : " + str(vertices_number) + "\n")
-        file.write("Edges : " + str(edge_number) + "\n")
-        file.write("Elapsed Time : " + str(elapsed_time) + "\n")
-        file.write("-------------------------------\n")
-        file.close()
+        with open("logfile.log", "a") as file:
+            file.write(str(datetime.datetime.now()) + "\n")
+            file.write("Filename : " + file_name + "\n")
+            file.write("Vertices : " + str(vertices_number) + "\n")
+            file.write("Edges : " + str(edge_number) + "\n")
+            file.write("Elapsed Time : " + str(elapsed_time) + "\n")
+            file.write("-------------------------------\n")
     except Exception:
         print("[Error] Logger Faild!")
 
