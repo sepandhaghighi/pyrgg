@@ -190,17 +190,17 @@ def input_filter(input_dict):
     """
     filtered_dict = input_dict.copy()
     if filtered_dict["min_edge"] < 0:
-        filtered_dict["min_edge"] = -1 * filtered_dict["min_edge"]
+        filtered_dict["min_edge"] *= -1
     if filtered_dict["max_edge"] < 0:
-        filtered_dict["max_edge"] = -1 * filtered_dict["max_edge"]
+        filtered_dict["max_edge"] *= -1
     if filtered_dict["min_weight"] > filtered_dict["max_weight"]:
-        temp = filtered_dict["min_weight"]
-        filtered_dict["min_weight"] = filtered_dict["max_weight"]
-        filtered_dict["max_weight"] = temp
+        filtered_dict["min_weight"], filtered_dict["max_weight"] = (
+            filtered_dict["max_weight"], filtered_dict["min_weight"]
+        )
     if filtered_dict["min_edge"] > filtered_dict["max_edge"]:
-        temp = filtered_dict["min_edge"]
-        filtered_dict["min_edge"] = filtered_dict["max_edge"]
-        filtered_dict["max_edge"] = temp
+        filtered_dict["min_edge"], filtered_dict["max_edge"] = (
+            filtered_dict["max_edge"], filtered_dict["min_edge"]
+        )
     filtered_dict["max_edge"] = min(
         filtered_dict["max_edge"],
         filtered_dict["vertices"])
