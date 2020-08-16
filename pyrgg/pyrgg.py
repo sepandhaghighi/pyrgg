@@ -1254,6 +1254,94 @@ def gml_maker(
     return edge_number
 
 
+def gexf_maker(
+        file_name,
+        min_weight,
+        max_weight,
+        vertices,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Create output file in GEXF Format.
+
+    :param file_name: file name
+    :type file_name: str
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param vertices: number of vertices
+    :type vertices: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param sign: weight sign flag
+    :type sign: int
+    :param direct: directed and undirected graph flag
+    :type direct: int
+    :param self_loop: self loop flag
+    :type self_loop: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :return: edge_number as int
+    """
+    file = open(file_name + ".gexf", "w")
+    dicts = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
+    edge_dic = dicts[0]
+    weight_dic = dicts[1]
+    edge_number = dicts[2]
+    header = '<graph defaultedgetype="'
+    directed_flag = str(int(2 - direct))
+    if directed_flag is True:
+        header += "directed"
+    else:
+        header += "undirected"
+    header += '">\n'
+    file.write(header)
+    file.write("  <nodes>\n")
+    for i in edge_dic.keys():
+        file.write(
+            "    " +
+            '<node id="' +
+            str (i) + '"' +
+            ' label="Node {0}" />'.format(
+            str(i)) + "\n")
+    file.write("  </nodes>\n")
+    file.write("  <edges>\n")
+    edge_id = 1
+    for i in edge_dic.keys():
+        for j, value in enumerate(edge_dic[i]):
+            file.write(
+                "    " +
+                '<edge id="' +
+                str (edge_id) + '"' +
+                ' source="' +
+                str(i) + '"'
+                ' target="' +
+                str(value) + '"' +
+                ' weight="{0}" />'.format(
+                str(weight_dic[i][j])) + "\n")
+            edge_id += 1
+    file.write("  </edges>\n")
+    file.write("</graph>")
+    file.close()
+    return edge_number
+
+
 def print_test(a):
     """
     Added for get_input parameter injection testing.
