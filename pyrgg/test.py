@@ -569,6 +569,34 @@ graph
   ]
 ]
 >>> random.seed(2)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gexf', 'r')
+>>> print(file.read())
+<graph defaultedgetype="undirected">
+  <nodes>
+    <node id="1" label="Node 1" />
+    <node id="2" label="Node 2" />
+    <node id="3" label="Node 3" />
+    <node id="4" label="Node 4" />
+    <node id="5" label="Node 5" />
+    <node id="6" label="Node 6" />
+    <node id="7" label="Node 7" />
+    <node id="8" label="Node 8" />
+    <node id="9" label="Node 9" />
+    <node id="10" label="Node 10" />
+  </nodes>
+  <edges>
+    <edge id="1" source="4" target="3" weight="-64" />
+    <edge id="2" source="5" target="4" weight="148" />
+    <edge id="3" source="5" target="3" weight="-163" />
+    <edge id="4" source="6" target="9" weight="-139" />
+    <edge id="5" source="7" target="9" weight="-9" />
+    <edge id="6" source="9" target="8" weight="-97" />
+    <edge id="7" source="10" target="9" weight="143" />
+  </edges>
+</graph>
+>>> random.seed(2)
 >>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
@@ -1448,6 +1476,7 @@ data:
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
+>>> os.remove('testfile.gexf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
