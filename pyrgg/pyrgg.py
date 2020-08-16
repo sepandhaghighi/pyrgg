@@ -686,7 +686,6 @@ def csv_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".csv", "w")
     dicts = edge_gen(
         vertices,
         min_weight,
@@ -696,15 +695,14 @@ def csv_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + "," + str(value) + "," +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    edge_dic, weight_dic, edge_number = dicts
+    with open(file_name + ".csv", "w") as file:
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                file.write(str(key) + "," + str(value) + "," +
+                           str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
