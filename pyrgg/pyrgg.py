@@ -168,8 +168,16 @@ def time_convert(input_string):
     input_minute = int(input_minute - input_hour * 60)
     input_day = int(input_hour // 24)
     input_hour = int(input_hour - input_day * 24)
-    return zero_insert(str(input_day)) + " days, " + zero_insert(str(input_hour)) + " hour, " + \
-        zero_insert(str(input_minute)) + " minutes, " + zero_insert(str(input_sec)) + " seconds"
+    return " ".join([
+        zero_insert(str(input_day)),
+        "days,",
+        zero_insert(str(input_hour)),
+        "hour,",
+        zero_insert(str(input_minute)),
+        "minutes,",
+        zero_insert(str(input_sec)),
+        "seconds"
+    ])
 
 
 def input_filter(input_dict):
