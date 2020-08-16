@@ -147,7 +147,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
   - [x] GDF
   - [x] Matrix Market
   - [x] Graph Line
-  - [ ] GEXF
+  - [x] GEXF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -448,6 +448,23 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
          ]
        ]
 	```
+
+- [GEXF(.gexf)](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
+    ```
+        <graph defaultedgetype="directed">
+          <nodes>
+            <node id="1" label="Node 1" />
+            <node id="2" label="Node 2" />
+            ...
+            <node id="n" label="Node n" />
+          </nodes>
+          <edges>
+            <edge id="1" source="1" target="2" weight="400" />
+            ...
+            <edge id="m" source="id_source" target="id_target" weight="Wm" />
+          </edges>
+        </graph>
+    ```
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
