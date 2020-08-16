@@ -501,22 +501,21 @@ def dimacs_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    with open(file_name + ".gr", "w") as file:
-        dicts = edge_gen(
-            vertices,
-            min_weight,
-            max_weight,
-            min_edge,
-            max_edge,
-            sign,
-            direct,
-            self_loop,
-            multigraph)
-        edge_dic = dicts[0]
-        weight_dic = dicts[1]
-        edge_number = dicts[2]
+    edge_dic, weight_dic, edge_number = edge_gen(
+        vertices,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph,
+    )
+
+    with open(file_name + ".gr", "w") as buf:
         dimacs_init(
-            file,
+            buf,
             file_name,
             min_weight,
             max_weight,
@@ -524,11 +523,11 @@ def dimacs_maker(
             edge_number,
             min_edge,
             max_edge,
-            direct)
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                file.write("a " + str(key) + " " + str(value) +
-                           " " + str(weight_dic[key][j]) + "\n")
+            direct,
+        )
+        _write_separated_file(
+            buf, edge_dic, weight_dic, separator=' ', prefix='a',
+        )
     return edge_number
 
 
@@ -686,7 +685,7 @@ def csv_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -697,7 +696,6 @@ def csv_maker(
         self_loop,
         multigraph,
     )
-    edge_dic, weight_dic, edge_number = dicts
     with open(file_name + ".csv", "w") as buf:
         _write_separated_file(buf, edge_dic, weight_dic, separator=',')
     return edge_number
@@ -739,7 +737,7 @@ def tsv_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -750,20 +748,24 @@ def tsv_maker(
         self_loop,
         multigraph,
     )
-    edge_dic, weight_dic, edge_number = dicts
     with open(file_name + ".tsv", "w") as buf:
         _write_separated_file(buf, edge_dic, weight_dic, separator='\t')
     return edge_number
 
 
-def _write_separated_file(buf, edge_dic, weight_dic, separator):
+def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
+    dummy_prefix = object()
+    prefix = prefix or dummy_prefix
+
     for key, edge_val in edge_dic.items():
         for j, value in enumerate(edge_val):
-            string = separator.join([
+            elements = [
+                prefix,
                 str(key),
                 str(value),
                 str(weight_dic[key][j]) + "\n"
-            ])
+            ]
+            string = separator.join(x for x in elements if x != dummy_prefix)
             buf.write(string)
 
 
