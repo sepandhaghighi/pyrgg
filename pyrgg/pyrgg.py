@@ -501,35 +501,34 @@ def dimacs_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gr", "w")
-    dicts = edge_gen(
-        vertices,
-        min_weight,
-        max_weight,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    dimacs_init(
-        file,
-        file_name,
-        min_weight,
-        max_weight,
-        vertices,
-        edge_number,
-        min_edge,
-        max_edge,
-        direct)
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write("a " + str(i) + " " + str(value) +
-                       " " + str(weight_dic[i][j]) + "\n")
-    file.close()
+    with open(file_name + ".gr", "w") as file:
+        dicts = edge_gen(
+            vertices,
+            min_weight,
+            max_weight,
+            min_edge,
+            max_edge,
+            sign,
+            direct,
+            self_loop,
+            multigraph)
+        edge_dic = dicts[0]
+        weight_dic = dicts[1]
+        edge_number = dicts[2]
+        dimacs_init(
+            file,
+            file_name,
+            min_weight,
+            max_weight,
+            vertices,
+            edge_number,
+            min_edge,
+            max_edge,
+            direct)
+        for i in edge_dic.keys():
+            for j, value in enumerate(edge_dic[i]):
+                file.write("a " + str(i) + " " + str(value) +
+                           " " + str(weight_dic[i][j]) + "\n")
     return edge_number
 
 
