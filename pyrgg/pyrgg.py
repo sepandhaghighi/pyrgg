@@ -273,8 +273,7 @@ def _update_using_first_menu(result_dict, input_func):
 def _update_using_second_menu(result_dict, input_func):
     MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
     for item in MENU_ITEMS_KEYS2:
-        if result_dict["weight"] != 1 and (
-                item == "max_weight" or item == "min_weight"):
+        if result_dict["weight"] != 1 and item in ["max_weight", "min_weight"]:
             continue
         while True:
             try:
