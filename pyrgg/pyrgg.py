@@ -525,10 +525,10 @@ def dimacs_maker(
             min_edge,
             max_edge,
             direct)
-        for i in edge_dic.keys():
-            for j, value in enumerate(edge_dic[i]):
-                file.write("a " + str(i) + " " + str(value) +
-                           " " + str(weight_dic[i][j]) + "\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                file.write("a " + str(key) + " " + str(value) +
+                           " " + str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
