@@ -698,11 +698,8 @@ def csv_maker(
         multigraph,
     )
     edge_dic, weight_dic, edge_number = dicts
-    with open(file_name + ".csv", "w") as file:
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                file.write(str(key) + "," + str(value) + "," +
-                           str(weight_dic[key][j]) + "\n")
+    with open(file_name + ".csv", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator=',')
     return edge_number
 
 
@@ -754,12 +751,20 @@ def tsv_maker(
         multigraph,
     )
     edge_dic, weight_dic, edge_number = dicts
-    with open(file_name + ".tsv", "w") as file:
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                file.write(str(key) + "\t" + str(value) + "\t" +
-                           str(weight_dic[key][j]) + "\n")
+    with open(file_name + ".tsv", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator='\t')
     return edge_number
+
+
+def _write_separated_file(buf, edge_dic, weight_dic, separator):
+    for key, edge_val in edge_dic.items():
+        for j, value in enumerate(edge_val):
+            string = separator.join([
+                str(key),
+                str(value),
+                str(weight_dic[key][j]) + "\n"
+            ])
+            buf.write(string)
 
 
 def json_to_yaml(filename):
