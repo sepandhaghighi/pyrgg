@@ -568,8 +568,7 @@ def json_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".json", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -578,40 +577,69 @@ def json_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
+        multigraph,
+    )
+
+    with open(file_name + ".json", "w") as buf:
+        _write_to_json(
+            buf,
+            edge_dic,
+            weight_dic,
+            edge_number,
+        )
+    return edge_number
+
+
+def _write_to_json(buf, edge_dic, weight_dic, edge_number):
     first_line = True
     nodes = '\t\t\t"nodes":[\n'
     edges = '\t\t\t"edges":[\n'
-    file.write('{\n\t"graph": {\n')
-    file.write(nodes)
-    for i in edge_dic.keys():
+    buf.write('{\n\t"graph": {\n')
+    buf.write(nodes)
+
+    for key in edge_dic:
         nodes = ""
         if first_line:
             first_line = False
         else:
             nodes += ",\n"
-        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
-            '"id": ' + '"' + str(i) + '"\n\t\t\t}'
-        file.write(nodes)
-    file.write("\n\t\t],\n")
+        nodes = "".join([
+            nodes,
+            '\t\t\t{\n\t\t\t\t',
+            '"id": ',
+            '"',
+            str(key),
+            '"\n\t\t\t}'
+        ])
+        buf.write(nodes)
+    buf.write("\n\t\t],\n")
     first_line = True
-    file.write(edges)
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
+    buf.write(edges)
+
+    for key, edge_val in edge_dic.items():
+        for j, value in enumerate(edge_val):
             edges = ""
             if first_line:
                 first_line = False
             else:
                 edges += ",\n"
-            edges = edges + '\t\t\t{\n\t\t\t\t"source": ' + '"' + str(i) + '",\n\t\t\t\t' + '"target": ' + '"' + str(
-                value) + '",\n\t\t\t\t' + '"weight": ' + '"' + str(weight_dic[i][j]) + '"\n\t\t\t}'
-            file.write(edges)
-    file.write("\n\t\t]\n\t}\n}")
-    file.close()
-    return edge_number
+            edges = "".join([
+                edges,
+                '\t\t\t{\n\t\t\t\t"source": ',
+                '"',
+                str(key),
+                '",\n\t\t\t\t',
+                '"target": ',
+                '"',
+                str(value),
+                '",\n\t\t\t\t',
+                '"weight": ',
+                '"',
+                str(weight_dic[key][j]),
+                '"\n\t\t\t}'
+            ])
+            buf.write(edges)
+    buf.write("\n\t\t]\n\t}\n}")
 
 
 def csv_maker(
