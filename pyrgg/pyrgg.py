@@ -239,28 +239,28 @@ def get_input(input_func=input):
         MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
         MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
         for item in MENU_ITEMS_KEYS1:
-            exit_flag = False
-            while not exit_flag:
+            while True:
                 try:
                     if item != "file_name":
                         result_dict[item] = int(input_func(MENU_ITEMS1[item]))
                     else:
                         result_dict[item] = input_func(MENU_ITEMS1[item])
-                    exit_flag = True
                 except Exception:
                     print("[Error] Bad Input!")
+                else:
+                    break
 
         for item in MENU_ITEMS_KEYS2:
-            exit_flag = False
             if result_dict["weight"] != 1 and (
                     item == "max_weight" or item == "min_weight"):
                 continue
-            while not exit_flag:
+            while True:
                 try:
                     result_dict[item] = int(input_func(MENU_ITEMS2[item]))
-                    exit_flag = True
                 except Exception:
                     print("[Error] Bad Input!")
+                else:
+                    break
         result_dict = input_filter(result_dict)
         return result_dict
     except Exception:
