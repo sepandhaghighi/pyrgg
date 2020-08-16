@@ -8,6 +8,7 @@
 >>> import pickle
 >>> from scipy.io import mmread
 >>> from networkx.readwrite.gml import read_gml
+>>> from networkx.readwrite.gexf import read_gexf
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> description_print()
@@ -1945,8 +1946,36 @@ a 30 20 38
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
 <class 'networkx.classes.graph.Graph'>
+>>> random.seed(2)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> gexf1 = read_gexf("testfile.gexf")
+>>> type(gexf1)
+<class 'networkx.classes.graph.Graph'>
+>>> random.seed(4)
+>>> gexf_maker('testfile2',0,50,30,0,4,0,1,1,2)
+41
+>>> gexf2 = read_gexf("testfile2.gexf")
+>>> type(gexf2)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(20)
+>>> gexf_maker('testfile3',0,50,30,0,4,0,2,1,2)
+43
+>>> gexf3 = read_gexf("testfile3.gexf")
+>>> type(gexf3)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(120)
+>>> gexf_maker('testfile4',0,50,30,0,4,0,2,1,1)
+52
+>>> gexf4 = read_gexf("testfile4.gexf")
+>>> type(gexf4)
+<class 'networkx.classes.graph.Graph'>
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
+>>> os.remove('testfile.gexf')
+>>> os.remove('testfile2.gexf')
+>>> os.remove('testfile3.gexf')
+>>> os.remove('testfile4.gexf')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.mtx')
