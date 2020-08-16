@@ -585,16 +585,21 @@ def json_maker(
             buf,
             edge_dic,
             weight_dic,
-            edge_number,
         )
     return edge_number
 
 
-def _write_to_json(buf, edge_dic, weight_dic, edge_number):
+def _write_to_json(buf, edge_dic, weight_dic):
+    buf.write('{\n\t"graph": {\n')
+    _write_nodes_to_json(buf, edge_dic)
+    buf.write("\n\t\t],\n")
+    _write_edges_to_json(buf, edge_dic, weight_dic)
+    buf.write("\n\t\t]\n\t}\n}")
+
+
+def _write_nodes_to_json(buf, edge_dic):
     first_line = True
     nodes = '\t\t\t"nodes":[\n'
-    edges = '\t\t\t"edges":[\n'
-    buf.write('{\n\t"graph": {\n')
     buf.write(nodes)
 
     for key in edge_dic:
@@ -612,7 +617,11 @@ def _write_to_json(buf, edge_dic, weight_dic, edge_number):
             '"\n\t\t\t}'
         ])
         buf.write(nodes)
-    buf.write("\n\t\t],\n")
+
+
+def _write_edges_to_json(buf, edge_dic, weight_dic):
+    edges = '\t\t\t"edges":[\n'
+
     first_line = True
     buf.write(edges)
 
@@ -639,7 +648,6 @@ def _write_to_json(buf, edge_dic, weight_dic, edge_number):
                 '"\n\t\t\t}'
             ])
             buf.write(edges)
-    buf.write("\n\t\t]\n\t}\n}")
 
 
 def csv_maker(
