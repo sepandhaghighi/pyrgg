@@ -451,19 +451,24 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 
 - [GEXF(.gexf)](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
     ```
-        <graph defaultedgetype="directed">
-          <nodes>
-            <node id="1" label="Node 1" />
-            <node id="2" label="Node 2" />
-            ...
-            <node id="n" label="Node n" />
-          </nodes>
-          <edges>
-            <edge id="1" source="1" target="2" weight="400" />
-            ...
-            <edge id="m" source="id_source" target="id_target" weight="Wm" />
-          </edges>
-        </graph>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+            <meta lastmodifieddate="2009-03-20">
+                <creator>PyRGG</creator>
+                <description>File Name</description>
+            </meta>
+            <graph defaultedgetype="directed">
+                <nodes>
+                    <node id="1" label="Node 1" />
+                    <node id="2" label="Node 2" />
+                    ...
+                </nodes>
+                <edges>
+                    <edge id="1" source="1" target="2" weight="400" />
+                    ...
+                </edges>
+            </graph>
+        </gexf>
     ```
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
