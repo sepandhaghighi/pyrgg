@@ -19,7 +19,9 @@ GENERATOR_MENU = {
     9: tgf_maker,
     10: tsv_maker,
     11: mtx_maker,
-    12: gl_maker}
+    12: gl_maker,
+    13: gdf_maker,
+    14: gml_maker}
 
 
 def run():

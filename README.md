@@ -90,14 +90,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.7](https://github.com/sepandhaghighi/pyrgg/archive/v0.7.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 0.8](https://github.com/sepandhaghighi/pyrgg/archive/v0.8.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==0.7` or `pip3 install pyrgg==0.7` (Need root access)							
+- `pip install pyrgg==0.8` or `pip3 install pyrgg==0.8` (Need root access)							
 
 ### Conda
 
@@ -105,8 +105,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.7](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.7/PYRGG-0.7.exe)
-- Run `PYRGG-0.7.exe`
+- Download [Exe-Version 0.8](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.8/PYRGG-0.8.exe)
+- Run `PYRGG-0.8.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -121,7 +121,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 <div align="center">
 
-<a href="https://asciinema.org/a/141608" target="_blank"><img src="https://asciinema.org/a/141608.png" /></a>
+<a href="https://asciinema.org/a/352310" target="_blank"><img src="https://asciinema.org/a/352310.svg" /></a>
 
 </div>
 
@@ -143,6 +143,10 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
   - [x] ASP
   - [x] TGF
   - [x] UCINET DL
+  - [x] GML
+  - [x] GDF
+  - [x] Matrix Market
+  - [x] Graph Line
   - [ ] GEXF
 - [ ] Sizes
   - [x] Small
@@ -188,6 +192,10 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-MTX](https://www.dropbox.com/s/skjjvbbzrpvryl4/1000.mtx?dl=0) (1000 Vertices , 1.8MB)
 - [Sample 1-GL](https://www.dropbox.com/s/obmmb5nw1lca9z3/100.gl?dl=0) (100 Vertices , 17KB)
 - [Sample 2-GL](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
+- [Sample 1-GDF](https://www.dropbox.com/s/7dqox0f8e1f859s/100.gdf?dl=0) (100 Vertices , 21KB)
+- [Sample 2-GDF](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
+- [Sample 1-GML](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
+- [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
 
 
 
@@ -201,7 +209,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/images/random.png">
+<img src="https://www.pyrgg.ir/images/random.png">
 <p>Fig. 1. Rand Graph Generation</p>
 </div>
 
@@ -374,6 +382,73 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	   .
 	   <head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
 	```
+
+- GDF(.gdf)
+	```
+	   nodedef>name VARCHAR,label VARCHAR
+       node_1,node_1_label
+       node_2,node_2_label
+       .
+       .
+       .
+       node_n,node_n_label
+       edgedef>node1 VARCHAR,node2 VARCHAR, weight DOUBLE
+       node_1,node_2,weight_1
+       node_1,node_3,weight_2
+       .
+       .
+       .
+       node_n,node_2,weight_n 
+	```
+
+- [GML(.gml)](https://en.wikipedia.org/wiki/Graph_Modelling_Language)
+	```
+       graph
+	   [
+         multigraph 0
+         directed  0
+         node
+         [
+          id 1
+          label "Node 1"
+         ]
+         node
+         [
+          id 2
+          label "Node 2"
+         ]
+         .
+         .
+         .
+         node
+         [
+          id n
+          label "Node n"
+         ]
+         edge
+         [
+          source 1
+          target 2
+          value W1
+         ]
+         edge
+         [
+          source 2
+          target 4
+          value W2
+         ]
+         .
+         .
+         .
+         edge
+         [
+          source n
+          target r
+          value Wn
+         ]
+       ]
+	```
+
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
 

@@ -7,6 +7,7 @@
 >>> import yaml
 >>> import pickle
 >>> from scipy.io import mmread
+>>> from networkx.readwrite.gml import read_gml
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> description_print()
@@ -709,6 +710,31 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 10,9,143
 <BLANKLINE>
 >>> random.seed(2)
+>>> gdf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gdf','r')
+>>> print(file.read())
+nodedef>name VARCHAR,label VARCHAR
+1,Node1
+2,Node2
+3,Node3
+4,Node4
+5,Node5
+6,Node6
+7,Node7
+8,Node8
+9,Node9
+10,Node10
+edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
+4,3,-64
+5,4,148
+5,3,-163
+6,9,-139
+7,9,-9
+9,8,-97
+10,9,143
+<BLANKLINE>
+>>> random.seed(2)
 >>> gl_maker('testfile', 0, 200, 10, 1, 2, 0, 1,1,1)
 14
 >>> file=open('testfile.gl','r')
@@ -785,6 +811,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 30 2:-5 26:19
 >>> random.seed(4)
 >>> csv_maker('testfile2',0,50,30,0,4,0,1,1,1)
+41
+>>> random.seed(4)
+>>> gdf_maker('testfile2',0,50,30,0,4,0,1,1,1)
 41
 >>> random.seed(4)
 >>> mtx_maker('testfile2',0,50,30,0,4,0,1,1,1)
@@ -986,6 +1015,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 100 13:27 3:16 1:26 8:20
 >>> random.seed(20)
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
+197
+>>> random.seed(20)
+>>> gdf_maker('testfile3',10,30,100,0,4,2,1,1,1)
 197
 >>> random.seed(20)
 >>> mtx_maker('testfile3',10,30,100,0,4,2,1,1,1)
@@ -1250,6 +1282,9 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> csv_maker('testfile3',10,30,100,0,4,2,2,1,2)
 198
 >>> random.seed(20)
+>>> gdf_maker('testfile3',10,30,100,0,4,2,2,1,2)
+198
+>>> random.seed(20)
 >>> mtx_maker('testfile3',10,30,100,0,4,2,2,1,2)
 198
 >>> random.seed(20)
@@ -1263,6 +1298,10 @@ TypeError: gl_maker() missing 3 required positional arguments: 'direct', 'self_l
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
+>>> gdf_maker('testfile', 0, 200, 10, 0,0,1)
+Traceback (most recent call last):
+        ...
+TypeError: gdf_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
 >>> mtx_maker('testfile', 0, 200, 10, 0,0,1)
 Traceback (most recent call last):
         ...
@@ -1882,7 +1921,33 @@ a 26 14 7
 a 30 20 38
 <BLANKLINE>
 >>> file.close()
+>>> random.seed(2)
+>>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> gml1 = read_gml("testfile.gml")
+>>> type(gml1)
+<class 'networkx.classes.digraph.DiGraph'>
+>>> random.seed(4)
+>>> gml_maker('testfile2',0,50,30,0,4,0,1,1,2)
+41
+>>> gml2 = read_gml("testfile2.gml")
+>>> type(gml2)
+<class 'networkx.classes.multidigraph.MultiDiGraph'>
+>>> random.seed(20)
+>>> gml_maker('testfile3',0,50,30,0,4,0,2,1,2)
+43
+>>> gml3 = read_gml("testfile3.gml")
+>>> type(gml3)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(120)
+>>> gml_maker('testfile4',0,50,30,0,4,0,2,1,1)
+52
+>>> gml4 = read_gml("testfile4.gml")
+>>> type(gml4)
+<class 'networkx.classes.graph.Graph'>
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.gml')
+>>> os.remove('testfile.gdf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.mtx')
 >>> os.remove('testfile.dl')
@@ -1895,6 +1960,8 @@ a 30 20 38
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.yaml')
 >>> os.remove('testfile2.csv')
+>>> os.remove('testfile2.gml')
+>>> os.remove('testfile2.gdf')
 >>> os.remove('testfile2.mtx')
 >>> os.remove('testfile2.tsv')
 >>> os.remove('testfile2.dl')
@@ -1907,11 +1974,14 @@ a 30 20 38
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile3.gml')
+>>> os.remove('testfile3.gdf')
 >>> os.remove('testfile3.mtx')
 >>> os.remove('testfile3.tsv')
 >>> os.remove('testfile3.gl')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile4.gr')
+>>> os.remove('testfile4.gml')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile3.p')
 >>> os.remove('testfile3.wel')
