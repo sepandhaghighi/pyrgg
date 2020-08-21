@@ -21,7 +21,8 @@ GENERATOR_MENU = {
     11: mtx_maker,
     12: gl_maker,
     13: gdf_maker,
-    14: gml_maker}
+    14: gml_maker,
+    15: gexf_maker}
 
 
 def run():

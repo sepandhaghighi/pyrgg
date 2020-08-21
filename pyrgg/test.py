@@ -569,6 +569,10 @@ graph
   ]
 ]
 >>> random.seed(2)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gexf', 'r')
+>>> random.seed(2)
 >>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
@@ -1448,6 +1452,7 @@ data:
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
+>>> os.remove('testfile.gexf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
