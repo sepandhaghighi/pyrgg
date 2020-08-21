@@ -196,8 +196,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-GDF](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
 - [Sample 1-GML](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
 - [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
-- [Sample 1-GEXF](https://www.dropbox.com/s/5537bat1ja430bp/100.gexf?dl=0) (100 Vertices , 67KB)
-- [Sample 2-GEXF](https://www.dropbox.com/s/2e92pljqbhhijxp/1000.gexf?dl=0) (1000 Vertices , 6.3MB)
+- [Sample 1-GEXF](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
+- [Sample 2-GEXF](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
 
 
 
