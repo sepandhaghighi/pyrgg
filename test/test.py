@@ -1952,12 +1952,12 @@ a 30 20 38
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.digraph.DiGraph'>
->>> random.seed(4)
+>>> random.seed(8)
 >>> gexf_maker('testfile2',0,50,30,0,4,0,1,1,2)
-41
+51
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
-<class 'networkx.classes.digraph.DiGraph'>
+<class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
 >>> gexf_maker('testfile3',0,50,30,0,4,0,2,1,2)
 43
