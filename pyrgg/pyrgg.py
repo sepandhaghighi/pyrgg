@@ -1314,9 +1314,7 @@ def gexf_maker(
     meta +='    </meta>\n'
     file.write(header)
     file.write(meta)
-    directed_flag = str(int(2 - direct))
-    defaultedgetype = ""
-    if directed_flag is True:
+    if direct == 1:
         defaultedgetype = "directed"
     else:
         defaultedgetype = "undirected"
