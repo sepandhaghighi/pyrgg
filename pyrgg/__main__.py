@@ -63,7 +63,8 @@ def run():
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
-    print("Graph Generated In " + elapsed_time_format)
+    print("Total Number of Edges : {0}".format(str(edge_number)))
+    print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
     logger(
         vertices_number,
