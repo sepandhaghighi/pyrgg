@@ -13,6 +13,20 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+def weight_str_to_number(weight):
+    """
+    Convert weight string to float or int.
+
+    :param weight: input weight
+    :type weight: str
+    :return: weight as float or int
+    """
+    weight_splitted = weight.split(".")
+    if len(weight_splitted) == 2:
+        return float(weight)
+    return int(weight)
+
+
 
 def left_justify(words, width):
     """
