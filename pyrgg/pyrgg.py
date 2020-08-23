@@ -274,7 +274,9 @@ def get_input(input_func=input):
             exit_flag = False
             while not exit_flag:
                 try:
-                    if item != "file_name":
+                    if item == "max_weight" or item == "min_weight":
+                        result_dict[item] = weight_str_to_number((input_func(MENU_ITEMS1[item])))
+                    elif item != "file_name":
                         result_dict[item] = int(input_func(MENU_ITEMS1[item]))
                     else:
                         result_dict[item] = input_func(MENU_ITEMS1[item])
