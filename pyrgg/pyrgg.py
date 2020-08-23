@@ -274,9 +274,7 @@ def get_input(input_func=input):
             exit_flag = False
             while not exit_flag:
                 try:
-                    if item == "max_weight" or item == "min_weight":
-                        result_dict[item] = weight_str_to_number((input_func(MENU_ITEMS1[item])))
-                    elif item != "file_name":
+                    if item != "file_name":
                         result_dict[item] = int(input_func(MENU_ITEMS1[item]))
                     else:
                         result_dict[item] = input_func(MENU_ITEMS1[item])
@@ -291,7 +289,10 @@ def get_input(input_func=input):
                 continue
             while not exit_flag:
                 try:
-                    result_dict[item] = int(input_func(MENU_ITEMS2[item]))
+                    if item == "max_weight" or item == "min_weight":
+                        result_dict[item] = weight_str_to_number(input_func(MENU_ITEMS2[item]))
+                    else:
+                        result_dict[item] = int(input_func(MENU_ITEMS2[item]))
                     exit_flag = True
                 except Exception:
                     print("[Error] Bad Input!")
