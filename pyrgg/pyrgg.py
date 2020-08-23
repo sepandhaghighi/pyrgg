@@ -13,6 +13,7 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+
 def is_float(input_number):
     """
     Check input for float conversion.
@@ -30,6 +31,7 @@ def is_float(input_number):
     except Exception:
         return False
 
+
 def weight_str_to_number(weight):
     """
     Convert weight string to float or int.
@@ -42,7 +44,6 @@ def weight_str_to_number(weight):
     if len(weight_splitted) == 2:
         return float(weight)
     return int(weight)
-
 
 
 def left_justify(words, width):
@@ -290,7 +291,8 @@ def get_input(input_func=input):
             while not exit_flag:
                 try:
                     if item == "max_weight" or item == "min_weight":
-                        result_dict[item] = weight_str_to_number(input_func(MENU_ITEMS2[item]))
+                        result_dict[item] = weight_str_to_number(
+                            input_func(MENU_ITEMS2[item]))
                     else:
                         result_dict[item] = int(input_func(MENU_ITEMS2[item]))
                     exit_flag = True
@@ -357,7 +359,7 @@ def branch_gen(
     reference_vertices = all_vertices[:]
     max_weight_flag = is_float(max_weight)
     min_weight_flag = is_float(min_weight)
-    weight_float_flag  = min_weight_flag or max_weight_flag
+    weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
     if weight_float_flag:
         random_unit = random_system.uniform
@@ -380,7 +382,7 @@ def branch_gen(
         else:
             random_weight = sign_gen() * random_unit(min_weight, max_weight)
         if weight_float_flag:
-            random_weight = round(random_weight,4)
+            random_weight = round(random_weight, 4)
         branch_list.append(random_tail)
         weight_list.append(random_weight)
         index += 1
