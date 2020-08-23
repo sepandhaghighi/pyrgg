@@ -1306,12 +1306,12 @@ def gexf_maker(
     weight_dic = dicts[1]
     edge_number = dicts[2]
     header = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    header +='<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">\n'
+    header += '<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">\n'
     date = datetime.datetime.now().date()
-    meta = '    <meta lastmodifieddate="{0}">\n'.format(date)
-    meta +='        <creator>PyRGG</creator>\n'
-    meta +='        <description>{0}</description>\n'.format(file_name)
-    meta +='    </meta>\n'
+    meta = " " * 4 + '<meta lastmodifieddate="{0}">\n'.format(date)
+    meta += " " * 8 + '<creator>PyRGG</creator>\n'
+    meta += " " * 8 + '<description>{0}</description>\n'.format(file_name)
+    meta += " " * 4 + '</meta>\n'
     file.write(header)
     file.write(meta)
     if direct == 1:
@@ -1319,34 +1319,34 @@ def gexf_maker(
     else:
         defaultedgetype = "undirected"
     file.write(
-        '    <graph defaultedgetype="' + defaultedgetype + '">\n'
+        " " * 4 + '<graph defaultedgetype="' + defaultedgetype + '">\n'
     )
-    file.write("      <nodes>\n")
+    file.write(" " * 8 + "<nodes>\n")
     for i in edge_dic.keys():
         file.write(
-            "        " +
+            " " * 12 +
             '<node id="' +
-            str (i) + '"' +
+            str(i) + '"' +
             ' label="Node {0}" />'.format(
-            str(i)) + "\n")
-    file.write("      </nodes>\n")
-    file.write("      <edges>\n")
+                str(i)) + "\n")
+    file.write(" " * 8 + "</nodes>\n")
+    file.write(" " * 8 + "<edges>\n")
     edge_id = 1
     for i in edge_dic.keys():
         for j, value in enumerate(edge_dic[i]):
             file.write(
-                "        " +
+                " " * 12 +
                 '<edge id="' +
-                str (edge_id) + '"' +
+                str(edge_id) + '"' +
                 ' source="' +
                 str(i) + '"'
                 ' target="' +
                 str(value) + '"' +
                 ' weight="{0}" />'.format(
-                str(weight_dic[i][j])) + "\n")
+                    str(weight_dic[i][j])) + "\n")
             edge_id += 1
-    file.write("      </edges>\n")
-    file.write("    </graph>\n")
+    file.write(" " * 8 + "</edges>\n")
+    file.write(" " * 4 + "</graph>\n")
     file.write("</gexf>")
     file.close()
     return edge_number
