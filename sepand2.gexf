@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+    <meta lastmodifieddate="2020-08-23">
+        <creator>PyRGG</creator>
+        <description>sepand2</description>
+    </meta>
+    <graph defaultedgetype="undirected">
+        <nodes>
+            <node id="1" label="Node 1" />
+            <node id="2" label="Node 2" />
+            <node id="3" label="Node 3" />
+            <node id="4" label="Node 4" />
+            <node id="5" label="Node 5" />
+            <node id="6" label="Node 6" />
+            <node id="7" label="Node 7" />
+            <node id="8" label="Node 8" />
+            <node id="9" label="Node 9" />
+            <node id="10" label="Node 10" />
+        </nodes>
+        <edges>
+            <edge id="1" source="1" target="10" weight="43.4924" />
+            <edge id="2" source="1" target="8" weight="44.3671" />
+            <edge id="3" source="1" target="4" weight="36.0612" />
+            <edge id="4" source="2" target="7" weight="25.317" />
+            <edge id="5" source="2" target="4" weight="47.4356" />
+            <edge id="6" source="2" target="7" weight="88.2362" />
+            <edge id="7" source="2" target="9" weight="54.9435" />
+            <edge id="8" source="2" target="9" weight="25.5685" />
+            <edge id="9" source="3" target="10" weight="65.9514" />
+            <edge id="10" source="4" target="4" weight="13.928" />
+            <edge id="11" source="4" target="3" weight="12.0914" />
+            <edge id="12" source="4" target="10" weight="21.0587" />
+            <edge id="13" source="5" target="4" weight="65.1685" />
+            <edge id="14" source="5" target="3" weight="11.8021" />
+            <edge id="15" source="5" target="9" weight="12.3724" />
+            <edge id="16" source="6" target="8" weight="74.5167" />
+            <edge id="17" source="6" target="6" weight="52.3159" />
+            <edge id="18" source="7" target="5" weight="68.8489" />
+            <edge id="19" source="7" target="10" weight="62.638" />
+            <edge id="20" source="9" target="7" weight="71.1602" />
+            <edge id="21" source="10" target="7" weight="33.0443" />
+            <edge id="22" source="10" target="9" weight="11.0777" />
+            <edge id="23" source="10" target="3" weight="79.5095" />
+            <edge id="24" source="10" target="10" weight="13.1129" />
+            <edge id="25" source="10" target="10" weight="65.3567" />
+            <edge id="26" source="10" target="7" weight="95.4161" />
+            <edge id="27" source="10" target="4" weight="75.5062" />
+            <edge id="28" source="10" target="4" weight="33.1586" />
+            <edge id="29" source="10" target="2" weight="10.5335" />
+        </edges>
+    </graph>
+</gexf>

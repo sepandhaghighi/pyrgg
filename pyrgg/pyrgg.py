@@ -355,10 +355,11 @@ def branch_gen(
     branch_list = []
     weight_list = []
     reference_vertices = all_vertices[:]
-    max_weigh_flag = is_float(max_weight)
-    min_weigh_flag = is_float(min_weight)
+    max_weight_flag = is_float(max_weight)
+    min_weight_flag = is_float(min_weight)
+    weight_float_flag  = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
-    if max_weigh_flag or min_weigh_flag:
+    if weight_float_flag:
         random_unit = random_system.uniform
     if direct == 2 and (
             vertex_index in used_vertices.keys()) and multigraph == 1:
@@ -378,6 +379,8 @@ def branch_gen(
             random_weight = random_unit(min_weight, max_weight)
         else:
             random_weight = sign_gen() * random_unit(min_weight, max_weight)
+        if weight_float_flag:
+            random_weight = round(random_weight,4)
         branch_list.append(random_tail)
         weight_list.append(random_weight)
         index += 1
