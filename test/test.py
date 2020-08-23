@@ -62,6 +62,16 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
+>>> weight_str_to_number("20")
+20
+>>> weight_str_to_number("20.2")
+20.2
+>>> is_float(10)
+False
+>>> is_float(10.2)
+True
+>>> is_float(None)
+False
 >>> random.seed(2)
 >>> sign_gen()
 1
@@ -1970,12 +1980,19 @@ a 30 20 38
 >>> gexf4 = read_gexf("testfile4.gexf")
 >>> type(gexf4)
 <class 'networkx.classes.graph.Graph'>
+>>> random.seed(120)
+>>> gexf_maker('testfile5',0,50.2,30,0,4,0,2,1,1)
+65
+>>> gexf5 = read_gexf("testfile5.gexf")
+>>> type(gexf5)
+<class 'networkx.classes.graph.Graph'>
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
 >>> os.remove('testfile.gexf')
 >>> os.remove('testfile2.gexf')
 >>> os.remove('testfile3.gexf')
 >>> os.remove('testfile4.gexf')
+>>> os.remove('testfile5.gexf')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.mtx')
