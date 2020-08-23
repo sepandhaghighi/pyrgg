@@ -13,6 +13,23 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+def is_float(input_number):
+    """
+    Check input for float conversion.
+
+    :param input_number: input number
+    :type input_number: float or int
+    :return: result as bool
+    """
+    try:
+        _ = float(input_number)
+        number_splitted = str(input_number).split(".")
+        if len(number_splitted) == 2:
+            return True
+        return False
+    except Exception:
+        return False
+
 def weight_str_to_number(weight):
     """
     Convert weight string to float or int.
