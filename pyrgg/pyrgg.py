@@ -376,6 +376,7 @@ def branch_gen(
     min_weight_flag = is_float(min_weight)
     weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
+    weight_precision = max(get_precision(max_weight),get_precision(min_weight))
     if weight_float_flag:
         random_unit = random_system.uniform
     if direct == 2 and (
@@ -397,7 +398,7 @@ def branch_gen(
         else:
             random_weight = sign_gen() * random_unit(min_weight, max_weight)
         if weight_float_flag:
-            random_weight = round(random_weight, 4)
+            random_weight = round(random_weight, weight_precision)
         branch_list.append(random_tail)
         weight_list.append(random_weight)
         index += 1
