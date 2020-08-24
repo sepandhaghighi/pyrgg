@@ -491,7 +491,7 @@ def json_to_yaml(filename):
 
 def json_to_pickle(filename):
     """
-    Convert json file to yaml file.
+    Convert json file to pickle file.
 
     :param filename: filename
     :type filename: str
