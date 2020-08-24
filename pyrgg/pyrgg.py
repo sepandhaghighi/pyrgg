@@ -13,6 +13,7 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+
 def get_precision(input_number):
     """
     Return precision of input number.
@@ -28,6 +29,7 @@ def get_precision(input_number):
         return digit
     except Exception:
         return 1
+
 
 def is_float(input_number):
     """
@@ -376,7 +378,9 @@ def branch_gen(
     min_weight_flag = is_float(min_weight)
     weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
-    weight_precision = max(get_precision(max_weight),get_precision(min_weight))
+    weight_precision = max(
+        get_precision(max_weight),
+        get_precision(min_weight))
     if weight_float_flag:
         random_unit = random_system.uniform
     if direct == 2 and (
