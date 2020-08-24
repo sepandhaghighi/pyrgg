@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pyrgg main."""
-from pyrgg.pyrgg import *
+from pyrgg.graph_gen import *
+from pyrgg.functions import *
 from pyrgg.params import *
 import time
 import sys
