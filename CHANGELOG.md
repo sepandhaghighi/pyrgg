@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Menu optimized
 - `pyrgg.py` renamed to `graph_gen.py`
 - Other functions moved to `functions.py`
+- Test system modified
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
