@@ -10,6 +10,7 @@ from pyrgg.functions import *
 # random_system=random.SystemRandom()
 random_system = random
 
+
 def dimacs_init(
         file,
         file_name,
@@ -915,5 +916,3 @@ def gexf_maker(
     file.write("</gexf>")
     file.close()
     return edge_number
-
-
