@@ -13,6 +13,21 @@ from pyrgg.params import *
 # random_system=random.SystemRandom()
 random_system = random
 
+def get_precision(input_number):
+    """
+    Return precision of input number.
+
+    :param input_number: input number
+    :type input_number: float
+    :return: precision as int
+    """
+    try:
+        number_str = str(input_number)
+        number_splitted = number_str.split(".")
+        digit = len(number_splitted[1])
+        return digit
+    except Exception:
+        return 1
 
 def is_float(input_number):
     """
