@@ -62,6 +62,14 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
+>>> get_precision(2)
+1
+>>> get_precision(2.2)
+1
+>>> get_precision(2.22)
+2
+>>> get_precision(2.223)
+3
 >>> weight_str_to_number("20")
 20
 >>> weight_str_to_number("20.2")
@@ -1931,7 +1939,6 @@ a 25 19 28
 a 26 14 7
 a 30 20 38
 <BLANKLINE>
->>> file.close()
 >>> random.seed(2)
 >>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
@@ -1986,6 +1993,31 @@ a 30 20 38
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
+>>> random.seed(2)
+>>> csv_maker('testfile4', 0.0, 200.22, 10, 0, 2, 0, 1,1,1)
+6
+>>> file = open("testfile4.csv")
+>>> print(file.read())
+4,3,-50.37
+6,1,200.16
+6,8,-108.96
+7,9,-180.44
+9,8,-181.75
+10,9,112.23
+<BLANKLINE>
+>>> random.seed(2)
+>>> csv_maker('testfile4', 0.0, 200.222, 10, 0, 2, 0, 1,1,1)
+6
+>>> file = open("testfile4.csv")
+>>> print(file.read())
+4,3,-50.373
+6,1,200.166
+6,8,-108.956
+7,9,-180.442
+9,8,-181.752
+10,9,112.227
+<BLANKLINE>
+>>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
 >>> os.remove('testfile.gexf')
@@ -2020,6 +2052,7 @@ a 30 20 38
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile4.csv')
 >>> os.remove('testfile3.gml')
 >>> os.remove('testfile3.gdf')
 >>> os.remove('testfile3.mtx')
