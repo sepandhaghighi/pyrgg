@@ -143,11 +143,11 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> input_dic['min_edge']
 2
 >>> input_dic['min_weight']
-2
+1
 >>> input_dic['output_format']
 2
 >>> input_dic['max_weight']
-2
+1
 >>> input_dic['file_name']
 '2'
 >>> input_dic['max_edge']
