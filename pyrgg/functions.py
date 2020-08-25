@@ -492,12 +492,10 @@ def json_to_yaml(filename):
     :return: None
     """
     try:
-        file = open(filename + ".json", "r")
-        json_data = json.loads(file.read())
-        yaml_file = open(filename + ".yaml", "w")
-        yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
-        file.close()
-        yaml_file.close()
+        with open(filename + ".json", "r") as json_file:
+            json_data = json.loads(json_file.read())
+            with open(filename + ".yaml", "w") as yaml_file:
+                yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
         print("[Error] Bad Input File")
 
@@ -511,12 +509,10 @@ def json_to_pickle(filename):
     :return: None
     """
     try:
-        file = open(filename + ".json", "r")
-        pickle_file = open(filename + ".p", "wb")
-        json_data = json.loads(file.read())
-        pickle.dump(json_data, pickle_file)
-        pickle_file.close()
-        file.close()
+        with open(filename + ".json", "r") as json_file:
+            json_data = json.loads(json_file.read())
+            with open(filename + ".p", "wb") as pickle_file:
+                pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
         print("[Error] Bad Input File")
 
