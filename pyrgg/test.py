@@ -7,6 +7,24 @@
 >>> import json
 >>> import yaml
 >>> import pickle
+>>> get_precision(2)
+0
+>>> get_precision(2.2)
+1
+>>> get_precision(2.22)
+2
+>>> get_precision(2.223)
+3
+>>> weight_str_to_number("20")
+20
+>>> weight_str_to_number("20.2")
+20.2
+>>> is_float(10)
+False
+>>> is_float(10.2)
+True
+>>> is_float(None)
+False
 >>> logger(2,2,2,2)
 [Error] Logger Faild!
 >>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19,"direct": 2,"self_loop": 2,"multigraph":2})
@@ -569,6 +587,10 @@ graph
   ]
 ]
 >>> random.seed(2)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+7
+>>> file=open('testfile.gexf', 'r')
+>>> random.seed(2)
 >>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
 7
 >>> random.seed(2)
@@ -683,6 +705,77 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 24,19,28
 25,14,7
 29,20,38
+<BLANKLINE>
+>>> random.seed(4)
+>>> csv_maker('testfile4',0,50.2,30,0,4,0,1,1,1)
+65
+>>> file=open('testfile4.csv','r')
+>>> print(file.read())
+1,10,36.2
+2,5,3.3
+2,14,-40.2
+2,27,11.1
+3,12,-39.1
+3,28,13.1
+3,1,-40.2
+3,8,15.6
+4,3,-33.7
+4,18,8.9
+5,9,47.4
+5,28,-0.4
+5,11,-42.6
+6,7,-21.3
+6,11,-22.7
+6,9,-13.0
+6,29,4.1
+7,21,-26.0
+7,22,-35.2
+7,5,3.3
+8,21,-13.9
+9,14,-31.8
+9,7,-5.1
+11,9,6.1
+12,10,-1.3
+13,23,45.0
+13,10,-0.9
+14,11,38.9
+14,15,14.7
+15,29,-14.7
+16,13,16.6
+16,1,-2.2
+17,12,-50.1
+18,4,-49.3
+18,15,5.7
+18,2,37.0
+18,23,30.4
+19,16,16.1
+19,2,41.9
+19,11,-32.7
+19,8,-10.1
+20,14,-1.9
+20,15,-12.5
+20,16,25.0
+23,9,26.4
+23,26,20.9
+24,5,-2.6
+24,12,49.7
+25,29,24.8
+25,3,-10.6
+25,30,16.9
+26,26,-40.9
+26,17,32.9
+26,23,-17.0
+27,16,43.1
+27,9,2.2
+27,22,38.5
+28,22,43.7
+28,24,-28.6
+29,30,-11.0
+29,1,46.3
+29,2,-5.8
+30,29,27.6
+30,30,8.1
+30,20,-41.1
 <BLANKLINE>
 >>> random.seed(20)
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
@@ -1264,7 +1357,7 @@ edge(29,20,38).
 >>> input_dic['vertices']
 20
 >>> input_dic['min_edge']
-19
+20
 >>> input_dic['min_weight']
 1
 >>> input_dic['output_format']
@@ -1274,7 +1367,7 @@ edge(29,20,38).
 >>> input_dic['file_name']
 '14'
 >>> input_dic['max_edge']
-19
+20
 >>> random.seed(2)
 >>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1, 1,1)
 7
@@ -1448,6 +1541,7 @@ data:
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
+>>> os.remove('testfile.gexf')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gr')
@@ -1470,6 +1564,7 @@ data:
 >>> os.remove('testfile2.wel')
 >>> os.remove('testfile2.yaml')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile4.csv')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile3.p')

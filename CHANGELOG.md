@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- GEXF format
+- Float weight support
+### Changed
+- Menu optimized
+- `pyrgg.py` renamed to `graph_gen.py`
+- Other functions moved to `functions.py`
+- Test system modified
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format

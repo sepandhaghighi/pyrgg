@@ -147,7 +147,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
   - [x] GDF
   - [x] Matrix Market
   - [x] Graph Line
-  - [ ] GEXF
+  - [x] GEXF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -196,6 +196,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-GDF](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
 - [Sample 1-GML](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
 - [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
+- [Sample 1-GEXF](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
+- [Sample 2-GEXF](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
 
 
 
@@ -448,6 +450,28 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
          ]
        ]
 	```
+
+- [GEXF(.gexf)](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
+    ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+            <meta lastmodifieddate="2009-03-20">
+                <creator>PyRGG</creator>
+                <description>File Name</description>
+            </meta>
+            <graph defaultedgetype="directed">
+                <nodes>
+                    <node id="1" label="Node 1" />
+                    <node id="2" label="Node 2" />
+                    ...
+                </nodes>
+                <edges>
+                    <edge id="1" source="1" target="2" weight="400" />
+                    ...
+                </edges>
+            </graph>
+        </gexf>
+    ```
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			

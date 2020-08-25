@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Pyrgg modules."""
-from .pyrgg import *
+from .functions import *
+from .graph_gen import *
 from .params import *
 __version__ = PYRGG_VERSION

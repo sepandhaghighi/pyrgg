@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pyrgg main."""
-from pyrgg.pyrgg import *
+from pyrgg.graph_gen import *
+from pyrgg.functions import *
 from pyrgg.params import *
 import time
 import sys
@@ -21,7 +22,8 @@ GENERATOR_MENU = {
     11: mtx_maker,
     12: gl_maker,
     13: gdf_maker,
-    14: gml_maker}
+    14: gml_maker,
+    15: gexf_maker}
 
 
 def run():
@@ -62,7 +64,8 @@ def run():
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
-    print("Graph Generated In " + elapsed_time_format)
+    print("Total Number of Edges : " + str(edge_number))
+    print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
     logger(
         vertices_number,
