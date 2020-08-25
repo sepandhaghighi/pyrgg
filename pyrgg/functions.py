@@ -228,6 +228,7 @@ def time_convert(input_string):
         "seconds"
     ])
 
+
 def input_filter(input_dict):
     """
     Filter input data.
