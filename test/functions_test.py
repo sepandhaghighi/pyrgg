@@ -56,7 +56,7 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
 >>> get_precision(2)
-1
+0
 >>> get_precision(2.2)
 1
 >>> get_precision(2.22)

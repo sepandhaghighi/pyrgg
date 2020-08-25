@@ -27,7 +27,7 @@ def get_precision(input_number):
         digit = len(number_splitted[1])
         return digit
     except Exception:
-        return 1
+        return 0
 
 
 def is_float(input_number):
