@@ -177,7 +177,6 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
     :type elapsed_time : str
     :return:  None
     """
-
     try:
         with open("logfile.log", "a") as file:
             file.write(str(datetime.datetime.now()) + "\n")
