@@ -358,40 +358,6 @@ def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
             buf.write(string)
 
 
-def json_to_yaml(filename):
-    """
-    Convert json file to yaml file.
-
-    :param filename: filename
-    :type filename: str
-    :return: None
-    """
-    try:
-        with open(filename + ".json", "r") as f:
-            json_data = json.loads(f.read())
-            with open(filename + ".yaml", "w") as yaml_file:
-                yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
-    except FileNotFoundError:
-        print("[Error] Bad Input File")
-
-
-def json_to_pickle(filename):
-    """
-    Convert json file to yaml file.
-
-    :param filename: filename
-    :type filename: str
-    :return: None
-    """
-    try:
-        with open(filename + ".json", "r") as f:
-            json_data = json.loads(f.read())
-            with open(filename + ".p", "wb") as pickle_file:
-                pickle.dump(json_data, pickle_file)
-    except FileNotFoundError:
-        print("[Error] Bad Input File")
-
-
 def wel_maker(
         file_name,
         min_weight,
