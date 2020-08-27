@@ -370,7 +370,7 @@ def tsv_maker(
 
 
 def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
-    """Write data to buffer separated with ``separator``.
+    r"""Write data to buffer separated with ``separator``.
 
     :param buf: output file object
     :type buf: file_object
