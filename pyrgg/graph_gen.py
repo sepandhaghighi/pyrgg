@@ -177,6 +177,16 @@ def json_maker(
 
 
 def _write_to_json(buf, edge_dic, weight_dic):
+    """Write data to json buffer.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :return: None
+    """
     buf.write('{\n\t"graph": {\n')
     _write_nodes_to_json(buf, edge_dic)
     buf.write("\n\t\t],\n")
@@ -185,6 +195,14 @@ def _write_to_json(buf, edge_dic, weight_dic):
 
 
 def _write_nodes_to_json(buf, edge_dic):
+    """Write nodes to json.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :return: None
+    """
     first_line = True
     nodes = '\t\t\t"nodes":[\n'
     buf.write(nodes)
@@ -207,6 +225,16 @@ def _write_nodes_to_json(buf, edge_dic):
 
 
 def _write_edges_to_json(buf, edge_dic, weight_dic):
+    """Write edges to json.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :return: None
+    """
     edges = '\t\t\t"edges":[\n'
 
     first_line = True
@@ -342,7 +370,20 @@ def tsv_maker(
 
 
 def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
-    """Write data to buffer separated with ``separator``."""
+    """Write data to buffer separated with ``separator``.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :param separator: separator in a separated file, like ',', '\t', ' ', etc.
+    :type separator: str
+    :param prefix: prefix to be added in front of each line
+    :type prefix: str
+    :return: None
+    """
     dummy_prefix = object()
     prefix = prefix or dummy_prefix
 
