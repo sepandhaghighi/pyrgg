@@ -186,7 +186,7 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
             file.write("Elapsed Time : " + str(elapsed_time) + "\n")
             file.write("-------------------------------\n")
     except Exception:
-        print("[Error] Logger Failed!")
+        print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
 def zero_insert(input_string):
@@ -519,7 +519,7 @@ def json_to_yaml(filename):
             with open(filename + ".yaml", "w") as yaml_file:
                 yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
-        print("[Error] Bad Input File")
+        print(PYRGG_FILE_ERROR_MESSAGE)
 
 
 def json_to_pickle(filename):
@@ -536,7 +536,7 @@ def json_to_pickle(filename):
             with open(filename + ".p", "wb") as pickle_file:
                 pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
-        print("[Error] Bad Input File")
+        print(PYRGG_FILE_ERROR_MESSAGE)
 
 
 def print_test(a):

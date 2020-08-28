@@ -88,6 +88,10 @@ PYRGG_DESCRIPTION = fill(_description, width=70)
 
 PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad Input!"
 
+PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad Input File!"
+
+PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger Failed!"
+
 DIMACS_FIX = dedent(
     """\
     c FILE                  :{0}.gr
