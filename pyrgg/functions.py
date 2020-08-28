@@ -178,14 +178,13 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
     :return:  None
     """
     try:
-        file = open("logfile.log", "a")
-        file.write(str(datetime.datetime.now()) + "\n")
-        file.write("Filename : " + file_name + "\n")
-        file.write("Vertices : " + str(vertices_number) + "\n")
-        file.write("Edges : " + str(edge_number) + "\n")
-        file.write("Elapsed Time : " + str(elapsed_time) + "\n")
-        file.write("-------------------------------\n")
-        file.close()
+        with open("logfile.log", "a") as file:
+            file.write(str(datetime.datetime.now()) + "\n")
+            file.write("Filename : " + file_name + "\n")
+            file.write("Vertices : " + str(vertices_number) + "\n")
+            file.write("Edges : " + str(edge_number) + "\n")
+            file.write("Elapsed Time : " + str(elapsed_time) + "\n")
+            file.write("-------------------------------\n")
     except Exception:
         print("[Error] Logger Faild!")
 
@@ -218,8 +217,16 @@ def time_convert(input_string):
     input_minute = int(input_minute - input_hour * 60)
     input_day = int(input_hour // 24)
     input_hour = int(input_hour - input_day * 24)
-    return zero_insert(str(input_day)) + " days, " + zero_insert(str(input_hour)) + " hour, " + \
-        zero_insert(str(input_minute)) + " minutes, " + zero_insert(str(input_sec)) + " seconds"
+    return " ".join([
+        zero_insert(str(input_day)),
+        "days,",
+        zero_insert(str(input_hour)),
+        "hour,",
+        zero_insert(str(input_minute)),
+        "minutes,",
+        zero_insert(str(input_sec)),
+        "seconds"
+    ])
 
 
 def input_filter(input_dict):
@@ -271,54 +278,66 @@ def get_input(input_func=input):
     :type input_func : function object
     :return: inputs as dict
     """
-    try:
-        result_dict = {
-            "file_name": "",
-            "vertices": 0,
-            "max_weight": 1,
-            "min_weight": 1,
-            "min_edge": 0,
-            "max_edge": 0,
-            "sign": 1,
-            "output_format": 1,
-            "weight": 1,
-            "direct": 1,
-            "self_loop": 1,
-            "multigraph": 1}
-        MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
-        MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
-        for item in MENU_ITEMS_KEYS1:
-            exit_flag = False
-            while not exit_flag:
-                try:
-                    if item != "file_name":
-                        result_dict[item] = int(input_func(MENU_ITEMS1[item]))
-                    else:
-                        result_dict[item] = input_func(MENU_ITEMS1[item])
-                    exit_flag = True
-                except Exception:
-                    print("[Error] Bad Input!")
+    result_dict = {
+        "file_name": "",
+        "vertices": 0,
+        "max_weight": 1,
+        "min_weight": 1,
+        "min_edge": 0,
+        "max_edge": 0,
+        "sign": 1,
+        "output_format": 1,
+        "weight": 1,
+        "direct": 1,
+        "self_loop": 1,
+        "multigraph": 1,
+    }
 
-        for item in MENU_ITEMS_KEYS2:
-            exit_flag = False
-            if result_dict["weight"] != 1 and (
-                    item == "max_weight" or item == "min_weight"):
-                continue
-            while not exit_flag:
-                try:
-                    if item == "max_weight" or item == "min_weight":
-                        result_dict[item] = weight_str_to_number(
-                            input_func(MENU_ITEMS2[item]))
-                    else:
-                        result_dict[item] = int(input_func(MENU_ITEMS2[item]))
-                    exit_flag = True
-                except Exception:
-                    print("[Error] Bad Input!")
-        result_dict = input_filter(result_dict)
-        return result_dict
+    try:
+        result_dict = _update_using_first_menu(result_dict, input_func)
+        result_dict = _update_using_second_menu(result_dict, input_func)
     except Exception:
         print("[Error] Bad Input!")
         sys.exit()
+    else:
+        return input_filter(result_dict)
+
+
+def _update_using_first_menu(result_dict, input_func):
+    """Update result_dict using user input from the first menu."""
+    MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
+    for item in MENU_ITEMS_KEYS1:
+        while True:
+            try:
+                if item != "file_name":
+                    result_dict[item] = int(input_func(MENU_ITEMS1[item]))
+                else:
+                    result_dict[item] = input_func(MENU_ITEMS1[item])
+            except Exception:
+                print("[Error] Bad Input!")
+            else:
+                break
+    return result_dict
+
+
+def _update_using_second_menu(result_dict, input_func):
+    """Update result_dict using user input from the second menu."""
+    MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
+    for item in MENU_ITEMS_KEYS2:
+        if result_dict["weight"] != 1 and item in ["max_weight", "min_weight"]:
+            continue
+        while True:
+            try:
+                user_input = input_func(MENU_ITEMS2[item])
+                if item in ["max_weight", "min_weight"]:
+                    result_dict[item] = weight_str_to_number(user_input)
+                else:
+                    result_dict[item] = int(user_input)
+            except Exception:
+                print("[Error] Bad Input!")
+            else:
+                break
+    return result_dict
 
 
 def sign_gen():
@@ -479,12 +498,10 @@ def json_to_yaml(filename):
     :return: None
     """
     try:
-        file = open(filename + ".json", "r")
-        json_data = json.loads(file.read())
-        yaml_file = open(filename + ".yaml", "w")
-        yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
-        file.close()
-        yaml_file.close()
+        with open(filename + ".json", "r") as json_file:
+            json_data = json.loads(json_file.read())
+            with open(filename + ".yaml", "w") as yaml_file:
+                yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
         print("[Error] Bad Input File")
 
@@ -498,12 +515,10 @@ def json_to_pickle(filename):
     :return: None
     """
     try:
-        file = open(filename + ".json", "r")
-        pickle_file = open(filename + ".p", "wb")
-        json_data = json.loads(file.read())
-        pickle.dump(json_data, pickle_file)
-        pickle_file.close()
-        file.close()
+        with open(filename + ".json", "r") as json_file:
+            json_data = json.loads(json_file.read())
+            with open(filename + ".p", "wb") as pickle_file:
+                pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
         print("[Error] Bad Input File")
 

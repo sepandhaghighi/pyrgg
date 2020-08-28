@@ -89,8 +89,7 @@ def dimacs_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gr", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -99,25 +98,24 @@ def dimacs_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    dimacs_init(
-        file,
-        file_name,
-        min_weight,
-        max_weight,
-        vertices,
-        edge_number,
-        min_edge,
-        max_edge,
-        direct)
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write("a " + str(i) + " " + str(value) +
-                       " " + str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+
+    with open(file_name + ".gr", "w") as buf:
+        dimacs_init(
+            buf,
+            file_name,
+            min_weight,
+            max_weight,
+            vertices,
+            edge_number,
+            min_edge,
+            max_edge,
+            direct,
+        )
+        _write_separated_file(
+            buf, edge_dic, weight_dic, separator=' ', prefix='a',
+        )
     return edge_number
 
 
@@ -157,8 +155,7 @@ def json_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".json", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -167,40 +164,105 @@ def json_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
+        multigraph,
+    )
+
+    with open(file_name + ".json", "w") as buf:
+        _write_to_json(
+            buf,
+            edge_dic,
+            weight_dic,
+        )
+    return edge_number
+
+
+def _write_to_json(buf, edge_dic, weight_dic):
+    """Write data to json buffer.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :return: None
+    """
+    buf.write('{\n\t"graph": {\n')
+    _write_nodes_to_json(buf, edge_dic)
+    buf.write("\n\t\t],\n")
+    _write_edges_to_json(buf, edge_dic, weight_dic)
+    buf.write("\n\t\t]\n\t}\n}")
+
+
+def _write_nodes_to_json(buf, edge_dic):
+    """Write nodes to json.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :return: None
+    """
     first_line = True
     nodes = '\t\t\t"nodes":[\n'
-    edges = '\t\t\t"edges":[\n'
-    file.write('{\n\t"graph": {\n')
-    file.write(nodes)
-    for i in edge_dic.keys():
+    buf.write(nodes)
+
+    for key in edge_dic:
         nodes = ""
         if first_line:
             first_line = False
         else:
             nodes += ",\n"
-        nodes = nodes + '\t\t\t{\n\t\t\t\t' + \
-            '"id": ' + '"' + str(i) + '"\n\t\t\t}'
-        file.write(nodes)
-    file.write("\n\t\t],\n")
+        nodes = "".join([
+            nodes,
+            '\t\t\t{\n\t\t\t\t',
+            '"id": ',
+            '"',
+            str(key),
+            '"\n\t\t\t}'
+        ])
+        buf.write(nodes)
+
+
+def _write_edges_to_json(buf, edge_dic, weight_dic):
+    """Write edges to json.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :return: None
+    """
+    edges = '\t\t\t"edges":[\n'
+
     first_line = True
-    file.write(edges)
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
+    buf.write(edges)
+
+    for key, edge_val in edge_dic.items():
+        for j, value in enumerate(edge_val):
             edges = ""
             if first_line:
                 first_line = False
             else:
                 edges += ",\n"
-            edges = edges + '\t\t\t{\n\t\t\t\t"source": ' + '"' + str(i) + '",\n\t\t\t\t' + '"target": ' + '"' + str(
-                value) + '",\n\t\t\t\t' + '"weight": ' + '"' + str(weight_dic[i][j]) + '"\n\t\t\t}'
-            file.write(edges)
-    file.write("\n\t\t]\n\t}\n}")
-    file.close()
-    return edge_number
+            edges = "".join([
+                edges,
+                '\t\t\t{\n\t\t\t\t"source": ',
+                '"',
+                str(key),
+                '",\n\t\t\t\t',
+                '"target": ',
+                '"',
+                str(value),
+                '",\n\t\t\t\t',
+                '"weight": ',
+                '"',
+                str(weight_dic[key][j]),
+                '"\n\t\t\t}'
+            ])
+            buf.write(edges)
 
 
 def csv_maker(
@@ -239,8 +301,7 @@ def csv_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".csv", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -249,15 +310,10 @@ def csv_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + "," + str(value) + "," +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".csv", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator=',')
     return edge_number
 
 
@@ -297,8 +353,7 @@ def tsv_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".tsv", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -307,16 +362,41 @@ def tsv_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + "\t" + str(value) + "\t" +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".tsv", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator='\t')
     return edge_number
+
+
+def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
+    r"""Write data to buffer separated with ``separator``.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :param separator: separator in a separated file, like ',', '\t', ' ', etc.
+    :type separator: str
+    :param prefix: prefix to be added in front of each line
+    :type prefix: str
+    :return: None
+    """
+    dummy_prefix = object()
+    prefix = prefix or dummy_prefix
+
+    for key, edge_val in edge_dic.items():
+        for j, value in enumerate(edge_val):
+            elements = [
+                prefix,
+                str(key),
+                str(value),
+                str(weight_dic[key][j]) + "\n"
+            ]
+            string = separator.join(x for x in elements if x != dummy_prefix)
+            buf.write(string)
 
 
 def wel_maker(
@@ -355,8 +435,7 @@ def wel_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".wel", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -365,15 +444,10 @@ def wel_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".wel", "w") as buf:
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
@@ -413,8 +487,7 @@ def mtx_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".mtx", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -423,20 +496,20 @@ def mtx_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
+        multigraph,
+    )
     max_edge_length = len(str(vertices))
-    file.write("%%MatrixMarket matrix coordinate real general\n")
-    file.write("{0}    {0}    {1}\n".format(str(vertices), str(edge_number)))
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            shift1 = (max_edge_length - len(str(i))) + 4
-            shift2 = (max_edge_length - len(str(value))) + 4
-            file.write(str(i) + shift1 * " " + str(value) + shift2 * " " +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+    with open(file_name + ".mtx", "w") as buf:
+        buf.write("%%MatrixMarket matrix coordinate real general\n")
+        buf.write(
+            "{0}    {0}    {1}\n".format(str(vertices), str(edge_number))
+        )
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                shift1 = (max_edge_length - len(str(key))) + 4
+                shift2 = (max_edge_length - len(str(value))) + 4
+                buf.write(str(key) + shift1 * " " + str(value) + shift2 * " " +
+                          str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
@@ -476,8 +549,7 @@ def lp_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".lp", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -486,17 +558,15 @@ def lp_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        file.write('node(' + str(i) + ").\n")
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write('edge(' + str(i) + "," + str(value) +
-                       "," + str(weight_dic[i][j]) + ").\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".lp", "w") as buf:
+        for key in edge_dic:
+            buf.write('node(' + str(key) + ").\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write('edge(' + str(key) + "," + str(value) +
+                          "," + str(weight_dic[key][j]) + ").\n")
     return edge_number
 
 
@@ -536,8 +606,7 @@ def tgf_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".tgf", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -546,18 +615,16 @@ def tgf_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        file.write(str(i) + "\n")
-    file.write("#\n")
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".tgf", "w") as buf:
+        for key in edge_dic:
+            buf.write(str(key) + "\n")
+        buf.write("#\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write(str(key) + " " + str(value) + " " +
+                          str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
@@ -597,8 +664,7 @@ def gl_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gl", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -607,16 +673,14 @@ def gl_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    for i in edge_dic.keys():
-        line_data = str(i)
-        for j, value in enumerate(edge_dic[i]):
-            line_data += " " + str(value) + ":" + str(weight_dic[i][j])
-        file.write(line_data + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".gl", "w") as buf:
+        for key, edge_val in edge_dic.items():
+            line_data = str(key)
+            for j, value in enumerate(edge_val):
+                line_data += " " + str(value) + ":" + str(weight_dic[key][j])
+            buf.write(line_data + "\n")
     return edge_number
 
 
@@ -656,8 +720,7 @@ def dl_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".dl", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -666,16 +729,14 @@ def dl_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    file.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + " " + str(value) + " " +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".dl", "w") as buf:
+        buf.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write(str(key) + " " + str(value) + " " +
+                          str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
@@ -715,8 +776,7 @@ def gdf_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gdf", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -725,19 +785,17 @@ def gdf_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
-    file.write("nodedef>name VARCHAR,label VARCHAR\n")
-    for i in edge_dic.keys():
-        file.write(str(i) + "," + "Node{0}".format(str(i)) + "\n")
-    file.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(str(i) + "," + str(value) + "," +
-                       str(weight_dic[i][j]) + "\n")
-    file.close()
+        multigraph,
+    )
+    with open(file_name + ".gdf", "w") as buf:
+        buf.write("nodedef>name VARCHAR,label VARCHAR\n")
+        for key in edge_dic:
+            buf.write(str(key) + "," + "Node{0}".format(str(key)) + "\n")
+        buf.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write(str(key) + "," + str(value) + "," +
+                          str(weight_dic[key][j]) + "\n")
     return edge_number
 
 
@@ -777,8 +835,7 @@ def gml_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gml", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -787,37 +844,37 @@ def gml_maker(
         sign,
         direct,
         self_loop,
-        multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
+        multigraph,
+    )
+
     header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'
     multigraph_flag = str(int(abs((1 - multigraph))))
     directed_flag = str(int(2 - direct))
     header = header.format(multigraph_flag, directed_flag)
-    file.write(header)
-    for i in edge_dic.keys():
-        file.write(
-            "  node\n  [\n   id " +
-            str(i) +
-            "\n" +
-            '   label "Node {0}"\n'.format(
-                str(i)) +
-            "  ]\n")
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write("  edge\n  [\n   source " +
-                       str(i) +
-                       "\n" +
-                       "   target " +
-                       str(value) +
-                       "\n" +
-                       "   value " +
-                       str(weight_dic[i][j]) +
-                       "\n" +
-                       "  ]\n")
-    file.write("]")
-    file.close()
+
+    with open(file_name + ".gml", "w") as buf:
+        buf.write(header)
+        for key in edge_dic:
+            buf.write(
+                "  node\n  [\n   id " +
+                str(key) +
+                "\n" +
+                '   label "Node {0}"\n'.format(
+                    str(key)) +
+                "  ]\n")
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write("  edge\n  [\n   source " +
+                          str(key) +
+                          "\n" +
+                          "   target " +
+                          str(value) +
+                          "\n" +
+                          "   value " +
+                          str(weight_dic[key][j]) +
+                          "\n" +
+                          "  ]\n")
+        buf.write("]")
     return edge_number
 
 
