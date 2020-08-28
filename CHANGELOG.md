@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `params.py` refactored
 - `graph_gen.py` refactored
 - `functions.py` refactored
+- `CONTRIBUTING.md` updated
+- `AUTHORS.md` updated
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
