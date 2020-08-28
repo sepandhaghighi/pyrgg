@@ -186,7 +186,7 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
             file.write("Elapsed Time : " + str(elapsed_time) + "\n")
             file.write("-------------------------------\n")
     except Exception:
-        print("[Error] Logger Faild!")
+        print("[Error] Logger Failed!")
 
 
 def zero_insert(input_string):
@@ -297,7 +297,7 @@ def get_input(input_func=input):
         result_dict = _update_using_first_menu(result_dict, input_func)
         result_dict = _update_using_second_menu(result_dict, input_func)
     except Exception:
-        print("[Error] Bad Input!")
+        print(PYRGG_INPUT_ERROR_MESSAGE)
         sys.exit()
     else:
         return input_filter(result_dict)
@@ -322,7 +322,7 @@ def _update_using_first_menu(result_dict, input_func):
                 else:
                     result_dict[item] = input_func(MENU_ITEMS1[item])
             except Exception:
-                print("[Error] Bad Input!")
+                print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict
@@ -350,7 +350,7 @@ def _update_using_second_menu(result_dict, input_func):
                 else:
                     result_dict[item] = int(user_input)
             except Exception:
-                print("[Error] Bad Input!")
+                print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict

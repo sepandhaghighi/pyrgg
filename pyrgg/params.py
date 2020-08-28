@@ -86,6 +86,7 @@ who study graph algorithms and graph processing frameworks.
 
 PYRGG_DESCRIPTION = fill(_description, width=70)
 
+PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad Input!"
 
 DIMACS_FIX = dedent(
     """\
