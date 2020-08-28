@@ -304,7 +304,15 @@ def get_input(input_func=input):
 
 
 def _update_using_first_menu(result_dict, input_func):
-    """Update result_dict using user input from the first menu."""
+    """
+    Update result_dict using user input from the first menu.
+
+    :param result_dict: result data
+    :type result_dict: dict
+    :param input_func : input function
+    :type input_func : function object
+    :return: result_dict as dict
+    """
     MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
     for item in MENU_ITEMS_KEYS1:
         while True:
@@ -321,7 +329,15 @@ def _update_using_first_menu(result_dict, input_func):
 
 
 def _update_using_second_menu(result_dict, input_func):
-    """Update result_dict using user input from the second menu."""
+    """
+    Update result_dict using user input from the second menu.
+
+    :param result_dict: result data
+    :type result_dict: dict
+    :param input_func : input function
+    :type input_func : function object
+    :return: result_dict as dict
+    """
     MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
     for item in MENU_ITEMS_KEYS2:
         if result_dict["weight"] != 1 and item in ["max_weight", "min_weight"]:
