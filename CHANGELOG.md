@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Other functions moved to `functions.py`
 - Test system modified
 - `params.py` refactored
+- `graph_gen.py` refactored
+- `functions.py` refactored
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
