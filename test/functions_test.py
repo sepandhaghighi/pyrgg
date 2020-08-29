@@ -101,56 +101,80 @@ TypeError: branch_gen() missing 1 required positional argument: 'sign'
 Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 1 required positional argument: 'sign'
->>> input_dic=get_input(input_func=print_test)
->>> input_dic['sign']
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"1","error":"120"}
+>>> def input_func_test(input_data):
+...    menu = dict(MENU_ITEMS1,**MENU_ITEMS2)
+...    global prev_item
+...    for item in menu:
+...        if input_data == menu[item]:
+...            if item != prev_item :
+...                prev_item = item
+...                return input_func_dict[item]
+...            else:
+...                return input_func_dict["error"]
+>>> input_data = get_input(input_func_test)
+>>> input_data["vertices"]
+120
+>>> input_data["max_weight"]
+110
+>>> input_data["min_weight"]
+0
+>>> input_data["min_edge"]
+1
+>>> input_data["max_edge"]
+120
+>>> input_data["sign"]
+1
+>>> input_data["weight"]
+1
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"1","error":"120"}
+>>> input_data = get_input(input_func_test)
+>>> input_data["vertices"]
+120
+>>> input_data["max_weight"]
+110
+>>> input_data["min_weight"]
+1.2
+>>> input_data["min_edge"]
 2
->>> input_dic['vertices']
-20
->>> input_dic['min_edge']
-20
->>> input_dic['min_weight']
+>>> input_data["max_edge"]
+120
+>>> input_data["sign"]
 1
->>> input_dic['output_format']
+>>> input_data["weight"]
 1
->>> input_dic['max_weight']
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"100","error":"120"}
+>>> input_data = get_input(input_func_test)
+>>> input_data["vertices"]
+120
+>>> input_data["min_weight"]
 1
->>> input_dic['file_name']
-'14'
->>> input_dic['max_edge']
-20
->>> input_dic=get_input(input_func=lambda X : "1")
->>> input_dic['sign']
+>>> input_data["max_edge"]
+120
+>>> input_data["max_weight"]
 1
->>> input_dic['vertices']
+>>> input_data["weight"]
+100
+>>> input_data["sign"]
 1
->>> input_dic['min_edge']
+>>> input_data["direct"]
 1
->>> input_dic['min_weight']
+>>> input_data["multigraph"]
 1
->>> input_dic['output_format']
-1
->>> input_dic['max_weight']
-1
->>> input_dic['file_name']
-'1'
->>> input_dic['max_edge']
-1
->>> input_dic=get_input(input_func=lambda X : "2")
->>> input_dic['sign']
-2
->>> input_dic['vertices']
-2
->>> input_dic['min_edge']
-2
->>> input_dic['min_weight']
-1
->>> input_dic['output_format']
-2
->>> input_dic['max_weight']
-1
->>> input_dic['file_name']
-'2'
->>> input_dic['max_edge']
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"1","error":"120"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad Input!
+>>> input_data["min_weight"]
+110.45
+>>> input_data["max_weight"]
+120
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"test","error":"2"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad Input!
+>>> input_data["weight"]
 2
 
 """
