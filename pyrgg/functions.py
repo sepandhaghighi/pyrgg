@@ -539,12 +539,3 @@ def json_to_pickle(filename):
         print(PYRGG_FILE_ERROR_MESSAGE)
 
 
-def print_test(a):
-    """
-    Added for get_input parameter injection testing.
-
-    :param a: input
-    :type a: int
-    :return: len(a) as str
-    """
-    return str(len(a))

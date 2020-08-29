@@ -1351,7 +1351,7 @@ edge(24,19,28).
 edge(25,14,7).
 edge(29,20,38).
 <BLANKLINE>
->>> input_dic=get_input(input_func=print_test)
+>>> input_dic=get_input(input_func=lambda x: str(len(x)))
 >>> input_dic['sign']
 2
 >>> input_dic['vertices']
