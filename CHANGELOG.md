@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `functions.py` refactored
 - `CONTRIBUTING.md` updated
 - `AUTHORS.md` updated
+### Removed
+- `print_test` function
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
