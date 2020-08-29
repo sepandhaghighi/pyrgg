@@ -598,9 +598,9 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> testfile_3_yaml['graph']['edges'][1]['weight']
 '15'
 >>> json_to_yaml('testfile24')
-[Error] Bad Input File
+[Error] Bad Input File!
 >>> json_to_pickle('testfile24')
-[Error] Bad Input File
+[Error] Bad Input File!
 >>> json_maker('testfile', 0, 200, 10, 0, 0,1)
 Traceback (most recent call last):
         ...

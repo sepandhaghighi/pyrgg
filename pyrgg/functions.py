@@ -186,7 +186,7 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
             file.write("Elapsed Time : " + str(elapsed_time) + "\n")
             file.write("-------------------------------\n")
     except Exception:
-        print("[Error] Logger Faild!")
+        print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
 def zero_insert(input_string):
@@ -297,14 +297,22 @@ def get_input(input_func=input):
         result_dict = _update_using_first_menu(result_dict, input_func)
         result_dict = _update_using_second_menu(result_dict, input_func)
     except Exception:
-        print("[Error] Bad Input!")
+        print(PYRGG_INPUT_ERROR_MESSAGE)
         sys.exit()
     else:
         return input_filter(result_dict)
 
 
 def _update_using_first_menu(result_dict, input_func):
-    """Update result_dict using user input from the first menu."""
+    """
+    Update result_dict using user input from the first menu.
+
+    :param result_dict: result data
+    :type result_dict: dict
+    :param input_func : input function
+    :type input_func : function object
+    :return: result_dict as dict
+    """
     MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
     for item in MENU_ITEMS_KEYS1:
         while True:
@@ -314,14 +322,22 @@ def _update_using_first_menu(result_dict, input_func):
                 else:
                     result_dict[item] = input_func(MENU_ITEMS1[item])
             except Exception:
-                print("[Error] Bad Input!")
+                print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict
 
 
 def _update_using_second_menu(result_dict, input_func):
-    """Update result_dict using user input from the second menu."""
+    """
+    Update result_dict using user input from the second menu.
+
+    :param result_dict: result data
+    :type result_dict: dict
+    :param input_func : input function
+    :type input_func : function object
+    :return: result_dict as dict
+    """
     MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
     for item in MENU_ITEMS_KEYS2:
         if result_dict["weight"] != 1 and item in ["max_weight", "min_weight"]:
@@ -334,7 +350,7 @@ def _update_using_second_menu(result_dict, input_func):
                 else:
                     result_dict[item] = int(user_input)
             except Exception:
-                print("[Error] Bad Input!")
+                print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict
@@ -503,7 +519,7 @@ def json_to_yaml(filename):
             with open(filename + ".yaml", "w") as yaml_file:
                 yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
-        print("[Error] Bad Input File")
+        print(PYRGG_FILE_ERROR_MESSAGE)
 
 
 def json_to_pickle(filename):
@@ -520,7 +536,7 @@ def json_to_pickle(filename):
             with open(filename + ".p", "wb") as pickle_file:
                 pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
-        print("[Error] Bad Input File")
+        print(PYRGG_FILE_ERROR_MESSAGE)
 
 
 def print_test(a):

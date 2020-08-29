@@ -26,7 +26,7 @@ True
 >>> is_float(None)
 False
 >>> logger(2,2,2,2)
-[Error] Logger Faild!
+[Error] Logger Failed!
 >>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19,"direct": 2,"self_loop": 2,"multigraph":2})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2, "self_loop": 2,"multigraph":2}
 True
@@ -466,9 +466,9 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'se
 >>> testfile_3_yaml['graph']['edges'][1]['weight']
 '15'
 >>> json_to_yaml('testfile24')
-[Error] Bad Input File
+[Error] Bad Input File!
 >>> json_to_pickle('testfile24')
-[Error] Bad Input File
+[Error] Bad Input File!
 >>> json_maker('testfile', 0, 200, 10, 0, 0,1)
 Traceback (most recent call last):
         ...

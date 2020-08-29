@@ -914,8 +914,7 @@ def gexf_maker(
     :type multigraph: int
     :return: edge_number as int
     """
-    file = open(file_name + ".gexf", "w")
-    dicts = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         vertices,
         min_weight,
         max_weight,
@@ -925,9 +924,6 @@ def gexf_maker(
         direct,
         self_loop,
         multigraph)
-    edge_dic = dicts[0]
-    weight_dic = dicts[1]
-    edge_number = dicts[2]
     header = '<?xml version="1.0" encoding="UTF-8"?>\n'
     header += '<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">\n'
     date = datetime.datetime.now().date()
@@ -935,41 +931,42 @@ def gexf_maker(
     meta += " " * 8 + '<creator>PyRGG</creator>\n'
     meta += " " * 8 + '<description>{0}</description>\n'.format(file_name)
     meta += " " * 4 + '</meta>\n'
-    file.write(header)
-    file.write(meta)
     if direct == 1:
         defaultedgetype = "directed"
     else:
         defaultedgetype = "undirected"
-    file.write(
-        " " * 4 + '<graph defaultedgetype="' + defaultedgetype + '">\n'
-    )
-    file.write(" " * 8 + "<nodes>\n")
-    for i in edge_dic.keys():
-        file.write(
-            " " * 12 +
-            '<node id="' +
-            str(i) + '"' +
-            ' label="Node {0}" />'.format(
-                str(i)) + "\n")
-    file.write(" " * 8 + "</nodes>\n")
-    file.write(" " * 8 + "<edges>\n")
-    edge_id = 1
-    for i in edge_dic.keys():
-        for j, value in enumerate(edge_dic[i]):
-            file.write(
+    with open(file_name + ".gexf", "w") as buf:
+        buf.write(header)
+        buf.write(meta)
+
+        buf.write(
+            " " * 4 + '<graph defaultedgetype="' + defaultedgetype + '">\n'
+        )
+        buf.write(" " * 8 + "<nodes>\n")
+        for key in edge_dic:
+            buf.write(
                 " " * 12 +
-                '<edge id="' +
-                str(edge_id) + '"' +
-                ' source="' +
-                str(i) + '"'
-                ' target="' +
-                str(value) + '"' +
-                ' weight="{0}" />'.format(
-                    str(weight_dic[i][j])) + "\n")
-            edge_id += 1
-    file.write(" " * 8 + "</edges>\n")
-    file.write(" " * 4 + "</graph>\n")
-    file.write("</gexf>")
-    file.close()
+                '<node id="' +
+                str(key) + '"' +
+                ' label="Node {0}" />'.format(
+                    str(key)) + "\n")
+        buf.write(" " * 8 + "</nodes>\n")
+        buf.write(" " * 8 + "<edges>\n")
+        edge_id = 1
+        for key, edge_val in edge_dic.items():
+            for j, value in enumerate(edge_val):
+                buf.write(
+                    " " * 12 +
+                    '<edge id="' +
+                    str(edge_id) + '"' +
+                    ' source="' +
+                    str(key) + '"'
+                    ' target="' +
+                    str(value) + '"' +
+                    ' weight="{0}" />'.format(
+                        str(weight_dic[key][j])) + "\n")
+                edge_id += 1
+        buf.write(" " * 8 + "</edges>\n")
+        buf.write(" " * 4 + "</graph>\n")
+        buf.write("</gexf>")
     return edge_number
