@@ -3,7 +3,6 @@
 import random
 import os
 import datetime
-import sys
 import yaml
 import json
 import pickle
@@ -293,14 +292,9 @@ def get_input(input_func=input):
         "multigraph": 1,
     }
 
-    try:
-        result_dict = _update_using_first_menu(result_dict, input_func)
-        result_dict = _update_using_second_menu(result_dict, input_func)
-    except Exception:
-        print(PYRGG_INPUT_ERROR_MESSAGE)
-        sys.exit()
-    else:
-        return input_filter(result_dict)
+    result_dict = _update_using_first_menu(result_dict, input_func)
+    result_dict = _update_using_second_menu(result_dict, input_func)
+    return input_filter(result_dict)
 
 
 def _update_using_first_menu(result_dict, input_func):
@@ -539,12 +533,3 @@ def json_to_pickle(filename):
         print(PYRGG_FILE_ERROR_MESSAGE)
 
 
-def print_test(a):
-    """
-    Added for get_input parameter injection testing.
-
-    :param a: input
-    :type a: int
-    :return: len(a) as str
-    """
-    return str(len(a))
