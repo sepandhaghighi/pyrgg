@@ -163,35 +163,42 @@ def input_filter(input_dict):
     :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
-    if filtered_dict["min_edge"] < 0:
-        filtered_dict["min_edge"] = -1 * filtered_dict["min_edge"]
-    if filtered_dict["max_edge"] < 0:
-        filtered_dict["max_edge"] = -1 * filtered_dict["max_edge"]
+
+    for key in ["min_edge", "max_edge"]:
+        if filtered_dict[key] < 0:
+            filtered_dict[key] *= -1
+
     if filtered_dict["min_weight"] > filtered_dict["max_weight"]:
-        temp = filtered_dict["min_weight"]
-        filtered_dict["min_weight"] = filtered_dict["max_weight"]
-        filtered_dict["max_weight"] = temp
+        filtered_dict["min_weight"], filtered_dict["max_weight"] = (
+            filtered_dict["max_weight"], filtered_dict["min_weight"]
+        )
+
     if filtered_dict["min_edge"] > filtered_dict["max_edge"]:
-        temp = filtered_dict["min_edge"]
-        filtered_dict["min_edge"] = filtered_dict["max_edge"]
-        filtered_dict["max_edge"] = temp
+        filtered_dict["min_edge"], filtered_dict["max_edge"] = (
+            filtered_dict["max_edge"], filtered_dict["min_edge"]
+        )
+
     filtered_dict["max_edge"] = min(
         filtered_dict["max_edge"],
-        filtered_dict["vertices"])
+        filtered_dict["vertices"],
+    )
+
     filtered_dict["min_edge"] = min(
         filtered_dict["min_edge"],
-        filtered_dict["vertices"])
+        filtered_dict["vertices"],
+    )
+
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
-    if filtered_dict["direct"] not in [1, 2]:
-        filtered_dict["direct"] = 1
-    if filtered_dict["self_loop"] not in [1, 2]:
-        filtered_dict["self_loop"] = 1
-    if filtered_dict["multigraph"] not in [1, 2]:
-        filtered_dict["multigraph"] = 1
+
+    for key in ["direct", "self_loop", "multigraph"]:
+        if filtered_dict[key] not in [1, 2]:
+            filtered_dict[key] = 1
+
     if filtered_dict["output_format"] not in list(
             range(1, len(SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
+
     return filtered_dict
 
 
