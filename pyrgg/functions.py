@@ -53,10 +53,7 @@ def weight_str_to_number(weight):
     :type weight: str
     :return: weight as float or int
     """
-    weight_splitted = weight.split(".")
-    if len(weight_splitted) == 2:
-        return float(weight)
-    return int(weight)
+    return float(weight) if is_float(weight) else int(weight)
 
 
 def description_print():
