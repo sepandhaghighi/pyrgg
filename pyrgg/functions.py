@@ -1,13 +1,23 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
-import random
-import os
-import textwrap
 import datetime
-import yaml
 import json
+import os
 import pickle
-from pyrgg.params import *
+import random
+import textwrap
+import yaml
+
+from pyrgg.params import (
+    MENU_ITEMS1,
+    MENU_ITEMS2,
+    PYRGG_LINKS,
+    PYRGG_DESCRIPTION,
+    PYRGG_FILE_ERROR_MESSAGE,
+    PYRGG_INPUT_ERROR_MESSAGE,
+    PYRGG_LOGGER_ERROR_MESSAGE,
+    SUFFIX_MENU,
+)
 
 # random_system=random.SystemRandom()
 random_system = random
