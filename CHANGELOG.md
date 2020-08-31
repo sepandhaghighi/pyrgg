@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `AUTHORS.md` updated
 ### Removed
 - `print_test` function
+- `left_justify` function
+- `justify` function
+- `zero_insert` function
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
