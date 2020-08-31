@@ -70,7 +70,7 @@ def test_weight_str_to_number(weight_str, expected):
     (109951162777600, "100.0 TB"),
     (1125899906842623, "1024.0 TB"),  # just one byte below 1024 TB.
     pytest.param(
-        1_125_899_906_842_624, "1024.0 TB",
+        1125899906842624, "1024.0 TB",
         marks=pytest.mark.xfail(reason="bug in the function")
     ),
 ])
