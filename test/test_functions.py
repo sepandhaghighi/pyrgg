@@ -39,7 +39,7 @@ def test_get_precision(number, expected):
     (1.2, True),
     (2.0, True),
     (None, False),
-    ('1.2', False),
+    ('1.2', True),  # consider input '1.2' to be a float
     ('text', False),
 ])
 def test_is_float(number, expected):
