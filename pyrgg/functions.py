@@ -45,15 +45,15 @@ def is_float(input_number):
         return True if decimalpart else False
 
 
-def weight_str_to_number(weight):
+def convert_str_to_number(string):
     """
-    Convert weight string to float or int.
+    Convert string to float or int.
 
-    :param weight: input weight
-    :type weight: str
-    :return: weight as float or int
+    :param string: input string
+    :type string: str
+    :return: float or int
     """
-    return float(weight) if is_float(weight) else int(weight)
+    return float(string) if is_float(string) else int(string)
 
 
 def description_print():
@@ -275,7 +275,7 @@ def _update_using_second_menu(result_dict, input_func):
             try:
                 user_input = input_func(MENU_ITEMS2[item])
                 if item in ["max_weight", "min_weight"]:
-                    result_dict[item] = weight_str_to_number(user_input)
+                    result_dict[item] = convert_str_to_number(user_input)
                 else:
                     result_dict[item] = int(user_input)
             except Exception:

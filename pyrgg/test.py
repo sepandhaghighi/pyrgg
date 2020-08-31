@@ -15,9 +15,9 @@
 2
 >>> get_precision(2.223)
 3
->>> weight_str_to_number("20")
+>>> convert_str_to_number("20")
 20
->>> weight_str_to_number("20.2")
+>>> convert_str_to_number("20.2")
 20.2
 >>> is_float(10)
 False
