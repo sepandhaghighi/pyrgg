@@ -23,9 +23,8 @@ def get_precision(input_number):
     """
     try:
         number_str = str(input_number)
-        number_splitted = number_str.split(".")
-        digit = len(number_splitted[1])
-        return digit
+        intpart, decimalpart = number_str.split(".")
+        return len(decimalpart)
     except Exception:
         return 0
 
