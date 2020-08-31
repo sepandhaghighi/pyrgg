@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - GEXF format
 - Float weight support
+- `test_functions.py`
 ### Changed
 - Menu optimized
 - `pyrgg.py` renamed to `graph_gen.py`
