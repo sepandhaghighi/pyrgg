@@ -37,7 +37,12 @@ def is_float(input_number):
     :type input_number: float or int
     :return: result as bool
     """
-    return isinstance(input_number, float)
+    try:
+        intpart, decimalpart = divmod(float(input_number), 1)
+    except TypeError:
+        return False
+    else:
+        return True if decimalpart else False
 
 
 def weight_str_to_number(weight):
