@@ -37,14 +37,7 @@ def is_float(input_number):
     :type input_number: float or int
     :return: result as bool
     """
-    try:
-        _ = float(input_number)
-        number_splitted = str(input_number).split(".")
-        if len(number_splitted) == 2:
-            return True
-        return False
-    except Exception:
-        return False
+    return isinstance(input_number, float)
 
 
 def weight_str_to_number(weight):
