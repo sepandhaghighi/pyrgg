@@ -146,22 +146,19 @@ def time_convert(input_string):
     """
     Convert input_string from sec to DD,HH,MM,SS format.
 
-    :param input_string: input time string  in sec
+    :param input_string: input time string in sec
     :type input_string: str
     :return: converted time as str
     """
-    input_sec = float(input_string)
-    input_minute = input_sec // 60
-    input_sec = int(input_sec - input_minute * 60)
-    input_hour = input_minute // 60
-    input_minute = int(input_minute - input_hour * 60)
-    input_day = int(input_hour // 24)
-    input_hour = int(input_hour - input_day * 24)
+    sec = float(input_string)
+    days, sec = divmod(sec, 24 * 3600)
+    hours, sec = divmod(sec, 3600)
+    minutes, sec = divmod(sec, 60)
     return ", ".join([
-        "{:02} days".format(input_day),
-        "{:02} hour".format(input_hour),
-        "{:02} minutes".format(input_minute),
-        "{:02} seconds".format(input_sec),
+        "{:02.0f} days".format(days),
+        "{:02.0f} hour".format(hours),
+        "{:02.0f} minutes".format(minutes),
+        "{:02.0f} seconds".format(sec),
     ])
 
 
