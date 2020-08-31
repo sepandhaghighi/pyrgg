@@ -142,19 +142,6 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
-def zero_insert(input_string):
-    """
-    Get a string as input if input is one digit add a zero.
-
-    :param input_string: input digit az string
-    :type input_string: str
-    :return: modified output as str
-    """
-    if len(input_string) == 1:
-        return "0" + input_string
-    return input_string
-
-
 def time_convert(input_string):
     """
     Convert input_string from sec to DD,HH,MM,SS format.
@@ -170,15 +157,11 @@ def time_convert(input_string):
     input_minute = int(input_minute - input_hour * 60)
     input_day = int(input_hour // 24)
     input_hour = int(input_hour - input_day * 24)
-    return " ".join([
-        zero_insert(str(input_day)),
-        "days,",
-        zero_insert(str(input_hour)),
-        "hour,",
-        zero_insert(str(input_minute)),
-        "minutes,",
-        zero_insert(str(input_sec)),
-        "seconds"
+    return ", ".join([
+        "{:02} days".format(input_day),
+        "{:02} hour".format(input_hour),
+        "{:02} minutes".format(input_minute),
+        "{:02} seconds".format(input_sec),
     ])
 
 
@@ -485,5 +468,3 @@ def json_to_pickle(filename):
                 pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
         print(PYRGG_FILE_ERROR_MESSAGE)
-
-

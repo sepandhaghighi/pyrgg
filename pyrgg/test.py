@@ -40,16 +40,6 @@ True
 '5.9 KB'
 >>> convert_bytes(80000)
 '78.1 KB'
->>> zero_insert('22')
-'22'
->>> zero_insert('320')
-'320'
->>> zero_insert('2')
-'02'
->>> zero_insert(22)
-Traceback (most recent call last):
-        ...
-TypeError: object of type 'int' has no len()
 >>> time_convert('33')
 '00 days, 00 hour, 00 minutes, 33 seconds'
 >>> time_convert('15000')
