@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `params.py` refactored
 - `graph_gen.py` refactored
 - `functions.py` refactored
+- `weight_str_to_number` function renamed to `convert_str_to_number`
 - `CONTRIBUTING.md` updated
 - `AUTHORS.md` updated
 ### Removed
