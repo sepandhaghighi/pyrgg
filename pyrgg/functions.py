@@ -1,12 +1,23 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
-import random
-import os
 import datetime
-import yaml
 import json
+import os
 import pickle
-from pyrgg.params import *
+import random
+import textwrap
+import yaml
+
+from pyrgg.params import (
+    MENU_ITEMS1,
+    MENU_ITEMS2,
+    PYRGG_LINKS,
+    PYRGG_DESCRIPTION,
+    PYRGG_FILE_ERROR_MESSAGE,
+    PYRGG_INPUT_ERROR_MESSAGE,
+    PYRGG_LOGGER_ERROR_MESSAGE,
+    SUFFIX_MENU,
+)
 
 # random_system=random.SystemRandom()
 random_system = random
@@ -22,9 +33,8 @@ def get_precision(input_number):
     """
     try:
         number_str = str(input_number)
-        number_splitted = number_str.split(".")
-        digit = len(number_splitted[1])
-        return digit
+        intpart, decimalpart = number_str.split(".")
+        return len(decimalpart)
     except Exception:
         return 0
 
@@ -38,74 +48,22 @@ def is_float(input_number):
     :return: result as bool
     """
     try:
-        _ = float(input_number)
-        number_splitted = str(input_number).split(".")
-        if len(number_splitted) == 2:
-            return True
+        intpart, decimalpart = divmod(float(input_number), 1)
+    except TypeError:
         return False
-    except Exception:
-        return False
+    else:
+        return True if decimalpart else False
 
 
-def weight_str_to_number(weight):
+def convert_str_to_number(string):
     """
-    Convert weight string to float or int.
+    Convert string to float or int.
 
-    :param weight: input weight
-    :type weight: str
-    :return: weight as float or int
+    :param string: input string
+    :type string: str
+    :return: float or int
     """
-    weight_splitted = weight.split(".")
-    if len(weight_splitted) == 2:
-        return float(weight)
-    return int(weight)
-
-
-def left_justify(words, width):
-    """
-    Left justify words.
-
-    :param words: list of words
-    :type words : list
-    :param width: width of each line
-    :type width: int
-    :return: left justified words as list
-    """
-    return ' '.join(words).ljust(width)
-
-
-def justify(words, width):
-    """
-    Justify input words.
-
-    :param words: list of words
-    :type words : list
-    :param width: width of each line
-    :type width : int
-    :return: list of justified words as list
-    """
-    line = []
-    col = 0
-    for word in words:
-        if line and col + len(word) > width:
-            if len(line) == 1:
-                yield left_justify(line, width)
-            else:
-                # After n + 1 spaces are placed between each pair of
-                # words, there are r spaces left over; these result in
-                # wider spaces at the left.
-                n, r = divmod(width - col + 1, len(line) - 1)
-                narrow = ' ' * (n + 1)
-                if r == 0:
-                    yield narrow.join(line)
-                else:
-                    wide = ' ' * (n + 2)
-                    yield wide.join(line[:r] + [narrow.join(line[r:])])
-            line, col = [], 0
-        line.append(word)
-        col += len(word) + 1
-    if line:
-        yield left_justify(line, width)
+    return float(string) if is_float(string) else int(string)
 
 
 def description_print():
@@ -117,7 +75,7 @@ def description_print():
     print(PYRGG_LINKS)
     line(40)
     print("\n")
-    print("\n".join(justify(PYRGG_DESCRIPTION.split(), 100)))
+    print(textwrap.fill(PYRGG_DESCRIPTION, width=100))
     print("\n")
     line(40)
 
@@ -188,43 +146,23 @@ def logger(vertices_number, edge_number, file_name, elapsed_time):
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
-def zero_insert(input_string):
-    """
-    Get a string as input if input is one digit add a zero.
-
-    :param input_string: input digit az string
-    :type input_string: str
-    :return: modified output as str
-    """
-    if len(input_string) == 1:
-        return "0" + input_string
-    return input_string
-
-
 def time_convert(input_string):
     """
     Convert input_string from sec to DD,HH,MM,SS format.
 
-    :param input_string: input time string  in sec
+    :param input_string: input time string in sec
     :type input_string: str
     :return: converted time as str
     """
-    input_sec = float(input_string)
-    input_minute = input_sec // 60
-    input_sec = int(input_sec - input_minute * 60)
-    input_hour = input_minute // 60
-    input_minute = int(input_minute - input_hour * 60)
-    input_day = int(input_hour // 24)
-    input_hour = int(input_hour - input_day * 24)
-    return " ".join([
-        zero_insert(str(input_day)),
-        "days,",
-        zero_insert(str(input_hour)),
-        "hour,",
-        zero_insert(str(input_minute)),
-        "minutes,",
-        zero_insert(str(input_sec)),
-        "seconds"
+    sec = float(input_string)
+    days, sec = divmod(sec, 24 * 3600)
+    hours, sec = divmod(sec, 3600)
+    minutes, sec = divmod(sec, 60)
+    return ", ".join([
+        "{:02.0f} days".format(days),
+        "{:02.0f} hour".format(hours),
+        "{:02.0f} minutes".format(minutes),
+        "{:02.0f} seconds".format(sec),
     ])
 
 
@@ -237,35 +175,42 @@ def input_filter(input_dict):
     :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
-    if filtered_dict["min_edge"] < 0:
-        filtered_dict["min_edge"] = -1 * filtered_dict["min_edge"]
-    if filtered_dict["max_edge"] < 0:
-        filtered_dict["max_edge"] = -1 * filtered_dict["max_edge"]
+
+    for key in ["min_edge", "max_edge"]:
+        if filtered_dict[key] < 0:
+            filtered_dict[key] *= -1
+
     if filtered_dict["min_weight"] > filtered_dict["max_weight"]:
-        temp = filtered_dict["min_weight"]
-        filtered_dict["min_weight"] = filtered_dict["max_weight"]
-        filtered_dict["max_weight"] = temp
+        filtered_dict["min_weight"], filtered_dict["max_weight"] = (
+            filtered_dict["max_weight"], filtered_dict["min_weight"]
+        )
+
     if filtered_dict["min_edge"] > filtered_dict["max_edge"]:
-        temp = filtered_dict["min_edge"]
-        filtered_dict["min_edge"] = filtered_dict["max_edge"]
-        filtered_dict["max_edge"] = temp
+        filtered_dict["min_edge"], filtered_dict["max_edge"] = (
+            filtered_dict["max_edge"], filtered_dict["min_edge"]
+        )
+
     filtered_dict["max_edge"] = min(
         filtered_dict["max_edge"],
-        filtered_dict["vertices"])
+        filtered_dict["vertices"],
+    )
+
     filtered_dict["min_edge"] = min(
         filtered_dict["min_edge"],
-        filtered_dict["vertices"])
+        filtered_dict["vertices"],
+    )
+
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
-    if filtered_dict["direct"] not in [1, 2]:
-        filtered_dict["direct"] = 1
-    if filtered_dict["self_loop"] not in [1, 2]:
-        filtered_dict["self_loop"] = 1
-    if filtered_dict["multigraph"] not in [1, 2]:
-        filtered_dict["multigraph"] = 1
+
+    for key in ["direct", "self_loop", "multigraph"]:
+        if filtered_dict[key] not in [1, 2]:
+            filtered_dict[key] = 1
+
     if filtered_dict["output_format"] not in list(
             range(1, len(SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
+
     return filtered_dict
 
 
@@ -340,7 +285,7 @@ def _update_using_second_menu(result_dict, input_func):
             try:
                 user_input = input_func(MENU_ITEMS2[item])
                 if item in ["max_weight", "min_weight"]:
-                    result_dict[item] = weight_str_to_number(user_input)
+                    result_dict[item] = convert_str_to_number(user_input)
                 else:
                     result_dict[item] = int(user_input)
             except Exception:
@@ -531,5 +476,3 @@ def json_to_pickle(filename):
                 pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
         print(PYRGG_FILE_ERROR_MESSAGE)
-
-

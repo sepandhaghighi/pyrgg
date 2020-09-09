@@ -17,10 +17,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `params.py` refactored
 - `graph_gen.py` refactored
 - `functions.py` refactored
+- `weight_str_to_number` function renamed to `convert_str_to_number`
 - `CONTRIBUTING.md` updated
 - `AUTHORS.md` updated
 ### Removed
 - `print_test` function
+- `left_justify` function
+- `justify` function
+- `zero_insert` function
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
