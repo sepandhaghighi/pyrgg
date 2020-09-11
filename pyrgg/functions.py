@@ -205,8 +205,8 @@ def input_filter(input_dict):
         filtered_dict["output_format"] = 1
 
     if filtered_dict["multigraph"] == 1:
-        for key in ["min_edge","max_edge"]:
-            filtered_dict[key] = min(filtered_dict[key],edge_upper_threshold)
+        for key in ["min_edge", "max_edge"]:
+            filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
     return filtered_dict
 
 
