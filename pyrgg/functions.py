@@ -175,7 +175,7 @@ def input_filter(input_dict):
     :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
-
+    edge_upper_threshold = filtered_dict["vertices"]
     for key in ["min_edge", "max_edge", "vertices"]:
         if filtered_dict[key] < 0:
             filtered_dict[key] *= -1
@@ -190,16 +190,6 @@ def input_filter(input_dict):
             filtered_dict["max_edge"], filtered_dict["min_edge"]
         )
 
-    filtered_dict["max_edge"] = min(
-        filtered_dict["max_edge"],
-        filtered_dict["vertices"],
-    )
-
-    filtered_dict["min_edge"] = min(
-        filtered_dict["min_edge"],
-        filtered_dict["vertices"],
-    )
-
     if filtered_dict["sign"] not in [1, 2]:
         filtered_dict["sign"] = 2
 
@@ -207,10 +197,16 @@ def input_filter(input_dict):
         if filtered_dict[key] not in [1, 2]:
             filtered_dict[key] = 1
 
+    if filtered_dict["self_loop"] == 2:
+        edge_upper_threshold -= 1
+
     if filtered_dict["output_format"] not in list(
             range(1, len(SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
+    if filtered_dict["multigraph"] == 1:
+        for key in ["min_edge","max_edge"]:
+            filtered_dict[key] = min(filtered_dict[key],edge_upper_threshold)
     return filtered_dict
 
 
