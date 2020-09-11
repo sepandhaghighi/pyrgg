@@ -176,7 +176,7 @@ def input_filter(input_dict):
     """
     filtered_dict = input_dict.copy()
 
-    for key in ["min_edge", "max_edge"]:
+    for key in ["min_edge", "max_edge", "vertices"]:
         if filtered_dict[key] < 0:
             filtered_dict[key] *= -1
 
