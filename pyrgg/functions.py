@@ -358,8 +358,8 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if self_loop == 2 and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
-    threhold = min(random_edge, len(reference_vertices))
-    while (index < threhold):
+    threshold = min(random_edge, len(reference_vertices))
+    while (index < threshold):
         random_tail = random_system.choice(reference_vertices)
         if direct == 2:
             if random_tail in used_vertices.keys():
