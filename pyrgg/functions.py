@@ -461,7 +461,7 @@ def edge_gen(
             degree_dict)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
-        temp = temp + random_edge
+        temp = temp + len(temp_list[0])
     return [dict(zip(vertices_id, vertices_edge)),
             dict(zip(vertices_id, weight_list)), temp]
 
