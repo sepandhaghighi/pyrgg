@@ -78,6 +78,12 @@ False
 >>> random.seed(11)
 >>> sign_gen()
 -1
+>>> used_vertices = {k:[] for k in range(1,5)}
+>>> used_vertices = {k:[] for k in range(1,6)}
+>>> degree_dict = {1:2,2:3,3:3,4:3,5:3}
+>>> all_vertices = list(range(1, 6))
+>>> branch_gen(1,3,3,300,3000,1,2,2,1,all_vertices,used_vertices,degree_dict)
+[[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> all_vertices = list(range(1, 41))
