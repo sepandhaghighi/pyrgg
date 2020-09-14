@@ -373,6 +373,8 @@ def branch_gen(
     if multigraph == 1:
         threshold = min(threshold, len(reference_vertices))
     while (index < threshold):
+        if len(reference_vertices) == 0:
+            break
         random_tail = random_system.choice(reference_vertices)
         random_tail_degree = 0
         if random_tail in degree_dict.keys():
