@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `graph_gen.py` refactored
 - `functions.py` refactored
 - `weight_str_to_number` function renamed to `convert_str_to_number`
+- `branch_gen` function bugs fixed
 - `input_filter` function bug fixed
 - `CONTRIBUTING.md` updated
 - `AUTHORS.md` updated
