@@ -381,7 +381,7 @@ def branch_gen(
             random_tail_degree = degree_dict[random_tail]
         else:
             degree_dict[random_tail] = 0
-        if random_tail_degree == max_edge :
+        if random_tail_degree == max_edge or (random_tail == vertex_index and random_tail_degree >= max_edge - 1) :
             reference_vertices.remove(random_tail)
             continue
         if direct == 2:
