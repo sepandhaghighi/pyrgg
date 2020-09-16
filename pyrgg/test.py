@@ -667,7 +667,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> random.seed(4)
 >>> csv_maker('testfile4',0,50.2,30,0,4,0,1,1,1)
-56
+57
 >>> file=open('testfile4.csv','r')
 >>> print(file.read())
 1,10,36.2
@@ -720,12 +720,13 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 24,30,-40.9
 24,19,32.9
 25,26,2.2
-25,25,38.5
-26,22,43.7
-26,24,-28.6
-27,30,-11.0
-27,1,46.3
-30,4,-40.7
+25,24,-37.5
+26,27,10.6
+26,1,-5.8
+27,8,44.1
+28,21,-41.1
+30,30,-1.3
+30,21,24.5
 <BLANKLINE>
 >>> random.seed(20)
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
