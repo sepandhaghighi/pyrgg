@@ -290,6 +290,26 @@ def _update_using_second_menu(result_dict, input_func):
                 break
     return result_dict
 
+def _threshold_calc(random_edge,max_edge,vertex_degree,multigraph,reference_vertices):
+    """
+    Calculate threshold for branch_gen function.
+
+    :param random_edge: number of vertex edges
+    :type random_edge: int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param vertex_degree: vertex degree
+    :type vertex_degree: int
+    :param multigraph: multigraph flag
+    :type multigraph: int
+    :param reference_vertices: reference vertices list
+    :type reference_vertices: list
+    :return: threshold as int
+    """
+    threshold = min(random_edge, abs(max_edge - vertex_degree))
+    if multigraph == 1:
+        threshold = min(threshold, len(reference_vertices))
+    return threshold
 
 def sign_gen():
     """
@@ -369,9 +389,7 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if self_loop == 2 and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
-    threshold = min(random_edge,abs(max_edge - vertex_degree))
-    if multigraph == 1:
-        threshold = min(threshold, len(reference_vertices))
+    threshold = _threshold_calc(random_edge = random_edge,max_edge = max_edge,vertex_degree=vertex_degree,multigraph=multigraph,reference_vertices=reference_vertices)
     while (index < threshold):
         if len(reference_vertices) == 0:
             break
