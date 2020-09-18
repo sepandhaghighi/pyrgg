@@ -387,11 +387,13 @@ def branch_gen(
         reference_vertices.remove(vertex_index)
     threshold = _threshold_calc(random_edge = random_edge,max_edge = max_edge,vertex_degree=vertex_degree,multigraph=multigraph,reference_vertices=reference_vertices)
     while (index < threshold):
+        if degree_dict[vertex_index] >= max_edge:
+            break
         if len(reference_vertices) == 0:
             break
         random_tail = random_system.choice(reference_vertices)
         random_tail_degree = degree_dict[random_tail]
-        if random_tail_degree == max_edge or (random_tail == vertex_index and random_tail_degree >= max_edge - 1) :
+        if random_tail_degree >= max_edge or (random_tail == vertex_index and random_tail_degree >= (max_edge - 1)) :
             reference_vertices.remove(random_tail)
             continue
         if direct == 2:
