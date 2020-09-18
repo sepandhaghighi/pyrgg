@@ -366,7 +366,6 @@ def branch_gen(
     :return: branch and weight list
     """
     index = 0
-    vertex_degree = 0
     branch_list = []
     weight_list = []
     reference_vertices = all_vertices[:]
@@ -374,10 +373,7 @@ def branch_gen(
     min_weight_flag = is_float(min_weight)
     weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
-    if vertex_index in degree_dict.keys():
-        vertex_degree = degree_dict[vertex_index]
-    else:
-        degree_dict[vertex_index] = 0
+    vertex_degree = degree_dict[vertex_index]
     weight_precision = max(
         get_precision(max_weight),
         get_precision(min_weight))
@@ -394,11 +390,7 @@ def branch_gen(
         if len(reference_vertices) == 0:
             break
         random_tail = random_system.choice(reference_vertices)
-        random_tail_degree = 0
-        if random_tail in degree_dict.keys():
-            random_tail_degree = degree_dict[random_tail]
-        else:
-            degree_dict[random_tail] = 0
+        random_tail_degree = degree_dict[random_tail]
         if random_tail_degree == max_edge or (random_tail == vertex_index and random_tail_degree >= max_edge - 1) :
             reference_vertices.remove(random_tail)
             continue
@@ -461,7 +453,7 @@ def edge_gen(
     vertices_edge = []
     weight_list = []
     used_vertices = {}
-    degree_dict = {}
+    degree_dict = {i: 0 for i in vertices_id}
     random_edge = min_edge
     for i in vertices_id:
         if min_edge != max_edge:
