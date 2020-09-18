@@ -322,6 +322,30 @@ def sign_gen():
         return 1
     return -1
 
+def random_edge_limits(vertex_index,min_edge,max_edge,degree_dict):
+    """
+    Calculate random_edge parameter limits.
+
+    :param vertex_index: vertex index
+    :type vertex_index: int
+    :param min_edge: minimum edge number
+    :type min_edge: int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param degree_dict: all vertices degree
+    :type degree_dict: dict
+    :return: status,lower_limit,upper_limit
+    """
+    lower_limit = 0
+    status = False
+    vertex_degree = degree_dict[vertex_index]
+    upper_limit = max_edge - vertex_degree
+    if vertex_degree < min_edge:
+        lower_limit = min_edge - vertex_degree
+    if upper_limit > lower_limit:
+        status = True
+    return status,lower_limit,upper_limit
+
 
 def branch_gen(
         vertex_index,
@@ -469,8 +493,9 @@ def edge_gen(
     degree_dict = {i: 0 for i in vertices_id}
     random_edge = min_edge
     for i in vertices_id:
-        if min_edge != max_edge:
-            random_edge = random_system.randint(min_edge, max_edge)
+        status, lower_limit, upper_limit = random_edge_limits(i,min_edge,max_edge,degree_dict)
+        if status:
+            random_edge = random_system.randint(lower_limit, upper_limit)
         temp_list = branch_gen(
             i,
             max_edge,
