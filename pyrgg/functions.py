@@ -386,15 +386,24 @@ def branch_gen(
     if self_loop == 2 and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
     threshold = _threshold_calc(random_edge = random_edge,max_edge = max_edge,vertex_degree=vertex_degree,multigraph=multigraph,reference_vertices=reference_vertices)
+    degree_sort_dict = {i: [] for i in range(max_edge + 1)}
+    for i in reference_vertices:
+        degree_sort_dict[degree_dict[i]].append(i)
     while (index < threshold):
         if degree_dict[vertex_index] >= max_edge:
             break
         if len(reference_vertices) == 0:
             break
-        random_tail = random_system.choice(reference_vertices)
+        inner_reference = reference_vertices[:]
+        for i in sorted(degree_sort_dict.keys()):
+            if len(degree_sort_dict[i]) > 0:
+                inner_reference = degree_sort_dict[i]
+                break
+        random_tail_index = random_system.choice(range(len(inner_reference)))
+        random_tail = inner_reference[random_tail_index]
         random_tail_degree = degree_dict[random_tail]
         if random_tail_degree >= max_edge or (random_tail == vertex_index and random_tail_degree >= (max_edge - 1)) :
-            reference_vertices.remove(random_tail)
+            inner_reference.pop(random_tail_index)
             continue
         if direct == 2:
             if random_tail in used_vertices.keys():
@@ -410,10 +419,12 @@ def branch_gen(
         branch_list.append(random_tail)
         weight_list.append(random_weight)
         index += 1
-        if multigraph == 1:
-            reference_vertices.remove(random_tail)
         degree_dict[random_tail] += 1
         degree_dict[vertex_index] += 1
+        if multigraph == 1:
+            inner_reference.pop(random_tail_index)
+        else:
+            degree_sort_dict[degree_dict[random_tail]].append(inner_reference.pop(random_tail_index))
     return [branch_list, weight_list]
 
 
