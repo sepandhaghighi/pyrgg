@@ -351,7 +351,6 @@ def branch_gen(
         direct,
         self_loop,
         multigraph,
-        all_vertices,
         used_vertices,
         degree_dict,
         degree_sort_dict):
@@ -376,12 +375,12 @@ def branch_gen(
     :type self_loop: int
     :param multigraph: multigraph flag
     :type multigraph: int
-    :param all_vertices : all vertices list
-    :type all_vertices : list
     :param used_vertices: used vertices dictionary
     :type used_vertices: dict
     :param degree_dict: all vertices degree
     :type degree_dict: dict
+    :param degree_sort_dict: degree to vertices list
+    :type degree_sort_dict: dict
     :return: branch and weight list
     """
     index = 0
@@ -504,7 +503,6 @@ def edge_gen(
             direct,
             self_loop,
             multigraph,
-            vertices_id,
             used_vertices,
             degree_dict,
             degree_sort_dict)
