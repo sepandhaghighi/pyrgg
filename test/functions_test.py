@@ -83,7 +83,7 @@ False
 >>> degree_dict = {1:2,2:3,3:3,4:3,5:3}
 >>> degree_dict_sort = {0:{},1:{},2:{1:1},3:{2:2,3:3,4:4,5:5},4:{},5:{}}
 >>> all_vertices = list(range(1, 6))
->>> branch_gen(1,3,3,300,3000,1,2,2,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,3,3,300,3000,1,2,2,1,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
@@ -91,16 +91,16 @@ False
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,10,1,20,1,1,1,1,all_vertices ,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,10,1,20,1,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[4, 25, 18, 3, 30, 34, 2, 26, 14, 11], [3, 10, 20, 14, -18, -2, -15, -14, 8, 6]]
 >>> random.seed(20)
->>> branch_gen(1,10,4,1,20,2,1,1,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
->>> branch_gen(1,10,4,1,20,2,1,1,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[10, 7, 39, 2], [9, 11, 6, 14]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):

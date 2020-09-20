@@ -68,21 +68,21 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,10,1,20,1,1,1,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,10,1,20,1,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[4, 25, 18, 3, 30, 34, 2, 26, 14, 11], [3, 10, 20, 14, -18, -2, -15, -14, 8, 6]]
 >>> random.seed(20)
->>> branch_gen(1,10,4,1,20,2,1,1,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
->>> branch_gen(1,10,4,1,20,2,1,1,1,all_vertices,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
 [[10, 7, 39, 2], [9, 11, 6, 14]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
-TypeError: branch_gen() missing 9 required positional arguments: 'max_weight', 'sign', 'direct', 'self_loop', 'multigraph', 'all_vertices', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
+TypeError: branch_gen() missing 8 required positional arguments: 'max_weight', 'sign', 'direct', 'self_loop', 'multigraph', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
 >>> random.seed(2)
 >>> edge_gen(20,0,400,2,10,1,1,1,1)
 [{1: [3, 7], 2: [4, 17, 20, 9, 11], 3: [14, 8, 5, 12, 16, 19, 15], 4: [14, 16, 9, 4, 12, 11], 5: [15, 18, 13, 20, 19, 17, 8, 6, 10], 6: [6, 10], 7: [18, 20, 11, 10, 8, 13, 7, 15], 8: [19, 1], 9: [], 10: [], 11: [16, 13, 14, 9, 17], 12: [18, 12, 14], 13: [10, 16, 1, 9, 15], 14: [], 15: [18, 17, 20], 16: [19], 17: [14, 1, 9], 18: [6, 10, 18, 19, 20], 19: [8, 20, 1, 14, 10], 20: [2, 16, 6, 9]}, {1: [184, -128], 2: [220, -278, -257, 14, -163], 3: [286, 118, 166, 261, -263, 228, -303], 4: [-82, -335, 250, -256, -338, -179], 5: [-337, -358, -395, -155, -159, 250, -350, -371, 381], 6: [139, 386], 7: [-125, 30, 29, -88, 42, 12, 191, 80], 8: [197, 77], 9: [], 10: [], 11: [146, -15, -282, -386, 242], 12: [-52, -65, -249], 13: [-132, -334, 343, -17, 87], 14: [], 15: [126, -37, 302], 16: [-350], 17: [77, -209, 262], 18: [52, 93, 111, -232, -108], 19: [-217, 297, -268, 48, -9], 20: [-148, -157, -51, -101]}, 75]
