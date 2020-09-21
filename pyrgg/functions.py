@@ -400,7 +400,7 @@ def branch_gen(
         max_edge=max_edge,
         vertex_degree=vertex_degree)
     for i in sorted(degree_sort_dict.keys()):
-        reference_vertices.extend(sorted(list(degree_sort_dict[i].values())))
+        reference_vertices.extend(list(degree_sort_dict[i].values()))
         if len(reference_vertices) >= threshold:
             break
     weight_precision = max(
@@ -414,6 +414,7 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if self_loop == 2 and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
+    reference_vertices.sort()
     while (index < threshold):
         vertex_degree = degree_dict[vertex_index]
         if vertex_degree >= max_edge:

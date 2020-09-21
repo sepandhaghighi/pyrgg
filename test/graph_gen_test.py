@@ -32,17 +32,17 @@ a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
 >>> dimacs_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
 c FILE                  :testfile2.gr
 c No. of vertices       :30
-c No. of edges          :36
+c No. of edges          :35
 c Max. weight           :50
 c Min. weight           :0
 c Min. edge             :0
 c Max. edge             :4
-p sp 30 36
+p sp 30 35
 a 1 10 46
 a 2 18 5
 a 2 4 25
@@ -68,17 +68,16 @@ a 16 30 -40
 a 16 24 20
 a 19 19 7
 a 20 12 -29
-a 20 6 22
-a 22 23 20
-a 22 22 -9
-a 23 28 18
-a 23 24 28
-a 24 5 -24
+a 20 1 22
+a 22 24 20
+a 22 23 -9
+a 23 18 18
+a 23 27 28
+a 24 6 -24
 a 25 17 23
 a 27 6 -50
-a 27 21 -36
-a 27 3 -13
-a 28 9 3
+a 28 21 28
+a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
 >>> dimacs_maker('testfile3',10,30,100,0,4,2,1,1,1)
@@ -325,8 +324,8 @@ a 52 80 17
 a 52 71 19
 a 52 89 20
 a 53 58 29
-a 53 13 21
-a 53 37 12
+a 53 16 21
+a 53 40 12
 a 54 8 13
 a 54 98 17
 a 55 55 10
@@ -344,7 +343,7 @@ a 63 26 21
 a 63 66 30
 a 63 87 14
 a 65 12 26
-a 65 40 21
+a 65 37 21
 a 66 50 27
 a 67 74 25
 a 67 42 14
@@ -352,7 +351,7 @@ a 68 72 10
 a 70 84 18
 a 71 91 20
 a 74 30 13
-a 76 16 25
+a 76 13 25
 a 78 9 25
 a 78 81 22
 a 80 96 19
@@ -411,7 +410,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 '148'
 >>> random.seed(4)
 >>> json_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
 >>> testfile_2['graph']['nodes'][1]
@@ -599,16 +598,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 30
 >>> random.seed(4)
 >>> csv_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> random.seed(4)
 >>> gdf_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> random.seed(4)
 >>> mtx_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> random.seed(4)
 >>> tsv_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> g = mmread("testfile2.mtx")
 >>> print(g)
   (0, 9)	46.0
@@ -636,17 +635,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (15, 23)	20.0
   (18, 18)	7.0
   (19, 11)	-29.0
-  (19, 5)	22.0
-  (21, 22)	20.0
-  (21, 21)	-9.0
-  (22, 27)	18.0
-  (22, 23)	28.0
-  (23, 4)	-24.0
+  (19, 0)	22.0
+  (21, 23)	20.0
+  (21, 22)	-9.0
+  (22, 17)	18.0
+  (22, 26)	28.0
+  (23, 5)	-24.0
   (24, 16)	23.0
   (26, 5)	-50.0
-  (26, 20)	-36.0
-  (26, 2)	-13.0
-  (27, 8)	3.0
+  (27, 20)	28.0
+  (27, 12)	-13.0
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
 1,10,46
@@ -674,21 +672,20 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 16,24,20
 19,19,7
 20,12,-29
-20,6,22
-22,23,20
-22,22,-9
-23,28,18
-23,24,28
-24,5,-24
+20,1,22
+22,24,20
+22,23,-9
+23,18,18
+23,27,28
+24,6,-24
 25,17,23
 27,6,-50
-27,21,-36
-27,3,-13
-28,9,3
+28,21,28
+28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
 >>> gl_maker('testfile3',10,30,100,3,4,2,1,1,1)
-180
+178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())
 1 34:30 13:20 76:15
@@ -747,50 +744,50 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 54 85:19
 55 82:13 72:26
 56 65:27
-57 74:14 81:20
-58 67:19 92:14
-59 71:29
-60 68:18
-61 66:27 78:29
-62 97:23 99:11
-63 96:15
-64 85:29
-65 75:17 80:17
-66
+57 75:14 80:22
+58 81:26
+59 93:12
+60 95:26
+61 68:18
+62 67:27 77:29
+63 82:23 100:11
+64 98:15
+65 86:29
+66 73:17 79:17
 67
-68 88:20
-69 94:15
-70 91:12
-71
-72 72:18
-73 86:19 87:22
+68
+69 89:20 81:27
+70 97:11
+71 74:26 84:10
+72 99:21 85:19
+73 78:21
 74
-75 76:11
-76
-77 82:30
-78
-79 93:11 89:22
-80 81:19
-81 100:26
-82 90:13
-83 84:14 98:30
+75
+76 87:17
+77
+78 91:11
+79
+80
+81 94:27
+82 83:19
+83 92:20
 84
-85
-86 95:16
+85 88:14
+86
 87
-88
-89 1:13
+88 90:16
+89
 90
-91
-92 71:30
-93 43:29
-94 88:27
-95
-96 8:10
+91 96:13
+92
+93
+94 68:30
+95 89:18
+96 87:29
 97
-98 38:14
+98 7:10
 99
-100 25:14
+100 28:14
 >>> random.seed(20)
 >>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
 137
@@ -1043,7 +1040,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 <BLANKLINE>
 >>> random.seed(4)
 >>> wel_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
 1 10 46
@@ -1071,17 +1068,16 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 16 24 20
 19 19 7
 20 12 -29
-20 6 22
-22 23 20
-22 22 -9
-23 28 18
-23 24 28
-24 5 -24
+20 1 22
+22 24 20
+22 23 -9
+23 18 18
+23 27 28
+24 6 -24
 25 17 23
 27 6 -50
-27 21 -36
-27 3 -13
-28 9 3
+28 21 28
+28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
 >>> wel_maker('testfile3',10,30,100,0,4,2,1,1,1)
@@ -1258,7 +1254,7 @@ edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
 >>> lp_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
 node(1).
@@ -1316,17 +1312,16 @@ edge(16,30,-40).
 edge(16,24,20).
 edge(19,19,7).
 edge(20,12,-29).
-edge(20,6,22).
-edge(22,23,20).
-edge(22,22,-9).
-edge(23,28,18).
-edge(23,24,28).
-edge(24,5,-24).
+edge(20,1,22).
+edge(22,24,20).
+edge(22,23,-9).
+edge(23,18,18).
+edge(23,27,28).
+edge(24,6,-24).
 edge(25,17,23).
 edge(27,6,-50).
-edge(27,21,-36).
-edge(27,3,-13).
-edge(28,9,3).
+edge(28,21,28).
+edge(28,13,-13).
 <BLANKLINE>
 >>> random.seed(2)
 >>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
@@ -1354,7 +1349,7 @@ edge(28,9,3).
 <BLANKLINE>
 >>> random.seed(4)
 >>> tgf_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
 1
@@ -1413,17 +1408,16 @@ edge(28,9,3).
 16 24 20
 19 19 7
 20 12 -29
-20 6 22
-22 23 20
-22 22 -9
-23 28 18
-23 24 28
-24 5 -24
+20 1 22
+22 24 20
+22 23 -9
+23 18 18
+23 27 28
+24 6 -24
 25 17 23
 27 6 -50
-27 21 -36
-27 3 -13
-28 9 3
+28 21 28
+28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
 >>> dl_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
@@ -1444,7 +1438,7 @@ data:
 <BLANKLINE>
 >>> random.seed(4)
 >>> dl_maker('testfile2',0,50,30,0,4,0,1,1,1)
-36
+35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
 dl
@@ -1476,17 +1470,16 @@ data:
 16 24 20
 19 19 7
 20 12 -29
-20 6 22
-22 23 20
-22 22 -9
-23 28 18
-23 24 28
-24 5 -24
+20 1 22
+22 24 20
+22 23 -9
+23 18 18
+23 27 28
+24 6 -24
 25 17 23
 27 6 -50
-27 21 -36
-27 3 -13
-28 9 3
+28 21 28
+28 13 -13
 <BLANKLINE>
 >>> random.seed(4)
 >>> dimacs_maker('testfile4',0,50,30,0,4,0,1,2,1)
@@ -1547,7 +1540,7 @@ a 26 3 -13
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
 >>> gml_maker('testfile2',0,50,30,0,4,0,1,1,2)
-39
+38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
