@@ -78,7 +78,6 @@ False
 >>> random.seed(11)
 >>> sign_gen()
 -1
->>> used_vertices = {k:[] for k in range(1,5)}
 >>> used_vertices = {k:[] for k in range(1,6)}
 >>> degree_dict = {1:2,2:3,3:3,4:3,5:3}
 >>> degree_dict_sort = {0:{},1:{},2:{1:1},3:{2:2,3:3,4:4,5:5},4:{},5:{}}
