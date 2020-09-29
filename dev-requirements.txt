@@ -1,4 +1,4 @@
-art==4.7
+art==4.8
 pyyaml==5.3.1
 codecov>=2.0.15
 scipy>=1.2.0
