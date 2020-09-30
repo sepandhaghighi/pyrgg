@@ -577,16 +577,12 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
-1
-2
-3
 4 3:-64
 5 6:148 9:110
 6 10:-139
 7 7:7
 8 2:-97
 9 1:60
-10
 <BLANKLINE>
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
