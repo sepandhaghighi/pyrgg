@@ -61,7 +61,7 @@ SUFFIX_MENU = {
 }
 
 
-PYRGG_VERSION = "0.8"
+PYRGG_VERSION = "0.9"
 
 SOURCE_DIR = os.getcwd()
 
