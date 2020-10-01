@@ -678,9 +678,12 @@ def gl_maker(
     with open(file_name + ".gl", "w") as buf:
         for key, edge_val in edge_dic.items():
             line_data = str(key)
+            write_flag = False
             for j, value in enumerate(edge_val):
+                write_flag = True
                 line_data += " " + str(value) + ":" + str(weight_dic[key][j])
-            buf.write(line_data + "\n")
+            if write_flag:
+                buf.write(line_data + "\n")
     return edge_number
 
 

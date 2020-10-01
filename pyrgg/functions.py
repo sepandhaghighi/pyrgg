@@ -399,7 +399,7 @@ def branch_gen(
         random_edge=random_edge,
         max_edge=max_edge,
         vertex_degree=vertex_degree)
-    for i in sorted(degree_sort_dict.keys()):
+    for i in range(max_edge + 1):
         reference_vertices.extend(list(degree_sort_dict[i].values()))
         if len(reference_vertices) >= threshold:
             break
