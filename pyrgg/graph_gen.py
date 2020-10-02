@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pyrgg graph generators module."""
 import random
-import os
 import datetime
-import sys
 from pyrgg.params import *
 from pyrgg.functions import *
 
