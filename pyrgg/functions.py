@@ -33,7 +33,7 @@ def get_precision(input_number):
     """
     try:
         number_str = str(input_number)
-        intpart, decimalpart = number_str.split(".")
+        _, decimalpart = number_str.split(".")
         return len(decimalpart)
     except Exception:
         return 0
@@ -48,7 +48,7 @@ def is_float(input_number):
     :return: result as bool
     """
     try:
-        intpart, decimalpart = divmod(float(input_number), 1)
+        _, decimalpart = divmod(float(input_number), 1)
     except TypeError:
         return False
     else:
