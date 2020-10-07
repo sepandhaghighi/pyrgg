@@ -90,14 +90,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 0.8](https://github.com/sepandhaghighi/pyrgg/archive/v0.8.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 0.9](https://github.com/sepandhaghighi/pyrgg/archive/v0.9.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==0.8` or `pip3 install pyrgg==0.8` (Need root access)							
+- `pip install pyrgg==0.9` or `pip3 install pyrgg==0.9` (Need root access)							
 
 ### Conda
 
@@ -105,8 +105,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.8](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.8/PYRGG-0.8.exe)
-- Run `PYRGG-0.8.exe`
+- Download [Exe-Version 0.9](https://github.com/sepandhaghighi/pyrgg/releases/download/v0.9/PYRGG-0.9.exe)
+- Run `PYRGG-0.9.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -147,7 +147,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
   - [x] GDF
   - [x] Matrix Market
   - [x] Graph Line
-  - [ ] GEXF
+  - [x] GEXF
 - [ ] Sizes
   - [x] Small
   - [x] Medium
@@ -196,6 +196,8 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-GDF](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
 - [Sample 1-GML](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
 - [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
+- [Sample 1-GEXF](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
+- [Sample 2-GEXF](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
 
 
 
@@ -448,6 +450,28 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
          ]
        ]
 	```
+
+- [GEXF(.gexf)](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
+    ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+            <meta lastmodifieddate="2009-03-20">
+                <creator>PyRGG</creator>
+                <description>File Name</description>
+            </meta>
+            <graph defaultedgetype="directed">
+                <nodes>
+                    <node id="1" label="Node 1" />
+                    <node id="2" label="Node 2" />
+                    ...
+                </nodes>
+                <edges>
+                    <edge id="1" source="1" target="2" weight="400" />
+                    ...
+                </edges>
+            </graph>
+        </gexf>
+    ```
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			

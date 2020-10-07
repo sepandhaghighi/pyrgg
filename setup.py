@@ -4,6 +4,7 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
+from pyrgg.params import PYRGG_DESCRIPTION
 
 
 def get_requires():
@@ -23,24 +24,20 @@ def read_description():
             description += c.read()
         return description
     except Exception:
-        return '''Pyrgg is an easy-to-use synthetic random graph generator written in Python which supports various
-                   graph file formats including DIMACS .gr files. Pyrgg has the ability to generate graphs of different
-                   sizes and is designed to provide input files for broad range of graph-based research applications,
-                   including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks.
-                   Pyrgg target audiences are computer scientists who study graph algorithms and graph processing frameworks.'''
+        return PYRGG_DESCRIPTION.replace("\n", " ")
 
 
 setup(
     name='pyrgg',
     packages=['pyrgg'],
-    version='0.8',
+    version='0.9',
     description='Python Random Graph Generator',
     long_description=read_description(),
     long_description_content_type='text/markdown',
     author='Sepand Haghighi',
     author_email='info@pyrgg.ir',
     url='https://github.com/sepandhaghighi/pyrgg',
-    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v0.8',
+    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v0.9',
     keywords='random graph python3 python generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',
     project_urls={
         'Webpage': 'https://www.pyrgg.ir',

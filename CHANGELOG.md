@@ -5,6 +5,30 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.9] - 2020-10-07
+### Added
+- GEXF format
+- Float weight support
+- `tox.ini`
+### Changed
+- Menu optimized
+- `pyrgg.py` renamed to `graph_gen.py`
+- Other functions moved to `functions.py`
+- Test system modified
+- `params.py` refactored
+- `graph_gen.py` refactored
+- `functions.py` refactored
+- `weight_str_to_number` function renamed to `convert_str_to_number`
+- `branch_gen` function bugs fixed
+- `input_filter` function bug fixed
+- `gl_maker` function bug fixed
+- `CONTRIBUTING.md` updated
+- `AUTHORS.md` updated
+### Removed
+- `print_test` function
+- `left_justify` function
+- `justify` function
+- `zero_insert` function
 ## [0.8] - 2020-08-19
 ### Added
 - GDF format
@@ -77,7 +101,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON format
 - README
 
-[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v0.8...dev
+[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v0.9...dev
+[0.9]: https://github.com/sepandhaghighi/pyrgg/compare/v0.8...v0.9
 [0.8]: https://github.com/sepandhaghighi/pyrgg/compare/v0.7...v0.8
 [0.7]: https://github.com/sepandhaghighi/pyrgg/compare/v0.6...v0.7
 [0.6]: https://github.com/sepandhaghighi/pyrgg/compare/v0.5...v0.6
