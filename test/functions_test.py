@@ -2,7 +2,7 @@
 """
 >>> from pyrgg.functions import *
 >>> import random
->>> logger(2,2,2,2)
+>>> logger(2,2,2,2,2,2,2,2,2,2,2,2,2)
 [Error] Logger Failed!
 >>> description_print()
 Webpage : https://www.pyrgg.ir
@@ -37,7 +37,7 @@ True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": 1,"output_format": 1, "direct": 2,"self_loop": 10,"multigraph":10})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': 1, "direct": 2,"self_loop": 1,"multigraph":1}
 True
->>> logger(100,50,'test','2min')
+>>> logger('test',100,50,1000,10,True,False,False,True,True,20,1,'2min')
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)
