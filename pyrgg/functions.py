@@ -120,27 +120,67 @@ def filesize(fileaddr):  # pragma: no cover
     print("Graph File Size : " + convert_bytes(file_size))
 
 
-def logger(vertices_number, edge_number, file_name, elapsed_time):
+def logger(
+        file_name, 
+        vertices_number, 
+        edge_number, 
+        max_edge, 
+        min_edge, 
+        directed, 
+        signed, 
+        multigraph, 
+        self_loop, 
+        weighted, 
+        max_weight, 
+        min_weight, 
+        elapsed_time):
     """
     Save generated graphs log.
 
+    :param file_name: file name
+    :type file_name: str
     :param vertices_number: number of vertices
     :type vertices_number:int
     :param edge_number: number of edges
     :type edge_number: int
-    :param file_name: file name
-    :type file_name: str
+    :param max_edge: maximum number of edges
+    :type max_edge: int
+    :param min_edge: minimum number of edges
+    :type min_edge: int
+    :param directed: directed
+    :type directed: bool
+    :param signed: weight sign flag
+    :type signed: bool
+    :param multigraph: multigraph flag
+    :type multigraph: bool
+    :param self_loop: self loop flag
+    :type self_loop: bool
+    :param weighted: weighted flag
+    :type weighted: bool
+    :param max_weight: maximum weight
+    :type max_weight: int
+    :param min_weight: minimum weight
+    :type min_weight: int
     :param elapsed_time: elapsed time
     :type elapsed_time : str
     :return:  None
     """
     try:
         with open("logfile.log", "a") as file:
-            file.write(str(datetime.datetime.now()) + "\n")
-            file.write("Filename : " + file_name + "\n")
-            file.write("Vertices : " + str(vertices_number) + "\n")
-            file.write("Edges : " + str(edge_number) + "\n")
-            file.write("Elapsed Time : " + str(elapsed_time) + "\n")
+            file.write(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            file.write(f"Filename : {file_name}\n")
+            file.write(f"Vertices : {vertices_number}\n")
+            file.write(f"Total Edges : {edge_number}\n")
+            file.write(f"Max Edge : {max_edge}\n")
+            file.write(f"Min Edge : {min_edge}\n")
+            file.write(f"Directed : {directed}\n")
+            file.write(f"Signed : {signed}\n")
+            file.write(f"Multigraph : {multigraph}\n")
+            file.write(f"Self Loop : {self_loop}\n")
+            file.write(f"Weighted : {weighted}\n")
+            file.write(f"Max Weight : {max_weight}\n")
+            file.write(f"Min Weight : {min_weight}\n")
+            file.write(f"Elapsed Time : {elapsed_time}\n")
             file.write("-------------------------------\n")
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

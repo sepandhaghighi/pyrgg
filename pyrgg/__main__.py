@@ -35,6 +35,7 @@ def run():
     input_dict = get_input()
     first_time = time.perf_counter()
     file_name = input_dict["file_name"]
+    weight = input_dict["weight"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
     vertices_number = input_dict["vertices"]
@@ -68,9 +69,18 @@ def run():
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
     logger(
+        file_name + ".gr",
         vertices_number,
         edge_number,
-        file_name + ".gr",
+        max_edge,
+        min_edge,
+        direct,
+        sign,
+        multigraph,
+        self_loop,
+        weight,
+        max_weight,
+        min_weight,
         elapsed_time_format)
 
 
