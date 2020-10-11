@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- `logger` function optimized with additional parameters such as `max_edge`, `min_edge`, `directed`, `signed`, `multigraph`, `self_loop`, `weighted`, `max_weight`, `min_weight`.
 ## [0.9] - 2020-10-07
 ### Added
 - GEXF format

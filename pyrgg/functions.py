@@ -148,15 +148,15 @@ def logger(
     :param min_edge: minimum number of edges
     :type min_edge: int
     :param directed: directed
-    :type directed: bool
+    :type directed: int
     :param signed: weight sign flag
-    :type signed: bool
+    :type signed: int
     :param multigraph: multigraph flag
-    :type multigraph: bool
+    :type multigraph: int
     :param self_loop: self loop flag
-    :type self_loop: bool
+    :type self_loop: int
     :param weighted: weighted flag
-    :type weighted: bool
+    :type weighted: int
     :param max_weight: maximum weight
     :type max_weight: int
     :param min_weight: minimum weight
@@ -167,20 +167,20 @@ def logger(
     """
     try:
         with open("logfile.log", "a") as file:
-            file.write(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            file.write(f"Filename : {file_name}\n")
-            file.write(f"Vertices : {vertices_number}\n")
-            file.write(f"Total Edges : {edge_number}\n")
-            file.write(f"Max Edge : {max_edge}\n")
-            file.write(f"Min Edge : {min_edge}\n")
-            file.write(f"Directed : {directed}\n")
-            file.write(f"Signed : {signed}\n")
-            file.write(f"Multigraph : {multigraph}\n")
-            file.write(f"Self Loop : {self_loop}\n")
-            file.write(f"Weighted : {weighted}\n")
-            file.write(f"Max Weight : {max_weight}\n")
-            file.write(f"Min Weight : {min_weight}\n")
-            file.write(f"Elapsed Time : {elapsed_time}\n")
+            file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n")
+            file.write("Filename : " + file_name + "\n")
+            file.write("Vertices : " + str(vertices_number) + "\n")
+            file.write("Total Edges : " + str(edge_number) + "\n")
+            file.write("Max Edge : " + str(max_edge) + "\n")
+            file.write("Min Edge : " + str(min_edge) + "\n")
+            file.write("Directed : " + str(bool(directed)) + "\n")
+            file.write("Signed : " + str(bool(signed)) + "\n")
+            file.write("Multigraph : " + str(bool(multigraph)) + "\n")
+            file.write("Self Loop : " + str(bool(self_loop)) + "\n")
+            file.write("Weighted : " + str(bool(weighted)) + "\n")
+            file.write("Max Weight : " + str(max_weight) + "\n")
+            file.write("Min Weight : " + str(min_weight) + "\n")
+            file.write("Elapsed Time : " + elapsed_time + "\n")
             file.write("-------------------------------\n")
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
