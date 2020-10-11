@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-- `logger` function optimized with additional parameters such as `max_edge`, `min_edge`, `directed`, `signed`, `multigraph`, `self_loop`, `weighted`, `max_weight`, `min_weight`.
+- `logger` function enhanced with additional parameters such as `max_edge`, `min_edge`, `directed`, `signed`, `multigraph`, `self_loop`, `weighted`, `max_weight`, `min_weight`.
 ## [0.9] - 2020-10-07
 ### Added
 - GEXF format
