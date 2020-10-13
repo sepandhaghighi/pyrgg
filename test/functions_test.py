@@ -38,6 +38,21 @@ True
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': 1, "direct": 2,"self_loop": 1,"multigraph":1}
 True
 >>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
+>>> file=open('logfile.log','r')
+>>> print("\n".join(file.read().splitlines()[1:-1]))
+Filename : test
+Vertices : 100
+Total Edges : 50
+Max Edge : 1000
+Min Edge : 10
+Directed : True
+Signed : False
+Multigraph : False
+Self Loop : True
+Weighted : True
+Max Weight : 20
+Min Weight : 1
+Elapsed Time : 2min
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)

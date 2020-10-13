@@ -41,7 +41,7 @@ True
 True
 >>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
 >>> file=open('logfile.log','r')
->>> print("\n".join(file.read().splitlines()[1:]))
+>>> print("\n".join(file.read().splitlines()[1:-1]))
 Filename : test
 Vertices : 100
 Total Edges : 50
