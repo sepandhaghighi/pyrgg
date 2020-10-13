@@ -5,20 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- **9** new parameters to the `logger` function as below and log them too:
-    - `max_edge`
-    - `min_edge`
-    - `directed`
-    - `signed`
-    - `multigraph`
-    - `self_loop`
-    - `weighted`
-    - `max_weight`
-    - `min_weight`
-
 ### Changed
-- Time format in the `logger` changed to `%Y-%m-%d %H:%M:%S`. e.g. `2020-10-12 20:25:47`
+- The `logger` function enhanced.
+- Time format in the `logger` changed to `%Y-%m-%d %H:%M:%S`
 
 ## [0.9] - 2020-10-07
 ### Added
