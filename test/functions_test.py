@@ -127,7 +127,7 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 ...    menu = dict(MENU_ITEMS1,**MENU_ITEMS2)
 ...    global prev_item
 ...    for item in menu:
-...        if input_data == menu[item].text:
+...        if input_data == menu[item]:
 ...            if item != prev_item :
 ...                prev_item = item
 ...                return input_func_dict[item]
