@@ -2,7 +2,7 @@
 """Pyrgg params."""
 from textwrap import dedent, fill
 import os
-from functions import convert_str_to_number, convert_str_to_bool
+from pyrgg.functions import convert_str_to_number, convert_str_to_bool
 
 class MenuItem:
 

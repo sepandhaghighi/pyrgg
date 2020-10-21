@@ -200,14 +200,6 @@ def input_filter(input_dict):
             filtered_dict["max_edge"], filtered_dict["min_edge"]
         )
 
-    # TODO: I think we don't need these:
-    # if filtered_dict["sign"] not in [1, 2]:
-        # filtered_dict["sign"] = 2
-    #
-    # for key in ["direct", "self_loop", "multigraph"]:
-    #     if filtered_dict[key] not in [1, 2]:
-    #         filtered_dict[key] = 1
-
     if not filtered_dict["self_loop"]:
         edge_upper_threshold -= 1
 
