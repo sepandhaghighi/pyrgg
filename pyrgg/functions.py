@@ -19,21 +19,6 @@ from pyrgg.params import (
     SUFFIX_MENU,
 )
 
-MENU_ITEM_CONVERTORS = {
-    "file_name": lambda x: x,
-    "output_format": int,
-    "weight": convert_str_to_bool,
-    "vertices": int,
-    "max_weight": convert_str_to_number,
-    "min_weight": convert_str_to_number,
-    "min_edge": int,
-    "max_edge": int,
-    "sign": convert_str_to_bool,
-    "direct": convert_str_to_bool,
-    "self_loop": convert_str_to_bool,
-    "multigraph": convert_str_to_bool,
-}
-
 # random_system=random.SystemRandom()
 random_system = random
 
@@ -90,6 +75,22 @@ def convert_str_to_bool(string):
     :return: bool
     """
     return bool(int(string))
+
+
+MENU_ITEM_CONVERTORS = {
+    "file_name": lambda x: x,
+    "output_format": int,
+    "weight": convert_str_to_bool,
+    "vertices": int,
+    "max_weight": convert_str_to_number,
+    "min_weight": convert_str_to_number,
+    "min_edge": int,
+    "max_edge": int,
+    "sign": convert_str_to_bool,
+    "direct": convert_str_to_bool,
+    "self_loop": convert_str_to_bool,
+    "multigraph": convert_str_to_bool,
+}
 
 
 def description_print():
