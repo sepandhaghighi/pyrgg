@@ -78,13 +78,13 @@ def dimacs_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -144,13 +144,13 @@ def json_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -290,13 +290,13 @@ def csv_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -342,13 +342,13 @@ def tsv_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -424,13 +424,13 @@ def wel_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -476,13 +476,13 @@ def mtx_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -538,13 +538,13 @@ def lp_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -595,13 +595,13 @@ def tgf_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -653,13 +653,13 @@ def gl_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -712,13 +712,13 @@ def dl_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -768,13 +768,13 @@ def gdf_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -827,13 +827,13 @@ def gml_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -848,10 +848,7 @@ def gml_maker(
         multigraph,
     )
 
-    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'
-    multigraph_flag = str(int(abs((1 - multigraph))))
-    directed_flag = str(int(2 - direct))
-    header = header.format(multigraph_flag, directed_flag)
+    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(int(multigraph), int(direct))
 
     with open(file_name + ".gml", "w") as buf:
         buf.write(header)
@@ -906,13 +903,13 @@ def gexf_maker(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: edge_number as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
@@ -932,7 +929,7 @@ def gexf_maker(
     meta += " " * 8 + '<creator>PyRGG</creator>\n'
     meta += " " * 8 + '<description>{0}</description>\n'.format(file_name)
     meta += " " * 4 + '</meta>\n'
-    if direct == 1:
+    if direct:
         defaultedgetype = "directed"
     else:
         defaultedgetype = "undirected"

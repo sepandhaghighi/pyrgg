@@ -2,11 +2,17 @@
 """Pyrgg params."""
 from textwrap import dedent, fill
 import os
+from functions import convert_str_to_number, convert_str_to_bool
 
+class MenuItem:
+
+    def __init__(self, text, convert=lambda x: x):
+        self.text = text
+        self.convert = convert
 
 MENU_ITEMS1 = {
-    "file_name": "- File Name : ",
-    "output_format": dedent(
+    "file_name": MenuItem("- File Name : "),
+    "output_format": MenuItem(dedent(
         """\
         - Graph Formats :
         1- DIMACS(.gr)
@@ -25,20 +31,20 @@ MENU_ITEMS1 = {
         14- GML(.gml)
         15- GEXF(.gexf)
         """
-    ),
-    "weight": "- Weighted[1] or Unweighted[2]",
+    ), int),
+    "weight": MenuItem("- Unweighted[0] or Weighted[1]", convert_str_to_bool),
 }
 
 MENU_ITEMS2 = {
-    "vertices": "- Vertices Number : ",
-    "max_weight": "- Max Weight : ",
-    "min_weight": "- Min Weight : ",
-    "min_edge": "- Min Edge Number : ",
-    "max_edge": "- Max Edge Number : ",
-    "sign": "- Signed[1] or Unsigned[2]",
-    "direct": "- Directed[1] or Undirected[2]",
-    "self_loop": "- Self Loop[1] or No Self Loop[2]",
-    "multigraph": "- Simple[1] or Multigraph[2]",
+    "vertices": MenuItem("- Vertices Number : ", int),
+    "max_weight": MenuItem("- Max Weight : ", convert_str_to_number),
+    "min_weight": MenuItem("- Min Weight : ", convert_str_to_number),
+    "min_edge": MenuItem("- Min Edge Number : ", int),
+    "max_edge": MenuItem("- Max Edge Number : ", int),
+    "sign": MenuItem("- Unsigned[0] or Signed[1]", convert_str_to_bool),
+    "direct": MenuItem("- Undirected[0] or Directed[1]", convert_str_to_bool),
+    "self_loop": MenuItem("- No Self Loop[0] or Self Loop[1]", convert_str_to_bool),
+    "multigraph": MenuItem("- Simple[0] or Multigraph[1]", convert_str_to_bool),
 }
 
 

@@ -10,7 +10,7 @@
 >>> from networkx.readwrite.gml import read_gml
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> dimacs_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -31,7 +31,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> dimacs_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -80,7 +80,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> dimacs_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -231,7 +231,7 @@ a 99 89 24
 a 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> dimacs_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -379,7 +379,7 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> json_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -409,7 +409,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> testfile_1_p['graph']['edges'][1]['weight']
 '148'
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -441,7 +441,7 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> testfile_2_p['graph']['edges'][1]['weight']
 '5'
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -481,10 +481,10 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> testfile_3_p['graph']['edges'][1]['weight']
 '15'
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> json_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -497,7 +497,7 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gdf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gdf_maker('testfile', 0, 200, 10, 0, 2, False,True,True,False)
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -522,7 +522,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gl_maker('testfile', 0, 200, 10, 1, 2, 0, 1,1,1)
+>>> gl_maker('testfile', 0, 200, 10, 1, 2, True,True,True,False)
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -532,7 +532,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5 6:-81
 6 9:143
 >>> random.seed(2)
->>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> mtx_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> g = mmread("testfile.mtx")
 >>> print(g)
@@ -544,7 +544,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (7, 1)	-97.0
   (8, 0)	60.0
 >>> random.seed(2)
->>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> tsv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -557,7 +557,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	1	60
 <BLANKLINE>
 >>> random.seed(4)
->>> gl_maker('testfile2',0,50,30,2,4,0,1,1,1)
+>>> gl_maker('testfile2',0,50,30,2,4,True,True,True,False)
 44
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -586,16 +586,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 27 1:33
 28 23:30
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> csv_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> gdf_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> gdf_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> mtx_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> mtx_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> tsv_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> tsv_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> g = mmread("testfile2.mtx")
 >>> print(g)
@@ -673,7 +673,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
->>> gl_maker('testfile3',10,30,100,3,4,2,1,1,1)
+>>> gl_maker('testfile3',10,30,100,3,4,False,True,True,False)
 178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())
@@ -762,16 +762,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 98 7:10
 100 28:14
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> csv_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> gdf_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> mtx_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> tsv_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> g = mmread("testfile3.mtx")
 >>> print(g)
@@ -967,39 +967,39 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 100,40,11
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> csv_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> gdf_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> mtx_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> tsv_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
->>> gl_maker('testfile', 0, 200, 10, 0,0,1)
+>>> gl_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: gl_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> csv_maker('testfile', 0, 200, 10, 0,0,1)
+>>> csv_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> gdf_maker('testfile', 0, 200, 10, 0,0,1)
+>>> gdf_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: gdf_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> mtx_maker('testfile', 0, 200, 10, 0,0,1)
+>>> mtx_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> tsv_maker('testfile', 0, 200, 10, 0,0,1)
+>>> tsv_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
->>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> wel_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -1012,7 +1012,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> wel_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -1053,7 +1053,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> wel_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1196,14 +1196,14 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,2,2,1,2)
+>>> wel_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
->>> wel_maker('testfile', 0, 200, 10, 0,0,1)
+>>> wel_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> lp_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> lp_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1226,7 +1226,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> lp_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1297,7 +1297,7 @@ edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
 >>> random.seed(2)
->>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1321,7 +1321,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> tgf_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1393,7 +1393,7 @@ edge(28,13,-13).
 28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> dl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1410,7 +1410,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> dl_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
@@ -1455,7 +1455,7 @@ data:
 28 13 -13
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile4',0,50,30,0,4,0,1,2,1)
+>>> dimacs_maker('testfile4',0,50,30,0,4,True,True,False,False)
 37
 >>> file=open('testfile4.gr','r')
 >>> print(file.read())
@@ -1506,61 +1506,61 @@ a 26 29 28
 a 26 3 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
->>> gml_maker('testfile2',0,50,30,0,4,0,1,1,2)
+>>> gml_maker('testfile2',0,50,30,0,4,True,True,True,True)
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gml_maker('testfile3',0,50,30,0,4,0,2,1,2)
+>>> gml_maker('testfile3',0,50,30,0,4,True,False,True,True)
 35
 >>> gml3 = read_gml("testfile3.gml")
 >>> type(gml3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gml_maker('testfile4',0,50,30,0,4,0,2,1,1)
+>>> gml_maker('testfile4',0,50,30,0,4,True,False,True,False)
 35
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(8)
->>> gexf_maker('testfile2',0,50,30,0,4,0,1,1,2)
+>>> gexf_maker('testfile2',0,50,30,0,4,True,True,True,True)
 35
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gexf_maker('testfile3',0,50,30,0,4,0,2,1,2)
+>>> gexf_maker('testfile3',0,50,30,0,4,True,False,True,True)
 35
 >>> gexf3 = read_gexf("testfile3.gexf")
 >>> type(gexf3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gexf_maker('testfile4',0,50,30,0,4,0,2,1,1)
+>>> gexf_maker('testfile4',0,50,30,0,4,True,False,True,False)
 35
 >>> gexf4 = read_gexf("testfile4.gexf")
 >>> type(gexf4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(120)
->>> gexf_maker('testfile5',0,50.2,30,0,4,0,2,1,1)
+>>> gexf_maker('testfile5',0,50.2,30,0,4,True,False,True,False)
 40
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.22, 10, 0, 2, 0, 1,1,1)
+>>> csv_maker('testfile4', 0.0, 200.22, 10, 0, 2, True,True,True,False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -1571,7 +1571,7 @@ a 26 3 -13
 10,10,-181.75
 <BLANKLINE>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.222, 10, 0, 2, 0, 1,1,1)
+>>> csv_maker('testfile4', 0.0, 200.222, 10, 0, 2, True,True,True,False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())

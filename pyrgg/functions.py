@@ -65,6 +65,16 @@ def convert_str_to_number(string):
     """
     return float(string) if is_float(string) else int(string)
 
+def convert_str_to_bool(string):
+    """
+    Convert 0/1 string to bool.
+
+    :param string: input string
+    :type string: str
+    :return: bool
+    """
+    return bool(int(string))
+
 
 def description_print():
     """
@@ -190,21 +200,22 @@ def input_filter(input_dict):
             filtered_dict["max_edge"], filtered_dict["min_edge"]
         )
 
-    if filtered_dict["sign"] not in [1, 2]:
-        filtered_dict["sign"] = 2
+    # TODO: I think we don't need these:
+    # if filtered_dict["sign"] not in [1, 2]:
+        # filtered_dict["sign"] = 2
+    #
+    # for key in ["direct", "self_loop", "multigraph"]:
+    #     if filtered_dict[key] not in [1, 2]:
+    #         filtered_dict[key] = 1
 
-    for key in ["direct", "self_loop", "multigraph"]:
-        if filtered_dict[key] not in [1, 2]:
-            filtered_dict[key] = 1
-
-    if filtered_dict["self_loop"] == 2:
+    if not filtered_dict["self_loop"]:
         edge_upper_threshold -= 1
 
     if filtered_dict["output_format"] not in list(
             range(1, len(SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
-    if filtered_dict["multigraph"] == 1:
+    if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
     return filtered_dict
@@ -225,12 +236,12 @@ def get_input(input_func=input):
         "min_weight": 1,
         "min_edge": 0,
         "max_edge": 0,
-        "sign": 1,
+        "sign": True,
         "output_format": 1,
-        "weight": 1,
-        "direct": 1,
-        "self_loop": 1,
-        "multigraph": 1,
+        "weight": True,
+        "direct": True,
+        "self_loop": True,
+        "multigraph": False,
     }
 
     result_dict = _update_using_first_menu(result_dict, input_func)
@@ -252,10 +263,9 @@ def _update_using_first_menu(result_dict, input_func):
     for item in MENU_ITEMS_KEYS1:
         while True:
             try:
-                if item != "file_name":
-                    result_dict[item] = int(input_func(MENU_ITEMS1[item]))
-                else:
-                    result_dict[item] = input_func(MENU_ITEMS1[item])
+                result_dict[item] = MENU_ITEMS1[item].convert(
+                    input_func(MENU_ITEMS1[item].text)
+                )
             except Exception:
                 print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
@@ -275,15 +285,13 @@ def _update_using_second_menu(result_dict, input_func):
     """
     MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
     for item in MENU_ITEMS_KEYS2:
-        if result_dict["weight"] != 1 and item in ["max_weight", "min_weight"]:
+        if not result_dict["weight"] and item in ["max_weight", "min_weight"]:
             continue
         while True:
             try:
-                user_input = input_func(MENU_ITEMS2[item])
-                if item in ["max_weight", "min_weight"]:
-                    result_dict[item] = convert_str_to_number(user_input)
-                else:
-                    result_dict[item] = int(user_input)
+                result_dict[item] = MENU_ITEMS1[item].convert(
+                    input_func(MENU_ITEMS1[item].text)
+                )
             except Exception:
                 print(PYRGG_INPUT_ERROR_MESSAGE)
             else:
@@ -371,13 +379,13 @@ def branch_gen(
     :param max_weight: weight max range
     :type max_weight: int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :param used_vertices: used vertices dictionary
     :type used_vertices: dict
     :param degree_dict: all vertices degree
@@ -408,11 +416,11 @@ def branch_gen(
         get_precision(min_weight))
     if weight_float_flag:
         random_unit = random_system.uniform
-    if direct == 2 and (
-            vertex_index in used_vertices.keys()) and multigraph == 1:
+    if not direct and (
+            vertex_index in used_vertices.keys()) and not multigraph:
         reference_vertices = list(
             set(reference_vertices) - set(used_vertices[vertex_index]))
-    if self_loop == 2 and vertex_index in reference_vertices:
+    if not self_loop and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
     reference_vertices.sort()
     while (index < threshold):
@@ -430,12 +438,12 @@ def branch_gen(
                 max_edge - 1)):
             reference_vertices.pop(random_tail_index)
             continue
-        if direct == 2:
+        if not direct:
             if random_tail in used_vertices.keys():
                 used_vertices[random_tail].append(vertex_index)
             else:
                 used_vertices[random_tail] = [vertex_index]
-        if sign == 2:
+        if not sign:
             random_weight = random_unit(min_weight, max_weight)
         else:
             random_weight = sign_gen() * random_unit(min_weight, max_weight)
@@ -454,7 +462,7 @@ def branch_gen(
         if random_tail != vertex_index:
             degree_sort_dict[degree_dict[random_tail]
                              ][random_tail] = random_tail
-        if multigraph == 1:
+        if not multigraph:
             reference_vertices.pop(random_tail_index)
     return [branch_list, weight_list]
 
@@ -483,13 +491,13 @@ def edge_gen(
     :param max_edge : maximum edge number
     :type max_edge : int
     :param sign: weight sign flag
-    :type sign: int
+    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: int
+    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: int
+    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: int
+    :type multigraph: bool
     :return: list of dicts
     """
     temp = 0
