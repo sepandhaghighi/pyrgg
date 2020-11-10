@@ -299,7 +299,7 @@ def _update_using_second_menu(result_dict, input_func):
         while True:
             try:
                 result_dict[item] = MENU_ITEM_CONVERTORS[item](
-                    input_func(MENU_ITEMS1[item])
+                    input_func(MENU_ITEMS2[item])
                 )
             except Exception:
                 print(PYRGG_INPUT_ERROR_MESSAGE)
