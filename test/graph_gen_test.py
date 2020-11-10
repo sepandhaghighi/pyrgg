@@ -497,7 +497,7 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gdf_maker('testfile', 0, 200, 10, 0, 2, False,True,True,False)
+>>> gdf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())

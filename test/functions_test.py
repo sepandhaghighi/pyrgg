@@ -166,7 +166,7 @@ True
 >>> input_data["weight"]
 True
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"100","error":"120"}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"200","weight":"0","error":"120"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -177,13 +177,13 @@ True
 >>> input_data["max_weight"]
 1
 >>> input_data["weight"]
-True
+False
 >>> input_data["sign"]
 True
 >>> input_data["direct"]
 True
 >>> input_data["multigraph"]
-True
+False
 >>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"1","error":"120"}
 >>> input_data = get_input(input_func_test)
 [Error] Bad Input!
@@ -195,6 +195,6 @@ True
 >>> input_data = get_input(input_func_test)
 [Error] Bad Input!
 >>> input_data["weight"]
-False
+True
 
 """
