@@ -619,10 +619,7 @@ def tgf_maker(
         for key in edge_dic:
             buf.write(str(key) + "\n")
         buf.write("#\n")
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                buf.write(str(key) + " " + str(value) + " " +
-                          str(weight_dic[key][j]) + "\n")
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
