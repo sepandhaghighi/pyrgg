@@ -6,9 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
+- All flags type changed to `bool`
+- Menu optimized
 - The `logger` function enhanced.
 - Time format in the `logger` changed to `%Y-%m-%d %H:%M:%S`
-
 ## [0.9] - 2020-10-07
 ### Added
 - GEXF format

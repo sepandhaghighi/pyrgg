@@ -3,7 +3,6 @@
 from textwrap import dedent, fill
 import os
 
-
 MENU_ITEMS1 = {
     "file_name": "- File Name : ",
     "output_format": dedent(
@@ -26,7 +25,7 @@ MENU_ITEMS1 = {
         15- GEXF(.gexf)
         """
     ),
-    "weight": "- Weighted[1] or Unweighted[2]",
+    "weight": "- Unweighted[0] or Weighted[1]",
 }
 
 MENU_ITEMS2 = {
@@ -35,10 +34,10 @@ MENU_ITEMS2 = {
     "min_weight": "- Min Weight : ",
     "min_edge": "- Min Edge Number : ",
     "max_edge": "- Max Edge Number : ",
-    "sign": "- Signed[1] or Unsigned[2]",
-    "direct": "- Directed[1] or Undirected[2]",
-    "self_loop": "- Self Loop[1] or No Self Loop[2]",
-    "multigraph": "- Simple[1] or Multigraph[2]",
+    "sign": "- Unsigned[0] or Signed[1]",
+    "direct": "- Undirected[0] or Directed[1]",
+    "self_loop": "- No Self Loop[0] or Self Loop[1]",
+    "multigraph": "- Simple[0] or Multigraph[1]",
 }
 
 
