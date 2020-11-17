@@ -492,10 +492,10 @@ def branch_gen(
                 used_vertices[random_tail].append(vertex_index)
             else:
                 used_vertices[random_tail] = [vertex_index]
-        if not sign:
-            random_weight = random_unit(min_weight, max_weight)
+        if sign:
+            random_weight = sign_gen() * random_unit(min_weight, max_weight)            
         else:
-            random_weight = sign_gen() * random_unit(min_weight, max_weight)
+            random_weight = random_unit(min_weight, max_weight)
         if weight_float_flag:
             random_weight = round(random_weight, weight_precision)
         branch_list.append(random_tail)
