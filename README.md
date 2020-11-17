@@ -82,7 +82,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 	<tr> 
 		<td align="center">Code Quality</td>
 		<td align="center"><a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
-		<td align="center"><a href="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg"><img src="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg/badge" alt="CodeFactor" /></a></td>		
+        <td align="center"><a href="https://codebeat.co/projects/github-com-sepandhaghighi-pyrgg-dev"><img alt="codebeat badge" src="https://codebeat.co/badges/3f6c7449-3dfc-406b-b233-9fe615c2d103" /></a></td>	
+		<td align="center"><a href="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg"><img src="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg/badge" alt="CodeFactor" /></a></td>	
 	</tr>
 </table>
 
