@@ -731,10 +731,7 @@ def dl_maker(
     )
     with open(file_name + ".dl", "w") as buf:
         buf.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                buf.write(str(key) + " " + str(value) + " " +
-                          str(weight_dic[key][j]) + "\n")
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
