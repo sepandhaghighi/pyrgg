@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Menu optimized
 - The `logger` function enhanced.
 - Time format in the `logger` changed to `%Y-%m-%d %H:%M:%S`
+- `dl_maker` function modified
+- `tgf_maker` function modified
+- `gdf_maker` function modified
 ## [0.9] - 2020-10-07
 ### Added
 - GEXF format

@@ -619,10 +619,7 @@ def tgf_maker(
         for key in edge_dic:
             buf.write(str(key) + "\n")
         buf.write("#\n")
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                buf.write(str(key) + " " + str(value) + " " +
-                          str(weight_dic[key][j]) + "\n")
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
@@ -734,10 +731,7 @@ def dl_maker(
     )
     with open(file_name + ".dl", "w") as buf:
         buf.write("dl\nformat=edgelist1\nn=" + str(vertices) + "\ndata:\n")
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                buf.write(str(key) + " " + str(value) + " " +
-                          str(weight_dic[key][j]) + "\n")
+        _write_separated_file(buf, edge_dic, weight_dic, separator=' ')
     return edge_number
 
 
@@ -793,10 +787,7 @@ def gdf_maker(
         for key in edge_dic:
             buf.write(str(key) + "," + "Node{0}".format(str(key)) + "\n")
         buf.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
-        for key, edge_val in edge_dic.items():
-            for j, value in enumerate(edge_val):
-                buf.write(str(key) + "," + str(value) + "," +
-                          str(weight_dic[key][j]) + "\n")
+        _write_separated_file(buf, edge_dic, weight_dic, separator=',')
     return edge_number
 
 
