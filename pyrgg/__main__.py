@@ -25,6 +25,7 @@ GENERATOR_MENU = {
     14: gml_maker,
     15: gexf_maker}
 
+
 def gen_graph(input_dict, file_name):
     """
     Generate a single graph.
@@ -84,6 +85,7 @@ def gen_graph(input_dict, file_name):
         min_weight,
         elapsed_time_format)
 
+
 def run():
     """
     Run proper converter.
@@ -94,10 +96,10 @@ def run():
     file_name = input_dict["file_name"]
     number_of_files = input_dict["number_of_files"]
     for i in range(number_of_files):
-        print("Generating {0} from {1}".format(i+1,number_of_files))
+        print("Generating {0} from {1}".format(i + 1, number_of_files))
         file_name_temp = file_name
         if number_of_files > 1:
-            file_name_temp = file_name + "_" + str(i+1)
+            file_name_temp = file_name + "_" + str(i + 1)
         gen_graph(input_dict, file_name_temp)
         line(40)
 

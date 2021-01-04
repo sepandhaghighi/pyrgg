@@ -149,18 +149,18 @@ def filesize(fileaddr):  # pragma: no cover
 
 
 def logger(
-        file_name, 
-        vertices_number, 
-        edge_number, 
-        max_edge, 
-        min_edge, 
-        directed, 
-        signed, 
-        multigraph, 
-        self_loop, 
-        weighted, 
-        max_weight, 
-        min_weight, 
+        file_name,
+        vertices_number,
+        edge_number,
+        max_edge,
+        min_edge,
+        directed,
+        signed,
+        multigraph,
+        self_loop,
+        weighted,
+        max_weight,
+        min_weight,
         elapsed_time):
     """
     Save generated graphs log.
@@ -196,20 +196,20 @@ def logger(
     try:
         with open("logfile.log", "a") as file:
             file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n" +
-                "Filename : " + file_name + "\n" +
-                "Vertices : " + str(vertices_number) + "\n" +
-                "Total Edges : " + str(edge_number) + "\n" +
-                "Max Edge : " + str(max_edge) + "\n" +
-                "Min Edge : " + str(min_edge) + "\n" +
-                "Directed : " + str(bool(directed)) + "\n" +
-                "Signed : " + str(bool(signed)) + "\n" +
-                "Multigraph : " + str(bool(multigraph)) + "\n" +
-                "Self Loop : " + str(bool(self_loop)) + "\n" +
-                "Weighted : " + str(bool(weighted)) + "\n" +
-                "Max Weight : " + str(max_weight) + "\n" +
-                "Min Weight : " + str(min_weight) + "\n" +
-                "Elapsed Time : " + elapsed_time + "\n" +
-                "-------------------------------\n")
+                       "Filename : " + file_name + "\n" +
+                       "Vertices : " + str(vertices_number) + "\n" +
+                       "Total Edges : " + str(edge_number) + "\n" +
+                       "Max Edge : " + str(max_edge) + "\n" +
+                       "Min Edge : " + str(min_edge) + "\n" +
+                       "Directed : " + str(bool(directed)) + "\n" +
+                       "Signed : " + str(bool(signed)) + "\n" +
+                       "Multigraph : " + str(bool(multigraph)) + "\n" +
+                       "Self Loop : " + str(bool(self_loop)) + "\n" +
+                       "Weighted : " + str(bool(weighted)) + "\n" +
+                       "Max Weight : " + str(max_weight) + "\n" +
+                       "Min Weight : " + str(min_weight) + "\n" +
+                       "Elapsed Time : " + elapsed_time + "\n" +
+                       "-------------------------------\n")
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 

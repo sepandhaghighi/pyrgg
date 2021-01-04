@@ -839,7 +839,8 @@ def gml_maker(
         multigraph,
     )
 
-    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(int(multigraph), int(direct))
+    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(
+        int(multigraph), int(direct))
 
     with open(file_name + ".gml", "w") as buf:
         buf.write(header)
