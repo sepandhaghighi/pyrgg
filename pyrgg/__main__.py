@@ -46,7 +46,8 @@ def gen_graph(input_dict, file_name):
     direct = input_dict["direct"]
     self_loop = input_dict["self_loop"]
     multigraph = input_dict["multigraph"]
-    edge_number = GENERATOR_MENU[input_dict["output_format"]](
+    output_format = input_dict["output_format"]
+    edge_number = GENERATOR_MENU[output_format](
         file_name,
         min_weight,
         max_weight,
@@ -57,11 +58,11 @@ def gen_graph(input_dict, file_name):
         direct,
         self_loop,
         multigraph)
-    if input_dict["output_format"] == 4:
+    if output_format == 4:
         json_to_yaml(file_name)
-    if input_dict["output_format"] == 7:
+    if output_format == 7:
         json_to_pickle(file_name)
-    filesize(file_name + SUFFIX_MENU[input_dict["output_format"]])
+    filesize(file_name + SUFFIX_MENU[output_format])
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
