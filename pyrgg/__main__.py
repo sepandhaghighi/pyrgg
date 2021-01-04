@@ -70,7 +70,7 @@ def gen_graph(input_dict, file_name):
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
     logger(
-        file_name + ".gr",
+        file_name + SUFFIX_MENU[output_format],
         vertices_number,
         edge_number,
         max_edge,
