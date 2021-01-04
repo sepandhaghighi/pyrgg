@@ -268,8 +268,9 @@ def input_filter(input_dict):
     if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
-    if filtered_dict["number_of_files"] < 1:
-        filtered_dict["number_of_files"] = 1
+
+    filtered_dict["number_of_files"] = max(1, filtered_dict["number_of_files"])
+
     return filtered_dict
 
 
