@@ -98,6 +98,7 @@ def run():
         if number_of_files > 1:
             file_name_temp = file_name + "_" + str(i+1)
         gen_graph(input_dict, file_name_temp)
+        line(40)
 
 
 if __name__ == "__main__":
