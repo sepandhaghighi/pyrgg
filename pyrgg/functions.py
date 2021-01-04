@@ -82,6 +82,7 @@ MENU_ITEM_CONVERTORS = {
     "output_format": int,
     "weight": convert_str_to_bool,
     "vertices": int,
+    "number_of_files": int,
     "max_weight": convert_str_to_number,
     "min_weight": convert_str_to_number,
     "min_edge": int,
@@ -280,6 +281,7 @@ def get_input(input_func=input):
     """
     result_dict = {
         "file_name": "",
+        "number_of_files": 1,
         "vertices": 0,
         "max_weight": 1,
         "min_weight": 1,
