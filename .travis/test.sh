@@ -18,7 +18,7 @@
  if [ "$IS_IN_TRAVIS" = 'false' ] || [ "$TRAVIS_PYTHON_VERSION" = '3.6' ]
  then
      $PYTHON_COMMAND -m vulture pyrgg setup.py otherfile --min-confidence 65 --sort-by-size
-	 $PYTHON_COMMAND -m bandit -r pyrgg -s B311,B403,B322
+	 $PYTHON_COMMAND -m bandit -r pyrgg -s B311,B403
 	 $PYTHON_COMMAND otherfile/version_check.py
 	 $PYTHON_COMMAND -m pydocstyle --match-dir=pyrgg -v
  fi

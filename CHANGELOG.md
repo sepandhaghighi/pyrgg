@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Number of files option
 ### Changed
 - All flags type changed to `bool`
 - Menu optimized
@@ -13,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `dl_maker` function modified
 - `tgf_maker` function modified
 - `gdf_maker` function modified
+- `run` function modified
 ## [0.9] - 2020-10-07
 ### Added
 - GEXF format

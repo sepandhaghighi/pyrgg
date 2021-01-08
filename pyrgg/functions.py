@@ -82,6 +82,7 @@ MENU_ITEM_CONVERTORS = {
     "output_format": int,
     "weight": convert_str_to_bool,
     "vertices": int,
+    "number_of_files": int,
     "max_weight": convert_str_to_number,
     "min_weight": convert_str_to_number,
     "min_edge": int,
@@ -148,18 +149,18 @@ def filesize(fileaddr):  # pragma: no cover
 
 
 def logger(
-        file_name, 
-        vertices_number, 
-        edge_number, 
-        max_edge, 
-        min_edge, 
-        directed, 
-        signed, 
-        multigraph, 
-        self_loop, 
-        weighted, 
-        max_weight, 
-        min_weight, 
+        file_name,
+        vertices_number,
+        edge_number,
+        max_edge,
+        min_edge,
+        directed,
+        signed,
+        multigraph,
+        self_loop,
+        weighted,
+        max_weight,
+        min_weight,
         elapsed_time):
     """
     Save generated graphs log.
@@ -195,20 +196,20 @@ def logger(
     try:
         with open("logfile.log", "a") as file:
             file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n" +
-                "Filename : " + file_name + "\n" +
-                "Vertices : " + str(vertices_number) + "\n" +
-                "Total Edges : " + str(edge_number) + "\n" +
-                "Max Edge : " + str(max_edge) + "\n" +
-                "Min Edge : " + str(min_edge) + "\n" +
-                "Directed : " + str(bool(directed)) + "\n" +
-                "Signed : " + str(bool(signed)) + "\n" +
-                "Multigraph : " + str(bool(multigraph)) + "\n" +
-                "Self Loop : " + str(bool(self_loop)) + "\n" +
-                "Weighted : " + str(bool(weighted)) + "\n" +
-                "Max Weight : " + str(max_weight) + "\n" +
-                "Min Weight : " + str(min_weight) + "\n" +
-                "Elapsed Time : " + elapsed_time + "\n" +
-                "-------------------------------\n")
+                       "Filename : " + file_name + "\n" +
+                       "Vertices : " + str(vertices_number) + "\n" +
+                       "Total Edges : " + str(edge_number) + "\n" +
+                       "Max Edge : " + str(max_edge) + "\n" +
+                       "Min Edge : " + str(min_edge) + "\n" +
+                       "Directed : " + str(bool(directed)) + "\n" +
+                       "Signed : " + str(bool(signed)) + "\n" +
+                       "Multigraph : " + str(bool(multigraph)) + "\n" +
+                       "Self Loop : " + str(bool(self_loop)) + "\n" +
+                       "Weighted : " + str(bool(weighted)) + "\n" +
+                       "Max Weight : " + str(max_weight) + "\n" +
+                       "Min Weight : " + str(min_weight) + "\n" +
+                       "Elapsed Time : " + elapsed_time + "\n" +
+                       "-------------------------------\n")
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 
@@ -267,6 +268,9 @@ def input_filter(input_dict):
     if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
+
+    filtered_dict["number_of_files"] = max(1, filtered_dict["number_of_files"])
+
     return filtered_dict
 
 
@@ -280,6 +284,7 @@ def get_input(input_func=input):
     """
     result_dict = {
         "file_name": "",
+        "number_of_files": 1,
         "vertices": 0,
         "max_weight": 1,
         "min_weight": 1,

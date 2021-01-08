@@ -5,6 +5,7 @@ import os
 
 MENU_ITEMS1 = {
     "file_name": "- File Name : ",
+    "number_of_files": "- Number of Files : ",
     "output_format": dedent(
         """\
         - Graph Formats :

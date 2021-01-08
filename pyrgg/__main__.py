@@ -26,15 +26,17 @@ GENERATOR_MENU = {
     15: gexf_maker}
 
 
-def run():
+def gen_graph(input_dict, file_name):
     """
-    Run proper converter.
+    Generate a single graph.
 
+    :param input_dict: input data
+    :type input_dict: dict
+    :param file_name: file name
+    :type file_name: str
     :return: None
     """
-    input_dict = get_input()
     first_time = time.perf_counter()
-    file_name = input_dict["file_name"]
     weight = input_dict["weight"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
@@ -45,8 +47,8 @@ def run():
     direct = input_dict["direct"]
     self_loop = input_dict["self_loop"]
     multigraph = input_dict["multigraph"]
-    print("Generating . . . ")
-    edge_number = GENERATOR_MENU[input_dict["output_format"]](
+    output_format = input_dict["output_format"]
+    edge_number = GENERATOR_MENU[output_format](
         file_name,
         min_weight,
         max_weight,
@@ -57,11 +59,11 @@ def run():
         direct,
         self_loop,
         multigraph)
-    if input_dict["output_format"] == 4:
+    if output_format == 4:
         json_to_yaml(file_name)
-    if input_dict["output_format"] == 7:
+    if output_format == 7:
         json_to_pickle(file_name)
-    filesize(file_name + SUFFIX_MENU[input_dict["output_format"]])
+    filesize(file_name + SUFFIX_MENU[output_format])
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(str(elapsed_time))
@@ -69,7 +71,7 @@ def run():
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
     logger(
-        file_name + ".gr",
+        file_name + SUFFIX_MENU[output_format],
         vertices_number,
         edge_number,
         max_edge,
@@ -82,6 +84,24 @@ def run():
         max_weight,
         min_weight,
         elapsed_time_format)
+
+
+def run():
+    """
+    Run proper converter.
+
+    :return: None
+    """
+    input_dict = get_input()
+    file_name = input_dict["file_name"]
+    number_of_files = input_dict["number_of_files"]
+    for i in range(number_of_files):
+        print("Generating {0} from {1}".format(i + 1, number_of_files))
+        file_name_temp = file_name
+        if number_of_files > 1:
+            file_name_temp = file_name + "_" + str(i + 1)
+        gen_graph(input_dict, file_name_temp)
+        line(40)
 
 
 if __name__ == "__main__":
