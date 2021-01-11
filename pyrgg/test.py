@@ -19,27 +19,48 @@
 20
 >>> convert_str_to_number("20.2")
 20.2
+>>> convert_str_to_bool("1")
+True
+>>> convert_str_to_bool("3")
+True
+>>> convert_str_to_bool("0")
+False
 >>> is_float(10)
 False
 >>> is_float(10.2)
 True
 >>> is_float(None)
 False
->>> logger(2,2,2,2)
+>>> logger(2,2,2,2,2,2,2,2,2,2,2,2,2)
 [Error] Logger Failed!
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19, "direct": 2,"self_loop": 1,"multigraph":1})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2,"self_loop": 1,"multigraph":1}
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2}
 True
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19, "direct": 2,"self_loop": 2,"multigraph":1})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2,"self_loop": 2,"multigraph":1}
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": 5,"output_format": 19, "direct": 2,"self_loop": 2,"multigraph":2})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': 2, "direct": 2,"self_loop": 2,"multigraph":2}
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1}
 True
->>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": 1,"output_format": 1, "direct": 2,"self_loop": 10,"multigraph":10})
->>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': 1, "direct": 2,"self_loop": 1,"multigraph":1}
+>>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100})
+>>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100}
 True
->>> logger(100,50,'test','2min')
+>>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
+>>> file=open('logfile.log','r')
+>>> print("\n".join(file.read().splitlines()[1:-1]))
+Filename : test
+Vertices : 100
+Total Edges : 50
+Max Edge : 1000
+Min Edge : 10
+Directed : True
+Signed : False
+Multigraph : False
+Self Loop : True
+Weighted : True
+Max Weight : 20
+Min Weight : 1
+Elapsed Time : 2min
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)
@@ -68,33 +89,33 @@ ValueError: could not convert string to float: 'sadasdasd'
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,10,1,20,1,1,1,1,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,10,1,20,True,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[4, 25, 18, 3, 30, 34, 2, 26, 14, 11], [3, 10, 20, 14, -18, -2, -15, -14, 8, 6]]
 >>> random.seed(20)
->>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
->>> branch_gen(1,10,4,1,20,2,1,1,1,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[10, 7, 39, 2], [9, 11, 6, 14]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
 TypeError: branch_gen() missing 8 required positional arguments: 'max_weight', 'sign', 'direct', 'self_loop', 'multigraph', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
 >>> random.seed(2)
->>> edge_gen(20,0,400,2,10,1,1,1,1)
+>>> edge_gen(20,0,400,2,10,True,True,True,False)
 [{1: [3, 7], 2: [4, 17, 20, 9, 11], 3: [14, 8, 5, 12, 16, 19, 15], 4: [15, 17, 12, 8, 14, 13], 5: [16, 9, 7, 20, 19, 18, 13, 5], 6: [6, 10], 7: [18, 10, 11], 8: [], 9: [], 10: [12, 18, 8, 1, 14], 11: [9, 11], 12: [], 13: [], 14: [19, 16, 17, 20, 15], 15: [6, 1, 19], 16: [12, 13, 8, 9, 17], 17: [], 18: [9, 12, 17, 6, 20, 19, 1], 19: [13], 20: []}, {1: [184, -128], 2: [220, -278, -257, 14, -163], 3: [286, 118, 166, 261, -263, 228, -303], 4: [-82, -335, 250, -256, -338, -179], 5: [-337, -358, -395, -155, -159, 250, -350, -371], 6: [30, -302], 7: [386, -125, 216], 8: [], 9: [], 10: [127, 42, 12, 191, 80], 11: [-301, 77], 12: [], 13: [], 14: [146, -15, -282, 135, 242], 15: [-52, -65, -249], 16: [-132, -334, 343, -17, 87], 17: [], 18: [126, -37, 302, -131, -142, 77, -209], 19: [123], 20: []}, 61]
 >>> random.seed(11)
->>> edge_gen(20,0,100,2,10,2,1,1,1)
+>>> edge_gen(20,0,100,2,10,False,True,True,False)
 [{1: [18, 15, 19, 7, 20, 11, 2, 6, 3], 2: [17], 3: [8, 4, 5, 9, 12, 10, 14, 16], 4: [20, 13, 4, 6], 5: [12, 7, 11, 10, 14], 6: [9], 7: [19], 8: [8, 18, 11, 2, 16, 17, 10], 9: [15, 12, 18], 10: [20, 14, 13, 15, 17, 16], 11: [19, 7, 20], 12: [13], 13: [2, 16, 13], 14: [18, 19, 6, 14, 17, 15], 15: [6, 7, 16], 16: [17, 20, 12, 18], 17: [19], 18: [7, 6, 9, 12, 20], 19: [19, 11, 4], 20: []}, {1: [99, 57, 75, 23, 80, 23, 57, 18, 68], 2: [50], 3: [79, 67, 7, 24, 76, 99, 41, 75], 4: [29, 63, 84, 58], 5: [70, 90, 40, 65, 3], 6: [51], 7: [37], 8: [2, 0, 26, 60, 90, 53, 72], 9: [43, 39, 1], 10: [15, 31, 1, 59, 22, 57], 11: [98, 53, 49], 12: [53], 13: [34, 2, 23], 14: [82, 12, 18, 56, 1, 37], 15: [9, 26, 1], 16: [47, 58, 75, 73], 17: [23], 18: [39, 78, 92, 20, 49], 19: [10, 6, 13], 20: []}, 74]
 >>> edge_gen(0,400,2,10,1)
 Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> dimacs_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -115,7 +136,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> dimacs_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -164,7 +185,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> dimacs_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -314,12 +335,12 @@ a 99 19 29
 a 99 89 24
 a 100 40 11
 <BLANKLINE>
->>> dimacs_maker('testfile', 0, 200, 10, 0,0,1)
+>>> dimacs_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> json_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -349,7 +370,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'se
 >>> testfile_1_p['graph']['edges'][1]['weight']
 '148'
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -381,7 +402,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'se
 >>> testfile_2_p['graph']['edges'][1]['weight']
 '5'
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -408,7 +429,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'se
 [Error] Bad Input File!
 >>> json_to_pickle('testfile24')
 [Error] Bad Input File!
->>> json_maker('testfile', 0, 200, 10, 0, 0,1)
+>>> json_maker('testfile', 0, 200, 10, 0, 0,True)
 Traceback (most recent call last):
         ...
 TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
@@ -421,10 +442,10 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> testfile_3_p['graph']['edges'][1]['weight']
 '15'
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> random.seed(2)
->>> gml_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gml','r')
 >>> print(file.read())
@@ -526,14 +547,14 @@ graph
   ]
 ]
 >>> random.seed(2)
->>> gexf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gexf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gexf', 'r')
 >>> random.seed(2)
->>> mtx_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> mtx_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> random.seed(2)
->>> tsv_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> tsv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.mtx','r')
 >>> print(file.read())
@@ -548,7 +569,7 @@ graph
 9     1     60
 <BLANKLINE>
 >>> random.seed(2)
->>> gdf_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gdf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -573,7 +594,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gl_maker('testfile', 0, 200, 10, 0, 2, 0, 1,1,1)
+>>> gl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -595,7 +616,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> csv_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -636,7 +657,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker('testfile4',0,50.2,30,0,4,0,1,1,1)
+>>> csv_maker('testfile4',0,50.2,30,0,4,True,True,True,False)
 41
 >>> file=open('testfile4.csv','r')
 >>> print(file.read())
@@ -683,7 +704,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 29,20,26.4
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> csv_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -825,12 +846,12 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 99,89,24
 100,40,11
 <BLANKLINE>
->>> csv_maker('testfile', 0, 200, 10, 0,0,1)
+>>> csv_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> wel_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> wel_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -843,7 +864,7 @@ TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> wel_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -884,7 +905,7 @@ TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,2,1,1,1)
+>>> wel_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1026,12 +1047,12 @@ TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_
 99 89 24
 100 40 11
 <BLANKLINE>
->>> wel_maker('testfile', 0, 200, 10, 0,0,1)
+>>> wel_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> lp_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> lp_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1054,7 +1075,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> lp_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1126,23 +1147,23 @@ edge(28,13,-13).
 <BLANKLINE>
 >>> input_dic=get_input(input_func=lambda x: str(len(x)))
 >>> input_dic['sign']
-2
+True
 >>> input_dic['vertices']
 20
 >>> input_dic['min_edge']
 20
 >>> input_dic['min_weight']
-1
+15
 >>> input_dic['output_format']
 1
 >>> input_dic['max_weight']
-1
+15
 >>> input_dic['file_name']
 '14'
 >>> input_dic['max_edge']
 20
 >>> random.seed(2)
->>> tgf_maker('testfile', 0, 200, 10, 0, 2, 0, 1, 1,1)
+>>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1166,7 +1187,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> tgf_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1238,7 +1259,7 @@ edge(28,13,-13).
 28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker('testfile', 0, 200, 10, 0, 2, 0,1,1,1)
+>>> dl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1255,7 +1276,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker('testfile2',0,50,30,0,4,0,1,1,1)
+>>> dl_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())

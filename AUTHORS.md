@@ -7,4 +7,4 @@
 # Other Contributors #
 ----------
 - [ivanovmg](https://github.com/ivanovmg)
-
+- Ahmad Salimi - Sharif University of Technology ([@ahmadsalimi](https://github.com/ahmadsalimi)) ([ahsa9978@gmail.com](mailto:ahsa9978@gmail.com))
