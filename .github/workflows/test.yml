@@ -27,7 +27,6 @@ jobs:
     - name: First test
       run: |
         python -m pyrgg test
-        python -m pyrgg
     - name: Test requirements Installation
       run: |
         python otherfile/requirements-splitter.py
