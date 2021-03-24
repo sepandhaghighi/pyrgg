@@ -247,17 +247,14 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
             edges = "".join([
                 edges,
                 '\t\t\t{\n\t\t\t\t"source": ',
-                '"',
                 str(key),
-                '",\n\t\t\t\t',
+                ',\n\t\t\t\t',
                 '"target": ',
-                '"',
                 str(value),
-                '",\n\t\t\t\t',
+                ',\n\t\t\t\t',
                 '"weight": ',
-                '"',
                 str(weight_dic[key][j]),
-                '"\n\t\t\t}'
+                '\n\t\t\t}'
             ])
             buf.write(edges)
 
