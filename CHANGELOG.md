@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `requirements-splitter.py`
 ### Changed
 - Test system modified
+- JSON format value changed to number
+- YAML format value changed to number
+- Pickle format value changed to number
 ## [1.0] - 2021-01-11
 ### Added
 - Number of files option
