@@ -345,86 +345,86 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'direct', 'se
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
 >>> testfile_1['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_1['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1['graph']['edges'][1]['weight']
-'148'
+148
 >>> json_to_yaml('testfile')
 >>> file=open('testfile.yaml','r')
 >>> testfile_1_yaml=yaml.load(file)
 >>> testfile_1_yaml['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1_yaml['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1_yaml['graph']['edges'][1]['weight']
-'148'
+148
 >>> json_to_pickle('testfile')
 >>> testfile_1_p=pickle.load( open( 'testfile.p', 'rb' ) )
 >>> testfile_1_p['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1_p['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1_p['graph']['edges'][1]['weight']
-'148'
+148
 >>> random.seed(4)
 >>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
 >>> testfile_2['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_2['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2['graph']['edges'][1]['weight']
-'5'
+5
 >>> json_to_yaml('testfile2')
 >>> file=open('testfile2.yaml','r')
 >>> testfile_2_yaml=yaml.load(file)
 >>> testfile_2_yaml['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_2_yaml['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2_yaml['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2_yaml['graph']['edges'][1]['weight']
-'5'
+5
 >>> json_to_pickle('testfile2')
 >>> testfile_2_p=pickle.load( open( 'testfile2.p', 'rb' ) )
 >>> testfile_2_p['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2_p['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2_p['graph']['edges'][1]['weight']
-'5'
+5
 >>> random.seed(20)
 >>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_3['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3['graph']['edges'][1]['weight']
-'15'
+15
 >>> json_to_yaml('testfile3')
 >>> file=open('testfile3.yaml','r')
 >>> testfile_3_yaml=yaml.load(file)
 >>> testfile_3_yaml['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_3_yaml['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3_yaml['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3_yaml['graph']['edges'][1]['weight']
-'15'
+15
 >>> json_to_yaml('testfile24')
 [Error] Bad Input File!
 >>> json_to_pickle('testfile24')
@@ -436,11 +436,11 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3_p['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3_p['graph']['edges'][1]['weight']
-'15'
+15
 >>> random.seed(2)
 >>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
