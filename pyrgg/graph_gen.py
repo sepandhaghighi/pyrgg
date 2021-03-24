@@ -215,9 +215,8 @@ def _write_nodes_to_json(buf, edge_dic):
             nodes,
             '\t\t\t{\n\t\t\t\t',
             '"id": ',
-            '"',
             str(key),
-            '"\n\t\t\t}'
+            '\n\t\t\t}'
         ])
         buf.write(nodes)
 
