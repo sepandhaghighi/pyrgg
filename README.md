@@ -256,21 +256,21 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 		"graph": {
 				"nodes":[
 				{
-					"id": "1"
+					"id": 1
 				},
 
 				.
 				.
 				.
 				{
-					"id": "n"
+					"id": n
 				}
 				],
 				"edges":[
 				{
-					"source": "head_1",
-					"target": "tail_1",
-					"weight": "weight_1"
+					"source": head_1,
+					"target": tail_1,
+					"weight": weight_1
 				},
 
 				.
@@ -278,9 +278,9 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 				.
 
 				{
-					"source": "head_n",
-					"target": "tail_n",
-					"weight": "weight_n"
+					"source": head_n,
+					"target": tail_n,
+					"weight": weight_n
 				},
 				]
 			}
@@ -290,26 +290,26 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 	```
 		graph:
   			edges:
-			- source: "head_1"
-    	  	target: "tail_1"
-    	  	weight: "weight_1"
+			- source: head_1
+    	  	target: tail_1
+    	  	weight: weight_1
 		
 			.
 			.
 			.
 
-			- source: "head_n"
-    	  	target: "tail_n"
-    	  	weight: "weight_n"
+			- source: head_n
+    	  	target: tail_n
+    	  	weight: weight_n
 						
 			nodes:
-  			- id: '1'
+  			- id: 1
   
   			.
 			.
 			.
 
-			- id: 'n'
+			- id: n
 
 	```
 - [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
