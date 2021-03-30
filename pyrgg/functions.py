@@ -23,6 +23,20 @@ from pyrgg.params import (
 random_system = random
 
 
+def is_weighted(max_weight,min_weight):
+    """
+    Check the graph is weighted or not.
+
+    :param max_weight: maximum weight
+    :type max_weight: int
+    :param min_weight: minimum weight
+    :type min_weight: int
+    :return: result as bool
+    """
+    if max_weight == min_weight and min_weight == 1:
+        return False
+    return True
+
 def get_precision(input_number):
     """
     Return precision of input number.
