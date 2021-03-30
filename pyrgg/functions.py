@@ -219,7 +219,7 @@ def logger(
                        "Signed : " + str(bool(signed)) + "\n" +
                        "Multigraph : " + str(bool(multigraph)) + "\n" +
                        "Self Loop : " + str(bool(self_loop)) + "\n" +
-                       "Weighted : " + str(bool(weighted)) + "\n" +
+                       "Weighted : " + str(bool(is_weighted(max_weight,min_weight))) + "\n" +
                        "Max Weight : " + str(max_weight) + "\n" +
                        "Min Weight : " + str(min_weight) + "\n" +
                        "Elapsed Time : " + elapsed_time + "\n" +
