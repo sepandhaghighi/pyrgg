@@ -23,7 +23,7 @@ from pyrgg.params import (
 random_system = random
 
 
-def is_weighted(max_weight,min_weight):
+def is_weighted(max_weight,min_weight,signed):
     """
     Check the graph is weighted or not.
 
@@ -31,9 +31,11 @@ def is_weighted(max_weight,min_weight):
     :type max_weight: int
     :param min_weight: minimum weight
     :type min_weight: int
+    :param signed: weight sign flag
+    :type signed: bool
     :return: result as bool
     """
-    if max_weight == min_weight and min_weight == 1:
+    if max_weight == min_weight and min_weight == 1 and not signed:
         return False
     return True
 
