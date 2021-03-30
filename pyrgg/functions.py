@@ -174,7 +174,6 @@ def logger(
         signed,
         multigraph,
         self_loop,
-        weighted,
         max_weight,
         min_weight,
         elapsed_time):
@@ -199,8 +198,6 @@ def logger(
     :type multigraph: int
     :param self_loop: self loop flag
     :type self_loop: int
-    :param weighted: weighted flag
-    :type weighted: int
     :param max_weight: maximum weight
     :type max_weight: int
     :param min_weight: minimum weight
@@ -221,7 +218,7 @@ def logger(
                        "Signed : " + str(bool(signed)) + "\n" +
                        "Multigraph : " + str(bool(multigraph)) + "\n" +
                        "Self Loop : " + str(bool(self_loop)) + "\n" +
-                       "Weighted : " + str(bool(is_weighted(max_weight,min_weight))) + "\n" +
+                       "Weighted : " + str(is_weighted(max_weight,min_weight,bool(signed))) + "\n" +
                        "Max Weight : " + str(max_weight) + "\n" +
                        "Min Weight : " + str(min_weight) + "\n" +
                        "Elapsed Time : " + elapsed_time + "\n" +
