@@ -174,7 +174,7 @@ def json_maker(
             direct,
             self_loop,
             multigraph)
-        _write_to_json(
+        _write_data_to_json(
             buf,
             edge_dic,
             weight_dic,
@@ -182,7 +182,7 @@ def json_maker(
     return edge_number
 
 
-def _write_to_json(buf, edge_dic, weight_dic):
+def _write_data_to_json(buf, edge_dic, weight_dic):
     """Write data to json buffer.
 
     :param buf: output file object
