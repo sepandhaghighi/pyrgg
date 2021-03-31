@@ -69,6 +69,12 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
+>>> is_weighted(20,20,False)
+True
+>>> is_weighted(1,1,False)
+False
+>>> is_weighted(1,1,True)
+True
 >>> get_precision(2)
 0
 >>> get_precision(2.2)
