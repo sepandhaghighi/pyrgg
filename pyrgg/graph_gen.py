@@ -233,7 +233,7 @@ def _write_properties_to_json(
     buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
     buf.write('\t\t"weighted": ' +
               str(is_weighted(max_weight, min_weight, sign)).lower() + ",\n")
-    buf.write('\t\t"self_loops": ' + str(self_loop).lower() + "\n\t},")
+    buf.write('\t\t"self_loop": ' + str(self_loop).lower() + "\n\t},")
 
 
 def _write_nodes_to_json(buf, edge_dic):
