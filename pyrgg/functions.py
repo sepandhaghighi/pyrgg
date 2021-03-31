@@ -35,6 +35,8 @@ def is_weighted(max_weight, min_weight, signed):
     :type signed: bool
     :return: result as bool
     """
+    if max_weight == min_weight and min_weight == 0:
+        return False
     if max_weight == min_weight and min_weight == 1 and not signed:
         return False
     return True
