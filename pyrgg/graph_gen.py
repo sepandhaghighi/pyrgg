@@ -228,12 +228,12 @@ def _write_properties_to_json(
     :return: None
     """
     buf.write('{\n\t"properties": {\n')
-    buf.write('\t\t\t"directed": ' + str(direct).lower() + ",\n")
-    buf.write('\t\t\t"signed": ' + str(sign).lower() + ",\n")
-    buf.write('\t\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
-    buf.write('\t\t\t"weighted": ' +
+    buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
+    buf.write('\t\t"signed": ' + str(sign).lower() + ",\n")
+    buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
+    buf.write('\t\t"weighted": ' +
               str(is_weighted(max_weight, min_weight, sign)).lower() + ",\n")
-    buf.write('\t\t\t"self_loops": ' + str(self_loop).lower() + "\n\t},")
+    buf.write('\t\t"self_loops": ' + str(self_loop).lower() + "\n\t},")
 
 
 def _write_nodes_to_json(buf, edge_dic):
@@ -246,7 +246,7 @@ def _write_nodes_to_json(buf, edge_dic):
     :return: None
     """
     first_line = True
-    nodes = '\t\t\t"nodes":[\n'
+    nodes = '\t\t"nodes":[\n'
     buf.write(nodes)
 
     for key in edge_dic:
@@ -257,10 +257,10 @@ def _write_nodes_to_json(buf, edge_dic):
             nodes += ",\n"
         nodes = "".join([
             nodes,
-            '\t\t\t{\n\t\t\t\t',
+            '\t\t{\n\t\t\t',
             '"id": ',
             str(key),
-            '\n\t\t\t}'
+            '\n\t\t}'
         ])
         buf.write(nodes)
 
@@ -276,7 +276,7 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
     :type weight_dic: dict
     :return: None
     """
-    edges = '\t\t\t"edges":[\n'
+    edges = '\t\t"edges":[\n'
 
     first_line = True
     buf.write(edges)
@@ -290,15 +290,15 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
                 edges += ",\n"
             edges = "".join([
                 edges,
-                '\t\t\t{\n\t\t\t\t"source": ',
+                '\t\t{\n\t\t\t"source": ',
                 str(key),
-                ',\n\t\t\t\t',
+                ',\n\t\t\t',
                 '"target": ',
                 str(value),
-                ',\n\t\t\t\t',
+                ',\n\t\t\t',
                 '"weight": ',
                 str(weight_dic[key][j]),
-                '\n\t\t\t}'
+                '\n\t\t}'
             ])
             buf.write(edges)
 
