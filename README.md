@@ -317,6 +317,12 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 			.
 
 			- id: n
+		properties:
+  			directed: true
+  			multigraph: true
+  			self_loop: true
+  			signed: true
+  			weighted: true
 
 	```
 - [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
