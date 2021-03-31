@@ -252,39 +252,46 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
 	```
-		{
+	{
+		"properties": {
+			"directed": true,
+			"signed": true,
+			"multigraph": true,
+			"weighted": true,
+			"self_loop": true
+		},
 		"graph": {
-				"nodes":[
-				{
-					"id": 1
-				},
+			"nodes":[
+			{
+				"id": 1
+			},
 
-				.
-				.
-				.
-				{
-					"id": n
-				}
-				],
-				"edges":[
-				{
-					"source": head_1,
-					"target": tail_1,
-					"weight": weight_1
-				},
-
-				.
-				.
-				.
-
-				{
-					"source": head_n,
-					"target": tail_n,
-					"weight": weight_n
-				},
-				]
+			.
+			.
+			.
+			{
+				"id": n
 			}
+			],
+			"edges":[
+			{
+				"source": head_1,
+				"target": tail_1,
+				"weight": weight_1
+			},
+
+			.
+			.
+			.
+
+			{
+				"source": head_n,
+				"target": tail_n,
+				"weight": weight_n
+			},
+			]
 		}
+	}
 	```
 - [YAML(.yaml)](https://en.wikipedia.org/wiki/YAML)
 	```
