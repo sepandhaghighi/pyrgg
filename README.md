@@ -269,6 +269,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 			.
 			.
 			.
+
 			{
 				"id": n
 			}
@@ -288,7 +289,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 				"source": head_n,
 				"target": tail_n,
 				"weight": weight_n
-			},
+			}
 			]
 		}
 	}
