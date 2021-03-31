@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - `requirements-splitter.py`
+- `is_weighted` function
+- `_write_properties_to_json` function
 ### Changed
 - Test system modified
-- JSON format value changed from `string` to `number`
-- YAML format value changed from `string` to `number`
-- Pickle format value changed from `string` to `number`
+- JSON, YAML and Pickle formats value changed from `string` to `number`
+- `properties` section added to JSON, YAML and Pickle formats
+- `_write_to_json` function renamed to `_write_data_to_json`
 ## [1.0] - 2021-01-11
 ### Added
 - Number of files option
