@@ -80,7 +80,6 @@ def gen_graph(input_dict, file_name):
         sign,
         multigraph,
         self_loop,
-        weight,
         max_weight,
         min_weight,
         elapsed_time_format)

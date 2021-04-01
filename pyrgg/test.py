@@ -31,7 +31,7 @@ False
 True
 >>> is_float(None)
 False
->>> logger(2,2,2,2,2,2,2,2,2,2,2,2,2)
+>>> logger(2,2,2,2,2,2,2,2,2,2,2,2)
 [Error] Logger Failed!
 >>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2}
@@ -45,7 +45,7 @@ True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100}
 True
->>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
+>>> logger('test',100,50,1000,10,1,0,0,1,20,1,'2min')
 >>> file=open('logfile.log','r')
 >>> print("\n".join(file.read().splitlines()[1:-1]))
 Filename : test

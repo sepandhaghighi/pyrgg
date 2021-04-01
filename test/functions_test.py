@@ -2,7 +2,7 @@
 """
 >>> from pyrgg.functions import *
 >>> import random
->>> logger(2,2,2,2,2,2,2,2,2,2,2,2,2)
+>>> logger(2,2,2,2,2,2,2,2,2,2,2,2)
 [Error] Logger Failed!
 >>> description_print()
 Webpage : https://www.pyrgg.ir
@@ -37,7 +37,7 @@ True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2}
 True
->>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
+>>> logger('test',100,50,1000,10,1,0,0,1,20,1,'2min')
 >>> file=open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
 Filename : test
@@ -69,6 +69,16 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
+>>> is_weighted(0,0,False)
+False
+>>> is_weighted(0,0,True)
+False
+>>> is_weighted(20,20,False)
+True
+>>> is_weighted(1,1,False)
+False
+>>> is_weighted(1,1,True)
+True
 >>> get_precision(2)
 0
 >>> get_precision(2.2)

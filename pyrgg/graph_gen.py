@@ -166,7 +166,15 @@ def json_maker(
     )
 
     with open(file_name + ".json", "w") as buf:
-        _write_to_json(
+        _write_properties_to_json(
+            buf,
+            min_weight,
+            max_weight,
+            sign,
+            direct,
+            self_loop,
+            multigraph)
+        _write_data_to_json(
             buf,
             edge_dic,
             weight_dic,
@@ -174,7 +182,7 @@ def json_maker(
     return edge_number
 
 
-def _write_to_json(buf, edge_dic, weight_dic):
+def _write_data_to_json(buf, edge_dic, weight_dic):
     """Write data to json buffer.
 
     :param buf: output file object
@@ -185,11 +193,47 @@ def _write_to_json(buf, edge_dic, weight_dic):
     :type weight_dic: dict
     :return: None
     """
-    buf.write('{\n\t"graph": {\n')
+    buf.write('\n\t"graph": {\n')
     _write_nodes_to_json(buf, edge_dic)
     buf.write("\n\t\t],\n")
     _write_edges_to_json(buf, edge_dic, weight_dic)
     buf.write("\n\t\t]\n\t}\n}")
+
+
+def _write_properties_to_json(
+        buf,
+        min_weight,
+        max_weight,
+        sign,
+        direct,
+        self_loop,
+        multigraph):
+    """
+    Write properties to json buffer.
+
+    :param buf: output file object
+    :type buf: file_object
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param sign: weight sign flag
+    :type sign: bool
+    :param direct: directed and undirected graph flag
+    :type direct: bool
+    :param self_loop: self loop flag
+    :type self_loop: bool
+    :param multigraph: multigraph flag
+    :type multigraph: bool
+    :return: None
+    """
+    buf.write('{\n\t"properties": {\n')
+    buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
+    buf.write('\t\t"signed": ' + str(sign).lower() + ",\n")
+    buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
+    buf.write('\t\t"weighted": ' +
+              str(is_weighted(max_weight, min_weight, sign)).lower() + ",\n")
+    buf.write('\t\t"self_loop": ' + str(self_loop).lower() + "\n\t},")
 
 
 def _write_nodes_to_json(buf, edge_dic):
@@ -202,7 +246,7 @@ def _write_nodes_to_json(buf, edge_dic):
     :return: None
     """
     first_line = True
-    nodes = '\t\t\t"nodes":[\n'
+    nodes = '\t\t"nodes":[\n'
     buf.write(nodes)
 
     for key in edge_dic:
@@ -213,10 +257,10 @@ def _write_nodes_to_json(buf, edge_dic):
             nodes += ",\n"
         nodes = "".join([
             nodes,
-            '\t\t\t{\n\t\t\t\t',
+            '\t\t{\n\t\t\t',
             '"id": ',
             str(key),
-            '\n\t\t\t}'
+            '\n\t\t}'
         ])
         buf.write(nodes)
 
@@ -232,7 +276,7 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
     :type weight_dic: dict
     :return: None
     """
-    edges = '\t\t\t"edges":[\n'
+    edges = '\t\t"edges":[\n'
 
     first_line = True
     buf.write(edges)
@@ -246,15 +290,15 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
                 edges += ",\n"
             edges = "".join([
                 edges,
-                '\t\t\t{\n\t\t\t\t"source": ',
+                '\t\t{\n\t\t\t"source": ',
                 str(key),
-                ',\n\t\t\t\t',
+                ',\n\t\t\t',
                 '"target": ',
                 str(value),
-                ',\n\t\t\t\t',
+                ',\n\t\t\t',
                 '"weight": ',
                 str(weight_dic[key][j]),
-                '\n\t\t\t}'
+                '\n\t\t}'
             ])
             buf.write(edges)
 
