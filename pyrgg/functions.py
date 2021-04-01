@@ -212,9 +212,22 @@ def logger(
     """
     try:
         with open("logfile.log", "a") as file:
-            file.write(PYRGG_LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),file_name,str(vertices_number),str(edge_number),str(max_edge), str(min_edge),
-                                                    str(bool(directed)),str(bool(signed)),str(bool(multigraph)),str(bool(self_loop)),str(is_weighted(max_weight, min_weight, bool(signed))),
-                                                    str(max_weight),str(min_weight),elapsed_time))
+            file.write(PYRGG_LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                                    file_name,
+                                                    str(vertices_number),
+                                                    str(edge_number),
+                                                    str(max_edge),
+                                                    str(min_edge),
+                                                    str(bool(directed)),
+                                                    str(bool(signed)),
+                                                    str(bool(multigraph)),
+                                                    str(bool(self_loop)),
+                                                    str(is_weighted(max_weight,
+                                                                    min_weight,
+                                                                    bool(signed))),
+                                                    str(max_weight),
+                                                    str(min_weight),
+                                                    elapsed_time))
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 
