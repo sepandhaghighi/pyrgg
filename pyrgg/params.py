@@ -107,7 +107,6 @@ Max Weight : {11}
 Min Weight : {12}
 Elapsed Time : {13}
 -------------------------------
-
 """
 
 DIMACS_FIX = dedent(
