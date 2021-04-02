@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON, YAML and Pickle formats value changed from `string` to `number`
 - `properties` section added to JSON, YAML and Pickle formats
 - `_write_to_json` function renamed to `_write_data_to_json`
+- `logger` function modified
 ## [1.0] - 2021-01-11
 ### Added
 - Number of files option

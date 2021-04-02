@@ -2,8 +2,6 @@
 """
 >>> from pyrgg.functions import *
 >>> import random
->>> logger(2,2,2,2,2,2,2,2,2,2,2,2)
-[Error] Logger Failed!
 >>> description_print()
 Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg

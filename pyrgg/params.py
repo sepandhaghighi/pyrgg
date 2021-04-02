@@ -92,6 +92,23 @@ PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad Input File!"
 
 PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger Failed!"
 
+PYRGG_LOGGER_TEMPLATE = """{0}
+Filename : {1}
+Vertices : {2}
+Total Edges : {3}
+Max Edge : {4}
+Min Edge : {5}
+Directed : {6}
+Signed : {7}
+Multigraph : {8}
+Self Loop : {9}
+Weighted : {10}
+Max Weight : {11}
+Min Weight : {12}
+Elapsed Time : {13}
+-------------------------------
+"""
+
 DIMACS_FIX = dedent(
     """\
     c FILE                  :{0}.gr
