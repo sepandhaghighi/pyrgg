@@ -250,10 +250,10 @@ def time_convert(input_string):
         if value_dict[i] != 1:
             postfix_dict[i] += "s"
     return ", ".join([
-        "{:02.0f} {1}".format(value_dict["d"],postfix_dict["d"]),
-        "{:02.0f} {1}".format(value_dict["h"],postfix_dict["h"]),
-        "{:02.0f} {1}".format(value_dict["m"],postfix_dict["m"]),
-        "{:02.0f} {1}".format(value_dict["s"],postfix_dict["s"]),
+        "{0:02.0f} {1}".format(value_dict["d"],postfix_dict["d"]),
+        "{0:02.0f} {1}".format(value_dict["h"],postfix_dict["h"]),
+        "{0:02.0f} {1}".format(value_dict["m"],postfix_dict["m"]),
+        "{0:02.0f} {1}".format(value_dict["s"],postfix_dict["s"]),
     ])
 
 
