@@ -240,8 +240,8 @@ def time_convert(input_time):
     :type input_time: float
     :return: converted time as str
     """
-    postfix_dict = {"s":"second","d":"day","h":"hour","m":"minute"}
-    value_dict = {"s":0,"d":0,"h":0,"m":0}
+    postfix_dict = {"s": "second", "d": "day", "h": "hour", "m": "minute"}
+    value_dict = {"s": 0, "d": 0, "h": 0, "m": 0}
     value_dict["s"] = float(input_time)
     value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
     value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
@@ -250,10 +250,10 @@ def time_convert(input_time):
         if value_dict[i] != 1:
             postfix_dict[i] += "s"
     return ", ".join([
-        "{0:02.0f} {1}".format(value_dict["d"],postfix_dict["d"]),
-        "{0:02.0f} {1}".format(value_dict["h"],postfix_dict["h"]),
-        "{0:02.0f} {1}".format(value_dict["m"],postfix_dict["m"]),
-        "{0:02.0f} {1}".format(value_dict["s"],postfix_dict["s"]),
+        "{0:02.0f} {1}".format(value_dict["d"], postfix_dict["d"]),
+        "{0:02.0f} {1}".format(value_dict["h"], postfix_dict["h"]),
+        "{0:02.0f} {1}".format(value_dict["m"], postfix_dict["m"]),
+        "{0:02.0f} {1}".format(value_dict["s"], postfix_dict["s"]),
     ])
 
 
