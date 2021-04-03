@@ -61,6 +61,18 @@ Elapsed Time : 2min
 '00 days, 00 hours, 00 minutes, 33 seconds'
 >>> time_convert(15000)
 '00 days, 04 hours, 10 minutes, 00 seconds'
+>>> time_convert(1)
+'00 days, 00 hours, 00 minutes, 01 second'
+>>> time_convert(60)
+'00 days, 00 hours, 01 minute, 00 seconds'
+>>> time_convert(60*60)
+'00 days, 01 hour, 00 minutes, 00 seconds'
+>>> time_convert(60*60*24)
+'01 day, 00 hours, 00 minutes, 00 seconds'
+>>> time_convert(60*60*24 + 60*60 + 60 + 1)
+'01 day, 01 hour, 01 minute, 01 second'
+>>> time_convert(0)
+'00 days, 00 hours, 00 minutes, 00 seconds'
 >>> time_convert('sadasdasd')
 Traceback (most recent call last):
         ...
