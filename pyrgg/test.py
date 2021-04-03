@@ -66,9 +66,9 @@ Elapsed Time : 2min
 >>> convert_bytes(80000)
 '78.1 KB'
 >>> time_convert('33')
-'00 days, 00 hour, 00 minutes, 33 seconds'
+'00 days, 00 hours, 00 minutes, 33 seconds'
 >>> time_convert('15000')
-'00 days, 04 hour, 10 minutes, 00 seconds'
+'00 days, 04 hours, 10 minutes, 00 seconds'
 >>> time_convert('sadasdasd')
 Traceback (most recent call last):
         ...
