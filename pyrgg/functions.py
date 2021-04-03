@@ -240,15 +240,20 @@ def time_convert(input_string):
     :type input_string: str
     :return: converted time as str
     """
-    sec = float(input_string)
-    days, sec = divmod(sec, 24 * 3600)
-    hours, sec = divmod(sec, 3600)
-    minutes, sec = divmod(sec, 60)
+    postfix_dict = {"s":"second","d":"day","h":"hour","m":"minute"}
+    value_dict = {"s":0,"d":0,"h":0,"m":0}
+    value_dict["s"] = float(input_string)
+    value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
+    value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
+    value_dict["m"], value_dict["s"] = divmod(value_dict["s"], 60)
+    for i in postfix_dict.keys():
+        if value_dict[i] != 1:
+            postfix_dict[i] += "s"
     return ", ".join([
-        "{:02.0f} days".format(days),
-        "{:02.0f} hour".format(hours),
-        "{:02.0f} minutes".format(minutes),
-        "{:02.0f} seconds".format(sec),
+        "{:02.0f} {1}".format(value_dict["d"],postfix_dict["d"]),
+        "{:02.0f} {1}".format(value_dict["h"],postfix_dict["h"]),
+        "{:02.0f} {1}".format(value_dict["m"],postfix_dict["m"]),
+        "{:02.0f} {1}".format(value_dict["s"],postfix_dict["s"]),
     ])
 
 
