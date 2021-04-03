@@ -232,17 +232,17 @@ def logger(
         print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
-def time_convert(input_string):
+def time_convert(input_time):
     """
-    Convert input_string from sec to DD,HH,MM,SS format.
+    Convert input_time from sec to DD,HH,MM,SS format.
 
-    :param input_string: input time string in sec
-    :type input_string: str
+    :param input_time: input time in sec
+    :type input_time: int
     :return: converted time as str
     """
     postfix_dict = {"s":"second","d":"day","h":"hour","m":"minute"}
     value_dict = {"s":0,"d":0,"h":0,"m":0}
-    value_dict["s"] = float(input_string)
+    value_dict["s"] = input_time
     value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
     value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
     value_dict["m"], value_dict["s"] = divmod(value_dict["s"], 60)
