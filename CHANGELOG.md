@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `requirements-splitter.py`
+- `is_weighted` function
+- `_write_properties_to_json` function
+### Changed
+- Test system modified
+- JSON, YAML and Pickle formats value changed from `string` to `number`
+- `properties` section added to JSON, YAML and Pickle formats
+- `_write_to_json` function renamed to `_write_data_to_json`
+- `logger` function modified
+- `time_convert` function modified
 ## [1.0] - 2021-01-11
 ### Added
 - Number of files option

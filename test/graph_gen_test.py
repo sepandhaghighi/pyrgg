@@ -384,86 +384,166 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
 >>> testfile_1['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_1['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1['graph']['edges'][1]['weight']
-'148'
+148
+>>> testfile_1['properties']['signed']
+True
+>>> testfile_1['properties']['directed']
+True
+>>> testfile_1['properties']['self_loop']
+True
+>>> testfile_1['properties']['multigraph']
+False
+>>> testfile_1['properties']['weighted']
+True
 >>> json_to_yaml('testfile')
 >>> file=open('testfile.yaml','r')
 >>> testfile_1_yaml=yaml.load(file)
 >>> testfile_1_yaml['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1_yaml['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1_yaml['graph']['edges'][1]['weight']
-'148'
+148
+>>> testfile_1_yaml['properties']['signed']
+True
+>>> testfile_1_yaml['properties']['directed']
+True
+>>> testfile_1_yaml['properties']['self_loop']
+True
+>>> testfile_1_yaml['properties']['multigraph']
+False
+>>> testfile_1_yaml['properties']['weighted']
+True
 >>> json_to_pickle('testfile')
 >>> testfile_1_p=pickle.load( open( 'testfile.p', 'rb' ) )
 >>> testfile_1_p['graph']['edges'][1]['source']
-'5'
+5
 >>> testfile_1_p['graph']['edges'][1]['target']
-'6'
+6
 >>> testfile_1_p['graph']['edges'][1]['weight']
-'148'
+148
+>>> testfile_1_p['properties']['signed']
+True
+>>> testfile_1_p['properties']['directed']
+True
+>>> testfile_1_p['properties']['self_loop']
+True
+>>> testfile_1_p['properties']['multigraph']
+False
+>>> testfile_1_p['properties']['weighted']
+True
 >>> random.seed(4)
 >>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
 >>> testfile_2['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_2['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2['graph']['edges'][1]['weight']
-'5'
+5
+>>> testfile_2['properties']['signed']
+True
+>>> testfile_2['properties']['directed']
+True
+>>> testfile_2['properties']['self_loop']
+True
+>>> testfile_2['properties']['multigraph']
+False
+>>> testfile_2['properties']['weighted']
+True
 >>> json_to_yaml('testfile2')
 >>> file=open('testfile2.yaml','r')
 >>> testfile_2_yaml=yaml.load(file)
 >>> testfile_2_yaml['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_2_yaml['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2_yaml['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2_yaml['graph']['edges'][1]['weight']
-'5'
+5
+>>> testfile_2_yaml['properties']['signed']
+True
+>>> testfile_2_yaml['properties']['directed']
+True
+>>> testfile_2_yaml['properties']['self_loop']
+True
+>>> testfile_2_yaml['properties']['multigraph']
+False
+>>> testfile_2_yaml['properties']['weighted']
+True
 >>> json_to_pickle('testfile2')
 >>> testfile_2_p=pickle.load( open( 'testfile2.p', 'rb' ) )
 >>> testfile_2_p['graph']['edges'][1]['source']
-'2'
+2
 >>> testfile_2_p['graph']['edges'][1]['target']
-'18'
+18
 >>> testfile_2_p['graph']['edges'][1]['weight']
-'5'
+5
+>>> testfile_2_p['properties']['signed']
+True
+>>> testfile_2_p['properties']['directed']
+True
+>>> testfile_2_p['properties']['self_loop']
+True
+>>> testfile_2_p['properties']['multigraph']
+False
+>>> testfile_2_p['properties']['weighted']
+True
 >>> random.seed(20)
 >>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_3['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3['graph']['edges'][1]['weight']
-'15'
+15
+>>> testfile_3['properties']['signed']
+False
+>>> testfile_3['properties']['directed']
+True
+>>> testfile_3['properties']['self_loop']
+True
+>>> testfile_3['properties']['multigraph']
+False
+>>> testfile_3['properties']['weighted']
+True
 >>> json_to_yaml('testfile3')
 >>> file=open('testfile3.yaml','r')
 >>> testfile_3_yaml=yaml.load(file)
 >>> testfile_3_yaml['graph']['nodes'][1]
-{'id': '2'}
+{'id': 2}
 >>> testfile_3_yaml['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3_yaml['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3_yaml['graph']['edges'][1]['weight']
-'15'
+15
+>>> testfile_3_yaml['properties']['signed']
+False
+>>> testfile_3_yaml['properties']['directed']
+True
+>>> testfile_3_yaml['properties']['self_loop']
+True
+>>> testfile_3_yaml['properties']['multigraph']
+False
+>>> testfile_3_yaml['properties']['weighted']
+True
 >>> json_to_yaml('testfile24')
 [Error] Bad Input File!
 >>> json_to_pickle('testfile24')
@@ -475,14 +555,50 @@ TypeError: json_maker() missing 1 required positional argument: 'sign'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
-'3'
+3
 >>> testfile_3_p['graph']['edges'][1]['target']
-'76'
+76
 >>> testfile_3_p['graph']['edges'][1]['weight']
-'15'
+15
+>>> testfile_3_p['properties']['signed']
+False
+>>> testfile_3_p['properties']['directed']
+True
+>>> testfile_3_p['properties']['self_loop']
+True
+>>> testfile_3_p['properties']['multigraph']
+False
+>>> testfile_3_p['properties']['weighted']
+True
 >>> random.seed(20)
 >>> json_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['signed']
+False
+>>> testfile_3['properties']['directed']
+False
+>>> testfile_3['properties']['self_loop']
+True
+>>> testfile_3['properties']['multigraph']
+True
+>>> testfile_3['properties']['weighted']
+True
+>>> random.seed(21)
+>>> json_maker('testfile3',1,1,100,0,4,False,False,True,True)
+136
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['weighted']
+False
+>>> random.seed(21)
+>>> json_maker('testfile3',1,1,100,0,4,True,False,True,True)
+158
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['weighted']
+True
 >>> random.seed(2)
 >>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7

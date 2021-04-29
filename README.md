@@ -66,14 +66,9 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 		<td align="center">dev</td>	
 	</tr>
 	<tr>
-		<td align="center">Travis</td>
-		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a></td>
-		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=dev"></a></a></td>
-	</tr>
-	<tr>
-		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/dev?svg=true"></a></td>
+		<td align="center">CI</td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=dev"></td>
 	</tr>
 </table>
 
@@ -257,64 +252,78 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
 	```
-		{
+	{
+		"properties": {
+			"directed": true,
+			"signed": true,
+			"multigraph": true,
+			"weighted": true,
+			"self_loop": true
+		},
 		"graph": {
-				"nodes":[
-				{
-					"id": "1"
-				},
+			"nodes":[
+			{
+				"id": 1
+			},
 
-				.
-				.
-				.
-				{
-					"id": "n"
-				}
-				],
-				"edges":[
-				{
-					"source": "head_1",
-					"target": "tail_1",
-					"weight": "weight_1"
-				},
+			.
+			.
+			.
 
-				.
-				.
-				.
-
-				{
-					"source": "head_n",
-					"target": "tail_n",
-					"weight": "weight_n"
-				},
-				]
+			{
+				"id": n
 			}
+			],
+			"edges":[
+			{
+				"source": head_1,
+				"target": tail_1,
+				"weight": weight_1
+			},
+
+			.
+			.
+			.
+
+			{
+				"source": head_n,
+				"target": tail_n,
+				"weight": weight_n
+			}
+			]
 		}
+	}
 	```
 - [YAML(.yaml)](https://en.wikipedia.org/wiki/YAML)
 	```
 		graph:
   			edges:
-			- source: "head_1"
-    	  	target: "tail_1"
-    	  	weight: "weight_1"
+			- source: head_1
+    	  	target: tail_1
+    	  	weight: weight_1
 		
 			.
 			.
 			.
 
-			- source: "head_n"
-    	  	target: "tail_n"
-    	  	weight: "weight_n"
+			- source: head_n
+    	  	target: tail_n
+    	  	weight: weight_n
 						
 			nodes:
-  			- id: '1'
+  			- id: 1
   
   			.
 			.
 			.
 
-			- id: 'n'
+			- id: n
+		properties:
+  			directed: true
+  			multigraph: true
+  			self_loop: true
+  			signed: true
+  			weighted: true
 
 	```
 - [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
