@@ -564,6 +564,10 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>9- Adar, Eytan. "GUESS: a language and interface for graph exploration." Proceedings of the SIGCHI conference on Human Factors in computing systems. 2006. </blockquote>
 
 <blockquote>10- Skiena, Steven S. The algorithm design manual. Springer International Publishing, 2020. </blockquote>
+
+<blockquote>11- Chakrabarti, Deepayan, Yiping Zhan, and Christos Faloutsos. "R-MAT: A recursive model for graph mining." Proceedings of the 2004 SIAM International Conference on Data Mining. Society for Industrial and Applied Mathematics, 2004. </blockquote>
+
+<blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
 					
  
 ## Donate to our project		
