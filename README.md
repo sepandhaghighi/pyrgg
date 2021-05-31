@@ -562,6 +562,8 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>8- <a href="https://socnetv.org/docs/formats.html#GML">Social Network Visualizer</a> </blockquote>
 
 <blockquote>9- Adar, Eytan. "GUESS: a language and interface for graph exploration." Proceedings of the SIGCHI conference on Human Factors in computing systems. 2006. </blockquote>
+
+<blockquote>10- Skiena, Steven S. The algorithm design manual. Springer International Publishing, 2020. </blockquote>
 					
  
 ## Donate to our project		
