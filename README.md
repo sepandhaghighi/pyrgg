@@ -545,12 +545,24 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 ## References
 					
 
-<div align="center">
+<blockquote>1- <a href="http://www.diag.uniroma1.it/challenge9/format.shtml">9th DIMACS Implementation Challenge - Shortest Paths</a> </blockquote>
 
-<img src="http://www.shaghighi.ir/pyrgg/images/dimacs_logo.gif" alt="DIMACS">
+<blockquote>2- <a href="http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html">Problem Based Benchmark Suite</a></blockquote>
 
+<blockquote>3- <a href="https://www.mat.unical.it/aspcomp2013/MaximalClique">MaximalClique - ASP Competition 2013</a></blockquote>
 
-</div>  						
+<blockquote>4- Pitas, Ioannis, ed. Graph-based social media analysis. Vol. 39. CRC Press, 2016. </blockquote>	
+
+<blockquote>5- Roughan, Matthew, and Jonathan Tuke. "The hitchhikers guide to sharing graph data." 2015 3rd International Conference on Future Internet of Things and Cloud. IEEE, 2015. </blockquote>	
+
+<blockquote>6- Borgatti, Stephen P., Martin G. Everett, and Linton C. Freeman. "Ucinet for Windows: Software for social network analysis." Harvard, MA: analytic technologies 6 (2002). </blockquote>
+
+<blockquote>7- <a href="https://math.nist.gov/MatrixMarket/formats.html">Matrix Market: File Formats</a> </blockquote>		
+
+<blockquote>8- <a href="https://socnetv.org/docs/formats.html#GML">Social Network Visualizer</a> </blockquote>
+
+<blockquote>9- Adar, Eytan. "GUESS: a language and interface for graph exploration." Proceedings of the SIGCHI conference on Human Factors in computing systems. 2006. </blockquote>
+					
  
 ## Donate to our project		
 							
