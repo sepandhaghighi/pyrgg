@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `_write_to_json` function renamed to `_write_data_to_json`
 - `logger` function modified
 - `time_convert` function modified
+- References updated
 ## [1.0] - 2021-01-11
 ### Added
 - Number of files option
