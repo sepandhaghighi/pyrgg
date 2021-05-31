@@ -12,8 +12,9 @@ Please consider the following :
 4. Add standard `docstring` to your functions/methods
 5. Add tests for your functions/methods (`doctest` testcases in `test` folder)
 6. Pass all CI tests
-7. Update `CHANGELOG.md`
+7. Update `References` section in `README.md` (`MLA` format)
+8. Update `CHANGELOG.md`
 	- Describe changes under `[Unreleased]` section
-8. Update `AUTHORS.md`
+9. Update `AUTHORS.md`
 	- Add your name under `# Other Contributors #` section
-9. Submit a pull request into `dev` (please complete the pull request template)
+10. Submit a pull request into `dev` (please complete the pull request template)
