@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 >>> from pyrgg import *
+>>> import pyrgg.params
 >>> import random
 >>> import os
 >>> import json
@@ -9,6 +10,7 @@
 >>> from scipy.io import mmread
 >>> from networkx.readwrite.gml import read_gml
 >>> from networkx.readwrite.gexf import read_gexf
+>>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> random.seed(2)
 >>> dimacs_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
