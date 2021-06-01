@@ -488,7 +488,8 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if not self_loop and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
-    reference_vertices.sort()
+    if pyrgg.params.PYRGG_TEST_MODE:
+        reference_vertices.sort()
     while (index < threshold):
         vertex_degree = degree_dict[vertex_index]
         if vertex_degree >= max_edge:

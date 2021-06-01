@@ -63,6 +63,8 @@ SUFFIX_MENU = {
 
 PYRGG_VERSION = "1.0"
 
+PYRGG_TEST_MODE = False
+
 SOURCE_DIR = os.getcwd()
 
 PYRGG_LINKS = """
