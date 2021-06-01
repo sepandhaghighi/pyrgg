@@ -3,8 +3,8 @@
 >>> from pyrgg.functions import *
 >>> import pyrgg.params
 >>> import random
->>> description_print()
 >>> pyrgg.params.PYRGG_TEST_MODE = True
+>>> description_print()
 Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
 Paper : https://doi.org/10.21105/joss.00331
