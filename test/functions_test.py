@@ -161,7 +161,7 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":3}
 >>> def input_func_test(input_data):
-...    menu = dict(MENU_ITEMS1,**MENU_ITEMS2)
+...    menu = dict(pyrgg.params.MENU_ITEMS1,**pyrgg.params.MENU_ITEMS2)
 ...    global prev_item
 ...    for item in menu:
 ...        if input_data == menu[item]:
