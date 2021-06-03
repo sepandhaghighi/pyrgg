@@ -17,14 +17,14 @@
 </div>	
 
 ----------
-## Table of contents					
+## Table of Contents					
    * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
    * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
    * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
    * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
    * [Todo](https://github.com/sepandhaghighi/pyrgg#todo)
    * [Sample Files](https://github.com/sepandhaghighi/pyrgg#sample-files)
-   * [Example Of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
+   * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
    * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
    * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
    * [Dependencies](https://github.com/sepandhaghighi/pyrgg#dependencies)
@@ -33,7 +33,7 @@
    * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
    * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
    * [License](https://github.com/sepandhaghighi/pyrgg#license)
-   * [Donate](https://github.com/sepandhaghighi/pyrgg#donate-to-our-project)
+   * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
    * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
 				
@@ -198,7 +198,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 
 
 
-## Example Of Usage
+## Example of Usage
 
 
 - Generate synthetic data for graph processing frameworks (some of them mentioned here) performance-analysis 			 
@@ -570,15 +570,32 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
 					
  
-## Donate to our project		
-							
+## Show Your Support
+								
+<h3>Star This Repo</h3>					
 
-<h3>Bitcoin :</h3>					
+Give a ⭐️ if this project helped you!
 
-```1XGr9qbZjBpUQJJSB6WtgBQbDTgrhPLPA```			
+<h3>Donate to Our Project</h3>	
 
+<h4>Bitcoin</h4>
+1KtNLEEeUbTEK9PdN6Ya3ZAKXaqoKUuxCy
+<h4>Ethereum</h4>
+0xcD4Db18B6664A9662123D4307B074aE968535388
+<h4>Litecoin</h4>
+Ldnz5gMcEeV8BAdsyf8FstWDC6uyYR6pgZ
+<h4>Doge</h4>
+DDUnKpFQbBqLpFVZ9DfuVysBdr249HxVDh
+<h4>Tron</h4>
+TCZxzPZLcJHr2qR3uPUB1tXB6L3FDSSAx7
+<h4>Ripple</h4>
+rN7ZuRG7HDGHR5nof8nu5LrsbmSB61V1qq
+<h4>Binance Coin</h4>
+bnb1zglwcf0ac3d0s2f6ck5kgwvcru4tlctt4p5qef
+<h4>Tether</h4>
+0xcD4Db18B6664A9662123D4307B074aE968535388
+<h4>Dash</h4>
+Xd3Yn2qZJ7VE8nbKw2fS98aLxR5M6WUU3s
+<h4>Stellar</h4>		
 
-
-<h3>Payping (For Iranian citizens) :</h3>
-
-<a href="http://www.payping.net/sepandhaghighi" target="__blank"><img src="http://www.qpage.ir/images/payping.png" height=100px width=100px></a>	
+GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL	
