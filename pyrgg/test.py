@@ -2,11 +2,13 @@
 """Test file."""
 """
 >>> from pyrgg import *
+>>> import pyrgg.params
 >>> import random
 >>> import os
 >>> import json
 >>> import yaml
 >>> import pickle
+>>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> get_precision(2)
 0
 >>> get_precision(2.2)
