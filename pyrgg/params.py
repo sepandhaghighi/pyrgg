@@ -61,7 +61,7 @@ SUFFIX_MENU = {
 }
 
 
-PYRGG_VERSION = "1.0"
+PYRGG_VERSION = "1.1"
 
 PYRGG_TEST_MODE = False
 
