@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 >>> from pyrgg.functions import *
+>>> import pyrgg.params
 >>> import random
->>> logger(2,2,2,2,2,2,2,2,2,2,2,2,2)
-[Error] Logger Failed!
+>>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> description_print()
 Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
@@ -37,7 +37,7 @@ True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2}
 True
->>> logger('test',100,50,1000,10,1,0,0,1,1,20,1,'2min')
+>>> logger('test',100,50,1000,10,1,0,0,1,20,1,'2min')
 >>> file=open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
 Filename : test
@@ -59,16 +59,38 @@ Elapsed Time : 2min
 '5.9 KB'
 >>> convert_bytes(80000)
 '78.1 KB'
->>> time_convert('33')
-'00 days, 00 hour, 00 minutes, 33 seconds'
->>> time_convert('15000')
-'00 days, 04 hour, 10 minutes, 00 seconds'
+>>> time_convert(33)
+'00 days, 00 hours, 00 minutes, 33 seconds'
+>>> time_convert(15000)
+'00 days, 04 hours, 10 minutes, 00 seconds'
+>>> time_convert(1)
+'00 days, 00 hours, 00 minutes, 01 second'
+>>> time_convert(60)
+'00 days, 00 hours, 01 minute, 00 seconds'
+>>> time_convert(60*60)
+'00 days, 01 hour, 00 minutes, 00 seconds'
+>>> time_convert(60*60*24)
+'01 day, 00 hours, 00 minutes, 00 seconds'
+>>> time_convert(60*60*24 + 60*60 + 60 + 1)
+'01 day, 01 hour, 01 minute, 01 second'
+>>> time_convert(0)
+'00 days, 00 hours, 00 minutes, 00 seconds'
 >>> time_convert('sadasdasd')
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
+>>> is_weighted(0,0,False)
+False
+>>> is_weighted(0,0,True)
+False
+>>> is_weighted(20,20,False)
+True
+>>> is_weighted(1,1,False)
+False
+>>> is_weighted(1,1,True)
+True
 >>> get_precision(2)
 0
 >>> get_precision(2.2)
@@ -139,7 +161,7 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":3}
 >>> def input_func_test(input_data):
-...    menu = dict(MENU_ITEMS1,**MENU_ITEMS2)
+...    menu = dict(pyrgg.params.MENU_ITEMS1,**pyrgg.params.MENU_ITEMS2)
 ...    global prev_item
 ...    for item in menu:
 ...        if input_data == menu[item]:

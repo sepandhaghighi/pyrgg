@@ -7,20 +7,29 @@ import pickle
 import random
 import textwrap
 import yaml
-
-from pyrgg.params import (
-    MENU_ITEMS1,
-    MENU_ITEMS2,
-    PYRGG_LINKS,
-    PYRGG_DESCRIPTION,
-    PYRGG_FILE_ERROR_MESSAGE,
-    PYRGG_INPUT_ERROR_MESSAGE,
-    PYRGG_LOGGER_ERROR_MESSAGE,
-    SUFFIX_MENU,
-)
+import pyrgg.params
 
 # random_system=random.SystemRandom()
 random_system = random
+
+
+def is_weighted(max_weight, min_weight, signed):
+    """
+    Check the graph is weighted or not.
+
+    :param max_weight: maximum weight
+    :type max_weight: int
+    :param min_weight: minimum weight
+    :type min_weight: int
+    :param signed: weight sign flag
+    :type signed: bool
+    :return: result as bool
+    """
+    if max_weight == min_weight and min_weight == 0:
+        return False
+    if max_weight == min_weight and min_weight == 1 and not signed:
+        return False
+    return True
 
 
 def get_precision(input_number):
@@ -100,10 +109,10 @@ def description_print():
 
     :return: None
     """
-    print(PYRGG_LINKS)
+    print(pyrgg.params.PYRGG_LINKS)
     line(40)
     print("\n")
-    print(textwrap.fill(PYRGG_DESCRIPTION, width=100))
+    print(textwrap.fill(pyrgg.params.PYRGG_DESCRIPTION, width=100))
     print("\n")
     line(40)
 
@@ -158,7 +167,6 @@ def logger(
         signed,
         multigraph,
         self_loop,
-        weighted,
         max_weight,
         min_weight,
         elapsed_time):
@@ -183,8 +191,6 @@ def logger(
     :type multigraph: int
     :param self_loop: self loop flag
     :type self_loop: int
-    :param weighted: weighted flag
-    :type weighted: int
     :param max_weight: maximum weight
     :type max_weight: int
     :param min_weight: minimum weight
@@ -195,42 +201,48 @@ def logger(
     """
     try:
         with open("logfile.log", "a") as file:
-            file.write(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n" +
-                       "Filename : " + file_name + "\n" +
-                       "Vertices : " + str(vertices_number) + "\n" +
-                       "Total Edges : " + str(edge_number) + "\n" +
-                       "Max Edge : " + str(max_edge) + "\n" +
-                       "Min Edge : " + str(min_edge) + "\n" +
-                       "Directed : " + str(bool(directed)) + "\n" +
-                       "Signed : " + str(bool(signed)) + "\n" +
-                       "Multigraph : " + str(bool(multigraph)) + "\n" +
-                       "Self Loop : " + str(bool(self_loop)) + "\n" +
-                       "Weighted : " + str(bool(weighted)) + "\n" +
-                       "Max Weight : " + str(max_weight) + "\n" +
-                       "Min Weight : " + str(min_weight) + "\n" +
-                       "Elapsed Time : " + elapsed_time + "\n" +
-                       "-------------------------------\n")
+            file.write(pyrgg.params.PYRGG_LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                                    file_name,
+                                                    str(vertices_number),
+                                                    str(edge_number),
+                                                    str(max_edge),
+                                                    str(min_edge),
+                                                    str(bool(directed)),
+                                                    str(bool(signed)),
+                                                    str(bool(multigraph)),
+                                                    str(bool(self_loop)),
+                                                    str(is_weighted(max_weight,
+                                                                    min_weight,
+                                                                    bool(signed))),
+                                                    str(max_weight),
+                                                    str(min_weight),
+                                                    elapsed_time))
     except Exception:
-        print(PYRGG_LOGGER_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_LOGGER_ERROR_MESSAGE)
 
 
-def time_convert(input_string):
+def time_convert(input_time):
     """
-    Convert input_string from sec to DD,HH,MM,SS format.
+    Convert input_time from sec to DD,HH,MM,SS format.
 
-    :param input_string: input time string in sec
-    :type input_string: str
+    :param input_time: input time in sec
+    :type input_time: float
     :return: converted time as str
     """
-    sec = float(input_string)
-    days, sec = divmod(sec, 24 * 3600)
-    hours, sec = divmod(sec, 3600)
-    minutes, sec = divmod(sec, 60)
+    postfix_dict = {"s": "second", "d": "day", "h": "hour", "m": "minute"}
+    value_dict = {"s": 0, "d": 0, "h": 0, "m": 0}
+    value_dict["s"] = float(input_time)
+    value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
+    value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
+    value_dict["m"], value_dict["s"] = divmod(value_dict["s"], 60)
+    for i in postfix_dict.keys():
+        if value_dict[i] != 1:
+            postfix_dict[i] += "s"
     return ", ".join([
-        "{:02.0f} days".format(days),
-        "{:02.0f} hour".format(hours),
-        "{:02.0f} minutes".format(minutes),
-        "{:02.0f} seconds".format(sec),
+        "{0:02.0f} {1}".format(value_dict["d"], postfix_dict["d"]),
+        "{0:02.0f} {1}".format(value_dict["h"], postfix_dict["h"]),
+        "{0:02.0f} {1}".format(value_dict["m"], postfix_dict["m"]),
+        "{0:02.0f} {1}".format(value_dict["s"], postfix_dict["s"]),
     ])
 
 
@@ -262,7 +274,7 @@ def input_filter(input_dict):
         edge_upper_threshold -= 1
 
     if filtered_dict["output_format"] not in list(
-            range(1, len(SUFFIX_MENU) + 1)):
+            range(1, len(pyrgg.params.SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
     if not filtered_dict["multigraph"]:
@@ -313,15 +325,15 @@ def _update_using_first_menu(result_dict, input_func):
     :type input_func : function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS1 = sorted(list(MENU_ITEMS1.keys()))
+    MENU_ITEMS_KEYS1 = sorted(list(pyrgg.params.MENU_ITEMS1.keys()))
     for item in MENU_ITEMS_KEYS1:
         while True:
             try:
                 result_dict[item] = MENU_ITEM_CONVERTORS[item](
-                    input_func(MENU_ITEMS1[item])
+                    input_func(pyrgg.params.MENU_ITEMS1[item])
                 )
             except Exception:
-                print(PYRGG_INPUT_ERROR_MESSAGE)
+                print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict
@@ -337,17 +349,17 @@ def _update_using_second_menu(result_dict, input_func):
     :type input_func : function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS2 = sorted(list(MENU_ITEMS2.keys()))
+    MENU_ITEMS_KEYS2 = sorted(list(pyrgg.params.MENU_ITEMS2.keys()))
     for item in MENU_ITEMS_KEYS2:
         if not result_dict["weight"] and item in ["max_weight", "min_weight"]:
             continue
         while True:
             try:
                 result_dict[item] = MENU_ITEM_CONVERTORS[item](
-                    input_func(MENU_ITEMS2[item])
+                    input_func(pyrgg.params.MENU_ITEMS2[item])
                 )
             except Exception:
-                print(PYRGG_INPUT_ERROR_MESSAGE)
+                print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
     return result_dict
@@ -476,7 +488,8 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if not self_loop and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
-    reference_vertices.sort()
+    if pyrgg.params.PYRGG_TEST_MODE:
+        reference_vertices.sort()
     while (index < threshold):
         vertex_degree = degree_dict[vertex_index]
         if vertex_degree >= max_edge:
@@ -602,7 +615,7 @@ def json_to_yaml(filename):
             with open(filename + ".yaml", "w") as yaml_file:
                 yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
-        print(PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 
 
 def json_to_pickle(filename):
@@ -619,4 +632,4 @@ def json_to_pickle(filename):
             with open(filename + ".p", "wb") as pickle_file:
                 pickle.dump(json_data, pickle_file)
     except FileNotFoundError:
-        print(PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)

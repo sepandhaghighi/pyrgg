@@ -17,14 +17,14 @@
 </div>	
 
 ----------
-## Table of contents					
+## Table of Contents					
    * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
    * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
    * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
    * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
    * [Todo](https://github.com/sepandhaghighi/pyrgg#todo)
    * [Sample Files](https://github.com/sepandhaghighi/pyrgg#sample-files)
-   * [Example Of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
+   * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
    * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
    * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
    * [Dependencies](https://github.com/sepandhaghighi/pyrgg#dependencies)
@@ -33,7 +33,7 @@
    * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
    * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
    * [License](https://github.com/sepandhaghighi/pyrgg#license)
-   * [Donate](https://github.com/sepandhaghighi/pyrgg#donate-to-our-project)
+   * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
    * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
 				
@@ -66,14 +66,9 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 		<td align="center">dev</td>	
 	</tr>
 	<tr>
-		<td align="center">Travis</td>
-		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=master"></a></td>
-		<td align="center"><a href="https://travis-ci.org/sepandhaghighi/pyrgg"><img src="https://travis-ci.org/sepandhaghighi/pyrgg.svg?branch=dev"></a></a></td>
-	</tr>
-	<tr>
-		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/pyrgg"><img src="https://ci.appveyor.com/api/projects/status/j9g3xikmh1elti13/branch/dev?svg=true"></a></td>
+		<td align="center">CI</td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=dev"></td>
 	</tr>
 </table>
 
@@ -91,14 +86,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 1.0](https://github.com/sepandhaghighi/pyrgg/archive/v1.0.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 1.1](https://github.com/sepandhaghighi/pyrgg/archive/v1.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==1.0` or `pip3 install pyrgg==1.0` (Need root access)							
+- `pip install pyrgg==1.1` or `pip3 install pyrgg==1.1` (Need root access)							
 
 ### Conda
 
@@ -106,8 +101,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 1.0](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.0/PYRGG-1.0.exe)
-- Run `PYRGG-1.0.exe`
+- Download [Exe-Version 1.1](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.1/PYRGG-1.1.exe)
+- Run `PYRGG-1.1.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -171,20 +166,20 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [Sample 2-DIMACS](https://www.dropbox.com/s/lqk42pwu7o4xauv/1000.gr.gz?dl=0) (1000 Vertices , 13KB)
 - [Sample 3-DIMACS](https://www.dropbox.com/s/93dp8cjs6lnu83u/1000000.gr.gz?dl=0) (1000000 Vertices , 7MB)
 - [Sample 4-DIMACS](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
-- [Sample 1-JSON](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 11KB)
-- [Sample 2-JSON](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 105KB)
+- [Sample 1-JSON](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 26KB)
+- [Sample 2-JSON](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 494KB)
 - [Sample 1-CSV](https://www.dropbox.com/s/dmld0eadftnatr5/100.csv?dl=0) (100 Vertices , 3KB)
 - [Sample 2-CSV](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
 - [Sample 1-TSV](https://www.dropbox.com/s/j3zgs4kx2paxe75/100.tsv?dl=0) (100 Vertices , 29KB)
 - [Sample 2-TSV](https://www.dropbox.com/s/ykagmjgwlpim6dq/1000.tsv?dl=0) (1000 Vertices , 420KB)
 - [Sample 1-WEL](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
 - [Sample 2-WEL](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
-- [Sample 1-YAML](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 3KB)
-- [Sample 2-YAML](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 12KB)
+- [Sample 1-YAML](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 6KB)
+- [Sample 2-YAML](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 35KB)
 - [Sample 1-LP](https://www.dropbox.com/s/4bufa1m4uamv48z/100.lp?dl=0) (100 Vertices , 7KB)
 - [Sample 2-LP](https://www.dropbox.com/s/w79fh1qva64namw/1000.lp?dl=0) (1000 Vertices , 76KB)
-- [Sample 1-Pickle](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 15KB)
-- [Sample 2-Pickle](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 209KB)
+- [Sample 1-Pickle](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 12KB)
+- [Sample 2-Pickle](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 340KB)
 - [Sample 1-TGF](https://www.dropbox.com/s/tehb6f3gz2o5v9c/100.tgf?dl=0) (100 Vertices , 4KB)
 - [Sample 2-TGF](https://www.dropbox.com/s/9mjeq4w973189cc/1000.tgf?dl=0) (1000 Vertices , 61KB)
 - [Sample 1-UCINET DL](https://www.dropbox.com/s/82wrl86uowwjud2/100.dl?dl=0) (100 Vertices , 8KB)
@@ -203,7 +198,7 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 
 
 
-## Example Of Usage
+## Example of Usage
 
 
 - Generate synthetic data for graph processing frameworks (some of them mentioned here) performance-analysis 			 
@@ -257,64 +252,78 @@ or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir").
 - [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
 
 	```
-		{
+	{
+		"properties": {
+			"directed": true,
+			"signed": true,
+			"multigraph": true,
+			"weighted": true,
+			"self_loop": true
+		},
 		"graph": {
-				"nodes":[
-				{
-					"id": "1"
-				},
+			"nodes":[
+			{
+				"id": 1
+			},
 
-				.
-				.
-				.
-				{
-					"id": "n"
-				}
-				],
-				"edges":[
-				{
-					"source": "head_1",
-					"target": "tail_1",
-					"weight": "weight_1"
-				},
+			.
+			.
+			.
 
-				.
-				.
-				.
-
-				{
-					"source": "head_n",
-					"target": "tail_n",
-					"weight": "weight_n"
-				},
-				]
+			{
+				"id": n
 			}
+			],
+			"edges":[
+			{
+				"source": head_1,
+				"target": tail_1,
+				"weight": weight_1
+			},
+
+			.
+			.
+			.
+
+			{
+				"source": head_n,
+				"target": tail_n,
+				"weight": weight_n
+			}
+			]
 		}
+	}
 	```
 - [YAML(.yaml)](https://en.wikipedia.org/wiki/YAML)
 	```
 		graph:
   			edges:
-			- source: "head_1"
-    	  	target: "tail_1"
-    	  	weight: "weight_1"
+			- source: head_1
+    	  	target: tail_1
+    	  	weight: weight_1
 		
 			.
 			.
 			.
 
-			- source: "head_n"
-    	  	target: "tail_n"
-    	  	weight: "weight_n"
+			- source: head_n
+    	  	target: tail_n
+    	  	weight: weight_n
 						
 			nodes:
-  			- id: '1'
+  			- id: 1
   
   			.
 			.
 			.
 
-			- id: 'n'
+			- id: n
+		properties:
+  			directed: true
+  			multigraph: true
+  			self_loop: true
+  			signed: true
+  			weighted: true
 
 	```
 - [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
@@ -536,22 +545,57 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 ## References
 					
 
-<div align="center">
+<blockquote>1- <a href="http://www.diag.uniroma1.it/challenge9/format.shtml">9th DIMACS Implementation Challenge - Shortest Paths</a> </blockquote>
 
-<img src="http://www.shaghighi.ir/pyrgg/images/dimacs_logo.gif" alt="DIMACS">
+<blockquote>2- <a href="http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html">Problem Based Benchmark Suite</a></blockquote>
 
+<blockquote>3- <a href="https://www.mat.unical.it/aspcomp2013/MaximalClique">MaximalClique - ASP Competition 2013</a></blockquote>
 
-</div>  						
+<blockquote>4- Pitas, Ioannis, ed. Graph-based social media analysis. Vol. 39. CRC Press, 2016. </blockquote>	
+
+<blockquote>5- Roughan, Matthew, and Jonathan Tuke. "The hitchhikers guide to sharing graph data." 2015 3rd International Conference on Future Internet of Things and Cloud. IEEE, 2015. </blockquote>	
+
+<blockquote>6- Borgatti, Stephen P., Martin G. Everett, and Linton C. Freeman. "Ucinet for Windows: Software for social network analysis." Harvard, MA: analytic technologies 6 (2002). </blockquote>
+
+<blockquote>7- <a href="https://math.nist.gov/MatrixMarket/formats.html">Matrix Market: File Formats</a> </blockquote>		
+
+<blockquote>8- <a href="https://socnetv.org/docs/formats.html#GML">Social Network Visualizer</a> </blockquote>
+
+<blockquote>9- Adar, Eytan. "GUESS: a language and interface for graph exploration." Proceedings of the SIGCHI conference on Human Factors in computing systems. 2006. </blockquote>
+
+<blockquote>10- Skiena, Steven S. The algorithm design manual. Springer International Publishing, 2020. </blockquote>
+
+<blockquote>11- Chakrabarti, Deepayan, Yiping Zhan, and Christos Faloutsos. "R-MAT: A recursive model for graph mining." Proceedings of the 2004 SIAM International Conference on Data Mining. Society for Industrial and Applied Mathematics, 2004. </blockquote>
+
+<blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
+					
  
-## Donate to our project		
-							
+## Show Your Support
+								
+<h3>Star This Repo</h3>					
 
-<h3>Bitcoin :</h3>					
+Give a ⭐️ if this project helped you!
 
-```1XGr9qbZjBpUQJJSB6WtgBQbDTgrhPLPA```			
+<h3>Donate to Our Project</h3>	
 
+<h4>Bitcoin</h4>
+1KtNLEEeUbTEK9PdN6Ya3ZAKXaqoKUuxCy
+<h4>Ethereum</h4>
+0xcD4Db18B6664A9662123D4307B074aE968535388
+<h4>Litecoin</h4>
+Ldnz5gMcEeV8BAdsyf8FstWDC6uyYR6pgZ
+<h4>Doge</h4>
+DDUnKpFQbBqLpFVZ9DfuVysBdr249HxVDh
+<h4>Tron</h4>
+TCZxzPZLcJHr2qR3uPUB1tXB6L3FDSSAx7
+<h4>Ripple</h4>
+rN7ZuRG7HDGHR5nof8nu5LrsbmSB61V1qq
+<h4>Binance Coin</h4>
+bnb1zglwcf0ac3d0s2f6ck5kgwvcru4tlctt4p5qef
+<h4>Tether</h4>
+0xcD4Db18B6664A9662123D4307B074aE968535388
+<h4>Dash</h4>
+Xd3Yn2qZJ7VE8nbKw2fS98aLxR5M6WUU3s
+<h4>Stellar</h4>		
 
-
-<h3>Payping (For Iranian citizens) :</h3>
-
-<a href="http://www.payping.net/sepandhaghighi" target="__blank"><img src="http://www.qpage.ir/images/payping.png" height=100px width=100px></a>	
+GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL	

@@ -66,7 +66,7 @@ def gen_graph(input_dict, file_name):
     filesize(file_name + SUFFIX_MENU[output_format])
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
-    elapsed_time_format = time_convert(str(elapsed_time))
+    elapsed_time_format = time_convert(elapsed_time)
     print("Total Number of Edges : " + str(edge_number))
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
@@ -80,7 +80,6 @@ def gen_graph(input_dict, file_name):
         sign,
         multigraph,
         self_loop,
-        weight,
         max_weight,
         min_weight,
         elapsed_time_format)
