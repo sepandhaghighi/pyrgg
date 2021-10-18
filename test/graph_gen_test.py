@@ -405,7 +405,7 @@ False
 True
 >>> json_to_yaml('testfile')
 >>> file=open('testfile.yaml','r')
->>> testfile_1_yaml=yaml.load(file)
+>>> testfile_1_yaml=yaml.safe_load(file)
 >>> testfile_1_yaml['graph']['edges'][1]['source']
 5
 >>> testfile_1_yaml['graph']['edges'][1]['target']
@@ -465,7 +465,7 @@ False
 True
 >>> json_to_yaml('testfile2')
 >>> file=open('testfile2.yaml','r')
->>> testfile_2_yaml=yaml.load(file)
+>>> testfile_2_yaml=yaml.safe_load(file)
 >>> testfile_2_yaml['graph']['nodes'][1]
 {'id': 2}
 >>> testfile_2_yaml['graph']['edges'][1]['source']
@@ -527,7 +527,7 @@ False
 True
 >>> json_to_yaml('testfile3')
 >>> file=open('testfile3.yaml','r')
->>> testfile_3_yaml=yaml.load(file)
+>>> testfile_3_yaml=yaml.safe_load(file)
 >>> testfile_3_yaml['graph']['nodes'][1]
 {'id': 2}
 >>> testfile_3_yaml['graph']['edges'][1]['source']
