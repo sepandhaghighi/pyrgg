@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `AUTHORS.md` updated
 - License updated
 - `README.md` modified
+- `Python 3.10` added to `test.yml`
 ## [1.1] - 2021-06-09
 ### Added
 - `requirements-splitter.py`
