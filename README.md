@@ -49,7 +49,7 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 	</tr>
 	<tr>
 		<td align="center">PyPI Counter</td>
-		<td align="center"><a href="http://pepy.tech/count/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
+		<td align="center"><a href="http://pepy.tech/project/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
 	</tr>
 	<tr>
 		<td align="center">Github Stars</td>
