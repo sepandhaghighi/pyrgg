@@ -32,7 +32,7 @@
    * [References](https://github.com/sepandhaghighi/pyrgg#references)
    * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
    * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
-   * [License](https://github.com/sepandhaghighi/pyrgg#license)
+   * [License](https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE)
    * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
    * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
@@ -536,11 +536,6 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 	</tr>
 </table>
  			
-
-## License
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=large"/></a>
-
 
 ## References
 					
