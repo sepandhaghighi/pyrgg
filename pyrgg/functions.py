@@ -533,6 +533,68 @@ def branch_gen(
             reference_vertices.pop(random_tail_index)
     return [branch_list, weight_list]
 
+def _branch_gen_mapper(
+        vertex_index,
+        max_edge,
+        min_edge,
+        min_weight,
+        max_weight,
+        sign,
+        direct,
+        self_loop,
+        multigraph,
+        used_vertices,
+        degree_dict,
+        degree_sort_dict):
+    """
+    Branch generator mapper.
+
+    :param vertex_index: origin vertex index
+    :type vertex_index: int
+    :param max_edge : maximum edge number
+    :type max_edge : int
+    :param min_edge : minimum edge number
+    :type min_edge : int
+    :param min_weight: weight min range
+    :type min_weight: int
+    :param max_weight: weight max range
+    :type max_weight: int
+    :param sign: weight sign flag
+    :type sign: bool
+    :param direct: directed and undirected graph flag
+    :type direct: bool
+    :param self_loop: self loop flag
+    :type self_loop: bool
+    :param multigraph: multigraph flag
+    :type multigraph: bool
+    :param used_vertices: used vertices dictionary
+    :type used_vertices: dict
+    :param degree_dict: all vertices degree
+    :type degree_dict: dict
+    :param degree_sort_dict: degree to vertices list
+    :type degree_sort_dict: dict
+    :return: branch and weight list
+    """
+    random_edge = min_edge
+    status, lower_limit, upper_limit = random_edge_limits(
+        vertex_index, min_edge, max_edge, degree_dict)
+    if status:
+        random_edge = random_system.randint(lower_limit, upper_limit)
+    temp_list = branch_gen(
+        vertex_index,
+        max_edge,
+        random_edge,
+        min_weight,
+        max_weight,
+        sign,
+        direct,
+        self_loop,
+        multigraph,
+        used_vertices,
+        degree_dict,
+        degree_sort_dict)
+    return temp_list
+
 
 def edge_gen(
         vertices_number,
@@ -575,28 +637,16 @@ def edge_gen(
     degree_dict = {i: 0 for i in vertices_id}
     degree_sort_dict = {i: {} for i in range(max_edge + 1)}
     degree_sort_dict[0] = {i: i for i in vertices_id}
-    for i in vertices_id:
-        random_edge = min_edge
-        status, lower_limit, upper_limit = random_edge_limits(
-            i, min_edge, max_edge, degree_dict)
-        if status:
-            random_edge = random_system.randint(lower_limit, upper_limit)
-        temp_list = branch_gen(
-            i,
-            max_edge,
-            random_edge,
-            min_weight,
-            max_weight,
-            sign,
-            direct,
-            self_loop,
-            multigraph,
-            used_vertices,
-            degree_dict,
-            degree_sort_dict)
-        vertices_edge.append(temp_list[0])
-        weight_list.append(temp_list[1])
-        temp = temp + len(temp_list[0])
+    branch_gen_mapper_params = {"max_edge": max_edge, "min_edge": min_edge, "min_weight": min_weight, "max_weight": max_weight, "sign": sign, "direct": direct, "self_loop": self_loop,
+                                "multigraph": multigraph,
+                               "used_vertices": used_vertices,
+                               "degree_dict": degree_dict,
+                               "degree_sort_dict": degree_sort_dict}
+    temp_list = list(map(partial(_branch_gen_mapper, **branch_gen_mapper_params), vertices_id))
+    for item in temp_list:
+        vertices_edge.append(item[0])
+        weight_list.append(item[1])
+        temp = temp + len(item[0])
     return [dict(zip(vertices_id, vertices_edge)),
             dict(zip(vertices_id, weight_list)), temp]
 
