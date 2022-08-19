@@ -421,7 +421,7 @@ def random_edge_limits(vertex_index, min_edge, max_edge, degree_dict):
 def branch_gen(
         vertex_index,
         max_edge,
-        min_edge,
+        random_edge,
         min_weight,
         max_weight,
         sign,
@@ -438,8 +438,8 @@ def branch_gen(
     :type vertex_index: int
     :param max_edge : maximum edge number
     :type max_edge : int
-    :param min_edge : minimum edge number
-    :type min_edge : int
+    :param random_edge: number of vertex edges
+    :type random_edge: int
     :param min_weight: weight min range
     :type min_weight: int
     :param max_weight: weight max range
@@ -460,11 +460,6 @@ def branch_gen(
     :type degree_sort_dict: dict
     :return: branch and weight list
     """
-    random_edge = min_edge
-    status, lower_limit, upper_limit = random_edge_limits(
-        vertex_index, min_edge, max_edge, degree_dict)
-    if status:
-        random_edge = random_system.randint(lower_limit, upper_limit)
     index = 0
     branch_list = []
     weight_list = []
@@ -581,10 +576,15 @@ def edge_gen(
     degree_sort_dict = {i: {} for i in range(max_edge + 1)}
     degree_sort_dict[0] = {i: i for i in vertices_id}
     for i in vertices_id:
+        random_edge = min_edge
+        status, lower_limit, upper_limit = random_edge_limits(
+            i, min_edge, max_edge, degree_dict)
+        if status:
+            random_edge = random_system.randint(lower_limit, upper_limit)
         temp_list = branch_gen(
             i,
             max_edge,
-            min_edge,
+            random_edge,
             min_weight,
             max_weight,
             sign,
