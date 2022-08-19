@@ -143,7 +143,7 @@ False
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> branch_gen(1,10,4,1,20,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
-[[10, 7, 39, 2], [9, 11, 6, 14]]
+[[10, 7, 39, 2, 30, 9, 25, 35, 18], [9, 11, 6, 14, 3, 5, 16, 14, 7]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
