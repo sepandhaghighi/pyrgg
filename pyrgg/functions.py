@@ -470,7 +470,7 @@ def branch_gen(
     weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = random_system.randint
     vertex_degree = degree_dict[vertex_index]
-    if vertex_degree >= random_edge:
+    if vertex_degree >= max_edge:
         return [branch_list, weight_list]
     threshold = _threshold_calc(
         random_edge=random_edge,
