@@ -203,21 +203,21 @@ def logger(
     try:
         with open("logfile.log", "a") as file:
             file.write(pyrgg.params.PYRGG_LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                                    file_name,
-                                                    str(vertices_number),
-                                                    str(edge_number),
-                                                    str(max_edge),
-                                                    str(min_edge),
-                                                    str(bool(directed)),
-                                                    str(bool(signed)),
-                                                    str(bool(multigraph)),
-                                                    str(bool(self_loop)),
-                                                    str(is_weighted(max_weight,
-                                                                    min_weight,
-                                                                    bool(signed))),
-                                                    str(max_weight),
-                                                    str(min_weight),
-                                                    elapsed_time))
+                                                                 file_name,
+                                                                 str(vertices_number),
+                                                                 str(edge_number),
+                                                                 str(max_edge),
+                                                                 str(min_edge),
+                                                                 str(bool(directed)),
+                                                                 str(bool(signed)),
+                                                                 str(bool(multigraph)),
+                                                                 str(bool(self_loop)),
+                                                                 str(is_weighted(max_weight,
+                                                                                 min_weight,
+                                                                                 bool(signed))),
+                                                                 str(max_weight),
+                                                                 str(min_weight),
+                                                                 elapsed_time))
     except Exception:
         print(pyrgg.params.PYRGG_LOGGER_ERROR_MESSAGE)
 
@@ -534,6 +534,7 @@ def branch_gen(
             reference_vertices.pop(random_tail_index)
     return [branch_list, weight_list]
 
+
 def _branch_gen_mapper(
         vertex_index,
         max_edge,
@@ -640,12 +641,20 @@ def edge_gen(
     for i in vertices_id:
         degree_dict[i] = 0
         degree_sort_dict[0][i] = i
-    branch_gen_mapper_params = {"max_edge": max_edge, "min_edge": min_edge, "min_weight": min_weight, "max_weight": max_weight, "sign": sign, "direct": direct, "self_loop": self_loop,
-                                "multigraph": multigraph,
-                               "used_vertices": used_vertices,
-                               "degree_dict": degree_dict,
-                               "degree_sort_dict": degree_sort_dict}
-    temp_list = list(map(functools.partial(_branch_gen_mapper, **branch_gen_mapper_params), vertices_id))
+    branch_gen_mapper_params = {
+        "max_edge": max_edge,
+        "min_edge": min_edge,
+        "min_weight": min_weight,
+        "max_weight": max_weight,
+        "sign": sign,
+        "direct": direct,
+        "self_loop": self_loop,
+        "multigraph": multigraph,
+        "used_vertices": used_vertices,
+        "degree_dict": degree_dict,
+        "degree_sort_dict": degree_sort_dict}
+    temp_list = list(map(functools.partial(_branch_gen_mapper,
+                                           **branch_gen_mapper_params), vertices_id))
     for item in temp_list:
         vertices_edge.append(item[0])
         weight_list.append(item[1])
