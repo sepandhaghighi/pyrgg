@@ -635,9 +635,11 @@ def edge_gen(
     vertices_edge = []
     weight_list = []
     used_vertices = {}
-    degree_dict = {i: 0 for i in vertices_id}
     degree_sort_dict = {i: {} for i in range(max_edge + 1)}
-    degree_sort_dict[0] = {i: i for i in vertices_id}
+    degree_dict = {}
+    for i in vertices_id:
+        degree_dict[i] = 0
+        degree_sort_dict[0][i] = i
     branch_gen_mapper_params = {"max_edge": max_edge, "min_edge": min_edge, "min_weight": min_weight, "max_weight": max_weight, "sign": sign, "direct": direct, "self_loop": self_loop,
                                 "multigraph": multigraph,
                                "used_vertices": used_vertices,
