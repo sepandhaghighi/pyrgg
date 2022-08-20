@@ -514,9 +514,9 @@ def branch_gen(
             reference_vertices.pop(random_tail_index)
             continue
         if not direct:
-            if random_tail in used_vertices.keys():
+            try:
                 used_vertices[random_tail].append(vertex_index)
-            else:
+            except KeyError:
                 used_vertices[random_tail] = [vertex_index]
         if sign:
             random_weight = sign_gen() * random_unit(min_weight, max_weight)
