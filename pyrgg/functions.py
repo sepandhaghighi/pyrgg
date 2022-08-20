@@ -518,9 +518,10 @@ def branch_gen(
                 used_vertices[random_tail].append(vertex_index)
             except KeyError:
                 used_vertices[random_tail] = [vertex_index]
-        random_weight = random_unit(min_weight, max_weight)
+        weight_sign = 1
         if sign:
-            random_weight = sign_gen() * random_weight
+            weight_sign = sign_gen()
+        random_weight = weight_sign * random_unit(min_weight, max_weight)
         if weight_float_flag:
             random_weight = round(random_weight, weight_precision)
         branch_list.append(random_tail)
