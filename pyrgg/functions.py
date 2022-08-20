@@ -491,7 +491,7 @@ def branch_gen(
     if weight_float_flag:
         random_unit = random_system.uniform
     if not direct and (
-            vertex_index in used_vertices.keys()) and not multigraph:
+            vertex_index in used_vertices) and not multigraph:
         reference_vertices = list(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if not self_loop and vertex_index in reference_vertices:
@@ -518,10 +518,9 @@ def branch_gen(
                 used_vertices[random_tail].append(vertex_index)
             except KeyError:
                 used_vertices[random_tail] = [vertex_index]
+        random_weight = random_unit(min_weight, max_weight)
         if sign:
-            random_weight = sign_gen() * random_unit(min_weight, max_weight)
-        else:
-            random_weight = random_unit(min_weight, max_weight)
+            random_weight = sign_gen() * random_weight
         if weight_float_flag:
             random_weight = round(random_weight, weight_precision)
         branch_list.append(random_tail)
