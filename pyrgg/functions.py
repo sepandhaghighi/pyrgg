@@ -7,7 +7,7 @@ import pickle
 import random
 import textwrap
 import yaml
-import functools
+from functools import partial
 import pyrgg.params
 
 # random_system=random.SystemRandom()
@@ -596,7 +596,7 @@ def edge_gen(
         "used_vertices": used_vertices,
         "degree_dict": degree_dict,
         "degree_sort_dict": degree_sort_dict}
-    temp_list = list(map(functools.partial(branch_gen,
+    temp_list = list(map(partial(branch_gen,
                                            **branch_gen_params), vertices_id))
     for item in temp_list:
         vertices_edge.append(item[0])
