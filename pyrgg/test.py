@@ -77,12 +77,6 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: 'sadasdasd'
 >>> line(12,"*")
 ************
->>> random.seed(2)
->>> sign_gen()
-1
->>> random.seed(11)
->>> sign_gen()
--1
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}

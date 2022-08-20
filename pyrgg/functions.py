@@ -383,19 +383,6 @@ def _threshold_calc(min_edge, max_edge, vertex_degree):
         threshold = randint(lower_limit, upper_limit)
     return threshold
 
-
-def sign_gen():
-    """
-    Return random sign.
-
-    :return: 1 or -1
-    """
-    flag = randint(0, 1)
-    if flag == 0:
-        return 1
-    return -1
-
-
 def branch_gen(
         vertex_index,
         max_edge,
@@ -489,7 +476,7 @@ def branch_gen(
                 used_vertices[random_tail] = [vertex_index]
         weight_sign = 1
         if sign:
-            weight_sign = sign_gen()
+            weight_sign = choice([1,-1])
         random_weight = weight_sign * random_unit(min_weight, max_weight)
         random_weight = round(random_weight, precision)
         branch_list.append(random_tail)
