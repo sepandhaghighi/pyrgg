@@ -8,7 +8,6 @@ from random import randint, uniform, choice
 from textwrap import fill
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
-from functools import partial
 
 def is_weighted(max_weight, min_weight, signed):
     """
