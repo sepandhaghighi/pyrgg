@@ -7,7 +7,6 @@ from pickle import dump as pickle_dump
 from random import randint, uniform, choice
 from textwrap import fill
 from yaml import safe_dump as yaml_dump
-from functools import partial
 import pyrgg.params
 
 def is_weighted(max_weight, min_weight, signed):
