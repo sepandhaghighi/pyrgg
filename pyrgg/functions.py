@@ -402,6 +402,7 @@ def branch_gen(
         min_edge,
         min_weight,
         max_weight,
+        precision,
         sign,
         direct,
         self_loop,
@@ -422,6 +423,8 @@ def branch_gen(
     :type min_weight: int
     :param max_weight: weight max range
     :type max_weight: int
+    :param precision: numbers precision
+    :type precision: int
     :param sign: weight sign flag
     :type sign: bool
     :param direct: directed and undirected graph flag
@@ -442,9 +445,6 @@ def branch_gen(
     branch_list = []
     weight_list = []
     reference_vertices = []
-    max_weight_flag = is_float(max_weight)
-    min_weight_flag = is_float(min_weight)
-    weight_float_flag = min_weight_flag or max_weight_flag
     random_unit = randint
     vertex_degree = degree_dict[vertex_index]
     if vertex_degree >= max_edge:
@@ -457,10 +457,7 @@ def branch_gen(
         reference_vertices.extend(list(degree_sort_dict[i].values()))
         if len(reference_vertices) >= threshold:
             break
-    weight_precision = max(
-        get_precision(max_weight),
-        get_precision(min_weight))
-    if weight_float_flag:
+    if precision > 0:
         random_unit = uniform
     if not direct and (
             vertex_index in used_vertices) and not multigraph:
@@ -494,8 +491,7 @@ def branch_gen(
         if sign:
             weight_sign = sign_gen()
         random_weight = weight_sign * random_unit(min_weight, max_weight)
-        if weight_float_flag:
-            random_weight = round(random_weight, weight_precision)
+        random_weight = round(random_weight, precision)
         branch_list.append(random_tail)
         weight_list.append(random_weight)
         index += 1
@@ -545,6 +541,9 @@ def edge_gen(
     :type multigraph: bool
     :return: list of dicts
     """
+    precision = max(
+        get_precision(max_weight),
+        get_precision(min_weight))
     temp = 0
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
@@ -566,7 +565,8 @@ def edge_gen(
         "multigraph": multigraph,
         "used_vertices": used_vertices,
         "degree_dict": degree_dict,
-        "degree_sort_dict": degree_sort_dict}
+        "degree_sort_dict": degree_sort_dict,
+        "precision": precision}
     temp_list = list(map(partial(branch_gen,
                                            **branch_gen_params), vertices_id))
     for item in temp_list:
