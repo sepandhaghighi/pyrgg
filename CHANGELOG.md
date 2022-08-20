@@ -6,11 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
+- `branch_gen` function modified
+- `edge_gen` function modified
+- `precision` and `min_edge` parameters added to `branch_gen` function
+- `random_edge` parameter removed from `branch_gen` function
 - Test system modified
 - `AUTHORS.md` updated
 - License updated
 - `README.md` modified
 - `Python 3.10` added to `test.yml`
+### Removed
+- `sign_gen` function
+- `random_edge_limits` function
 ## [1.1] - 2021-06-09
 ### Added
 - `requirements-splitter.py`
