@@ -567,12 +567,11 @@ def edge_gen(
         "degree_dict": degree_dict,
         "degree_sort_dict": degree_sort_dict,
         "precision": precision}
-    temp_list = list(map(partial(branch_gen,
-                                           **branch_gen_params), vertices_id))
-    for item in temp_list:
-        vertices_edge.append(item[0])
-        weight_list.append(item[1])
-        temp = temp + len(item[0])
+    for i in vertices_id:
+        temp_list = branch_gen(vertex_index=i, **branch_gen_params)
+        vertices_edge.append(temp_list[0])
+        weight_list.append(temp_list[1])
+        temp = temp + len(temp_list[0])
     return [dict(zip(vertices_id, vertices_edge)),
             dict(zip(vertices_id, weight_list)), temp]
 
