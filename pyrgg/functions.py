@@ -366,19 +366,25 @@ def _update_using_second_menu(result_dict, input_func):
     return result_dict
 
 
-def _threshold_calc(random_edge, max_edge, vertex_degree):
+def _threshold_calc(min_edge, max_edge, vertex_degree):
     """
     Calculate threshold for branch_gen function.
 
-    :param random_edge: number of vertex edges
-    :type random_edge: int
+    :param min_edge : minimum edge number
+    :type min_edge : int
     :param max_edge : maximum edge number
     :type max_edge : int
     :param vertex_degree: vertex degree
     :type vertex_degree: int
     :return: threshold as int
     """
-    threshold = min(random_edge, abs(max_edge - vertex_degree))
+    threshold = min_edge
+    lower_limit = 0
+    upper_limit = max_edge - vertex_degree
+    if vertex_degree < min_edge:
+        lower_limit = min_edge - vertex_degree
+    if upper_limit > lower_limit:
+        threshold = random_system.randint(lower_limit, upper_limit)
     return threshold
 
 
@@ -461,11 +467,6 @@ def branch_gen(
     :type degree_sort_dict: dict
     :return: branch and weight list
     """
-    random_edge = min_edge
-    status, lower_limit, upper_limit = random_edge_limits(
-        vertex_index, min_edge, max_edge, degree_dict)
-    if status:
-        random_edge = random_system.randint(lower_limit, upper_limit)
     index = 0
     branch_list = []
     weight_list = []
@@ -478,7 +479,7 @@ def branch_gen(
     if vertex_degree >= max_edge:
         return [branch_list, weight_list]
     threshold = _threshold_calc(
-        random_edge=random_edge,
+        min_edge=min_edge,
         max_edge=max_edge,
         vertex_degree=vertex_degree)
     for i in range(max_edge + 1):
