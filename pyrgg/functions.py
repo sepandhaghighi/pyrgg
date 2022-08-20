@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
 import datetime
-import json
+from json import loads as json_loads
 import os
-import pickle
-import random
-import textwrap
-import yaml
+from pickle import dump as pickle_dump
+from random import randint, uniform, choice
+from textwrap import fill
+from yaml import safe_dump as yaml_dump
 from functools import partial
 import pyrgg.params
-
-# random_system=random.SystemRandom()
-random_system = random
-
 
 def is_weighted(max_weight, min_weight, signed):
     """
@@ -113,7 +109,7 @@ def description_print():
     print(pyrgg.params.PYRGG_LINKS)
     line(40)
     print("\n")
-    print(textwrap.fill(pyrgg.params.PYRGG_DESCRIPTION, width=100))
+    print(fill(pyrgg.params.PYRGG_DESCRIPTION, width=100))
     print("\n")
     line(40)
 
@@ -384,7 +380,7 @@ def _threshold_calc(min_edge, max_edge, vertex_degree):
     if vertex_degree < min_edge:
         lower_limit = min_edge - vertex_degree
     if upper_limit > lower_limit:
-        threshold = random_system.randint(lower_limit, upper_limit)
+        threshold = randint(lower_limit, upper_limit)
     return threshold
 
 
@@ -394,35 +390,10 @@ def sign_gen():
 
     :return: 1 or -1
     """
-    flag = random_system.randint(0, 1)
+    flag = randint(0, 1)
     if flag == 0:
         return 1
     return -1
-
-
-def random_edge_limits(vertex_index, min_edge, max_edge, degree_dict):
-    """
-    Calculate random_edge parameter limits.
-
-    :param vertex_index: vertex index
-    :type vertex_index: int
-    :param min_edge: minimum edge number
-    :type min_edge: int
-    :param max_edge : maximum edge number
-    :type max_edge : int
-    :param degree_dict: all vertices degree
-    :type degree_dict: dict
-    :return: status,lower_limit,upper_limit
-    """
-    lower_limit = 0
-    status = False
-    vertex_degree = degree_dict[vertex_index]
-    upper_limit = max_edge - vertex_degree
-    if vertex_degree < min_edge:
-        lower_limit = min_edge - vertex_degree
-    if upper_limit > lower_limit:
-        status = True
-    return status, lower_limit, upper_limit
 
 
 def branch_gen(
@@ -474,7 +445,7 @@ def branch_gen(
     max_weight_flag = is_float(max_weight)
     min_weight_flag = is_float(min_weight)
     weight_float_flag = min_weight_flag or max_weight_flag
-    random_unit = random_system.randint
+    random_unit = randint
     vertex_degree = degree_dict[vertex_index]
     if vertex_degree >= max_edge:
         return [branch_list, weight_list]
@@ -490,7 +461,7 @@ def branch_gen(
         get_precision(max_weight),
         get_precision(min_weight))
     if weight_float_flag:
-        random_unit = random_system.uniform
+        random_unit = uniform
     if not direct and (
             vertex_index in used_vertices) and not multigraph:
         reference_vertices = list(
@@ -505,7 +476,7 @@ def branch_gen(
             break
         if len(reference_vertices) == 0:
             break
-        random_tail_index = random_system.choice(
+        random_tail_index = choice(
             range(len(reference_vertices)))
         random_tail = reference_vertices[random_tail_index]
         random_tail_degree = degree_dict[random_tail]
@@ -616,9 +587,9 @@ def json_to_yaml(filename):
     """
     try:
         with open(filename + ".json", "r") as json_file:
-            json_data = json.loads(json_file.read())
+            json_data = json_loads(json_file.read())
             with open(filename + ".yaml", "w") as yaml_file:
-                yaml.safe_dump(json_data, yaml_file, default_flow_style=False)
+                yaml_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 
@@ -633,8 +604,8 @@ def json_to_pickle(filename):
     """
     try:
         with open(filename + ".json", "r") as json_file:
-            json_data = json.loads(json_file.read())
+            json_data = json_loads(json_file.read())
             with open(filename + ".p", "wb") as pickle_file:
-                pickle.dump(json_data, pickle_file)
+                pickle_dump(json_data, pickle_file)
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
