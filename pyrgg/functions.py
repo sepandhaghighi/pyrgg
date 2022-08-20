@@ -9,6 +9,7 @@ from textwrap import fill
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
 
+
 def is_weighted(max_weight, min_weight, signed):
     """
     Check the graph is weighted or not.
@@ -382,6 +383,7 @@ def _threshold_calc(min_edge, max_edge, vertex_degree):
         threshold = randint(lower_limit, upper_limit)
     return threshold
 
+
 def branch_gen(
         vertex_index,
         max_edge,
@@ -475,7 +477,7 @@ def branch_gen(
                 used_vertices[random_tail] = [vertex_index]
         weight_sign = 1
         if sign:
-            weight_sign = choice([1,-1])
+            weight_sign = choice([1, -1])
         random_weight = weight_sign * random_unit(min_weight, max_weight)
         random_weight = round(random_weight, precision)
         branch_list.append(random_tail)
@@ -493,6 +495,7 @@ def branch_gen(
         if not multigraph:
             reference_vertices.pop(random_tail_index)
     return [branch_list, weight_list]
+
 
 def edge_gen(
         vertices_number,
