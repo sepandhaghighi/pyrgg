@@ -8,6 +8,7 @@ from random import randint, uniform, choice
 from textwrap import fill
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
+from functools import partial
 
 def is_weighted(max_weight, min_weight, signed):
     """
@@ -566,11 +567,11 @@ def edge_gen(
         "degree_dict": degree_dict,
         "degree_sort_dict": degree_sort_dict,
         "precision": precision}
-    for i in vertices_id:
-        temp_list = branch_gen(vertex_index=i, **branch_gen_params)
-        vertices_edge.append(temp_list[0])
-        weight_list.append(temp_list[1])
-        temp = temp + len(temp_list[0])
+    temp_list = list(map(partial(branch_gen, **branch_gen_params), vertices_id))
+    for item in temp_list:
+        vertices_edge.append(item[0])
+        weight_list.append(item[1])
+        temp = temp + len(item[0])
     return [dict(zip(vertices_id, vertices_edge)),
             dict(zip(vertices_id, weight_list)), temp]
 
