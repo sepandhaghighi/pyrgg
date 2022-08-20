@@ -528,13 +528,12 @@ def branch_gen(
         weight_list.append(random_weight)
         index += 1
         del degree_sort_dict[vertex_degree][vertex_index]
-        if random_tail != vertex_index:
-            del degree_sort_dict[random_tail_degree][random_tail]
         degree_dict[random_tail] += 1
         degree_dict[vertex_index] += 1
         degree_sort_dict[degree_dict[vertex_index]
                          ][vertex_index] = vertex_index
         if random_tail != vertex_index:
+            del degree_sort_dict[random_tail_degree][random_tail]
             degree_sort_dict[degree_dict[random_tail]
                              ][random_tail] = random_tail
         if not multigraph:
