@@ -354,7 +354,7 @@ def _update_using_second_menu(result_dict, input_func):
             continue
         while True:
             try:
-                result_dict[item] = MENU_ITEM_CONVERTORS[item1](
+                result_dict[item1] = MENU_ITEM_CONVERTORS[item1](
                     input_func(item2)
                 )
             except Exception:
