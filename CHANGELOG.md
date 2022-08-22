@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Menu optimized
+- Docstrings modified
 - `branch_gen` function modified
 - `edge_gen` function modified
 - `precision` and `min_edge` parameters added to `branch_gen` function
