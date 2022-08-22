@@ -176,9 +176,9 @@ def logger(
     :type vertices_number:int
     :param edge_number: number of edges
     :type edge_number: int
-    :param max_edge: maximum number of edges
+    :param max_edge: maximum number of edges (connected to each vertex)
     :type max_edge: int
-    :param min_edge: minimum number of edges
+    :param min_edge: minimum number of edges (connected to each vertex)
     :type min_edge: int
     :param directed: directed
     :type directed: int
@@ -368,10 +368,10 @@ def _threshold_calc(min_edge, max_edge, vertex_degree):
     """
     Calculate threshold for branch_gen function.
 
-    :param min_edge : minimum edge number
-    :type min_edge : int
-    :param max_edge : maximum edge number
-    :type max_edge : int
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
     :param vertex_degree: vertex degree
     :type vertex_degree: int
     :return: threshold as int
@@ -405,10 +405,10 @@ def branch_gen(
 
     :param vertex_index: origin vertex index
     :type vertex_index: int
-    :param max_edge : maximum edge number
-    :type max_edge : int
-    :param min_edge : minimum edge number
-    :type min_edge : int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
     :param min_weight: weight min range
     :type min_weight: int
     :param max_weight: weight max range
@@ -518,10 +518,10 @@ def edge_gen(
     :type min_weight: int
     :param max_weight: weight max range
     :type max_weight: int
-    :param min_edge : minimum edge number
-    :type min_edge : int
-    :param max_edge : maximum edge number
-    :type max_edge : int
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
     :param sign: weight sign flag
     :type sign: bool
     :param direct: directed and undirected graph flag
