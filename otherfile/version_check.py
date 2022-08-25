@@ -31,13 +31,19 @@ RC_ITEMS = [
     "(u'FileVersion', u'{0}.{1}.{2}.{3}'),",
     "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 PARAMS_ITEMS = ['PYRGG_VERSION = "{0}"']
+META_ITEMS = ['% set version = "{0}" %']
+
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": README_ITEMS,
     "CHANGELOG.md": CHANGELOG_ITEMS,
     os.path.join(
         "pyrgg",
-        "params.py"): PARAMS_ITEMS}
+        "params.py"): PARAMS_ITEMS,
+    os.path.join(
+        "otherfile",
+        "meta.yaml"): META_ITEMS
+}
 
 TEST_NUMBER = len(FILES.keys()) + 1
 
