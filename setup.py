@@ -58,7 +58,7 @@ setup(
         'Source': 'https://github.com/sepandhaghighi/pyrgg',
     },
     install_requires=get_requires(),
-    python_requires='>=3.4',
+    python_requires='>=3.5',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
