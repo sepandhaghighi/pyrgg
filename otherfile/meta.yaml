@@ -1,0 +1,36 @@
+{% set name = "pyrgg" %}
+{% set version = "1.0" %}
+
+package:
+    name: {{ name|lower }}
+    version: {{ version }}
+source:
+    git_url: https://github.com/sepandhaghighi/pyrgg
+    git_rev: v{{ version }}
+build:
+    noarch: python
+    number: 0
+    script: {{ PYTHON }} -m pip install . -vv
+requirements:
+    host:
+        - pip
+        - setuptools
+        - python >=3.5
+    run:
+        - art >=0.7
+        - pyyaml >=3.12
+        - python >=3.5
+about:
+    home: https://github.com/sepandhaghighi/pyrgg
+    license: MIT
+    license_family: MIT
+    summary: Python Random Graph Generator
+    description: |
+        Pyrgg is an easy-to-use synthetic random graph generator written in Python which supports various graph file formats including DIMACS .gr files. Pyrgg has the ability to generate graphs of different sizes and is designed to provide input files for broad range of graph-based research applications, including but not limited to testing, benchmarking and performance-analysis of graph processing frameworks. Pyrgg target audiences are computer scientists who study graph algorithms and graph processing frameworks.
+
+        Website: https://www.pyrgg.ir
+
+        Repo: https://github.com/sepandhaghighi/pyrgg
+extra:
+    recipe-maintainers:
+        - sepandhaghighi
