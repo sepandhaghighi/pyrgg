@@ -13,7 +13,9 @@
 <a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
   <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
-
+<a href="https://discord.gg/dfYAWVMaCW">
+  <img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel">
+</a>
 </div>	
 
 ----------
@@ -124,8 +126,15 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ## Issues & Bug Reports			
 
-Just fill an issue and describe it. I'll check it ASAP!							
+Just fill an issue and describe it. We'll check it ASAP!							
 or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
+
+You can also join our discord server			
+
+<a href="https://discord.gg/dfYAWVMaCW">
+  <img src="https://img.shields.io/discord/1013411447130308669.svg?style=for-the-badge" alt="Discord Channel">
+</a>
+
 
 ## TODO	
 - [x] Formats
