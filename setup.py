@@ -44,14 +44,14 @@ def read_description():
 setup(
     name='pyrgg',
     packages=['pyrgg'],
-    version='1.1',
+    version='1.2',
     description='Python Random Graph Generator',
     long_description=read_description(),
     long_description_content_type='text/markdown',
-    author='Sepand Haghighi',
+    author='PyRGG Development Team',
     author_email='info@pyrgg.ir',
     url='https://github.com/sepandhaghighi/pyrgg',
-    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.1',
+    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.2',
     keywords='random graph python3 python generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',
     project_urls={
         'Webpage': 'https://www.pyrgg.ir',
