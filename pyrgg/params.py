@@ -30,15 +30,15 @@ MENU_ITEMS1 = {
 }
 
 MENU_ITEMS2 = {
-    "vertices": "- Vertices Number : ",
-    "max_weight": "- Max Weight : ",
-    "min_weight": "- Min Weight : ",
-    "min_edge": "- Min Edge Number : ",
-    "max_edge": "- Max Edge Number : ",
-    "sign": "- Unsigned[0] or Signed[1]",
-    "direct": "- Undirected[0] or Directed[1]",
-    "self_loop": "- No Self Loop[0] or Self Loop[1]",
-    "multigraph": "- Simple[0] or Multigraph[1]",
+    1: ["vertices", "- Vertices Number : "],
+    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
+    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
+    4: ["min_weight", "- Min Weight : "],
+    5: ["max_weight", "- Max Weight : "],
+    6: ["sign", "- Unsigned[0] or Signed[1]"],
+    7: ["direct", "- Undirected[0] or Directed[1]"],
+    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+    9: ["multigraph", "- Simple[0] or Multigraph[1]"]
 }
 
 
@@ -61,7 +61,7 @@ SUFFIX_MENU = {
 }
 
 
-PYRGG_VERSION = "1.1"
+PYRGG_VERSION = "1.2"
 
 PYRGG_TEST_MODE = False
 

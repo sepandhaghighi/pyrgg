@@ -115,17 +115,11 @@ False
 True
 >>> is_float(None)
 False
->>> random.seed(2)
->>> sign_gen()
-1
->>> random.seed(11)
->>> sign_gen()
--1
 >>> used_vertices = {k:[] for k in range(1,6)}
 >>> degree_dict = {1:2,2:3,3:3,4:3,5:3}
 >>> degree_dict_sort = {0:{},1:{},2:{1:1},3:{2:2,3:3,4:4,5:5},4:{},5:{}}
 >>> all_vertices = list(range(1, 6))
->>> branch_gen(1,3,3,300,3000,True,False,False,False,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,3,3,300,3000,0,True,False,False,False,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
@@ -133,17 +127,17 @@ False
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> branch_gen(1,10,10,1,20,True,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,10,1,20,0,True,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[4, 25, 18, 3, 30, 34, 2, 26, 14, 11], [3, 10, 20, 14, -18, -2, -15, -14, 8, 6]]
 >>> random.seed(20)
->>> branch_gen(1,10,4,1,20,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+>>> branch_gen(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
->>> branch_gen(1,10,4,1,20,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
-[[10, 7, 39, 2], [9, 11, 6, 14]]
+>>> branch_gen(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+[[10, 7, 39, 2, 30, 9, 25, 35, 18], [9, 11, 6, 14, 3, 5, 16, 14, 7]]
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
@@ -161,13 +155,21 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":3}
 >>> def input_func_test(input_data):
-...    menu = dict(pyrgg.params.MENU_ITEMS1,**pyrgg.params.MENU_ITEMS2)
 ...    global prev_item
-...    for item in menu:
-...        if input_data == menu[item]:
+...    for item in pyrgg.params.MENU_ITEMS1:
+...        if input_data == pyrgg.params.MENU_ITEMS1[item]:
 ...            if item != prev_item :
 ...                prev_item = item
 ...                return input_func_dict[item]
+...            else:
+...                return input_func_dict["error"]
+...    for index in pyrgg.params.MENU_ITEMS2:
+...        item1 = pyrgg.params.MENU_ITEMS2[index][0]
+...        item2 = pyrgg.params.MENU_ITEMS2[index][1]
+...        if input_data == item2:
+...            if item1 != prev_item :
+...                prev_item = item1
+...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
 >>> input_data = get_input(input_func_test)

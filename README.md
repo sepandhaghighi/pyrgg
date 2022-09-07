@@ -13,7 +13,9 @@
 <a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
   <img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
-
+<a href="https://discord.gg/dfYAWVMaCW">
+  <img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel">
+</a>
 </div>	
 
 ----------
@@ -32,7 +34,7 @@
    * [References](https://github.com/sepandhaghighi/pyrgg#references)
    * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
    * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
-   * [License](https://github.com/sepandhaghighi/pyrgg#license)
+   * [License](https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE)
    * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
    * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
@@ -49,7 +51,7 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 	</tr>
 	<tr>
 		<td align="center">PyPI Counter</td>
-		<td align="center"><a href="http://pepy.tech/count/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
+		<td align="center"><a href="http://pepy.tech/project/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
 	</tr>
 	<tr>
 		<td align="center">Github Stars</td>
@@ -86,14 +88,14 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 ## Installation		
 
 ### Source Code
-- Download [Version 1.1](https://github.com/sepandhaghighi/pyrgg/archive/v1.1.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 1.2](https://github.com/sepandhaghighi/pyrgg/archive/v1.2.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - `python3 setup.py install` or `python setup.py install` (Need root access)				
 
 ### PyPI
 
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==1.1` or `pip3 install pyrgg==1.1` (Need root access)							
+- `pip install pyrgg==1.2` or `pip3 install pyrgg==1.2` (Need root access)							
 
 ### Conda
 
@@ -101,8 +103,8 @@ Pyrgg target audiences are computer scientists who study graph algorithms and gr
 - `conda install -c sepandhaghighi pyrgg` (Need root access)	
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 1.1](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.1/PYRGG-1.1.exe)
-- Run `PYRGG-1.1.exe`
+- Download [Exe-Version 1.2](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.2/PYRGG-1.2.exe)
+- Run `PYRGG-1.2.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
@@ -124,8 +126,15 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ## Issues & Bug Reports			
 
-Just fill an issue and describe it. I'll check it ASAP!							
+Just fill an issue and describe it. We'll check it ASAP!							
 or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
+
+You can also join our discord server			
+
+<a href="https://discord.gg/dfYAWVMaCW">
+  <img src="https://img.shields.io/discord/1013411447130308669.svg?style=for-the-badge" alt="Discord Channel">
+</a>
+
 
 ## TODO	
 - [x] Formats
@@ -537,11 +546,6 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 </table>
  			
 
-## License
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsepandhaghighi%2Fpyrgg.svg?type=large"/></a>
-
-
 ## References
 					
 
@@ -597,5 +601,10 @@ bnb1zglwcf0ac3d0s2f6ck5kgwvcru4tlctt4p5qef
 <h4>Dash</h4>
 Xd3Yn2qZJ7VE8nbKw2fS98aLxR5M6WUU3s
 <h4>Stellar</h4>		
-
-GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL	
+GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL
+<h4>Zilliqa</h4>
+zil1knmz8zj88cf0exr2ry7nav9elehxfcgqu3c5e5
+<h4>Coffeete</h4>
+<a href="http://www.coffeete.ir/opensource">
+<img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
+</a>	

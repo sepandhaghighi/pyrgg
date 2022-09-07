@@ -5,6 +5,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.2] - 2022-09-07
+### Added
+- Anaconda workflow
+- Discord badge
+### Changed
+- Menu optimized
+- Docstrings modified
+- `branch_gen` function modified
+- `edge_gen` function modified
+- `precision` and `min_edge` parameters added to `branch_gen` function
+- `random_edge` parameter removed from `branch_gen` function
+- Test system modified
+- `AUTHORS.md` updated
+- License updated
+- `README.md` modified
+- `Python 3.10` added to `test.yml`
+### Removed
+- `sign_gen` function
+- `random_edge_limits` function
 ## [1.1] - 2021-06-09
 ### Added
 - `requirements-splitter.py`
@@ -128,7 +147,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON format
 - README
 
-[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.1...dev
+[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.2...dev
+[1.2]: https://github.com/sepandhaghighi/pyrgg/compare/v1.1...v1.2
 [1.1]: https://github.com/sepandhaghighi/pyrgg/compare/v1.0...v1.1
 [1.0]: https://github.com/sepandhaghighi/pyrgg/compare/v0.9...v1.0
 [0.9]: https://github.com/sepandhaghighi/pyrgg/compare/v0.8...v0.9
