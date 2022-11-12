@@ -87,8 +87,6 @@ setup(
     ],
     license='MIT',
     entry_points={
-            'console_scripts': [
-                'pyrgg = pyrgg.__main__:main',
-            ]
-    }
-)
+        'console_scripts': [
+            'pyrgg = pyrgg.__main__:main',
+        ]})

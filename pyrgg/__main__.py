@@ -103,6 +103,7 @@ def run():
         gen_graph(input_dict, file_name_temp)
         line(40)
 
+
 def main():
     """
     CLI main function.
@@ -132,6 +133,7 @@ def main():
                 input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":
                 EXIT_FLAG = True
+
 
 if __name__ == "__main__":
     main()
