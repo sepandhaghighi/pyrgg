@@ -5,6 +5,7 @@ from pyrgg.functions import *
 from pyrgg.params import *
 import time
 import sys
+import argparse
 import doctest
 from art import tprint
 
@@ -102,21 +103,26 @@ def run():
         gen_graph(input_dict, file_name_temp)
         line(40)
 
+def main():
+    """
+    CLI main function.
 
-if __name__ == "__main__":
-    tprint("Pyrgg", "larry3d")
-    tprint("v" + PYRGG_VERSION)
-    description_print()
-    args = sys.argv
-    if len(args) > 1:
-        if args[1].upper() == "TEST":
-            error_flag = doctest.testfile("test.py", verbose=False)[0]
-            sys.exit(error_flag)
-        else:
-            print("Bad Input!")
-            print("Test (Run doctest)")
-            print("Without arg --> Normal Run")
+    :return: None
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--version', help='version', nargs="?", const=1)
+    parser.add_argument('test', help='test', nargs="?", const=1)
+    args = parser.parse_args()
+    if args.version:
+        print(PYRGG_VERSION)
+    elif args.test:
+        print("Testing ...")
+        error_flag = doctest.testfile("test.py", verbose=False)[0]
+        sys.exit(error_flag)
     else:
+        tprint("Pyrgg", "larry3d")
+        tprint("v" + PYRGG_VERSION)
+        description_print()
         EXIT_FLAG = False
         while not EXIT_FLAG:
             run()
@@ -124,3 +130,6 @@ if __name__ == "__main__":
                 input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":
                 EXIT_FLAG = True
+
+if __name__ == "__main__":
+    main()
