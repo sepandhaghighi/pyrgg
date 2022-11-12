@@ -118,6 +118,8 @@ def main():
     elif args.test:
         print("Testing ...")
         error_flag = doctest.testfile("test.py", verbose=False)[0]
+        if error_flag == 0:
+            print("Done!")
         sys.exit(error_flag)
     else:
         tprint("Pyrgg", "larry3d")
