@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Test system modified
 - `Python 3.11` added to `test.yml`
+- CLI mode updated
 ## [1.2] - 2022-09-07
 ### Added
 - Anaconda workflow

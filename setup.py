@@ -86,4 +86,7 @@ setup(
         'Topic :: Scientific/Engineering :: Physics',
     ],
     license='MIT',
-)
+    entry_points={
+        'console_scripts': [
+            'pyrgg = pyrgg.__main__:main',
+        ]})
