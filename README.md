@@ -492,6 +492,19 @@ You can also join our discord server
         </gexf>
     ```
 
+- [Graphviz(.gv)](https://graphviz.org/doc/info/lang.html)
+    ```
+		graph example 
+			{
+			node1 -> node2 [weight=W1];
+			node3 -> node4 [weight=W2];
+			node1 -> node3 [weight=W3];
+			.
+			.
+			.
+			}
+    ```
+
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
 
@@ -572,6 +585,8 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>11- Chakrabarti, Deepayan, Yiping Zhan, and Christos Faloutsos. "R-MAT: A recursive model for graph mining." Proceedings of the 2004 SIAM International Conference on Data Mining. Society for Industrial and Applied Mathematics, 2004. </blockquote>
 
 <blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
+
+<blockquote>13- Ellson, John, et al. "Graphviz and dynagraph—static and dynamic graph drawing tools." Graph drawing software. Springer, Berlin, Heidelberg, 2004. 127-148.</blockquote>
 					
  
 ## Show Your Support
