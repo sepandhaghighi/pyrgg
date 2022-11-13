@@ -1001,6 +1001,7 @@ def gexf_maker(
         buf.write("</gexf>")
     return edge_number
 
+
 def dot_maker(
         file_name,
         min_weight,
@@ -1059,6 +1060,15 @@ def dot_maker(
         buf.write(header + " {")
         for key, edge_val in edge_dic.items():
             for j, value in enumerate(edge_val):
-                buf.write("\n" + str(key) + " " + linker + " " + str(value) + " [weight={}]".format(weight_dic[key][j]) + ";")
+                buf.write(
+                    "\n" +
+                    str(key) +
+                    " " +
+                    linker +
+                    " " +
+                    str(value) +
+                    " [weight={}]".format(
+                        weight_dic[key][j]) +
+                    ";")
         buf.write("\n}")
     return edge_number
