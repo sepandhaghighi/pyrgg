@@ -203,6 +203,8 @@ You can also join our discord server
 - [Sample 2-GML](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
 - [Sample 1-GEXF](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
 - [Sample 2-GEXF](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
+- [Sample 1-Graphviz](https://www.dropbox.com/s/ukev1hi4kguomri/100.gv?dl=0) (100 Vertices , 11KB)
+- [Sample 2-Graphviz](https://www.dropbox.com/s/vpvvliz96mdea1p/1000.gv?dl=0) (1000 Vertices , 106KB)
 
 
 
