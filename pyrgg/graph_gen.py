@@ -1059,6 +1059,6 @@ def dot_maker(
         buf.write(header + " {")
         for key, edge_val in edge_dic.items():
             for j, value in enumerate(edge_val):
-                buf.write("\n\t" + str(key) + " " + linker + " " + str(value) + " [weight={}]".format(weight_dic[key][j]) + ";")
+                buf.write("\n" + str(key) + " " + linker + " " + str(value) + " [weight={}]".format(weight_dic[key][j]) + ";")
         buf.write("\n}")
     return edge_number
