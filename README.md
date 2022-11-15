@@ -498,14 +498,15 @@ You can also join our discord server
     ```
 		graph example 
 			{
-			node1 -> node2 [weight=W1];
-			node3 -> node4 [weight=W2];
-			node1 -> node3 [weight=W3];
+			node1 -- node2 [weight=W1];
+			node3 -- node4 [weight=W2];
+			node1 -- node3 [weight=W3];
 			.
 			.
 			.
 			}
     ```
+	* [Online Visualization](https://dreampuf.github.io/GraphvizOnline/)
 
 - [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
  			
