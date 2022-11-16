@@ -24,7 +24,8 @@ GENERATOR_MENU = {
     12: gl_maker,
     13: gdf_maker,
     14: gml_maker,
-    15: gexf_maker}
+    15: gexf_maker,
+    16: dot_maker}
 
 
 def gen_graph(input_dict, file_name):

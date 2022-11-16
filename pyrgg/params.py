@@ -24,6 +24,7 @@ MENU_ITEMS1 = {
         13- GDF(.gdf)
         14- GML(.gml)
         15- GEXF(.gexf)
+        16- DOT(.gv)
         """
     ),
     "weight": "- Unweighted[0] or Weighted[1]",
@@ -58,6 +59,7 @@ SUFFIX_MENU = {
     13: ".gdf",
     14: ".gml",
     15: ".gexf",
+    16: ".gv"
 }
 
 

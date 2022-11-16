@@ -1699,6 +1699,51 @@ a 26 3 -13
 7,7,-100.525
 10,10,-181.752
 <BLANKLINE>
+>>> import pydot
+>>> random.seed(4)
+>>> dot_maker('testfile',0,50,30,0,4,True,True,False,False)
+37
+>>> file=open('testfile.gv','r')
+>>> g1 = pydot.graph_from_dot_data(file.read())
+>>> type(g1[0])
+<class 'pydot.Dot'>
+>>> g1[0].get_type()
+'digraph'
+>>> len(g1[0].get_edge_list())
+37
+>>> random.seed(4)
+>>> dot_maker('testfile2',0,50,30,0,4,True,False,False,False)
+37
+>>> file=open('testfile2.gv','r')
+>>> g2 = pydot.graph_from_dot_data(file.read())
+>>> type(g2[0])
+<class 'pydot.Dot'>
+>>> g2[0].get_type()
+'graph'
+>>> len(g2[0].get_edge_list())
+37
+>>> random.seed(4)
+>>> dot_maker('testfile3',0,50,30,0,4,True,False,False,True)
+40
+>>> file=open('testfile3.gv','r')
+>>> g3 = pydot.graph_from_dot_data(file.read())
+>>> type(g3[0])
+<class 'pydot.Dot'>
+>>> g3[0].get_type()
+'graph'
+>>> len(g3[0].get_edge_list())
+40
+>>> random.seed(4)
+>>> dot_maker('testfile4',1,1,30,0,4,True,False,False,True)
+42
+>>> file=open('testfile4.gv','r')
+>>> g4 = pydot.graph_from_dot_data(file.read())
+>>> type(g4[0])
+<class 'pydot.Dot'>
+>>> g4[0].get_type()
+'graph'
+>>> len(g4[0].get_edge_list())
+42
 >>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
@@ -1747,6 +1792,10 @@ a 26 3 -13
 >>> os.remove('testfile3.p')
 >>> os.remove('testfile3.wel')
 >>> os.remove('testfile3.yaml')
+>>> os.remove('testfile.gv')
+>>> os.remove('testfile2.gv')
+>>> os.remove('testfile3.gv')
+>>> os.remove('testfile4.gv')
 >>> os.remove('logfile.log')
 
 """
