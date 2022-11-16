@@ -24,7 +24,7 @@
    * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
    * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
    * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
-   * [Todo](https://github.com/sepandhaghighi/pyrgg#todo)
+   * [Todo](https://github.com/sepandhaghighi/pyrgg/blob/master/TODO.md)
    * [Sample Files](https://github.com/sepandhaghighi/pyrgg#sample-files)
    * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
    * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
@@ -134,41 +134,6 @@ You can also join our discord server
 <a href="https://discord.gg/dfYAWVMaCW">
   <img src="https://img.shields.io/discord/1013411447130308669.svg?style=for-the-badge" alt="Discord Channel">
 </a>
-
-
-## TODO	
-- [x] Formats
-  - [x] DIMACS
-  - [x] JSON
-  - [x] YAML
-  - [x] Pickle 
-  - [x] CSV
-  - [x] TSV
-  - [x] WEL	
-  - [x] ASP
-  - [x] TGF
-  - [x] UCINET DL
-  - [x] GML
-  - [x] GDF
-  - [x] Matrix Market
-  - [x] Graph Line
-  - [x] GEXF
-- [ ] Sizes
-  - [x] Small
-  - [x] Medium
-  - [ ] Large
-- [x] Weighted Graph															
-	- [x] Signed Weights
-- [x] Unweighted Graph
-- [x] Dense Graph
-- [x] Sparse Graph
-- [x] Directed Graph
-- [x] Self loop
-- [x] Parallel Arc
-- [ ] Multithreading
-- [ ] GUI
-- [ ] Erdős–Rényi model
-- [ ] Tree
 
 ## Sample Files
 - [Sample 1-DIMACS](https://www.dropbox.com/s/i80tnwuuv4iyqet/100.gr.gz?dl=0) (100 Vertices , 3KB)
