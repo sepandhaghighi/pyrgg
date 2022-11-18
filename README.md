@@ -144,11 +144,6 @@ You can also join our discord server
 	- [Totem](https://github.com/netsyslab/Totem "Totem")
 	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
 	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
-<div align="center">
-<img src="https://www.pyrgg.ir/images/random.png">
-<p>Fig. 1. Rand Graph Generation</p>
-</div>
-
 - Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
 
 
@@ -440,7 +435,7 @@ You can also join our discord server
 
 ## Similar Works
 - [Random Modular Network Generator](https://github.com/prathasah/random-modular-network-generator) Generates random graphs with tunable strength of community structure
-- [randomGraph](https://github.com/sdghafouri/randomGraph) very simple random graph generator in matlab
+- [randomGraph](https://github.com/sdghafouri/randomGraph) very simple random graph generator in MATLAB
 - [Graph1](https://github.com/Saptaparni/Graph1) Random Graph Generator with Max capacity paths (C++)
 
 
