@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Graphviz(DOT) format
 ### Changed
 - Test system modified
+- `README.md` modified
 - `Python 3.11` added to `test.yml`
 - CLI mode updated
 - `dev-requirements.txt` updated
