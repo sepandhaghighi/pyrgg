@@ -277,7 +277,7 @@ Note that it may run on lower end equipment though good performance is not guara
 	```
 	* [Sample 1](https://www.dropbox.com/s/4bufa1m4uamv48z/100.lp?dl=0) (100 Vertices , 7KB)
 	* [Sample 2](https://www.dropbox.com/s/w79fh1qva64namw/1000.lp?dl=0) (1000 Vertices , 76KB)
-- [Trivial_Graph_Format(.tgf)](https://en.wikipedia.org/wiki/Trivial_Graph_Format)
+- [Trivial Graph Format(.tgf)](https://en.wikipedia.org/wiki/Trivial_Graph_Format)
 	```
 		1
 		.
