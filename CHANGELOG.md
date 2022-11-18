@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - CLI mode updated
 - `dev-requirements.txt` updated
 - To-do list moved to `TODO.md`
+- Samples section moved to `SAMPLES.md`
 ## [1.2] - 2022-09-07
 ### Added
 - Anaconda workflow
