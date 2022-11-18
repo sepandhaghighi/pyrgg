@@ -114,7 +114,10 @@ Pyrgg will likely run on a modern dual core PC. Typical configuration is:
 Note that it may run on lower end equipment though good performance is not guaranteed.		
 
 
-## Usage			
+## Usage
+- Open `CMD` (Windows) or `Terminal` (UNIX)
+- Run `pyrgg` or `python -m pyrgg` (or run `PYRGG.exe`)
+- Enter data		
 
 <div align="center">
 
