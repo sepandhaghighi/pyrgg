@@ -5,10 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.3] - 2022-11-30
 ### Added
 - Graphviz(DOT) format
 ### Changed
-- asciinema instruction video
+- [asciinema](asciinema.org) instruction video updated
 - Test system modified
 - `README.md` modified
 - `Python 3.11` added to `test.yml`
@@ -157,7 +158,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON format
 - README
 
-[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.2...dev
+[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.3...dev
+[1.3]: https://github.com/sepandhaghighi/pyrgg/compare/v1.2...v1.3
 [1.2]: https://github.com/sepandhaghighi/pyrgg/compare/v1.1...v1.2
 [1.1]: https://github.com/sepandhaghighi/pyrgg/compare/v1.0...v1.1
 [1.0]: https://github.com/sepandhaghighi/pyrgg/compare/v0.9...v1.0
