@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Graphviz(DOT) format
 ### Changed
+- asciinema instruction video
 - Test system modified
 - `README.md` modified
 - `Python 3.11` added to `test.yml`

@@ -121,7 +121,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 <div align="center">
 
-<a href="https://asciinema.org/a/352310" target="_blank"><img src="https://asciinema.org/a/352310.svg" /></a>
+<a href="https://asciinema.org/a/539844" target="_blank"><img src="https://asciinema.org/a/539844.svg" /></a>
 
 </div>
 
