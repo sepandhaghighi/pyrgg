@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        python-version: [3.5, 3.6, 3.7, 3.8, 3.9, 3.10.0]
+        python-version: [3.5, 3.6, 3.7, 3.8, 3.9, 3.10.0, 3.11.0]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -26,7 +26,8 @@ jobs:
         python setup.py install
     - name: First test
       run: |
-        python -m pyrgg test
+        pyrgg test
+        pyrgg --version
     - name: Test requirements Installation
       run: |
         python otherfile/requirements-splitter.py
@@ -37,17 +38,17 @@ jobs:
     - name: Version check
       run: |
         python otherfile/version_check.py
-      if: matrix.python-version == 3.7
+      if: matrix.python-version == 3.8
     - name: Other tests
       run: |
           python -m vulture pyrgg/ otherfile/ setup.py --min-confidence 65 --exclude=__init__.py --sort-by-size
           python -m bandit -r pyrgg -s B311,B403
           python -m pydocstyle -v --match-dir=pyrgg
-      if: matrix.python-version == 3.7
+      if: matrix.python-version == 3.8
     - name: Codecov
       run: |
         codecov
-      if: matrix.python-version == 3.7 && matrix.os == 'ubuntu-latest'
+      if: matrix.python-version == 3.8 && matrix.os == 'ubuntu-latest'
     - name: cProfile
       run: |
           python -m cProfile -s cumtime otherfile/pyrgg_profile.py

@@ -1,0 +1,36 @@
+## TODO	
+
+- [x] Formats
+  - [x] DIMACS
+  - [x] JSON
+  - [x] YAML
+  - [x] Pickle 
+  - [x] CSV
+  - [x] TSV
+  - [x] WEL	
+  - [x] ASP
+  - [x] TGF
+  - [x] UCINET DL
+  - [x] GML
+  - [x] GDF
+  - [x] Matrix Market
+  - [x] Graph Line
+  - [x] GEXF
+  - [x] Graphviz
+- [ ] Sizes
+  - [x] Small
+  - [x] Medium
+  - [ ] Large
+- [x] Weighted Graph															
+	- [x] Signed Weights
+- [x] Unweighted Graph
+- [x] Dense Graph
+- [x] Sparse Graph
+- [x] Directed Graph
+- [x] Self loop
+- [x] Parallel Arc
+- [ ] Config file
+- [ ] Multithreading
+- [ ] GUI
+- [ ] Erdős–Rényi model
+- [ ] Tree
