@@ -27,7 +27,6 @@
    * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
    * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
    * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
-   * [Dependencies](https://github.com/sepandhaghighi/pyrgg#dependencies)
    * [Contribution](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CONTRIBUTING.md)
    * [References](https://github.com/sepandhaghighi/pyrgg#references)
    * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
@@ -472,19 +471,6 @@ You can also join our discord server
   <img src="https://img.shields.io/discord/1013411447130308669.svg?style=for-the-badge" alt="Discord Channel">
 </a>
 
-## Dependencies
-
-<table>
-	<tr> 
-		<td align="center">master</td>	
-		<td align="center">dev</td>	
-	</tr>
-	<tr>
-		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=master"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
-		<td align="center"><a href="https://requires.io/github/sepandhaghighi/pyrgg/requirements/?branch=dev"><img src="https://requires.io/github/sepandhaghighi/pyrgg/requirements.svg?branch=dev" alt="Requirements Status" /></a></td>
-	</tr>
-</table>
-
 
 ## Citing
 
@@ -580,4 +566,5 @@ zil1knmz8zj88cf0exr2ry7nav9elehxfcgqu3c5e5
 <h4>Coffeete</h4>
 <a href="http://www.coffeete.ir/opensource">
 <img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
-</a>	
+</a>
+
