@@ -3,9 +3,9 @@
 
 
 <div align="center">
-<img src="http://www.shaghighi.ir/pyrgg/images/pyrgg-logo.png" height=240px width=320px>
+<img src="https://github.com/sepandhaghighi/pyrgg/raw/logo/otherfile/logo.png" width="550">
 <hr/>
-<h1>Random Graph Generator</h1>
+<h1>PyRGG: Python Random Graph Generator</h1>
 
 <a href="http://www.shaghighi.ir/pyrgg"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
 <a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
@@ -531,6 +531,9 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
 
 <blockquote>13- Ellson, John, et al. "Graphviz and dynagraph—static and dynamic graph drawing tools." Graph drawing software. Springer, Berlin, Heidelberg, 2004. 127-148.</blockquote>
+
+
+* Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
  
 ## Show Your Support
