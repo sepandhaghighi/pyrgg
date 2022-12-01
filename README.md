@@ -3,7 +3,7 @@
 
 
 <div align="center">
-<img src="https://github.com/sepandhaghighi/pyrgg/raw/logo/otherfile/logo.png" width="450">
+<img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/logo.png" width="450">
 <h1>PyRGG: Python Random Graph Generator</h1>
 
 <a href="http://www.shaghighi.ir/pyrgg"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
