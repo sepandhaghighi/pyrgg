@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `README.md` modified
 - Logo changed
+- `codecov` removed from `dev-requirements.txt`
 - Test system modified
 ## [1.3] - 2022-11-30
 ### Added
