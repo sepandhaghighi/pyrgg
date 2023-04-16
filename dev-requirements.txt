@@ -1,6 +1,5 @@
 art==5.9
 pyyaml==6.0
-codecov>=2.0.15
 scipy>=1.2.0
 networkx>=2.1
 pydot>=1.2.4
