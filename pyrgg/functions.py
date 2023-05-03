@@ -619,3 +619,18 @@ def save_config(input_dict):
         print("Config --> " + os.path.abspath(fname))
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+
+
+def load_config(path):
+    """
+    Load config based on given path.
+
+    :param path: path to config file
+    :type path: str
+    :return: input dictionary
+    """
+    try:
+        with open(path, "r") as json_file:
+            return json_loads(json_file.read())
+    except FileNotFoundError:
+        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
