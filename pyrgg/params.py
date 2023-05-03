@@ -39,7 +39,8 @@ MENU_ITEMS2 = {
     6: ["sign", "- Unsigned[0] or Signed[1]"],
     7: ["direct", "- Undirected[0] or Directed[1]"],
     8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
-    9: ["multigraph", "- Simple[0] or Multigraph[1]"]
+    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
+    10: ["config", "- Save config[1] or not[0]"],
 }
 
 

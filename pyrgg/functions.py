@@ -2,6 +2,7 @@
 """Pyrgg functions module."""
 import datetime
 from json import loads as json_loads
+from json import dump as json_dump
 import os
 from pickle import dump as pickle_dump
 from random import randint, uniform, choice
@@ -83,7 +84,7 @@ def convert_str_to_bool(string):
     return bool(int(string))
 
 
-MENU_ITEM_CONVERTORS = {
+ITEM_CONVERTORS = {
     "file_name": lambda x: x,
     "output_format": int,
     "weight": convert_str_to_bool,
@@ -97,6 +98,7 @@ MENU_ITEM_CONVERTORS = {
     "direct": convert_str_to_bool,
     "self_loop": convert_str_to_bool,
     "multigraph": convert_str_to_bool,
+    "config": convert_str_to_bool,
 }
 
 
@@ -305,6 +307,7 @@ def get_input(input_func=input):
         "direct": True,
         "self_loop": True,
         "multigraph": False,
+        "config": False,
     }
 
     result_dict = _update_using_first_menu(result_dict, input_func)
@@ -326,7 +329,7 @@ def _update_using_first_menu(result_dict, input_func):
     for item in MENU_ITEMS_KEYS1:
         while True:
             try:
-                result_dict[item] = MENU_ITEM_CONVERTORS[item](
+                result_dict[item] = ITEM_CONVERTORS[item](
                     input_func(pyrgg.params.MENU_ITEMS1[item])
                 )
             except Exception:
@@ -354,7 +357,7 @@ def _update_using_second_menu(result_dict, input_func):
             continue
         while True:
             try:
-                result_dict[item1] = MENU_ITEM_CONVERTORS[item1](
+                result_dict[item1] = ITEM_CONVERTORS[item1](
                     input_func(item2)
                 )
             except Exception:
@@ -597,5 +600,22 @@ def json_to_pickle(filename):
             json_data = json_loads(json_file.read())
             with open(filename + ".p", "wb") as pickle_file:
                 pickle_dump(json_data, pickle_file)
+    except FileNotFoundError:
+        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+
+
+def save_config(input_dict):
+    """
+    Save input_dict as the generation config.
+
+    :param input_dict: input dictionary
+    :type input_dict: dict
+    :return: dictionary indciating result
+    """
+    fname = input_dict['file_name'] + ".config.json"
+    try:
+        with open(fname, "w") as json_file:
+            json_dump(input_dict, json_file, indent=2)
+        print("Config --> " + os.path.abspath(fname))
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
