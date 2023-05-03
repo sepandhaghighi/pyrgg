@@ -610,15 +610,15 @@ def save_config(input_dict):
 
     :param input_dict: input dictionary
     :type input_dict: dict
-    :return: None
+    :return: path to file
     """
-    fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
     try:
+        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict, json_file, indent=2)
-        print("Config --> " + os.path.abspath(fname))
-    except FileNotFoundError:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        return os.path.abspath(fname)
+    except BaseException:
+        print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
 
 
 def load_config(path):
@@ -632,11 +632,11 @@ def load_config(path):
     try:
         with open(path, "r") as json_file:
             return input_filter(json_loads(json_file.read()))
-    except FileNotFoundError:
+    except BaseException:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 
 
-def _print_select_config(configs, input_func=input):
+def _print_select_config(configs, input_func=input):  # pragma: no cover
     """
     Print configs in current directory and get input from user.
 
@@ -649,7 +649,7 @@ def _print_select_config(configs, input_func=input):
     print("Config files detected in current directory are listed below:")
     for i, config in enumerate(configs):
         print("[{}] - {}".format(i, config))
-    key = input(
+    key = input_func(
         "Press the config index to load or any other keys to start with new one : ")
     try:
         return load_config(configs[int(key)])
