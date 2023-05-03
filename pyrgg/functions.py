@@ -636,7 +636,7 @@ def load_config(path):
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 
 
-def _print_select_config(configs):
+def _print_select_config(configs, input_func=input):
     """
     Print configs in current directory and get input from user.
 
@@ -657,7 +657,7 @@ def _print_select_config(configs):
         return None
 
 
-def check_for_config():
+def check_for_config(input_func=input):
     """
     Check for config files in source directory.
 
@@ -669,4 +669,4 @@ def check_for_config():
         if os.path.isfile(file) and filename.endswith(
                 pyrgg.params.CONFIG_FILE_FORMAT.format("")):
             configs.append(file)
-    return _print_select_config(configs)
+    return _print_select_config(configs, input_func)
