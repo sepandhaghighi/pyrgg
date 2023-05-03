@@ -139,6 +139,8 @@ def main():
         while not EXIT_FLAG:
             if args.config:
                 input_dict = load_config(args.config)
+            else:
+                input_dict = check_for_config()
             run(input_dict)
             INPUTINDEX = str(
                 input("Press [R] to restart Pyrgg or any other key to exit."))

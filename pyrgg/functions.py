@@ -634,3 +634,39 @@ def load_config(path):
             return input_filter(json_loads(json_file.read()))
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+
+
+def _print_select_config(configs):
+    """
+    Print configs in current directory and get input from user.
+
+    :param configs: configs path
+    :type configs: list
+    :return: desired config path
+    """
+    if configs == []:
+        return None
+    print("Config files detected in current directory are listed below:")
+    for i, config in enumerate(configs):
+        print("[{}] - {}".format(i, config))
+    key = input(
+        "Press the config index to load or any other keys to start with new one : ")
+    try:
+        return load_config(configs[int(key)])
+    except BaseException:
+        return None
+
+
+def check_for_config():
+    """
+    Check for config files in source directory.
+
+    :return: input dictionary if available, otherwise None
+    """
+    configs = []
+    for filename in os.listdir(pyrgg.params.SOURCE_DIR):
+        file = os.path.join(pyrgg.params.SOURCE_DIR, filename)
+        if os.path.isfile(file) and filename.endswith(
+                pyrgg.params.CONFIG_FILE_FORMAT.format("")):
+            configs.append(file)
+    return _print_select_config(configs)
