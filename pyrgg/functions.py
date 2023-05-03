@@ -610,7 +610,7 @@ def save_config(input_dict):
 
     :param input_dict: input dictionary
     :type input_dict: dict
-    :return: dictionary indciating result
+    :return: None
     """
     fname = input_dict['file_name'] + ".config.json"
     try:
