@@ -612,7 +612,7 @@ def save_config(input_dict):
     :type input_dict: dict
     :return: None
     """
-    fname = input_dict['file_name'] + ".config.json"
+    fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
     try:
         with open(fname, "w") as json_file:
             json_dump(input_dict, json_file, indent=2)

@@ -70,6 +70,8 @@ PYRGG_TEST_MODE = False
 
 SOURCE_DIR = os.getcwd()
 
+CONFIG_FILE_FORMAT = "{}.pyrgg.config.json"
+
 PYRGG_LINKS = """
 Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
