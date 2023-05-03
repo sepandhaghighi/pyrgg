@@ -631,6 +631,6 @@ def load_config(path):
     """
     try:
         with open(path, "r") as json_file:
-            return json_loads(json_file.read())
+            return input_filter(json_loads(json_file.read()))
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
