@@ -613,6 +613,8 @@ def save_config(input_dict):
     :return: path to file
     """
     try:
+        input_dict['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
+        input_dict['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict, json_file, indent=2)
@@ -631,7 +633,9 @@ def load_config(path):
     """
     try:
         with open(path, "r") as json_file:
-            return input_filter(json_loads(json_file.read()))
+            config = json_loads(json_file.read())
+            config['output_format'] = pyrgg.params.OUTPUT_FORMAT_inv[config['output_format']]
+            return input_filter(config)
     except BaseException:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 

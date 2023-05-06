@@ -216,8 +216,14 @@ True
 >>> loaded_config = check_for_config(input_func_conf_test)
 >>> input_data["config"]
 True
+>>> input_data_ = input_data.copy()
 >>> config_path = save_config(input_data)
->>> input_data == load_config(config_path)
+>>> loaded_config = load_config(config_path)
+>>> loaded_config["vertices"] == input_data_["vertices"]
+True
+>>> loaded_config["number_of_files"] == input_data_["number_of_files"]
+True
+>>> loaded_config["output_format"] == input_data_["output_format"]
 True
 >>> save_config("test")
 [Error] Bad Input!

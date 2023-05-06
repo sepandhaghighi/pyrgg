@@ -63,6 +63,10 @@ SUFFIX_MENU = {
     16: ".gv"
 }
 
+OUTPUT_FORMAT = {i: output_format[1:].upper() for i, output_format in SUFFIX_MENU.items()}
+
+OUTPUT_FORMAT_inv = {v: k for k, v in OUTPUT_FORMAT.items()}
+
 
 PYRGG_VERSION = "1.3"
 
