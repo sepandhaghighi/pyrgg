@@ -640,7 +640,7 @@ def load_config(path):
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
 
 
-def _print_select_config(configs, input_func=input):  # pragma: no cover
+def _print_select_config(configs, input_func=input):
     """
     Print configs in current directory and get input from user.
 

@@ -173,10 +173,10 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 ...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
->>> conf_input = "0"
->>> def input_func_conf_test(input_data):
-...     global conf_input
-...     return conf_input
+>>> def input_func_conf_test0(input_data):
+...     return "0"
+>>> def input_func_conf_test1(input_data):
+...     return "1"
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -213,7 +213,7 @@ True
 True
 >>> input_data["weight"]
 True
->>> loaded_config = check_for_config(input_func_conf_test)
+>>> loaded_config = check_for_config(input_func_conf_test0)
 >>> input_data["config"]
 True
 >>> input_data_ = input_data.copy()
@@ -229,6 +229,22 @@ True
 [Error] Bad Input!
 >>> load_config("test123456789")
 [Error] Bad Input File!
+>>> loaded_config = check_for_config(input_func_conf_test0)
+Config files detected in current directory are listed below:
+[0] - ...
+Press the config index to load or any other keys to start with new one : 
+>>> loaded_config["vertices"] == input_data_["vertices"]
+True
+>>> loaded_config["number_of_files"] == input_data_["number_of_files"]
+True
+>>> loaded_config["output_format"] == input_data_["output_format"]
+True
+>>> loaded_config = check_for_config(input_func_conf_test1)
+Config files detected in current directory are listed below:
+[0] - ...
+Press the config index to load or any other keys to start with new one : 
+>>> loaded_config == None
+True
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"200","weight":"0","number_of_files":-1,"error":"120","config":False}
 >>> input_data = get_input(input_func_test)
