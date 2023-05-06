@@ -232,7 +232,6 @@ True
 >>> loaded_config = check_for_config(input_func_conf_test0)
 Config files detected in current directory are listed below:
 [0] - ...
-Press the config index to load or any other keys to start with new one : 
 >>> loaded_config["vertices"] == input_data_["vertices"]
 True
 >>> loaded_config["number_of_files"] == input_data_["number_of_files"]
@@ -242,7 +241,6 @@ True
 >>> loaded_config = check_for_config(input_func_conf_test1)
 Config files detected in current directory are listed below:
 [0] - ...
-Press the config index to load or any other keys to start with new one : 
 >>> loaded_config == None
 True
 >>> prev_item = ""
