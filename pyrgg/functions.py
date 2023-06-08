@@ -634,7 +634,7 @@ def load_config(path):
     try:
         with open(path, "r") as json_file:
             config = json_loads(json_file.read())
-            config['output_format'] = pyrgg.params.OUTPUT_FORMAT_inv[config['output_format']]
+            config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
             return input_filter(config)
     except BaseException:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
