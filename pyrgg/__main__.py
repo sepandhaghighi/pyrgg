@@ -97,10 +97,10 @@ def run(input_dict=None):
     """
     if input_dict is None:
         input_dict = get_input()
+        if input_dict["config"] is True:
+            print("Config --> " + save_config(input_dict))
     file_name = input_dict["file_name"]
     number_of_files = input_dict["number_of_files"]
-    if input_dict["config"] is True:
-        print("Config --> " + save_config(input_dict))
     line(40)
     for i in range(number_of_files):
         print("Generating {0} from {1}".format(i + 1, number_of_files))
