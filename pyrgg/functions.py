@@ -2,6 +2,7 @@
 """Pyrgg functions module."""
 import datetime
 from json import loads as json_loads
+from json import dump as json_dump
 import os
 from pickle import dump as pickle_dump
 from random import randint, uniform, choice
@@ -83,7 +84,7 @@ def convert_str_to_bool(string):
     return bool(int(string))
 
 
-MENU_ITEM_CONVERTORS = {
+ITEM_CONVERTORS = {
     "file_name": lambda x: x,
     "output_format": int,
     "weight": convert_str_to_bool,
@@ -97,6 +98,7 @@ MENU_ITEM_CONVERTORS = {
     "direct": convert_str_to_bool,
     "self_loop": convert_str_to_bool,
     "multigraph": convert_str_to_bool,
+    "config": convert_str_to_bool,
 }
 
 
@@ -305,6 +307,7 @@ def get_input(input_func=input):
         "direct": True,
         "self_loop": True,
         "multigraph": False,
+        "config": False,
     }
 
     result_dict = _update_using_first_menu(result_dict, input_func)
@@ -326,7 +329,7 @@ def _update_using_first_menu(result_dict, input_func):
     for item in MENU_ITEMS_KEYS1:
         while True:
             try:
-                result_dict[item] = MENU_ITEM_CONVERTORS[item](
+                result_dict[item] = ITEM_CONVERTORS[item](
                     input_func(pyrgg.params.MENU_ITEMS1[item])
                 )
             except Exception:
@@ -354,7 +357,7 @@ def _update_using_second_menu(result_dict, input_func):
             continue
         while True:
             try:
-                result_dict[item1] = MENU_ITEM_CONVERTORS[item1](
+                result_dict[item1] = ITEM_CONVERTORS[item1](
                     input_func(item2)
                 )
             except Exception:
@@ -599,3 +602,75 @@ def json_to_pickle(filename):
                 pickle_dump(json_data, pickle_file)
     except FileNotFoundError:
         print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+
+
+def save_config(input_dict):
+    """
+    Save input_dict as the generation config.
+
+    :param input_dict: input dictionary
+    :type input_dict: dict
+    :return: path to file
+    """
+    try:
+        input_dict['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
+        input_dict['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict['output_format']]
+        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
+        with open(fname, "w") as json_file:
+            json_dump(input_dict, json_file, indent=2)
+        return os.path.abspath(fname)
+    except BaseException:
+        print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
+
+
+def load_config(path):
+    """
+    Load config based on given path.
+
+    :param path: path to config file
+    :type path: str
+    :return: input dictionary
+    """
+    try:
+        with open(path, "r") as json_file:
+            config = json_loads(json_file.read())
+            config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
+            return input_filter(config)
+    except BaseException:
+        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+
+
+def _print_select_config(configs, input_func=input):
+    """
+    Print configs in current directory and get input from user.
+
+    :param configs: configs path
+    :type configs: list
+    :return: desired config path
+    """
+    if configs == []:
+        return None
+    print("Config files detected in current directory are listed below:")
+    for i, config in enumerate(configs):
+        print("[{}] - {}".format(i, config))
+    key = input_func(
+        "Press the config index to load or any other keys to start with new one : ")
+    try:
+        return load_config(configs[int(key)])
+    except BaseException:
+        return None
+
+
+def check_for_config(input_func=input):
+    """
+    Check for config files in source directory.
+
+    :return: input dictionary if available, otherwise None
+    """
+    configs = []
+    for filename in os.listdir(pyrgg.params.SOURCE_DIR):
+        file = os.path.join(pyrgg.params.SOURCE_DIR, filename)
+        if os.path.isfile(file) and filename.endswith(
+                pyrgg.params.CONFIG_FILE_FORMAT.format("")):
+            configs.append(file)
+    return _print_select_config(configs, input_func)

@@ -87,15 +87,21 @@ def gen_graph(input_dict, file_name):
         elapsed_time_format)
 
 
-def run():
+def run(input_dict=None):
     """
     Run proper converter.
 
+    :param input_dict: input data
+    :type input_dict: dict
     :return: None
     """
-    input_dict = get_input()
+    if input_dict is None:
+        input_dict = get_input()
+        if input_dict["config"] is True:
+            print("Config --> " + save_config(input_dict))
     file_name = input_dict["file_name"]
     number_of_files = input_dict["number_of_files"]
+    line(40)
     for i in range(number_of_files):
         print("Generating {0} from {1}".format(i + 1, number_of_files))
         file_name_temp = file_name
@@ -113,6 +119,7 @@ def main():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--version', help='version', nargs="?", const=1)
+    parser.add_argument('--config', help='config')
     parser.add_argument('test', help='test', nargs="?", const=1)
     args = parser.parse_args()
     if args.version:
@@ -128,8 +135,13 @@ def main():
         tprint("v" + PYRGG_VERSION)
         description_print()
         EXIT_FLAG = False
+        input_dict = None
         while not EXIT_FLAG:
-            run()
+            if args.config:
+                input_dict = load_config(args.config)
+            else:
+                input_dict = check_for_config()
+            run(input_dict)
             INPUTINDEX = str(
                 input("Press [R] to restart Pyrgg or any other key to exit."))
             if INPUTINDEX.upper() != "R":

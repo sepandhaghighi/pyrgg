@@ -39,7 +39,8 @@ MENU_ITEMS2 = {
     6: ["sign", "- Unsigned[0] or Signed[1]"],
     7: ["direct", "- Undirected[0] or Directed[1]"],
     8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
-    9: ["multigraph", "- Simple[0] or Multigraph[1]"]
+    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
+    10: ["config", "- Save config[1] or not[0]"],
 }
 
 
@@ -62,12 +63,19 @@ SUFFIX_MENU = {
     16: ".gv"
 }
 
+OUTPUT_FORMAT = {i: output_format[1:].upper()
+                 for i, output_format in SUFFIX_MENU.items()}
+
+OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
+
 
 PYRGG_VERSION = "1.3"
 
 PYRGG_TEST_MODE = False
 
 SOURCE_DIR = os.getcwd()
+
+CONFIG_FILE_FORMAT = "{}.pyrgg.config.json"
 
 PYRGG_LINKS = """
 Webpage : https://www.pyrgg.ir
