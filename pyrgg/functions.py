@@ -654,7 +654,7 @@ def _print_select_config(configs, input_func=input):
         return None
     print("Config files detected in current directory are listed below:")
     for i, config in enumerate(configs):
-        print("[{}] - {}".format(i+1, config))
+        print("[{}] - {}".format(i + 1, config))
     key = input_func(
         "Press the config index to load or any other keys to start with new one : ")
     try:
