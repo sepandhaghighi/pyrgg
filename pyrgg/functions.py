@@ -584,7 +584,7 @@ def json_to_yaml(filename):
             with open(filename + ".yaml", "w") as yaml_file:
                 yaml_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_YAML_ERROR_MESSAGE)
 
 
 def json_to_pickle(filename):
@@ -601,7 +601,7 @@ def json_to_pickle(filename):
             with open(filename + ".p", "wb") as pickle_file:
                 pickle_dump(json_data, pickle_file)
     except FileNotFoundError:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_PICKLE_ERROR_MESSAGE)
 
 
 def save_config(input_dict):
