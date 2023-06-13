@@ -123,7 +123,7 @@ def line(num=11, char="#"):
     :param num: number of character in this line
     :type num : int
     :param char: character
-    :type char : str
+    :type char: str
     :return: None
     """
     print(char * num)
@@ -289,8 +289,8 @@ def get_input(input_func=input):
     """
     Get input from user and return as dictionary.
 
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: inputs as dict
     """
     result_dict = {
@@ -321,8 +321,8 @@ def _update_using_first_menu(result_dict, input_func):
 
     :param result_dict: result data
     :type result_dict: dict
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: result_dict as dict
     """
     MENU_ITEMS_KEYS1 = sorted(list(pyrgg.params.MENU_ITEMS1.keys()))
@@ -345,8 +345,8 @@ def _update_using_second_menu(result_dict, input_func):
 
     :param result_dict: result data
     :type result_dict: dict
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: result_dict as dict
     """
     MENU_ITEMS_KEYS2 = sorted(list(pyrgg.params.MENU_ITEMS2.keys()))
@@ -608,7 +608,7 @@ def save_config(input_dict):
     """
     Save input_dict as the generation config.
 
-    :param input_dict: input dictionary
+    :param input_dict: input data
     :type input_dict: dict
     :return: path to file
     """
@@ -629,7 +629,7 @@ def load_config(path):
 
     :param path: path to config file
     :type path: str
-    :return: input dictionary
+    :return: input data
     """
     try:
         with open(path, "r") as json_file:
@@ -646,9 +646,11 @@ def _print_select_config(configs, input_func=input):
 
     :param configs: configs path
     :type configs: list
-    :return: desired config path
+    :param input_func: input function
+    :type input_func: function object
+    :return: input data
     """
-    if configs == []:
+    if len(configs) == 0:
         return None
     print("Config files detected in current directory are listed below:")
     for i, config in enumerate(configs):
@@ -665,7 +667,9 @@ def check_for_config(input_func=input):
     """
     Check for config files in source directory.
 
-    :return: input dictionary if available, otherwise None
+    :param input_func: input function
+    :type input_func: function object
+    :return: input data
     """
     configs = []
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
