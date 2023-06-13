@@ -613,6 +613,7 @@ def save_config(input_dict):
     :return: path to file
     """
     try:
+        input_dict["engine"] = "pyrgg"
         input_dict['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
