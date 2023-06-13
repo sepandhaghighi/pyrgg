@@ -620,7 +620,7 @@ def save_config(input_dict):
             json_dump(input_dict, json_file, indent=2)
         return os.path.abspath(fname)
     except BaseException:
-        print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_CONFIG_SAVE_ERROR_MESSAGE)
 
 
 def load_config(path):
@@ -637,7 +637,7 @@ def load_config(path):
             config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
             return input_filter(config)
     except BaseException:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)
 
 
 def _print_select_config(configs, input_func=input):

@@ -98,11 +98,15 @@ who study graph algorithms and graph processing frameworks.
 
 PYRGG_DESCRIPTION = fill(_description, width=70)
 
-PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad Input!"
+PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad input!"
 
-PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad Input File!"
+PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad input file!"
 
-PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger Failed!"
+PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger failed!"
+
+PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
+
+PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
 
 PYRGG_LOGGER_TEMPLATE = """{0}
 Filename : {1}
