@@ -173,10 +173,10 @@ TypeError: edge_gen() missing 1 required positional argument: 'sign'
 ...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
->>> def input_func_conf_test0(input_data):
-...     return "0"
 >>> def input_func_conf_test1(input_data):
 ...     return "1"
+>>> def input_func_conf_test2(input_data):
+...     return "2"
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -213,7 +213,7 @@ True
 True
 >>> input_data["weight"]
 True
->>> loaded_config = check_for_config(input_func_conf_test0)
+>>> loaded_config = check_for_config(input_func_conf_test1)
 >>> input_data["config"]
 True
 >>> input_data_ = input_data.copy()
@@ -226,21 +226,21 @@ True
 >>> loaded_config["output_format"] == input_data_["output_format"]
 True
 >>> save_config("test")
-[Error] Bad Input!
+[Error] Failed to save config file!
 >>> load_config("test123456789")
-[Error] Bad Input File!
->>> loaded_config = check_for_config(input_func_conf_test0)
+[Error] Failed to load config file!
+>>> loaded_config = check_for_config(input_func_conf_test1)
 Config files detected in current directory are listed below:
-[0] - ...
+[1] - ...
 >>> loaded_config["vertices"] == input_data_["vertices"]
 True
 >>> loaded_config["number_of_files"] == input_data_["number_of_files"]
 True
 >>> loaded_config["output_format"] == input_data_["output_format"]
 True
->>> loaded_config = check_for_config(input_func_conf_test1)
+>>> loaded_config = check_for_config(input_func_conf_test2)
 Config files detected in current directory are listed below:
-[0] - ...
+[1] - ...
 >>> loaded_config == None
 True
 >>> prev_item = ""
@@ -264,14 +264,14 @@ True
 False
 >>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False}
 >>> input_data = get_input(input_func_test)
-[Error] Bad Input!
+[Error] Bad input!
 >>> input_data["min_weight"]
 110.45
 >>> input_data["max_weight"]
 120
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"test","error":"2","number_of_files":2,"config":False}
 >>> input_data = get_input(input_func_test)
-[Error] Bad Input!
+[Error] Bad input!
 >>> input_data["weight"]
 True
 >>> os.remove('File 1.pyrgg.config.json')

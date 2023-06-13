@@ -123,7 +123,7 @@ def line(num=11, char="#"):
     :param num: number of character in this line
     :type num : int
     :param char: character
-    :type char : str
+    :type char: str
     :return: None
     """
     print(char * num)
@@ -289,8 +289,8 @@ def get_input(input_func=input):
     """
     Get input from user and return as dictionary.
 
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: inputs as dict
     """
     result_dict = {
@@ -321,8 +321,8 @@ def _update_using_first_menu(result_dict, input_func):
 
     :param result_dict: result data
     :type result_dict: dict
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: result_dict as dict
     """
     MENU_ITEMS_KEYS1 = sorted(list(pyrgg.params.MENU_ITEMS1.keys()))
@@ -345,8 +345,8 @@ def _update_using_second_menu(result_dict, input_func):
 
     :param result_dict: result data
     :type result_dict: dict
-    :param input_func : input function
-    :type input_func : function object
+    :param input_func: input function
+    :type input_func: function object
     :return: result_dict as dict
     """
     MENU_ITEMS_KEYS2 = sorted(list(pyrgg.params.MENU_ITEMS2.keys()))
@@ -584,7 +584,7 @@ def json_to_yaml(filename):
             with open(filename + ".yaml", "w") as yaml_file:
                 yaml_dump(json_data, yaml_file, default_flow_style=False)
     except FileNotFoundError:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_YAML_ERROR_MESSAGE)
 
 
 def json_to_pickle(filename):
@@ -601,18 +601,19 @@ def json_to_pickle(filename):
             with open(filename + ".p", "wb") as pickle_file:
                 pickle_dump(json_data, pickle_file)
     except FileNotFoundError:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_PICKLE_ERROR_MESSAGE)
 
 
 def save_config(input_dict):
     """
     Save input_dict as the generation config.
 
-    :param input_dict: input dictionary
+    :param input_dict: input data
     :type input_dict: dict
     :return: path to file
     """
     try:
+        input_dict["engine"] = "pyrgg"
         input_dict['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
@@ -620,7 +621,7 @@ def save_config(input_dict):
             json_dump(input_dict, json_file, indent=2)
         return os.path.abspath(fname)
     except BaseException:
-        print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_CONFIG_SAVE_ERROR_MESSAGE)
 
 
 def load_config(path):
@@ -629,7 +630,7 @@ def load_config(path):
 
     :param path: path to config file
     :type path: str
-    :return: input dictionary
+    :return: input data
     """
     try:
         with open(path, "r") as json_file:
@@ -637,7 +638,7 @@ def load_config(path):
             config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
             return input_filter(config)
     except BaseException:
-        print(pyrgg.params.PYRGG_FILE_ERROR_MESSAGE)
+        print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)
 
 
 def _print_select_config(configs, input_func=input):
@@ -646,17 +647,19 @@ def _print_select_config(configs, input_func=input):
 
     :param configs: configs path
     :type configs: list
-    :return: desired config path
+    :param input_func: input function
+    :type input_func: function object
+    :return: input data
     """
-    if configs == []:
+    if len(configs) == 0:
         return None
     print("Config files detected in current directory are listed below:")
     for i, config in enumerate(configs):
-        print("[{}] - {}".format(i, config))
+        print("[{}] - {}".format(i + 1, config))
     key = input_func(
         "Press the config index to load or any other keys to start with new one : ")
     try:
-        return load_config(configs[int(key)])
+        return load_config(configs[int(key) - 1])
     except BaseException:
         return None
 
@@ -665,7 +668,9 @@ def check_for_config(input_func=input):
     """
     Check for config files in source directory.
 
-    :return: input dictionary if available, otherwise None
+    :param input_func: input function
+    :type input_func: function object
+    :return: input data
     """
     configs = []
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):

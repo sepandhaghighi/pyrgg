@@ -547,9 +547,9 @@ False
 >>> testfile_3_yaml['properties']['weighted']
 True
 >>> json_to_yaml('testfile24')
-[Error] Bad Input File!
+[Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
-[Error] Bad Input File!
+[Error] Failed to generate Pickle file!
 >>> json_maker('testfile', 0, 200, 10, 0, 0,1)
 Traceback (most recent call last):
         ...
