@@ -1,16 +1,17 @@
 
 # PyRGG Release Instructions
 
-#### Last Update: 2023-06-14
+#### Last Update: 2023-06-15
 
 1. Create the `release` branch under `dev`
 2. Update all version tags
 	1. `setup.py`
 	2. `README.md`
-	3. `otherfile/version_check.py`
-	4. `otherfile/meta.yaml`
-	5. `otherfile/Version.rc`
-	5. `pyrgg/params.py`
+	3. `PYRGG.spec`
+	4. `otherfile/version_check.py`
+	5. `otherfile/meta.yaml`
+	6. `otherfile/Version.rc`
+	7. `pyrgg/params.py`
 3. Update `CHANGELOG.md`
 4. Create a PR from `release` to `dev`
 	1. Title: `Version x.x` (Example: `Version 0.1`)
@@ -30,7 +31,7 @@
 	1. Use `Python 3.4.x`
 	2. Run `build_exe.bat`
 7. Create a new release
-	1. Target branch: `main`
+	1. Target branch: `master`
 	2. Tag: `vx.x` (Example: `v0.1`)
 	3. Title: `Version x.x` (Example: `Version 0.1`)
 	4. Copy changelogs
