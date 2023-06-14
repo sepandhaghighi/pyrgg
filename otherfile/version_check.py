@@ -31,9 +31,11 @@ RC_ITEMS = [
     "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 PARAMS_ITEMS = ['PYRGG_VERSION = "{0}"']
 META_ITEMS = ['% set version = "{0}" %']
+SPEC_ITEMS = ['pyrgg_version = "{0}"']
 
 FILES = {
     "setup.py": SETUP_ITEMS,
+    "PYRGG.spec": SPEC_ITEMS,
     "README.md": README_ITEMS,
     "CHANGELOG.md": CHANGELOG_ITEMS,
     os.path.join(

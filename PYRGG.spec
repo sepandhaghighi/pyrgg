@@ -2,7 +2,7 @@
 
 block_cipher = None
 
-pyrgg_version = "1.2"
+pyrgg_version = "1.1"
 
 
 a = Analysis(['pyrgg/__main__.py'],
