@@ -2,6 +2,8 @@
 
 block_cipher = None
 
+pyrgg_version = "1.3"
+
 
 a = Analysis(['pyrgg/__main__.py'],
              pathex=['pyrgg'],
@@ -21,7 +23,7 @@ exe = EXE(pyz,
           a.binaries,
           a.zipfiles,
           a.datas,
-          name='PYRGG',
+          name='PYRGG-'+pyrgg_version,
           debug=False,
           strip=False,
           upx=True,
