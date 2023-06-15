@@ -27,8 +27,7 @@
 	3. `git push origin master`
 	4. Wait for all CI pass
 6. Build EXE file
-	1. Use `Python 3.4.x`
-	2. Run `build_exe.bat`
+	1. Run `build_exe.bat` (Use `Python 3.4.x`)
 7. Create a new release
 	1. Target branch: `master`
 	2. Tag: `vx.x` (Example: `v0.1`)
@@ -42,4 +41,6 @@
 11. Update website
 	1. `git checkout gh-pages`
 	2. Update all version tags
+		1. `index.html`
 	3. Update size of files
+		1. `index.html`
