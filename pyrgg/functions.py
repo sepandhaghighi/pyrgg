@@ -613,12 +613,13 @@ def save_config(input_dict):
     :return: path to file
     """
     try:
-        input_dict["engine"] = "pyrgg"
-        input_dict['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
-        input_dict['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict['output_format']]
-        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict['file_name'])
+        input_dict_temp = input_dict.copy()
+        input_dict_temp["engine"] = "pyrgg"
+        input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
+        input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
+        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict_temp['file_name'])
         with open(fname, "w") as json_file:
-            json_dump(input_dict, json_file, indent=2)
+            json_dump(input_dict_temp, json_file, indent=2)
         return os.path.abspath(fname)
     except BaseException:
         print(pyrgg.params.PYRGG_CONFIG_SAVE_ERROR_MESSAGE)
