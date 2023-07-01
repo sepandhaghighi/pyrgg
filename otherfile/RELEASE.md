@@ -1,6 +1,6 @@
 # PyRGG Release Instructions
 
-#### Last Update: 2023-06-15
+#### Last Update: 2023-07-02
 
 1. Create the `release` branch under `dev`
 2. Update all version tags
@@ -12,6 +12,9 @@
 	6. `otherfile/Version.rc`
 	7. `pyrgg/params.py`
 3. Update `CHANGELOG.md`
+	1. Add a new header under `Unreleased` section (Example: `## [0.1] - 2022-08-17`)
+	2. Add a new compare link to the end of the file (Example: `[0.2]: https://github.com/sepandhaghighi/pyrgg/compare/v0.1...v0.2`)
+	3. Update `dev` compare link (Example: `[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v0.2...dev`)
 4. Create a PR from `release` to `dev`
 	1. Title: `Version x.x` (Example: `Version 0.1`)
 	2. Tag all related issues
