@@ -1,5 +1,5 @@
 art==6.0
-pyyaml==6.0
+pyyaml==6.0.1
 scipy>=1.2.0
 networkx>=2.1
 pydot>=1.2.4
