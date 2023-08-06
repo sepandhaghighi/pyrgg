@@ -88,6 +88,7 @@ ITEM_CONVERTORS = {
     "file_name": lambda x: x,
     "output_format": int,
     "weight": convert_str_to_bool,
+    "engine": int,
     "vertices": int,
     "number_of_files": int,
     "max_weight": convert_str_to_number,
@@ -276,6 +277,9 @@ def input_filter(input_dict):
             range(1, len(pyrgg.params.SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
+    if filtered_dict["engine"] not in list(range(1, len(pyrgg.params.ENGINE_MENU) + 1)):
+        filtered_dict["engine"] = 1
+
     if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
@@ -304,6 +308,7 @@ def get_input(input_func=input):
         "sign": True,
         "output_format": 1,
         "weight": True,
+        "engine": 1,
         "direct": True,
         "self_loop": True,
         "multigraph": False,
@@ -614,7 +619,7 @@ def save_config(input_dict):
     """
     try:
         input_dict_temp = input_dict.copy()
-        input_dict_temp["engine"] = "pyrgg"
+        input_dict_temp['engine'] = pyrgg.params.ENGINE_MENU[input_dict_temp['engine']]
         input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict_temp['file_name'])
@@ -637,6 +642,7 @@ def load_config(path):
         with open(path, "r") as json_file:
             config = json_loads(json_file.read())
             config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
+            config['engine'] = pyrgg.params.ENGINE_MENU_INV[config['engine']]
             return input_filter(config)
     except BaseException:
         print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)
