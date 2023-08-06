@@ -277,7 +277,8 @@ def input_filter(input_dict):
             range(1, len(pyrgg.params.SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
-    if filtered_dict["engine"] not in list(range(1, len(pyrgg.params.ENGINE_MENU) + 1)):
+    if filtered_dict["engine"] not in list(
+            range(1, len(pyrgg.params.ENGINE_MENU) + 1)):
         filtered_dict["engine"] = 1
 
     if not filtered_dict["multigraph"]:
@@ -622,7 +623,8 @@ def save_config(input_dict):
         input_dict_temp['engine'] = pyrgg.params.ENGINE_MENU[input_dict_temp['engine']]
         input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
-        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict_temp['file_name'])
+        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(
+            input_dict_temp['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict_temp, json_file, indent=2)
         return os.path.abspath(fname)
