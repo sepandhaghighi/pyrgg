@@ -28,6 +28,12 @@ MENU_ITEMS1 = {
         """
     ),
     "weight": "- Unweighted[0] or Weighted[1]",
+    "engine": dedent(
+        """\
+        - Select generation engine :
+        1- Pyrgg engine
+        """
+    ),
 }
 
 MENU_ITEMS2 = {
@@ -62,6 +68,12 @@ SUFFIX_MENU = {
     15: ".gexf",
     16: ".gv"
 }
+
+ENGINE_MENU = {
+    1: "pyrgg",
+}
+
+ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
                  for i, output_format in SUFFIX_MENU.items()}
