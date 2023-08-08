@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Generation engine menu
+### Changed
+- `MENU_ITEMS1` parameter changed to `MENU_ITEMS`
+- `MENU_ITEMS2` parameter changed to `PYRGG_ENGINE_PARAMS`
 ## [1.4] - 2023-07-06
 ### Added
 - `check_for_config` function

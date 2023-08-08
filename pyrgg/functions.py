@@ -331,12 +331,12 @@ def _update_using_first_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS1 = sorted(list(pyrgg.params.MENU_ITEMS1.keys()))
-    for item in MENU_ITEMS_KEYS1:
+    MENU_ITEMS_KEYS = sorted(list(pyrgg.params.MENU_ITEMS.keys()))
+    for item in MENU_ITEMS_KEYS:
         while True:
             try:
                 result_dict[item] = ITEM_CONVERTORS[item](
-                    input_func(pyrgg.params.MENU_ITEMS1[item])
+                    input_func(pyrgg.params.MENU_ITEMS[item])
                 )
             except Exception:
                 print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
@@ -355,10 +355,10 @@ def _update_using_second_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS2 = sorted(list(pyrgg.params.MENU_ITEMS2.keys()))
-    for index in MENU_ITEMS_KEYS2:
-        item1 = pyrgg.params.MENU_ITEMS2[index][0]
-        item2 = pyrgg.params.MENU_ITEMS2[index][1]
+    ENGINE_PARAMS = sorted(list(pyrgg.params.PYRGG_ENGINE_PARAMS.keys()))
+    for index in ENGINE_PARAMS:
+        item1 = pyrgg.params.PYRGG_ENGINE_PARAMS[index][0]
+        item2 = pyrgg.params.PYRGG_ENGINE_PARAMS[index][1]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
             continue
         while True:

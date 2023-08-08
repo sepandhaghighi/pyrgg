@@ -3,7 +3,7 @@
 from textwrap import dedent, fill
 import os
 
-MENU_ITEMS1 = {
+MENU_ITEMS = {
     "file_name": "- File Name : ",
     "number_of_files": "- Number of Files : ",
     "output_format": dedent(
@@ -36,7 +36,7 @@ MENU_ITEMS1 = {
     ),
 }
 
-MENU_ITEMS2 = {
+PYRGG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number : "],
     2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
     3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
