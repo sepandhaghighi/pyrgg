@@ -113,6 +113,8 @@ PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad input!"
 
 PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad input file!"
 
+PYRGG_INVALID_ENGINE_ERROR_MESSAGE = "[Error] Invalid engine!"
+
 PYRGG_YAML_ERROR_MESSAGE = "[Error] Failed to generate YAML file!"
 
 PYRGG_PICKLE_ERROR_MESSAGE = "[Error] Failed to generate Pickle file!"

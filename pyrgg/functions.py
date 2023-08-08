@@ -319,6 +319,8 @@ def get_input(input_func=input):
     result_dict = _update_using_menu(result_dict, input_func)
     if result_dict['engine'] == 1:
         result_dict = _update_with_pyrgg_engine(result_dict, input_func)
+    else:
+        print(pyrgg.params.PYRGG_INVALID_ENGINE_ERROR_MESSAGE)
     return input_filter(result_dict)
 
 
