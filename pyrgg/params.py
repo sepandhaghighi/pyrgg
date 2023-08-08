@@ -36,20 +36,6 @@ MENU_ITEMS = {
     ),
 }
 
-PYRGG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number : "],
-    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
-    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
-    4: ["min_weight", "- Min Weight : "],
-    5: ["max_weight", "- Max Weight : "],
-    6: ["sign", "- Unsigned[0] or Signed[1]"],
-    7: ["direct", "- Undirected[0] or Directed[1]"],
-    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
-    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
-    10: ["config", "- Save config[1] or not[0]"],
-}
-
-
 SUFFIX_MENU = {
     1: ".gr",
     2: ".json",
@@ -67,6 +53,19 @@ SUFFIX_MENU = {
     14: ".gml",
     15: ".gexf",
     16: ".gv"
+}
+
+PYRGG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number : "],
+    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
+    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
+    4: ["min_weight", "- Min Weight : "],
+    5: ["max_weight", "- Max Weight : "],
+    6: ["sign", "- Unsigned[0] or Signed[1]"],
+    7: ["direct", "- Undirected[0] or Directed[1]"],
+    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
+    10: ["config", "- Save config[1] or not[0]"],
 }
 
 ENGINE_MENU = {

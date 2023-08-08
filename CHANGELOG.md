@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `MENU_ITEMS1` parameter changed to `MENU_ITEMS`
 - `MENU_ITEMS2` parameter changed to `PYRGG_ENGINE_PARAMS`
+- `_update_using_first_menu` function changed to `_update_using_menu`
+- `_update_using_second_menu` function changed to `_update_with_pyrgg_engine`
 ## [1.4] - 2023-07-06
 ### Added
 - `check_for_config` function

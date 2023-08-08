@@ -316,14 +316,15 @@ def get_input(input_func=input):
         "config": False,
     }
 
-    result_dict = _update_using_first_menu(result_dict, input_func)
-    result_dict = _update_using_second_menu(result_dict, input_func)
+    result_dict = _update_using_menu(result_dict, input_func)
+    if result_dict['engine'] == 1:
+        result_dict = _update_with_pyrgg_engine(result_dict, input_func)
     return input_filter(result_dict)
 
 
-def _update_using_first_menu(result_dict, input_func):
+def _update_using_menu(result_dict, input_func):
     """
-    Update result_dict using user input from the first menu.
+    Update result_dict using user input from the menu.
 
     :param result_dict: result data
     :type result_dict: dict
@@ -345,9 +346,9 @@ def _update_using_first_menu(result_dict, input_func):
     return result_dict
 
 
-def _update_using_second_menu(result_dict, input_func):
+def _update_with_pyrgg_engine(result_dict, input_func):
     """
-    Update result_dict using user input from the second menu.
+    Update result_dict using user input based on pyrgg engine requirements.
 
     :param result_dict: result data
     :type result_dict: dict
