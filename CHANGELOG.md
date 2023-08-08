@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- generation engine menu
+- Generation engine menu
 ## [1.4] - 2023-07-06
 ### Added
 - `check_for_config` function
