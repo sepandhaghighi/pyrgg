@@ -1140,7 +1140,22 @@ edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
 >>> input_dic=get_input(input_func=lambda x: str(len(x)))
-[Error] Invalid engine!
+>>> input_dic['sign']
+True
+>>> input_dic['vertices']
+20
+>>> input_dic['min_edge']
+47
+>>> input_dic['min_weight']
+15
+>>> input_dic['output_format']
+1
+>>> input_dic['max_weight']
+15
+>>> input_dic['file_name']
+'14'
+>>> input_dic['max_edge']
+47
 >>> random.seed(2)
 >>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
