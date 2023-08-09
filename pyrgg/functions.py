@@ -317,10 +317,8 @@ def get_input(input_func=input):
     }
 
     result_dict = _update_using_menu(result_dict, input_func)
-    if result_dict['engine'] == 1:
-        result_dict = _update_with_pyrgg_engine(result_dict, input_func)
-    else:
-        print(pyrgg.params.PYRGG_INVALID_ENGINE_ERROR_MESSAGE)
+    result_dict = _update_with_engine_params(
+        result_dict, input_func, pyrgg.params.ENGINE_PARAM_MAP[result_dict['engine']])
     return input_filter(result_dict)
 
 
@@ -348,20 +346,21 @@ def _update_using_menu(result_dict, input_func):
     return result_dict
 
 
-def _update_with_pyrgg_engine(result_dict, input_func):
+def _update_with_engine_params(result_dict, input_func, engine_params):
     """
-    Update result_dict using user input based on pyrgg engine requirements.
+    Update result_dict using user input based on given engine requirements.
 
     :param result_dict: result data
     :type result_dict: dict
     :param input_func: input function
     :type input_func: function object
+    :param engine_params: engine parameters
+    :type engine_params: dict
     :return: result_dict as dict
     """
-    ENGINE_PARAMS = sorted(list(pyrgg.params.PYRGG_ENGINE_PARAMS.keys()))
+    ENGINE_PARAMS = sorted(list(engine_params.keys()))
     for index in ENGINE_PARAMS:
-        item1 = pyrgg.params.PYRGG_ENGINE_PARAMS[index][0]
-        item2 = pyrgg.params.PYRGG_ENGINE_PARAMS[index][1]
+        item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
             continue
         while True:

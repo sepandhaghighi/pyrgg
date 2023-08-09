@@ -74,6 +74,10 @@ ENGINE_MENU = {
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
+ENGINE_PARAM_MAP = {
+    1: PYRGG_ENGINE_PARAMS,
+}
+
 OUTPUT_FORMAT = {i: output_format[1:].upper()
                  for i, output_format in SUFFIX_MENU.items()}
 
