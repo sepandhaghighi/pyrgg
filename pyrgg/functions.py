@@ -88,6 +88,7 @@ ITEM_CONVERTORS = {
     "file_name": lambda x: x,
     "output_format": int,
     "weight": convert_str_to_bool,
+    "engine": int,
     "vertices": int,
     "number_of_files": int,
     "max_weight": convert_str_to_number,
@@ -276,6 +277,10 @@ def input_filter(input_dict):
             range(1, len(pyrgg.params.SUFFIX_MENU) + 1)):
         filtered_dict["output_format"] = 1
 
+    if filtered_dict["engine"] not in list(
+            range(1, len(pyrgg.params.ENGINE_MENU) + 1)):
+        filtered_dict["engine"] = 1
+
     if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
@@ -304,20 +309,22 @@ def get_input(input_func=input):
         "sign": True,
         "output_format": 1,
         "weight": True,
+        "engine": 1,
         "direct": True,
         "self_loop": True,
         "multigraph": False,
         "config": False,
     }
 
-    result_dict = _update_using_first_menu(result_dict, input_func)
-    result_dict = _update_using_second_menu(result_dict, input_func)
+    result_dict = _update_using_menu(result_dict, input_func)
+    result_dict = _update_with_engine_params(
+        result_dict, input_func, pyrgg.params.ENGINE_PARAM_MAP[result_dict['engine']])
     return input_filter(result_dict)
 
 
-def _update_using_first_menu(result_dict, input_func):
+def _update_using_menu(result_dict, input_func):
     """
-    Update result_dict using user input from the first menu.
+    Update result_dict using user input from the menu.
 
     :param result_dict: result data
     :type result_dict: dict
@@ -325,12 +332,12 @@ def _update_using_first_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS1 = sorted(list(pyrgg.params.MENU_ITEMS1.keys()))
-    for item in MENU_ITEMS_KEYS1:
+    MENU_ITEMS_KEYS = sorted(list(pyrgg.params.MENU_ITEMS.keys()))
+    for item in MENU_ITEMS_KEYS:
         while True:
             try:
                 result_dict[item] = ITEM_CONVERTORS[item](
-                    input_func(pyrgg.params.MENU_ITEMS1[item])
+                    input_func(pyrgg.params.MENU_ITEMS[item])
                 )
             except Exception:
                 print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
@@ -339,20 +346,21 @@ def _update_using_first_menu(result_dict, input_func):
     return result_dict
 
 
-def _update_using_second_menu(result_dict, input_func):
+def _update_with_engine_params(result_dict, input_func, engine_params):
     """
-    Update result_dict using user input from the second menu.
+    Update result_dict using user input based on given engine requirements.
 
     :param result_dict: result data
     :type result_dict: dict
     :param input_func: input function
     :type input_func: function object
+    :param engine_params: engine parameters
+    :type engine_params: dict
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS2 = sorted(list(pyrgg.params.MENU_ITEMS2.keys()))
-    for index in MENU_ITEMS_KEYS2:
-        item1 = pyrgg.params.MENU_ITEMS2[index][0]
-        item2 = pyrgg.params.MENU_ITEMS2[index][1]
+    ENGINE_PARAMS = sorted(list(engine_params.keys()))
+    for index in ENGINE_PARAMS:
+        item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
             continue
         while True:
@@ -614,10 +622,11 @@ def save_config(input_dict):
     """
     try:
         input_dict_temp = input_dict.copy()
-        input_dict_temp["engine"] = "pyrgg"
+        input_dict_temp['engine'] = pyrgg.params.ENGINE_MENU[input_dict_temp['engine']]
         input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
-        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(input_dict_temp['file_name'])
+        fname = pyrgg.params.CONFIG_FILE_FORMAT.format(
+            input_dict_temp['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict_temp, json_file, indent=2)
         return os.path.abspath(fname)
@@ -637,6 +646,7 @@ def load_config(path):
         with open(path, "r") as json_file:
             config = json_loads(json_file.read())
             config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
+            config['engine'] = pyrgg.params.ENGINE_MENU_INV[config['engine']]
             return input_filter(config)
     except BaseException:
         print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)

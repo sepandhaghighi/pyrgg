@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Generation engine menu
+### Changed
+- `MENU_ITEMS1` parameter changed to `MENU_ITEMS`
+- `MENU_ITEMS2` parameter changed to `PYRGG_ENGINE_PARAMS`
+- `_update_using_first_menu` function changed to `_update_using_menu`
+- `_update_using_second_menu` function changed to `_update_with_engine_params`
 ## [1.4] - 2023-07-06
 ### Added
 - `check_for_config` function

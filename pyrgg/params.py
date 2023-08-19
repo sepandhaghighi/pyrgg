@@ -3,7 +3,7 @@
 from textwrap import dedent, fill
 import os
 
-MENU_ITEMS1 = {
+MENU_ITEMS = {
     "file_name": "- File Name : ",
     "number_of_files": "- Number of Files : ",
     "output_format": dedent(
@@ -28,21 +28,13 @@ MENU_ITEMS1 = {
         """
     ),
     "weight": "- Unweighted[0] or Weighted[1]",
+    "engine": dedent(
+        """\
+        - Select generation engine :
+        1- Pyrgg engine
+        """
+    ),
 }
-
-MENU_ITEMS2 = {
-    1: ["vertices", "- Vertices Number : "],
-    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
-    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
-    4: ["min_weight", "- Min Weight : "],
-    5: ["max_weight", "- Max Weight : "],
-    6: ["sign", "- Unsigned[0] or Signed[1]"],
-    7: ["direct", "- Undirected[0] or Directed[1]"],
-    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
-    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
-    10: ["config", "- Save config[1] or not[0]"],
-}
-
 
 SUFFIX_MENU = {
     1: ".gr",
@@ -61,6 +53,29 @@ SUFFIX_MENU = {
     14: ".gml",
     15: ".gexf",
     16: ".gv"
+}
+
+PYRGG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number : "],
+    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
+    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
+    4: ["min_weight", "- Min Weight : "],
+    5: ["max_weight", "- Max Weight : "],
+    6: ["sign", "- Unsigned[0] or Signed[1]"],
+    7: ["direct", "- Undirected[0] or Directed[1]"],
+    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
+    10: ["config", "- Save config[1] or not[0]"],
+}
+
+ENGINE_MENU = {
+    1: "pyrgg",
+}
+
+ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
+
+ENGINE_PARAM_MAP = {
+    1: PYRGG_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
@@ -101,6 +116,8 @@ PYRGG_DESCRIPTION = fill(_description, width=70)
 PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad input!"
 
 PYRGG_FILE_ERROR_MESSAGE = "[Error] Bad input file!"
+
+PYRGG_INVALID_ENGINE_ERROR_MESSAGE = "[Error] Invalid engine!"
 
 PYRGG_YAML_ERROR_MESSAGE = "[Error] Failed to generate YAML file!"
 

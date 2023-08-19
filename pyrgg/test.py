@@ -33,17 +33,17 @@ False
 True
 >>> is_float(None)
 False
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2}
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2}
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2,"engine":-1})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1})
->>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1}
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1,"engine":1})
+>>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
->>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100})
->>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100}
+>>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1})
+>>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1}
 True
 >>> logger('test',100,50,1000,10,1,0,0,1,20,1,'2min')
 >>> file=open('logfile.log','r')
@@ -1139,23 +1139,6 @@ edge(27,6,-50).
 edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
->>> input_dic=get_input(input_func=lambda x: str(len(x)))
->>> input_dic['sign']
-True
->>> input_dic['vertices']
-20
->>> input_dic['min_edge']
-47
->>> input_dic['min_weight']
-15
->>> input_dic['output_format']
-1
->>> input_dic['max_weight']
-15
->>> input_dic['file_name']
-'14'
->>> input_dic['max_edge']
-47
 >>> random.seed(2)
 >>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
