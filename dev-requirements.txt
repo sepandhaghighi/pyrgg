@@ -1,4 +1,4 @@
-art==6.0
+art==6.1
 pyyaml==6.0.1
 scipy>=1.2.0
 networkx>=2.1
