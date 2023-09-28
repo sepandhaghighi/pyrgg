@@ -50,6 +50,7 @@ def gen_graph(input_dict, file_name):
     self_loop = input_dict["self_loop"]
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
+    engine = input_dict["engine"]
     edge_number = GENERATOR_MENU[output_format](
         file_name,
         min_weight,
@@ -84,6 +85,7 @@ def gen_graph(input_dict, file_name):
         self_loop,
         max_weight,
         min_weight,
+        engine,
         elapsed_time_format)
 
 
