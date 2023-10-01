@@ -169,6 +169,7 @@ def logger(
         self_loop,
         max_weight,
         min_weight,
+        engine,
         elapsed_time):
     """
     Save generated graphs log.
@@ -195,6 +196,8 @@ def logger(
     :type max_weight: int
     :param min_weight: minimum weight
     :type min_weight: int
+    :param engine: generation engine
+    :type engine: int
     :param elapsed_time: elapsed time
     :type elapsed_time : str
     :return:  None
@@ -216,6 +219,8 @@ def logger(
                                                                                  bool(signed))),
                                                                  str(max_weight),
                                                                  str(min_weight),
+                                                                 engine,
+                                                                 pyrgg.params.ENGINE_MENU[engine],
                                                                  elapsed_time))
     except Exception:
         print(pyrgg.params.PYRGG_LOGGER_ERROR_MESSAGE)
