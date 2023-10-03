@@ -4,9 +4,15 @@ from textwrap import dedent, fill
 import os
 
 MENU_ITEMS = {
-    "file_name": "- File Name : ",
-    "number_of_files": "- Number of Files : ",
-    "output_format": dedent(
+    1: ["engine", dedent(
+        """\
+        - Select generation engine :
+        1- Pyrgg engine
+        """
+        )],
+    2: ["file_name", "- File Name : "],
+    3: ["number_of_files", "- Number of Files : "],
+    4: ["output_format", dedent(
         """\
         - Graph Formats :
         1- DIMACS(.gr)
@@ -26,14 +32,8 @@ MENU_ITEMS = {
         15- GEXF(.gexf)
         16- DOT(.gv)
         """
-    ),
-    "weight": "- Unweighted[0] or Weighted[1]",
-    "engine": dedent(
-        """\
-        - Select generation engine :
-        1- Pyrgg engine
-        """
-    ),
+        )],
+    5: ["weight", "- Unweighted[0] or Weighted[1]"],
 }
 
 SUFFIX_MENU = {

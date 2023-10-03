@@ -338,11 +338,12 @@ def _update_using_menu(result_dict, input_func):
     :return: result_dict as dict
     """
     MENU_ITEMS_KEYS = sorted(list(pyrgg.params.MENU_ITEMS.keys()))
-    for item in MENU_ITEMS_KEYS:
+    for index in MENU_ITEMS_KEYS:
+        item1, item2 = pyrgg.params.MENU_ITEMS[index]
         while True:
             try:
-                result_dict[item] = ITEM_CONVERTORS[item](
-                    input_func(pyrgg.params.MENU_ITEMS[item])
+                result_dict[item1] = ITEM_CONVERTORS[item1](
+                    input_func(item2)
                 )
             except Exception:
                 print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
