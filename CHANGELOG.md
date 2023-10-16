@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Generation engine menu
 ### Changed
-- menu options sorted
+- Menu options bug fixed
 - `engine` parameter added to `logger` function
 - `MENU_ITEMS1` parameter changed to `MENU_ITEMS`
 - `MENU_ITEMS2` parameter changed to `PYRGG_ENGINE_PARAMS`
