@@ -278,19 +278,9 @@ def input_filter(input_dict):
     if not filtered_dict["self_loop"]:
         edge_upper_threshold -= 1
 
-    if filtered_dict["output_format"] not in list(
-            range(1, len(pyrgg.params.SUFFIX_MENU) + 1)):
-        filtered_dict["output_format"] = 1
-
-    if filtered_dict["engine"] not in list(
-            range(1, len(pyrgg.params.ENGINE_MENU) + 1)):
-        filtered_dict["engine"] = 1
-
     if not filtered_dict["multigraph"]:
         for key in ["min_edge", "max_edge"]:
             filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
-
-    filtered_dict["number_of_files"] = max(1, filtered_dict["number_of_files"])
 
     return filtered_dict
 
