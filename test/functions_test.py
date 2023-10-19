@@ -23,16 +23,16 @@ processing frameworks.
 <BLANKLINE>
 <BLANKLINE>
 ########################################
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1,"engine":-1})
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
@@ -101,15 +101,17 @@ True
 2
 >>> get_precision(2.223)
 3
->>> convert_str_to_number("20")
+>>> handle_str_to_number("20")
 20
->>> convert_str_to_number("20.2")
+>>> handle_str_to_number("20.2")
 20.2
->>> convert_str_to_bool("1")
+>>> handle_str_to_bool("1")
 True
->>> convert_str_to_bool("3")
-True
->>> convert_str_to_bool("0")
+>>> handle_str_to_bool("3")
+Traceback (most recent call last):
+        ...
+ValueError
+>>> handle_str_to_bool("0")
 False
 >>> is_float(10)
 False
@@ -198,7 +200,7 @@ True
 >>> input_data["engine"]
 1
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":-1,"config":True,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":1,"config":True,"engine":1}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
