@@ -10,8 +10,8 @@ MENU_ITEMS = {
         1- Pyrgg engine
         """
         )],
-    2: ["file_name", "- File Name : "],
-    3: ["number_of_files", "- Number of Files : "],
+    2: ["file_name", "- File Name (not empty) : "],
+    3: ["number_of_files", "- Number of Files (>=0) : "],
     4: ["output_format", dedent(
         """\
         - Graph Formats :
@@ -56,11 +56,11 @@ SUFFIX_MENU = {
 }
 
 PYRGG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number : "],
-    2: ["min_edge", "- Min Edge Number (Connected to Each Vertex) : "],
-    3: ["max_edge", "- Max Edge Number (Connected to Each Vertex) : "],
-    4: ["min_weight", "- Min Weight : "],
-    5: ["max_weight", "- Max Weight : "],
+    1: ["vertices", "- Vertices Number (>=0) : "],
+    2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
+    3: ["max_edge", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
+    4: ["min_weight", "- Min Weight (>=0) : "],
+    5: ["max_weight", "- Max Weight (>=0) : "],
     6: ["sign", "- Unsigned[0] or Signed[1]"],
     7: ["direct", "- Undirected[0] or Directed[1]"],
     8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
