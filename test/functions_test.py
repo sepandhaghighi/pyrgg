@@ -251,7 +251,7 @@ Config files detected in current directory are listed below:
 >>> loaded_config == None
 True
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"200","weight":"0","number_of_files":-1,"error":"120","config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"1","weight":"0","number_of_files":1,"error":"120","config":False,"engine":1}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -269,7 +269,7 @@ True
 True
 >>> input_data["multigraph"]
 False
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False,"engine":1}
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
 >>> input_data["min_weight"]
