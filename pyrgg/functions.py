@@ -62,7 +62,33 @@ def is_float(input_number):
         return True if decimalpart else False
 
 
-def convert_str_to_number(string):
+def handle_string(x):
+    """
+    Handle string.
+
+    :param x: input string
+    :type x: str
+    :return: input string
+    """
+    if x == "":
+        raise ValueError
+    return x
+
+
+def handle_pos_int(x):
+    """
+    Handle int.
+
+    :param x: input int
+    :type x: int
+    :return: input int
+    """
+    if int(x) < 0:
+        raise ValueError
+    return int(x)
+
+
+def handle_str_to_number(string):
     """
     Convert string to float or int.
 
@@ -73,33 +99,64 @@ def convert_str_to_number(string):
     return float(string) if is_float(string) else int(string)
 
 
-def convert_str_to_bool(string):
+def handle_str_to_bool(string):
     """
-    Convert 0/1 string to bool.
+    Convert 0/1 string to bool and raise ValueError if string is invalid.
 
     :param string: input string
     :type string: str
     :return: bool
     """
-    return bool(int(string))
+    val = int(string)
+    if val not in [0, 1]:
+        raise ValueError
+    return bool(val)
 
 
-ITEM_CONVERTORS = {
-    "file_name": lambda x: x,
-    "output_format": int,
-    "weight": convert_str_to_bool,
-    "engine": int,
-    "vertices": int,
-    "number_of_files": int,
-    "max_weight": convert_str_to_number,
-    "min_weight": convert_str_to_number,
-    "min_edge": int,
-    "max_edge": int,
-    "sign": convert_str_to_bool,
-    "direct": convert_str_to_bool,
-    "self_loop": convert_str_to_bool,
-    "multigraph": convert_str_to_bool,
-    "config": convert_str_to_bool,
+def handle_output_format(string):
+    """
+    Convert string to output format index.
+
+    :param string: input string
+    :type string: str
+    :return: output format as int
+    """
+    output_format = handle_pos_int(string)
+    if output_format not in pyrgg.params.SUFFIX_MENU.keys():
+        raise ValueError
+    return output_format
+
+
+def handle_engine(string):
+    """
+    Convert string to engine index.
+
+    :param string: input string
+    :type string: str
+    :return: engine as int
+    """
+    engine = handle_pos_int(string)
+    if engine not in pyrgg.params.ENGINE_MENU.keys():
+        raise ValueError
+    return engine
+
+
+ITEM_HANDLERS = {
+    "file_name": handle_string,
+    "output_format": handle_output_format,
+    "weight": handle_str_to_bool,
+    "engine": handle_engine,
+    "vertices": handle_pos_int,
+    "number_of_files": handle_pos_int,
+    "max_weight": handle_str_to_number,
+    "min_weight": handle_str_to_number,
+    "min_edge": handle_pos_int,
+    "max_edge": handle_pos_int,
+    "sign": handle_str_to_bool,
+    "direct": handle_str_to_bool,
+    "self_loop": handle_str_to_bool,
+    "multigraph": handle_str_to_bool,
+    "config": handle_str_to_bool,
 }
 
 
@@ -332,7 +389,7 @@ def _update_using_menu(result_dict, input_func):
         item1, item2 = pyrgg.params.MENU_ITEMS[index]
         while True:
             try:
-                result_dict[item1] = ITEM_CONVERTORS[item1](
+                result_dict[item1] = ITEM_HANDLERS[item1](
                     input_func(item2)
                 )
             except Exception:
@@ -361,7 +418,7 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
             continue
         while True:
             try:
-                result_dict[item1] = ITEM_CONVERTORS[item1](
+                result_dict[item1] = ITEM_HANDLERS[item1](
                     input_func(item2)
                 )
             except Exception:
