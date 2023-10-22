@@ -64,7 +64,7 @@ def is_float(input_number):
 
 def handle_string(x):
     """
-    Handle string.
+    Handle string. Raise ValueError if it is empty.
 
     :param x: input string
     :type x: str
@@ -77,7 +77,7 @@ def handle_string(x):
 
 def handle_pos_int(x):
     """
-    Handle int.
+    Handle int. Raise ValueError if it is negative.
 
     :param x: input int
     :type x: int
