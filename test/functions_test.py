@@ -271,14 +271,18 @@ True
 False
 >>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False,"engine":1}
 >>> input_data = get_input(input_func_test)
-[Error] Bad input!
+Traceback (most recent call last):
+        ...
+ValueError
 >>> input_data["min_weight"]
 110.45
 >>> input_data["max_weight"]
 120
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"test","error":"2","number_of_files":2,"config":False,"engine":1}
 >>> input_data = get_input(input_func_test)
-[Error] Bad input!
+Traceback (most recent call last):
+        ...
+ValueError
 >>> input_data["weight"]
 True
 >>> os.remove('File 1.pyrgg.config.json')
