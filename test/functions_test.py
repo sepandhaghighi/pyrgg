@@ -295,9 +295,17 @@ ValueError
 Traceback (most recent call last):
     ...
 ValueError
->>> handle_engine(1)
+>>> handle_output_format("10000000000")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_engine("1")
 1
 >>> handle_engine(-4)
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_engine("10000000000")
 Traceback (most recent call last):
     ...
 ValueError
