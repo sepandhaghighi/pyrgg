@@ -55,6 +55,14 @@ Max Weight : 20
 Min Weight : 1
 Engine : 1 (pyrgg)
 Elapsed Time : 2min
+>>> class StrError:
+...     def __init__(self):
+...         pass
+...     def __str__(self):
+...         raise ValueError
+>>> str_error_object = StrError()
+>>> logger('test',str_error_object,50,1000,10,1,0,0,1,20,1,1,'2min')
+[Error] Logger failed!
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)
