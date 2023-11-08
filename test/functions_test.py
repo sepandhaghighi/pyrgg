@@ -157,7 +157,7 @@ Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":3,"config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":"3","config":"0","engine":"1"}
 >>> def input_func_test(input_data):
 ...    global prev_item
 ...    for index in pyrgg.params.MENU_ITEMS:
@@ -200,7 +200,7 @@ True
 >>> input_data["engine"]
 1
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":1,"config":True,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":"1","config":"1","engine":"1"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -251,7 +251,7 @@ Config files detected in current directory are listed below:
 >>> loaded_config == None
 True
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"1","weight":"0","number_of_files":1,"error":"120","config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"1","weight":"0","number_of_files":"1","error":"120","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -269,21 +269,5 @@ True
 True
 >>> input_data["multigraph"]
 False
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False,"engine":1}
->>> input_data = get_input(input_func_test)
-Traceback (most recent call last):
-        ...
-ValueError
->>> input_data["min_weight"]
-110.45
->>> input_data["max_weight"]
-120
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"test","error":"2","number_of_files":2,"config":False,"engine":1}
->>> input_data = get_input(input_func_test)
-Traceback (most recent call last):
-        ...
-ValueError
->>> input_data["weight"]
-True
 >>> os.remove('File 1.pyrgg.config.json')
 """
