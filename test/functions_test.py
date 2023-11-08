@@ -258,7 +258,6 @@ Config files detected in current directory are listed below:
 [1] - ...
 >>> loaded_config == None
 True
->>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"1","weight":"0","number_of_files":"1","error":"120","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
@@ -277,6 +276,41 @@ True
 True
 >>> input_data["multigraph"]
 False
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"wrong type","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"120","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["vertices"]
+120
+>>> input_data["min_weight"]
+110.45
+>>> input_data["max_edge"]
+10000
+>>> input_data["max_weight"]
+120
+>>> input_data["weight"]
+True
+>>> input_data["sign"]
+True
+>>> input_data["direct"]
+True
+>>> input_data["multigraph"]
+True
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"10","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"-12","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+[Error] Bad input!
+>>> input_data["vertices"]
+120
+>>> input_data["min_weight"]
+10
+>>> input_data["max_edge"]
+10000
+>>> input_data["max_weight"]
+110.45
+>>> input_data["weight"]
+True
+>>> input_data["output_format"]
+1
 >>> handle_string("2")
 '2'
 >>> handle_string("")
