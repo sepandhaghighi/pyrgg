@@ -269,5 +269,29 @@ True
 True
 >>> input_data["multigraph"]
 False
+>>> handle_string("2")
+'2'
+>>> handle_string("")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_pos_int(1)
+1
+>>> handle_pos_int(-1)
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_output_format("1")
+1
+>>> handle_output_format("-14")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_engine(1)
+1
+>>> handle_engine(-4)
+Traceback (most recent call last):
+    ...
+ValueError
 >>> os.remove('File 1.pyrgg.config.json')
 """
