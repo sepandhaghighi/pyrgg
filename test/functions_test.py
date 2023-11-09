@@ -277,7 +277,7 @@ True
 >>> input_data["multigraph"]
 False
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"wrong type","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"120","number_of_files":"2","config":"0","engine":"1"}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"wrong min_weight","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"120","number_of_files":"2","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
 >>> input_data["vertices"]
@@ -297,7 +297,8 @@ True
 >>> input_data["multigraph"]
 True
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"10","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"-12","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"10","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"wrong output_format","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
 [Error] Bad input!
 >>> input_data["vertices"]
 120
