@@ -23,16 +23,16 @@ processing frameworks.
 <BLANKLINE>
 <BLANKLINE>
 ########################################
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 5, 'max_edge': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 4, 'max_edge': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":10,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1,"engine":-1})
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 19, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":-1,"engine":1})
+>>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edge": -45,"max_edge": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edge': 11, 'max_edge': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
@@ -55,6 +55,14 @@ Max Weight : 20
 Min Weight : 1
 Engine : 1 (pyrgg)
 Elapsed Time : 2min
+>>> class StrError:
+...     def __init__(self):
+...         pass
+...     def __str__(self):
+...         raise ValueError
+>>> str_error_object = StrError()
+>>> logger('test',str_error_object,50,1000,10,1,0,0,1,20,1,1,'2min')
+[Error] Logger failed!
 >>> convert_bytes(200)
 '200.0 bytes'
 >>> convert_bytes(6000)
@@ -101,15 +109,17 @@ True
 2
 >>> get_precision(2.223)
 3
->>> convert_str_to_number("20")
+>>> handle_str_to_number("20")
 20
->>> convert_str_to_number("20.2")
+>>> handle_str_to_number("20.2")
 20.2
->>> convert_str_to_bool("1")
+>>> handle_str_to_bool("1")
 True
->>> convert_str_to_bool("3")
-True
->>> convert_str_to_bool("0")
+>>> handle_str_to_bool("3")
+Traceback (most recent call last):
+        ...
+ValueError
+>>> handle_str_to_bool("0")
 False
 >>> is_float(10)
 False
@@ -155,7 +165,7 @@ Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 1 required positional argument: 'sign'
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":3,"config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":"3","config":"0","engine":"1"}
 >>> def input_func_test(input_data):
 ...    global prev_item
 ...    for index in pyrgg.params.MENU_ITEMS:
@@ -198,7 +208,7 @@ True
 >>> input_data["engine"]
 1
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":-1,"config":True,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"1.2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":"1","config":"1","engine":"1"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -248,8 +258,7 @@ Config files detected in current directory are listed below:
 [1] - ...
 >>> loaded_config == None
 True
->>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"200","weight":"0","number_of_files":-1,"error":"120","config":False,"engine":1}
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"File 2","output_format":"1","weight":"0","number_of_files":"1","error":"120","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 >>> input_data["vertices"]
 120
@@ -267,17 +276,73 @@ True
 True
 >>> input_data["multigraph"]
 False
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"test","min_edge":"10000","max_edge":"2","sign":"1","direct":"-2","self_loop":"2","multigraph":"400","file_name":"File 2","output_format":"200","weight":"1","error":"120","number_of_files":2,"config":False,"engine":1}
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"wrong min_weight","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"120","number_of_files":"2","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
+>>> input_data["vertices"]
+120
 >>> input_data["min_weight"]
 110.45
+>>> input_data["max_edge"]
+10000
 >>> input_data["max_weight"]
 120
->>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 1","output_format":"2","weight":"test","error":"2","number_of_files":2,"config":False,"engine":1}
->>> input_data = get_input(input_func_test)
-[Error] Bad input!
 >>> input_data["weight"]
 True
+>>> input_data["sign"]
+True
+>>> input_data["direct"]
+True
+>>> input_data["multigraph"]
+True
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"10","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"wrong output_format","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["vertices"]
+120
+>>> input_data["min_weight"]
+10
+>>> input_data["max_edge"]
+10000
+>>> input_data["max_weight"]
+110.45
+>>> input_data["weight"]
+True
+>>> input_data["output_format"]
+1
+>>> handle_string("2")
+'2'
+>>> handle_string("")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_pos_int(1)
+1
+>>> handle_pos_int(-1)
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_output_format("1")
+1
+>>> handle_output_format("-14")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_output_format("10000000000")
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_engine("1")
+1
+>>> handle_engine(-4)
+Traceback (most recent call last):
+    ...
+ValueError
+>>> handle_engine("10000000000")
+Traceback (most recent call last):
+    ...
+ValueError
 >>> os.remove('File 1.pyrgg.config.json')
 """

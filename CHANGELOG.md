@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Generation engine menu
+- `handle_string` function
+- `handle_pos_int` function
+- `handle_output_format` function
+- `handle_engine` function
 ### Changed
 - Menu options bug fixed
 - `engine` parameter added to `logger` function
@@ -14,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `MENU_ITEMS2` parameter changed to `PYRGG_ENGINE_PARAMS`
 - `_update_using_first_menu` function changed to `_update_using_menu`
 - `_update_using_second_menu` function changed to `_update_with_engine_params`
+- `ITEM_CONVERTORS` renamed to `ITEM_HANDLERS`
 ## [1.4] - 2023-07-06
 ### Added
 - `check_for_config` function
