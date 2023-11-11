@@ -51,7 +51,7 @@ def is_float(input_number):
     Check input for float conversion.
 
     :param input_number: input number
-    :type input_number: float or int
+    :type input_number: float or int or str
     :return: result as bool
     """
     try:
