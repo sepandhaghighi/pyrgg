@@ -68,24 +68,24 @@ def handle_string(string):
 
     :param string: input string
     :type string: str
-    :return: input string
+    :return: result as str
     """
     if string == "":
         raise ValueError
     return string
 
 
-def handle_pos_int(x):
+def handle_pos_int(input_number):
     """
-    Handle int. Raise ValueError if it is negative.
+    Handle input number and raise ValueError if it is negative.
 
-    :param x: input int
-    :type x: int
-    :return: input int
+    :param input_number: input number
+    :type input_number: float or int or str
+    :return: result as int
     """
-    if int(x) < 0:
+    if int(input_number) < 0:
         raise ValueError
-    return int(x)
+    return int(input_number)
 
 
 def handle_str_to_number(string):
@@ -94,7 +94,7 @@ def handle_str_to_number(string):
 
     :param string: input string
     :type string: str
-    :return: float or int
+    :return: result as float or int
     """
     return float(string) if is_float(string) else int(string)
 
@@ -105,7 +105,7 @@ def handle_str_to_bool(string):
 
     :param string: input string
     :type string: str
-    :return: bool
+    :return: result as bool
     """
     val = int(string)
     if val not in [0, 1]:
@@ -119,7 +119,7 @@ def handle_output_format(string):
 
     :param string: input string
     :type string: str
-    :return: output format as int
+    :return: output format index as int
     """
     output_format = handle_pos_int(string)
     if output_format not in pyrgg.params.SUFFIX_MENU.keys():
@@ -133,7 +133,7 @@ def handle_engine(string):
 
     :param string: input string
     :type string: str
-    :return: engine as int
+    :return: engine index as int
     """
     engine = handle_pos_int(string)
     if engine not in pyrgg.params.ENGINE_MENU.keys():
