@@ -193,7 +193,7 @@ def convert_bytes(num):
 
     :param num: the input number.
     :type num: int
-    :return: str
+    :return: result as str
     """
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
         if num < 1024.0:
@@ -671,7 +671,7 @@ def save_config(input_dict):
 
     :param input_dict: input data
     :type input_dict: dict
-    :return: path to file
+    :return: path to file as str
     """
     try:
         input_dict_temp = input_dict.copy()
@@ -693,7 +693,7 @@ def load_config(path):
 
     :param path: path to config file
     :type path: str
-    :return: input data
+    :return: input data as dict
     """
     try:
         with open(path, "r") as json_file:
@@ -713,7 +713,7 @@ def _print_select_config(configs, input_func=input):
     :type configs: list
     :param input_func: input function
     :type input_func: function object
-    :return: input data
+    :return: input data as dict
     """
     if len(configs) == 0:
         return None
@@ -734,7 +734,7 @@ def check_for_config(input_func=input):
 
     :param input_func: input function
     :type input_func: function object
-    :return: input data
+    :return: input data as dict
     """
     configs = []
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
