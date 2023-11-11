@@ -10,7 +10,7 @@ MENU_ITEMS = {
         1- Pyrgg engine
         """
         )],
-    2: ["file_name", "- File Name (not empty) : "],
+    2: ["file_name", "- File Name (Not Empty) : "],
     3: ["number_of_files", "- Number of Files (>=0) : "],
     4: ["output_format", dedent(
         """\
@@ -65,7 +65,7 @@ PYRGG_ENGINE_PARAMS = {
     7: ["direct", "- Undirected[0] or Directed[1]"],
     8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
     9: ["multigraph", "- Simple[0] or Multigraph[1]"],
-    10: ["config", "- Save config[1] or not[0]"],
+    10: ["config", "- Save Config[1] or Not[0]"],
 }
 
 ENGINE_MENU = {
