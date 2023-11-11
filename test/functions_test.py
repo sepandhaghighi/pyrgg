@@ -341,7 +341,7 @@ False
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
 >>> input_data["output_format"]
-True
+1
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"1","weight":"4000","error":"0","number_of_files":"2","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
