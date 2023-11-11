@@ -62,17 +62,17 @@ def is_float(input_number):
         return True if decimalpart else False
 
 
-def handle_string(x):
+def handle_string(string):
     """
-    Handle string. Raise ValueError if it is empty.
+    Handle string and raise ValueError if it is empty.
 
-    :param x: input string
-    :type x: str
+    :param string: input string
+    :type string: str
     :return: input string
     """
-    if x == "":
+    if string == "":
         raise ValueError
-    return x
+    return string
 
 
 def handle_pos_int(x):
