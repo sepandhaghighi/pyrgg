@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 from textwrap import fill
 
-_description = """
+_description = """\
 PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph file formats, such as DIMACS .gr files.
 It can generate graphs of various sizes and is specifically designed to create input files for a wide range of graph-based research applications, including testing,
 benchmarking, and performance analysis of graph processing frameworks.
