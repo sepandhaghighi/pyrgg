@@ -9,7 +9,7 @@ MENU_ITEMS = {
         - Select generation engine :
         1- Pyrgg engine
         """
-        )],
+    )],
     2: ["file_name", "- File Name (Not Empty) : "],
     3: ["number_of_files", "- Number of Files (>=0) : "],
     4: ["output_format", dedent(
@@ -32,7 +32,7 @@ MENU_ITEMS = {
         15- GEXF(.gexf)
         16- DOT(.gv)
         """
-        )],
+    )],
     5: ["weight", "- Unweighted[0] or Weighted[1]"],
 }
 
