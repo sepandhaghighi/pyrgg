@@ -106,7 +106,7 @@ benchmarking, and performance analysis of graph processing frameworks.
 PyRGG is aimed at computer scientists who are studying graph algorithms and graph processing frameworks.
 """
 
-PYRGG_DESCRIPTION = fill(_description, width=70)
+PYRGG_DESCRIPTION = fill(_description, width=113)
 
 PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad input!"
 
