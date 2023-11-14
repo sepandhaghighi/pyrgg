@@ -169,7 +169,7 @@ def description_print():
     print(pyrgg.params.PYRGG_LINKS)
     line(40)
     print("\n")
-    print(fill(pyrgg.params.PYRGG_DESCRIPTION, width=100))
+    print(fill(pyrgg.params.PYRGG_DESCRIPTION, width=113))
     print("\n")
     line(40)
 
