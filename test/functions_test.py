@@ -277,40 +277,94 @@ True
 >>> input_data["multigraph"]
 False
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"wrong min_weight","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"120","number_of_files":"2","config":"0","engine":"1"}
+>>> input_func_dict = {"vertices":"wrong vertices","max_weight":"110.45","min_weight":"2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"1200","number_of_files":"2","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
 >>> input_data["vertices"]
-120
->>> input_data["min_weight"]
-110.45
->>> input_data["max_edge"]
-10000
+1200
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"wrong max_weight","min_weight":"2","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"400","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
 >>> input_data["max_weight"]
-120
->>> input_data["weight"]
-True
+400
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"wrong min_weight","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"2","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["min_weight"]
+2
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"wrong min_edge","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"0","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["min_edge"]
+0
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"wrong max_edge","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"2000","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["max_edge"]
+2000
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"400","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
 >>> input_data["sign"]
 True
->>> input_data["direct"]
-True
->>> input_data["multigraph"]
-True
 >>> prev_item = ""
->>> input_func_dict = {"vertices":"120","max_weight":"110.45","min_weight":"10","min_edge":"10000","max_edge":"2","sign":"1","direct":"1","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"wrong output_format","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"4000","self_loop":"1","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
 >>> input_data = get_input(input_func_test)
 [Error] Bad input!
->>> input_data["vertices"]
-120
->>> input_data["min_weight"]
-10
->>> input_data["max_edge"]
-10000
->>> input_data["max_weight"]
-110.45
->>> input_data["weight"]
+>>> input_data["direct"]
 True
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"4000","multigraph":"1","file_name":"File 2","output_format":"1","weight":"1","error":"0","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["self_loop"]
+False
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"40000","file_name":"File 2","output_format":"1","weight":"1","error":"0","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["multigraph"]
+False
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"","output_format":"1","weight":"1","error":"file1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["file_name"]
+'file1'
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"4000","weight":"1","error":"1","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
 >>> input_data["output_format"]
+1
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"1","weight":"4000","error":"0","number_of_files":"2","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["weight"]
+False
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"1","weight":"0","error":"1","number_of_files":"-5","config":"0","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["number_of_files"]
+1
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"1","weight":"0","error":"0","number_of_files":"1","config":"4000","engine":"1"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["config"]
+False
+>>> prev_item = ""
+>>> input_func_dict = {"vertices":"1200","max_weight":"400","min_weight":"2","min_edge":"0","max_edge":"2000","sign":"1","direct":"1","self_loop":"0","multigraph":"0","file_name":"file1","output_format":"1","weight":"0","error":"1","number_of_files":"1","config":"0","engine":"100000"}
+>>> input_data = get_input(input_func_test)
+[Error] Bad input!
+>>> input_data["engine"]
 1
 >>> handle_string("2")
 '2'

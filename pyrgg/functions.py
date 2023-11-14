@@ -51,7 +51,7 @@ def is_float(input_number):
     Check input for float conversion.
 
     :param input_number: input number
-    :type input_number: float or int
+    :type input_number: float or int or str
     :return: result as bool
     """
     try:
@@ -62,30 +62,30 @@ def is_float(input_number):
         return True if decimalpart else False
 
 
-def handle_string(x):
+def handle_string(string):
     """
-    Handle string. Raise ValueError if it is empty.
+    Handle string and raise ValueError if it is empty.
 
-    :param x: input string
-    :type x: str
-    :return: input string
+    :param string: input string
+    :type string: str
+    :return: result as str
     """
-    if x == "":
+    if string == "":
         raise ValueError
-    return x
+    return string
 
 
-def handle_pos_int(x):
+def handle_pos_int(input_number):
     """
-    Handle int. Raise ValueError if it is negative.
+    Handle input number and raise ValueError if it is negative.
 
-    :param x: input int
-    :type x: int
-    :return: input int
+    :param input_number: input number
+    :type input_number: float or int or str
+    :return: result as int
     """
-    if int(x) < 0:
+    if int(input_number) < 0:
         raise ValueError
-    return int(x)
+    return int(input_number)
 
 
 def handle_str_to_number(string):
@@ -94,7 +94,7 @@ def handle_str_to_number(string):
 
     :param string: input string
     :type string: str
-    :return: float or int
+    :return: result as float or int
     """
     return float(string) if is_float(string) else int(string)
 
@@ -105,7 +105,7 @@ def handle_str_to_bool(string):
 
     :param string: input string
     :type string: str
-    :return: bool
+    :return: result as bool
     """
     val = int(string)
     if val not in [0, 1]:
@@ -119,7 +119,7 @@ def handle_output_format(string):
 
     :param string: input string
     :type string: str
-    :return: output format as int
+    :return: output format index as int
     """
     output_format = handle_pos_int(string)
     if output_format not in pyrgg.params.SUFFIX_MENU.keys():
@@ -133,7 +133,7 @@ def handle_engine(string):
 
     :param string: input string
     :type string: str
-    :return: engine as int
+    :return: engine index as int
     """
     engine = handle_pos_int(string)
     if engine not in pyrgg.params.ENGINE_MENU.keys():
@@ -193,7 +193,7 @@ def convert_bytes(num):
 
     :param num: the input number.
     :type num: int
-    :return: str
+    :return: result as str
     """
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
         if num < 1024.0:
@@ -671,7 +671,7 @@ def save_config(input_dict):
 
     :param input_dict: input data
     :type input_dict: dict
-    :return: path to file
+    :return: path to file as str
     """
     try:
         input_dict_temp = input_dict.copy()
@@ -693,7 +693,7 @@ def load_config(path):
 
     :param path: path to config file
     :type path: str
-    :return: input data
+    :return: input data as dict
     """
     try:
         with open(path, "r") as json_file:
@@ -713,7 +713,7 @@ def _print_select_config(configs, input_func=input):
     :type configs: list
     :param input_func: input function
     :type input_func: function object
-    :return: input data
+    :return: input data as dict
     """
     if len(configs) == 0:
         return None
@@ -734,7 +734,7 @@ def check_for_config(input_func=input):
 
     :param input_func: input function
     :type input_func: function object
-    :return: input data
+    :return: input data as dict
     """
     configs = []
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
