@@ -6,6 +6,7 @@
 >>> import os
 >>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> description_print()
+<BLANKLINE>
 Webpage : https://www.pyrgg.ir
 Repository : https://github.com/sepandhaghighi/pyrgg
 Paper : https://doi.org/10.21105/joss.00331
@@ -14,12 +15,11 @@ Paper : https://doi.org/10.21105/joss.00331
 ########################################
 <BLANKLINE>
 <BLANKLINE>
-Pyrgg  is  an  easy-to-use synthetic random graph generator written in Python which supports various
-graph file formats including DIMACS .gr files. Pyrgg has the ability to generate graphs of different
-sizes  and  is designed to provide input files for broad range of graph-based research applications,
-including  but  not  limited  to  testing, benchmarking and performance-analysis of graph processing
-frameworks.  Pyrgg  target  audiences  are  computer scientists who study graph algorithms and graph
-processing frameworks.
+PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph
+file formats, such as DIMACS-Graph files. It can generate graphs of various sizes and is specifically designed to
+create input files for a wide range of graph-based research applications, including testing, benchmarking, and
+performance analysis of graph processing frameworks. PyRGG is aimed at computer scientists who are studying graph
+algorithms and graph processing frameworks.
 <BLANKLINE>
 <BLANKLINE>
 ########################################

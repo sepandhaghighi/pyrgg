@@ -6,7 +6,6 @@ from json import dump as json_dump
 import os
 from pickle import dump as pickle_dump
 from random import randint, uniform, choice
-from textwrap import fill
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
 
@@ -169,7 +168,7 @@ def description_print():
     print(pyrgg.params.PYRGG_LINKS)
     line(40)
     print("\n")
-    print(fill(pyrgg.params.PYRGG_DESCRIPTION, width=100))
+    print(pyrgg.params.PYRGG_DESCRIPTION)
     print("\n")
     line(40)
 

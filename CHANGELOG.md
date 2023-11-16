@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_output_format` function
 - `handle_engine` function
 ### Changed
+- `README.md` modified
 - Menu options bug fixed
 - `engine` parameter added to `logger` function
 - `MENU_ITEMS1` parameter changed to `MENU_ITEMS`

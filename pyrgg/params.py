@@ -9,7 +9,7 @@ MENU_ITEMS = {
         - Select generation engine :
         1- Pyrgg engine
         """
-        )],
+    )],
     2: ["file_name", "- File Name (Not Empty) : "],
     3: ["number_of_files", "- Number of Files (>=0) : "],
     4: ["output_format", dedent(
@@ -32,7 +32,7 @@ MENU_ITEMS = {
         15- GEXF(.gexf)
         16- DOT(.gv)
         """
-        )],
+    )],
     5: ["weight", "- Unweighted[0] or Weighted[1]"],
 }
 
@@ -100,18 +100,13 @@ Paper : https://doi.org/10.21105/joss.00331
 """
 
 _description = """\
-Pyrgg is an easy-to-use synthetic random graph generator written in Python
-which supports various graph file formats including DIMACS .gr files.
-Pyrgg has the ability to generate graphs of different sizes
-and is designed to provide input files
-for broad range of graph-based research applications,
-including but not limited to testing,
-benchmarking and performance-analysis of graph processing frameworks.
-Pyrgg target audiences are computer scientists
-who study graph algorithms and graph processing frameworks.
+PyRGG is a user-friendly synthetic random graph generator that is written in Python and supports multiple graph file formats, such as DIMACS-Graph files.
+It can generate graphs of various sizes and is specifically designed to create input files for a wide range of graph-based research applications, including testing,
+benchmarking, and performance analysis of graph processing frameworks.
+PyRGG is aimed at computer scientists who are studying graph algorithms and graph processing frameworks.
 """
 
-PYRGG_DESCRIPTION = fill(_description, width=70)
+PYRGG_DESCRIPTION = fill(_description, width=113)
 
 PYRGG_INPUT_ERROR_MESSAGE = "[Error] Bad input!"
 
