@@ -89,7 +89,6 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 ## Installation		
 
 ### PyPI
-
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
 - `pip install pyrgg==1.4`						
 
@@ -98,7 +97,6 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 - `pip install .`
 
 ### Conda
-
 - Check [Conda Managing Package](https://conda.io)
 - `conda install -c sepandhaghighi pyrgg`
 
