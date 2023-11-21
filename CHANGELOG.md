@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_engine` function
 ### Changed
 - `README.md` modified
+- `Python 3.12` added to `test.yml`
 - Menu options bug fixed
 - `engine` parameter added to `logger` function
 - `MENU_ITEMS1` parameter changed to `MENU_ITEMS`
