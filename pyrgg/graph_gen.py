@@ -17,8 +17,7 @@ def dimacs_init(
         vertices,
         edge,
         min_edge,
-        max_edge,
-        direct):
+        max_edge):
     """
     Initialize dimacs output file.
 
