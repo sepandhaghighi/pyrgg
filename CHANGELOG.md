@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_output_format` function
 - `handle_engine` function
 ### Changed
+- `dimacs_maker` function removed
 - `README.md` modified
 - `Python 3.12` added to `test.yml`
 - Menu options bug fixed

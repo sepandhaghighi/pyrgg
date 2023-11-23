@@ -9,47 +9,6 @@ from pyrgg.functions import *
 random_system = random
 
 
-def dimacs_init(
-        file,
-        file_name,
-        min_weight,
-        max_weight,
-        vertices,
-        edge,
-        min_edge,
-        max_edge):
-    """
-    Initialize dimacs output file.
-
-    :param file: output file object
-    :param file_name: file name
-    :type file_name: str
-    :type file: file_object
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param vertices: vertices number
-    :type vertices: int
-    :param edge:  edge number
-    :type edge: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :return: None
-    """
-    file.write(
-        DIMACS_FIX.format(
-            file_name,
-            str(vertices),
-            str(edge),
-            str(max_weight),
-            str(min_weight),
-            str(min_edge),
-            str(max_edge)))
-
-
 def dimacs_maker(
         file_name,
         min_weight,
@@ -99,17 +58,15 @@ def dimacs_maker(
     )
 
     with open(file_name + ".gr", "w") as buf:
-        dimacs_init(
-            buf,
-            file_name,
-            min_weight,
-            max_weight,
-            vertices,
-            edge_number,
-            min_edge,
-            max_edge,
-            direct,
-        )
+        buf.write(
+            DIMACS_FIX.format(
+                file_name,
+                str(vertices),
+                str(edge_number),
+                str(max_weight),
+                str(min_weight),
+                str(min_edge),
+                str(max_edge)))
         _write_separated_file(
             buf, edge_dic, weight_dic, separator=' ', prefix='a',
         )
