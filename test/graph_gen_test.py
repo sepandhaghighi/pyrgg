@@ -236,7 +236,7 @@ a 99 89 24
 a 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> edge_dic, weight_dic, edge_number = edge_gen(100,10,30,0,4,False,False,True,False)
+>>> edge_dic, weight_dic, edge_number = edge_gen(100,10,30,0,4,False,False,True,True)
 >>> dimacs_maker('testfile3', 10, 30, 100, 0, 4, edge_dic, weight_dic, edge_number)
 131
 >>> file=open('testfile3.gr','r')
