@@ -16,10 +16,9 @@ def dimacs_maker(
         vertices,
         min_edge,
         max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
+        edge_dic,
+        weight_dic, 
+        edge_number):
     """
     Create output file and fill in.
 
@@ -35,28 +34,14 @@ def dimacs_maker(
     :type min_edge: int
     :param max_edge: maximum number of edges (connected to each vertex)
     :type max_edge: int
-    :param sign: weight sign flag
-    :type sign: bool
-    :param direct: directed and undirected graph flag
-    :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
-    :param multigraph: multigraph flag
-    :type multigraph: bool
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :param edge_number: number of edges
+    :type edge_number: int
     :return: edge_number as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
-        vertices,
-        min_weight,
-        max_weight,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph,
-    )
-
     with open(file_name + ".gr", "w") as buf:
         buf.write(
             DIMACS_FIX.format(
