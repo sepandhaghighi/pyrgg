@@ -443,7 +443,7 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> testfile_3_p['graph']['edges'][1]['weight']
 15
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> random.seed(2)
 >>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
@@ -617,7 +617,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -658,7 +658,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(4)
->>> csv_maker('testfile4',0,50.2,30,0,4,True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile4',0,50.2,30,0,4,True,True,True,False)
 41
 >>> file=open('testfile4.csv','r')
 >>> print(file.read())
@@ -705,7 +705,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 29,20,26.4
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())

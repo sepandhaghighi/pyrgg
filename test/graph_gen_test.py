@@ -605,7 +605,7 @@ False
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -707,7 +707,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 27 1:33
 28 23:30
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
 >>> gdf_maker('testfile2',0,50,30,0,4,True,True,True,False)
@@ -883,7 +883,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 98 7:10
 100 28:14
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
 >>> gdf_maker('testfile3',10,30,100,0,4,False,True,True,False)
@@ -1088,7 +1088,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 100,40,11
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(csv_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
 >>> gdf_maker('testfile3',10,30,100,0,4,False,False,True,True)
@@ -1682,7 +1682,7 @@ a 26 3 -13
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.22, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile4', 0.0, 200.22, 10, 0, 2, True,True,True,False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -1693,7 +1693,7 @@ a 26 3 -13
 10,10,-181.75
 <BLANKLINE>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.222, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(csv_maker,'testfile4', 0.0, 200.222, 10, 0, 2, True,True,True,False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
