@@ -643,7 +643,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gl_maker('testfile', 0, 200, 10, 1, 2, True,True,True,False)
+>>> generate_graph_using(gl_maker,'testfile', 0, 200, 10, 1, 2, True,True,True,False)
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -678,7 +678,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	1	60
 <BLANKLINE>
 >>> random.seed(4)
->>> gl_maker('testfile2',0,50,30,2,4,True,True,True,False)
+>>> generate_graph_using(gl_maker,'testfile2',0,50,30,2,4,True,True,True,False)
 44
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -794,7 +794,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
->>> gl_maker('testfile3',10,30,100,3,4,False,True,True,False)
+>>> generate_graph_using(gl_maker,'testfile3',10,30,100,3,4,False,True,True,False)
 178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())

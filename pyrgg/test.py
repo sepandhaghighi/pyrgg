@@ -595,7 +595,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gl_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
