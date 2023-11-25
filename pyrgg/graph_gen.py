@@ -326,60 +326,30 @@ def mtx_maker(
 
 
 def lp_maker(
-        file_name,
-        min_weight,
-        max_weight,
-        vertices,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
+        edge_dic,
+        weight_dic,
+        edge_number,
+        mdata):
     """
     Create output file in ASP format.
 
-    :param file_name: file name
-    :type file_name: str
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param vertices: number of vertices
-    :type vertices: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param sign: weight sign flag
-    :type sign: bool
-    :param direct: directed and undirected graph flag
-    :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
-    :param multigraph: multigraph flag
-    :type multigraph: bool
-    :return: edge_number as int
+    :param edge_dic: dictionary containing edges data
+    :type edge_dic: dict
+    :param weight_dic: dictionary containing weights data
+    :type weight_dic: dict
+    :param edge_number: number of edges
+    :type edge_number: int
+    :param mdata: meta data
+    :type mdata: dict
+    :return: None
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
-        vertices,
-        min_weight,
-        max_weight,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph,
-    )
-    with open(file_name + ".lp", "w") as buf:
+    with open(mdata['file_name'] + ".lp", "w") as buf:
         for key in edge_dic:
             buf.write('node(' + str(key) + ").\n")
         for key, edge_val in edge_dic.items():
             for j, value in enumerate(edge_val):
                 buf.write('edge(' + str(key) + "," + str(value) +
                           "," + str(weight_dic[key][j]) + ").\n")
-    return edge_number
 
 
 def tgf_maker(

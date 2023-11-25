@@ -1324,7 +1324,7 @@ Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'sign'
 >>> random.seed(2)
->>> lp_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(lp_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1347,7 +1347,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(lp_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
