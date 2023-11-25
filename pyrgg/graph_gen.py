@@ -301,15 +301,15 @@ def mtx_maker(
     """
     Create output file in Matrix Market format.
 
-    :param file_name: file name
-    :type file_name: str
     :param edge_dic: dictionary containing edges data
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
     :param edge_number: number of edges
     :type edge_number: int
-    :return: edge_number as int
+    :param mdata: meta data
+    :type mdata: dict
+    :return: None
     """
     max_edge_length = len(str(mdata['vertices_number']))
     with open(mdata['file_name'] + ".mtx", "w") as buf:
