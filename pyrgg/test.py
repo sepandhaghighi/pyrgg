@@ -115,6 +115,9 @@ TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct',
 >>> edge_dic, weight_dic, edge_number = edge_gen(10,0,200,0,2,True,True,True,False)
 >>> dimacs_maker('testfile', 0, 200, 10, 0, 2, edge_dic, weight_dic, edge_number)
 7
+>>> random.seed(2)
+>>> generate_graph_using(dimacs_maker,'testfile',0,200,10,0,2,True,True,True,False)
+7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
 c FILE                  :testfile.gr
@@ -134,8 +137,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> edge_dic, weight_dic, edge_number = edge_gen(30,0,50,0,4,True,True,True,False)
->>> dimacs_maker('testfile2', 0, 50, 30, 0, 4, edge_dic, weight_dic, edge_number)
+>>> generate_graph_using(dimacs_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -184,8 +186,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> edge_dic, weight_dic, edge_number = edge_gen(100,10,30,0,4,False,True,True,False)
->>> dimacs_maker('testfile3', 10, 30, 100, 0, 4, edge_dic, weight_dic, edge_number)
+>>> generate_graph_using(dimacs_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
