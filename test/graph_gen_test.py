@@ -665,7 +665,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (7, 1)	-97.0
   (8, 0)	60.0
 >>> random.seed(2)
->>> tsv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(tsv_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -716,7 +716,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> mtx_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> tsv_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(tsv_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> g = mmread("testfile2.mtx")
 >>> print(g)
@@ -892,7 +892,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> mtx_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(tsv_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> g = mmread("testfile3.mtx")
 >>> print(g)
@@ -1097,7 +1097,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> mtx_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(tsv_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> gl_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
