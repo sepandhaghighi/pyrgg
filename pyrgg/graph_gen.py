@@ -10,52 +10,36 @@ random_system = random
 
 
 def dimacs_maker(
-        file_name,
-        min_weight,
-        max_weight,
-        vertices,
-        min_edge,
-        max_edge,
         edge_dic,
-        weight_dic, 
-        edge_number):
+        weight_dic,
+        edge_number,
+        mdata):
     """
     Create output file and fill in.
 
-    :param file_name: file name
-    :type file_name: str
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param vertices: number of vertices
-    :type vertices: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
     :param edge_dic: dictionary containing edges data
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
     :param edge_number: number of edges
     :type edge_number: int
-    :return: edge_number as int
+    :param mdata: meta data
+    :type mdata: dict
+    :return: None
     """
-    with open(file_name + ".gr", "w") as buf:
+    with open(mdata['file_name'] + ".gr", "w") as buf:
         buf.write(
             DIMACS_FIX.format(
-                file_name,
-                str(vertices),
+                mdata['file_name'],
+                str(mdata['vertices']),
                 str(edge_number),
-                str(max_weight),
-                str(min_weight),
-                str(min_edge),
-                str(max_edge)))
+                str(mdata['max_weight']),
+                str(mdata['min_weight']),
+                str(mdata['min_edge']),
+                str(mdata['max_edge'])))
         _write_separated_file(
             buf, edge_dic, weight_dic, separator=' ', prefix='a',
         )
-    return edge_number
 
 
 def json_maker(
