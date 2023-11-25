@@ -50,7 +50,7 @@ def gen_graph(input_dict, file_name):
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
-    gen_meta_data = {
+    meta_data = {
         "file_name": file_name,
         "min_weight": min_weight,
         "max_weight": max_weight,
@@ -72,17 +72,11 @@ def gen_graph(input_dict, file_name):
         direct,
         self_loop,
         multigraph)
-    edge_number = GENERATOR_MENU[output_format](
-        file_name,
-        min_weight,
-        max_weight,
-        vertices_number,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph)
+    GENERATOR_MENU[output_format](
+        edge_dic,
+        weight_dic,
+        edge_number,
+        meta_data)
     if output_format == 4:
         json_to_yaml(file_name)
     if output_format == 7:
