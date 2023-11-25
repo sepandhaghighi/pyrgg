@@ -50,7 +50,7 @@ def gen_graph(input_dict, file_name):
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
-    edge_number = pyrgg.functions.generate_graph_using(
+    edge_number = generate_graph_using(
         GENERATOR_MENU[output_format],
         file_name,
         min_weight,
