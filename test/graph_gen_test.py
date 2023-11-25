@@ -384,7 +384,7 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'edge_number'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(json_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -444,7 +444,7 @@ False
 >>> testfile_1_p['properties']['weighted']
 True
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(json_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -506,7 +506,7 @@ False
 >>> testfile_2_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(json_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -576,7 +576,7 @@ False
 >>> testfile_3_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(json_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -591,14 +591,14 @@ True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
->>> json_maker('testfile3',1,1,100,0,4,False,False,True,True)
+>>> generate_graph_using(json_maker,'testfile3',1,1,100,0,4,False,False,True,True)
 136
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 False
 >>> random.seed(21)
->>> json_maker('testfile3',1,1,100,0,4,True,False,True,True)
+>>> generate_graph_using(json_maker,'testfile3',1,1,100,0,4,True,False,True,True)
 158
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)

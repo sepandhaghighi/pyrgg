@@ -341,7 +341,7 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 3 required positional arguments: 'edge_dic', 'weight_dic', and 'edge_number'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(json_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -371,7 +371,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'edge_dic', '
 >>> testfile_1_p['graph']['edges'][1]['weight']
 148
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(json_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -403,7 +403,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'edge_dic', '
 >>> testfile_2_p['graph']['edges'][1]['weight']
 5
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(json_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
