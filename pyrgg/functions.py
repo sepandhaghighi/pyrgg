@@ -744,7 +744,7 @@ def check_for_config(input_func=input):
     return _print_select_config(configs, input_func)
 
 
-def _generate_graph_using(
+def generate_graph_using(
         gen_function,
         file_name, 
         min_weight, 

@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- `_generate_graph_using` function added
+- `generate_graph_using` function added
 - Generation engine menu
 - `handle_string` function
 - `handle_pos_int` function
