@@ -50,6 +50,28 @@ def gen_graph(input_dict, file_name):
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
+    gen_meta_data = {
+        "file_name": file_name,
+        "min_weight": min_weight,
+        "max_weight": max_weight,
+        "vertices_number": vertices_number,
+        "min_edge": min_edge,
+        "max_edge": max_edge,
+        "sign": sign,
+        "direct": direct,
+        "self_loop": self_loop,
+        "multigraph": multigraph,
+    }
+    edge_dic, weight_dic, edge_number = edge_gen(
+        vertices_number,
+        min_weight,
+        max_weight,
+        min_edge,
+        max_edge,
+        sign,
+        direct,
+        self_loop,
+        multigraph)
     edge_number = GENERATOR_MENU[output_format](
         file_name,
         min_weight,
