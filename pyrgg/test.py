@@ -1147,7 +1147,7 @@ edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
 >>> random.seed(2)
->>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(tgf_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1171,7 +1171,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(tgf_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
