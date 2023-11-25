@@ -39,7 +39,6 @@ def gen_graph(input_dict, file_name):
     :return: None
     """
     first_time = time.perf_counter()
-    weight = input_dict["weight"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
     vertices_number = input_dict["vertices"]
