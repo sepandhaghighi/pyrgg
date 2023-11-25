@@ -1120,7 +1120,7 @@ Traceback (most recent call last):
         ...
 TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
 >>> random.seed(2)
->>> wel_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(wel_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -1133,7 +1133,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(wel_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -1174,7 +1174,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(wel_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1317,7 +1317,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(wel_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> wel_maker('testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
