@@ -653,7 +653,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5 6:-81
 6 9:143
 >>> random.seed(2)
->>> mtx_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(mtx_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> g = mmread("testfile.mtx")
 >>> print(g)
@@ -713,7 +713,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> gdf_maker('testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> mtx_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(mtx_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
 >>> generate_graph_using(tsv_maker,'testfile2',0,50,30,0,4,True,True,True,False)
@@ -889,7 +889,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> gdf_maker('testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(mtx_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
 >>> generate_graph_using(tsv_maker,'testfile3',10,30,100,0,4,False,True,True,False)
@@ -1094,7 +1094,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> gdf_maker('testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(mtx_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
 >>> generate_graph_using(tsv_maker,'testfile3',10,30,100,0,4,False,False,True,True)
@@ -1111,7 +1111,7 @@ TypeError: csv_maker() missing 1 required positional argument: 'sign'
 Traceback (most recent call last):
         ...
 TypeError: gdf_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> mtx_maker('testfile', 0, 200, 10, 0,0,True)
+>>> generate_graph_using(mtx_maker,'testfile', 0, 200, 10, 0,0,True)
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'sign'

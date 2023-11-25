@@ -552,7 +552,7 @@ graph
 7
 >>> file=open('testfile.gexf', 'r')
 >>> random.seed(2)
->>> mtx_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(mtx_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> random.seed(2)
 >>> generate_graph_using(tsv_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
