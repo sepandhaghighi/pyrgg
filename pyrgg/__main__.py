@@ -25,8 +25,12 @@ GENERATOR_MENU = {
     13: gdf_maker,
     14: gml_maker,
     15: gexf_maker,
-    16: dot_maker}
+    16: dot_maker,
+}
 
+ENGINE_GENERATOR = {
+    1: pyrgg_gen_using,
+}
 
 def gen_graph(input_dict, file_name):
     """
@@ -50,7 +54,7 @@ def gen_graph(input_dict, file_name):
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
-    edge_number = generate_graph_using(
+    edge_number = ENGINE_GENERATOR[engine](
         GENERATOR_MENU[output_format],
         file_name,
         min_weight,

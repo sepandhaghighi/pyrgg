@@ -18,7 +18,7 @@ direct = 1
 self_loop = 1
 multigraph = 1
 
-generate_graph_using(dimacs_maker,
+pyrgg_gen_using(dimacs_maker,
                      file_name,
                      min_weight,
                      max_weight,
