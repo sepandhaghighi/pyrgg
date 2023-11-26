@@ -618,7 +618,7 @@ True
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gdf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gdf_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -710,7 +710,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> generate_graph_using(csv_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
->>> gdf_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(gdf_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> random.seed(4)
 >>> generate_graph_using(mtx_maker,'testfile2',0,50,30,0,4,True,True,True,False)
@@ -886,7 +886,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> generate_graph_using(csv_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> generate_graph_using(gdf_maker,'testfile3',10,30,100,0,4,False,True,True,False)
 137
 >>> random.seed(20)
 >>> generate_graph_using(mtx_maker,'testfile3',10,30,100,0,4,False,True,True,False)
@@ -1091,7 +1091,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> generate_graph_using(csv_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> generate_graph_using(gdf_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
 >>> random.seed(20)
 >>> generate_graph_using(mtx_maker,'testfile3',10,30,100,0,4,False,False,True,True)
