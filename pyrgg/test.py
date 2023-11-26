@@ -336,10 +336,10 @@ a 99 19 29
 a 99 89 24
 a 100 40 11
 <BLANKLINE>
->>> dimacs_maker('testfile', 0, 200, 10, 0, 0)
+>>> dimacs_maker({})
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 3 required positional arguments: 'edge_dic', 'weight_dic', and 'edge_number'
+TypeError: dimacs_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(json_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
@@ -430,10 +430,10 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'edge_dic', '
 [Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
 [Error] Failed to generate Pickle file!
->>> json_maker('testfile', 0, 200, 10, 0, 0,True)
+>>> json_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
+TypeError: json_maker() missing 2 required positional arguments: 'edge_number', and 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
@@ -847,10 +847,10 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 99,89,24
 100,40,11
 <BLANKLINE>
->>> csv_maker('testfile', 0, 200, 10, 0,0,True)
+>>> csv_maker({})
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
+TypeError: csv_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(wel_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
@@ -1048,10 +1048,10 @@ TypeError: csv_maker() missing 3 required positional arguments: 'direct', 'self_
 99 89 24
 100 40 11
 <BLANKLINE>
->>> wel_maker('testfile', 0, 200, 10, 0,0,True)
+>>> wel_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
+TypeError: wel_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(lp_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7

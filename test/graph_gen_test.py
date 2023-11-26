@@ -379,10 +379,10 @@ a 97 95 14
 a 98 1 15
 a 98 1 13
 a 99 35 28
->>> dimacs_maker('testfile', 0, 200, 10, 0, 0, {}, {})
+>>> dimacs_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 1 required positional argument: 'edge_number'
+TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(json_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
@@ -553,10 +553,10 @@ True
 [Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
 [Error] Failed to generate Pickle file!
->>> json_maker('testfile', 0, 200, 10, 0, 0,1)
+>>> json_maker({}, {}, 1)
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 1 required positional argument: 'sign'
+TypeError: json_maker() missing 1 required positional argument: 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
@@ -1099,26 +1099,22 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> generate_graph_using(tsv_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
->>> gl_maker('testfile', 0, 200, 10, 0,0,True)
+>>> gl_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gl_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> csv_maker('testfile', 0, 200, 10, 0,0,True)
+TypeError: gl_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+>>> csv_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> gdf_maker('testfile', 0, 200, 10, 0,0,True)
+TypeError: csv_maker() missing 1 required positional argument: 'mdata'
+>>> gdf_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gdf_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> generate_graph_using(mtx_maker,'testfile', 0, 200, 10, 0,0,True)
+TypeError: gdf_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+>>> tsv_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> tsv_maker('testfile', 0, 200, 10, 0,0,True)
-Traceback (most recent call last):
-        ...
-TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
+TypeError: tsv_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(wel_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
@@ -1319,10 +1315,10 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 >>> random.seed(20)
 >>> generate_graph_using(wel_maker,'testfile3',10,30,100,0,4,False,False,True,True)
 131
->>> wel_maker('testfile', 0, 200, 10, 0,0,True)
+>>> wel_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 1 required positional argument: 'sign'
+TypeError: wel_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> generate_graph_using(lp_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
