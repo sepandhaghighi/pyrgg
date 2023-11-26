@@ -112,10 +112,6 @@ Traceback (most recent call last):
         ...
 TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> edge_dic, weight_dic, edge_number = edge_gen(10,0,200,0,2,True,True,True,False)
->>> dimacs_maker(edge_dic, weight_dic, edge_number, {"file_name": "testfile", "vertices_number": 10, "max_weight": 200, "min_weight": 0, "min_edge": 0, "max_edge": 2})
-7
->>> random.seed(2)
 >>> generate_graph_using(dimacs_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
 >>> file=open('testfile.gr','r')

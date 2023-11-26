@@ -12,9 +12,6 @@
 >>> from networkx.readwrite.gexf import read_gexf
 >>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> random.seed(2)
->>> edge_dic, weight_dic, edge_number = edge_gen(10,0,200,0,2,True,True,True,False)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, edge_dic, weight_dic, edge_number)
-7
 >>> generate_graph_using(dimacs_maker,'testfile',0,200,10,0,2,True,True,True,False)
 7
 >>> file=open('testfile.gr','r')
@@ -1572,8 +1569,7 @@ data:
 28 13 -13
 <BLANKLINE>
 >>> random.seed(4)
->>> edge_dic, weight_dic, edge_number = edge_gen(30,0,50,0,4,True,True,False,False)
->>> dimacs_maker('testfile4', 0, 50, 30, 0, 4, edge_dic, weight_dic, edge_number)
+>>> generate_graph_using(dimacs_maker,'testfile4',0,50,30,0,4,True,True,False,False)
 37
 >>> file=open('testfile4.gr','r')
 >>> print(file.read())
