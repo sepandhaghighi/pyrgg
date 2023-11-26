@@ -31,7 +31,7 @@ def dimacs_maker(
         buf.write(
             DIMACS_FIX.format(
                 mdata['file_name'],
-                str(mdata['vertices']),
+                str(mdata['vertices_number']),
                 str(edge_number),
                 str(mdata['max_weight']),
                 str(mdata['min_weight']),

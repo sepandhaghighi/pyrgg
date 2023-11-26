@@ -113,7 +113,7 @@ Traceback (most recent call last):
 TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
 >>> edge_dic, weight_dic, edge_number = edge_gen(10,0,200,0,2,True,True,True,False)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, edge_dic, weight_dic, edge_number)
+>>> dimacs_maker(edge_dic, weight_dic, edge_number, {"file_name": "testfile", "vertices_number": 10, "max_weight": 200, "min_weight": 0, "min_edge": 0, "max_edge": 2})
 7
 >>> random.seed(2)
 >>> generate_graph_using(dimacs_maker,'testfile',0,200,10,0,2,True,True,True,False)
@@ -433,7 +433,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'weight_dic',
 >>> json_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 2 required positional arguments: 'edge_number', and 'mdata'
+TypeError: json_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
