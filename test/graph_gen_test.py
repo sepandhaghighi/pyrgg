@@ -1514,7 +1514,7 @@ edge(28,13,-13).
 28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(dl_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1531,7 +1531,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> generate_graph_using(dl_maker,'testfile2',0,50,30,0,4,True,True,True,False)
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
