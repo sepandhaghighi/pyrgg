@@ -446,7 +446,7 @@ TypeError: json_maker() missing 3 required positional arguments: 'direct', 'self
 >>> generate_graph_using(csv_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> random.seed(2)
->>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gml_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gml','r')
 >>> print(file.read())

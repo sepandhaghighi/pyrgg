@@ -1628,25 +1628,25 @@ a 26 29 28
 a 26 3 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gml_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
->>> gml_maker('testfile2',0,50,30,0,4,True,True,True,True)
+>>> generate_graph_using(gml_maker,'testfile2',0,50,30,0,4,True,True,True,True)
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gml_maker('testfile3',0,50,30,0,4,True,False,True,True)
+>>> generate_graph_using(gml_maker,'testfile3',0,50,30,0,4,True,False,True,True)
 35
 >>> gml3 = read_gml("testfile3.gml")
 >>> type(gml3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gml_maker('testfile4',0,50,30,0,4,True,False,True,False)
+>>> generate_graph_using(gml_maker,'testfile4',0,50,30,0,4,True,False,True,False)
 35
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
