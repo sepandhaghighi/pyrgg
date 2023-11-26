@@ -18,14 +18,15 @@ direct = 1
 self_loop = 1
 multigraph = 1
 
-pyrgg_gen_using(dimacs_maker,
-                     file_name,
-                     min_weight,
-                     max_weight,
-                     vertices,
-                     min_edge,
-                     max_edge,
-                     sign,
-                     direct,
-                     self_loop,
-                     multigraph)
+pyrgg_gen_using(
+    dimacs_maker,
+    file_name,
+    min_weight,
+    max_weight,
+    vertices,
+    min_edge,
+    max_edge,
+    sign,
+    direct,
+    self_loop,
+    multigraph)
