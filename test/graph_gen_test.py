@@ -1652,31 +1652,31 @@ a 26 3 -13
 >>> type(gml4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> gexf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gexf_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(8)
->>> gexf_maker('testfile2',0,50,30,0,4,True,True,True,True)
+>>> generate_graph_using(gexf_maker,'testfile2',0,50,30,0,4,True,True,True,True)
 35
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gexf_maker('testfile3',0,50,30,0,4,True,False,True,True)
+>>> generate_graph_using(gexf_maker,'testfile3',0,50,30,0,4,True,False,True,True)
 35
 >>> gexf3 = read_gexf("testfile3.gexf")
 >>> type(gexf3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gexf_maker('testfile4',0,50,30,0,4,True,False,True,False)
+>>> generate_graph_using(gexf_maker,'testfile4',0,50,30,0,4,True,False,True,False)
 35
 >>> gexf4 = read_gexf("testfile4.gexf")
 >>> type(gexf4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(120)
->>> gexf_maker('testfile5',0,50.2,30,0,4,True,False,True,False)
+>>> generate_graph_using(gexf_maker,'testfile5',0,50.2,30,0,4,True,False,True,False)
 40
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)

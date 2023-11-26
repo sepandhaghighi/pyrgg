@@ -548,7 +548,7 @@ graph
   ]
 ]
 >>> random.seed(2)
->>> gexf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> generate_graph_using(gexf_maker,'testfile', 0, 200, 10, 0, 2, True,True,True,False)
 7
 >>> file=open('testfile.gexf', 'r')
 >>> random.seed(2)
