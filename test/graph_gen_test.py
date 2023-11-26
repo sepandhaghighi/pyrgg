@@ -1705,7 +1705,7 @@ a 26 3 -13
 <BLANKLINE>
 >>> import pydot
 >>> random.seed(4)
->>> dot_maker('testfile',0,50,30,0,4,True,True,False,False)
+>>> generate_graph_using(dot_maker,'testfile',0,50,30,0,4,True,True,False,False)
 37
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
@@ -1716,7 +1716,7 @@ a 26 3 -13
 >>> len(g1[0].get_edge_list())
 37
 >>> random.seed(4)
->>> dot_maker('testfile2',0,50,30,0,4,True,False,False,False)
+>>> generate_graph_using(dot_maker,'testfile2',0,50,30,0,4,True,False,False,False)
 37
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())
@@ -1727,7 +1727,7 @@ a 26 3 -13
 >>> len(g2[0].get_edge_list())
 37
 >>> random.seed(4)
->>> dot_maker('testfile3',0,50,30,0,4,True,False,False,True)
+>>> generate_graph_using(dot_maker,'testfile3',0,50,30,0,4,True,False,False,True)
 40
 >>> file=open('testfile3.gv','r')
 >>> g3 = pydot.graph_from_dot_data(file.read())
@@ -1738,7 +1738,7 @@ a 26 3 -13
 >>> len(g3[0].get_edge_list())
 40
 >>> random.seed(4)
->>> dot_maker('testfile4',1,1,30,0,4,True,False,False,True)
+>>> generate_graph_using(dot_maker,'testfile4',1,1,30,0,4,True,False,False,True)
 42
 >>> file=open('testfile4.gv','r')
 >>> g4 = pydot.graph_from_dot_data(file.read())
