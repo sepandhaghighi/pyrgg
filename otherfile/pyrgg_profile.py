@@ -12,7 +12,7 @@ pyrgg_gen_using(
     file_name='profile',
     min_weight=1,
     max_weight=5000,
-    vertices=10000,
+    vertices_number=10000,
     min_edge=5,
     max_edge=600,
     sign=0,
