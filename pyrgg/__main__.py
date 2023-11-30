@@ -56,16 +56,16 @@ def gen_graph(input_dict, file_name):
     engine = input_dict["engine"]
     edge_number = ENGINE_GENERATOR[engine](
         GENERATOR_MENU[output_format],
-        file_name,
-        min_weight,
-        max_weight,
-        vertices_number,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph)
+        file_name=file_name,
+        min_weight=min_weight,
+        max_weight=max_weight,
+        vertices_number=vertices_number,
+        min_edge=min_edge,
+        max_edge=max_edge,
+        sign=sign,
+        direct=direct,
+        self_loop=self_loop,
+        multigraph=multigraph)
     if output_format == 4:
         json_to_yaml(file_name)
     if output_format == 7:

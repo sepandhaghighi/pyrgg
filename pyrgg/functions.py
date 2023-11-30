@@ -746,68 +746,40 @@ def check_for_config(input_func=input):
 
 def pyrgg_gen_using(
         gen_function,
-        file_name, 
-        min_weight, 
-        max_weight,
-        vertices_number,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
+        **kwargs):
     """
     Generate graph using given function.
     
     :param gen_function: generation function
     :type gen_function: function object
-    :param file_name: file name
-    :type file_name: str
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param vertices_number: number of vertices
-    :type vertices_number: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param sign: weight sign flag
-    :type sign: bool
-    :param direct: directed and undirected graph flag
-    :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
-    :param multigraph: multigraph flag
-    :type multigraph: bool
+    :param kwargs: input data as keyword arguments
+    :type kwargs: dict
     :return: number of edges as int
     """
-    meta_data = {
-        "file_name": file_name,
-        "min_weight": min_weight,
-        "max_weight": max_weight,
-        "vertices_number": vertices_number,
-        "min_edge": min_edge,
-        "max_edge": max_edge,
-        "sign": sign,
-        "direct": direct,
-        "self_loop": self_loop,
-        "multigraph": multigraph,
-    }
     edge_dic, weight_dic, edge_number = edge_gen(
-        vertices_number,
-        min_weight,
-        max_weight,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph)
+        kwargs['vertices_number'],
+        kwargs['min_weight'],
+        kwargs['max_weight'],
+        kwargs['min_edge'],
+        kwargs['max_edge'],
+        kwargs['sign'],
+        kwargs['direct'],
+        kwargs['self_loop'],
+        kwargs['multigraph'])
     gen_function(
         edge_dic,
         weight_dic,
         edge_number,
-        meta_data)
+        {
+        "file_name": kwargs['file_name'],
+        "min_weight": kwargs['min_weight'],
+        "max_weight": kwargs['max_weight'],
+        "vertices_number": kwargs['vertices_number'],
+        "min_edge": kwargs['min_edge'],
+        "max_edge": kwargs['max_edge'],
+        "sign": kwargs['sign'],
+        "direct": kwargs['direct'],
+        "self_loop": kwargs['self_loop'],
+        "multigraph": kwargs['multigraph'],
+    })
     return edge_number
