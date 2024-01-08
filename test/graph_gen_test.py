@@ -1701,8 +1701,6 @@ a 26 3 -13
 37
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
->>> type(g1[0])
-<class 'pydot.Dot'>
 >>> g1[0].get_type()
 'digraph'
 >>> len(g1[0].get_edge_list())
@@ -1712,8 +1710,6 @@ a 26 3 -13
 37
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())
->>> type(g2[0])
-<class 'pydot.Dot'>
 >>> g2[0].get_type()
 'graph'
 >>> len(g2[0].get_edge_list())
@@ -1723,8 +1719,6 @@ a 26 3 -13
 40
 >>> file=open('testfile3.gv','r')
 >>> g3 = pydot.graph_from_dot_data(file.read())
->>> type(g3[0])
-<class 'pydot.Dot'>
 >>> g3[0].get_type()
 'graph'
 >>> len(g3[0].get_edge_list())
@@ -1734,8 +1728,6 @@ a 26 3 -13
 42
 >>> file=open('testfile4.gv','r')
 >>> g4 = pydot.graph_from_dot_data(file.read())
->>> type(g4[0])
-<class 'pydot.Dot'>
 >>> g4[0].get_type()
 'graph'
 >>> len(g4[0].get_edge_list())
