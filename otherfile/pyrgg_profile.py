@@ -6,4 +6,16 @@ import random
 
 pyrgg.params.PYRGG_TEST_MODE = True
 random.seed(400)
-dimacs_maker('profile', 1, 5000, 10000, 5, 600, 0, 1, 1, 1)
+
+pyrgg_gen_using(
+    dimacs_maker,
+    file_name='profile',
+    min_weight=1,
+    max_weight=5000,
+    vertices_number=10000,
+    min_edge=5,
+    max_edge=600,
+    sign=0,
+    direct=1,
+    self_loop=1,
+    multigraph=1)

@@ -12,7 +12,7 @@
 >>> from networkx.readwrite.gexf import read_gexf
 >>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> random.seed(2)
->>> dimacs_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(dimacs_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -33,7 +33,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(dimacs_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -82,7 +82,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(dimacs_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -233,7 +233,7 @@ a 99 89 24
 a 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> dimacs_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(dimacs_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -376,12 +376,12 @@ a 97 95 14
 a 98 1 15
 a 98 1 13
 a 99 35 28
->>> dimacs_maker('testfile', 0, 200, 10, 0,0,1)
+>>> dimacs_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 1 required positional argument: 'sign'
+TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> json_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(json_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -441,7 +441,7 @@ False
 >>> testfile_1_p['properties']['weighted']
 True
 >>> random.seed(4)
->>> json_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(json_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -503,7 +503,7 @@ False
 >>> testfile_2_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(json_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -550,10 +550,10 @@ True
 [Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
 [Error] Failed to generate Pickle file!
->>> json_maker('testfile', 0, 200, 10, 0, 0,1)
+>>> json_maker({}, {}, 1)
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 1 required positional argument: 'sign'
+TypeError: json_maker() missing 1 required positional argument: 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
@@ -573,7 +573,7 @@ False
 >>> testfile_3_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> json_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(json_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -588,21 +588,21 @@ True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
->>> json_maker('testfile3',1,1,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(json_maker, file_name='testfile3', min_weight=1, max_weight=1, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 136
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 False
 >>> random.seed(21)
->>> json_maker('testfile3',1,1,100,0,4,True,False,True,True)
+>>> pyrgg_gen_using(json_maker, file_name='testfile3', min_weight=1, max_weight=1, vertices_number=100, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=True)
 158
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(2)
->>> csv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -615,7 +615,7 @@ True
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gdf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(gdf_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -640,7 +640,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> gl_maker('testfile', 0, 200, 10, 1, 2, True,True,True,False)
+>>> pyrgg_gen_using(gl_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=1, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -650,7 +650,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5 6:-81
 6 9:143
 >>> random.seed(2)
->>> mtx_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(mtx_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> g = mmread("testfile.mtx")
 >>> print(g)
@@ -662,7 +662,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (7, 1)	-97.0
   (8, 0)	60.0
 >>> random.seed(2)
->>> tsv_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(tsv_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -675,7 +675,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	1	60
 <BLANKLINE>
 >>> random.seed(4)
->>> gl_maker('testfile2',0,50,30,2,4,True,True,True,False)
+>>> pyrgg_gen_using(gl_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=2, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 44
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -704,16 +704,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 27 1:33
 28 23:30
 >>> random.seed(4)
->>> csv_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> random.seed(4)
->>> gdf_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(gdf_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> random.seed(4)
->>> mtx_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(mtx_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> random.seed(4)
->>> tsv_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(tsv_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> g = mmread("testfile2.mtx")
 >>> print(g)
@@ -791,7 +791,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
->>> gl_maker('testfile3',10,30,100,3,4,False,True,True,False)
+>>> pyrgg_gen_using(gl_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=3, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())
@@ -880,16 +880,16 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 98 7:10
 100 28:14
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(gdf_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(mtx_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(tsv_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> g = mmread("testfile3.mtx")
 >>> print(g)
@@ -1085,39 +1085,35 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 100,40,11
 <BLANKLINE>
 >>> random.seed(20)
->>> csv_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
 >>> random.seed(20)
->>> gdf_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(gdf_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
 >>> random.seed(20)
->>> mtx_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(mtx_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
 >>> random.seed(20)
->>> tsv_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(tsv_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
->>> gl_maker('testfile', 0, 200, 10, 0,0,True)
+>>> gl_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gl_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> csv_maker('testfile', 0, 200, 10, 0,0,True)
+TypeError: gl_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+>>> csv_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> gdf_maker('testfile', 0, 200, 10, 0,0,True)
+TypeError: csv_maker() missing 1 required positional argument: 'mdata'
+>>> gdf_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gdf_maker() missing 3 required positional arguments: 'direct', 'self_loop', and 'multigraph'
->>> mtx_maker('testfile', 0, 200, 10, 0,0,True)
+TypeError: gdf_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+>>> tsv_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 1 required positional argument: 'sign'
->>> tsv_maker('testfile', 0, 200, 10, 0,0,True)
-Traceback (most recent call last):
-        ...
-TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'self_loop'
+TypeError: tsv_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
 >>> random.seed(2)
->>> wel_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(wel_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -1130,7 +1126,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> wel_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(wel_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -1171,7 +1167,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,False,True,True,False)
+>>> pyrgg_gen_using(wel_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1314,14 +1310,14 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'direct' and 'se
 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> wel_maker('testfile3',10,30,100,0,4,False,False,True,True)
+>>> pyrgg_gen_using(wel_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
->>> wel_maker('testfile', 0, 200, 10, 0,0,True)
+>>> wel_maker({}, {}, 0)
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 1 required positional argument: 'sign'
+TypeError: wel_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> lp_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(lp_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1344,7 +1340,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> lp_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(lp_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1415,7 +1411,7 @@ edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
 >>> random.seed(2)
->>> tgf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(tgf_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1439,7 +1435,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> tgf_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(tgf_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1511,7 +1507,7 @@ edge(28,13,-13).
 28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> dl_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(dl_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1528,7 +1524,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> dl_maker('testfile2',0,50,30,0,4,True,True,True,False)
+>>> pyrgg_gen_using(dl_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
@@ -1573,7 +1569,7 @@ data:
 28 13 -13
 <BLANKLINE>
 >>> random.seed(4)
->>> dimacs_maker('testfile4',0,50,30,0,4,True,True,False,False)
+>>> pyrgg_gen_using(dimacs_maker, file_name='testfile4', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=False, multigraph=False)
 37
 >>> file=open('testfile4.gr','r')
 >>> print(file.read())
@@ -1624,61 +1620,61 @@ a 26 29 28
 a 26 3 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> gml_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(gml_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
->>> gml_maker('testfile2',0,50,30,0,4,True,True,True,True)
+>>> pyrgg_gen_using(gml_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=True)
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gml_maker('testfile3',0,50,30,0,4,True,False,True,True)
+>>> pyrgg_gen_using(gml_maker, file_name='testfile3', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=True)
 35
 >>> gml3 = read_gml("testfile3.gml")
 >>> type(gml3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gml_maker('testfile4',0,50,30,0,4,True,False,True,False)
+>>> pyrgg_gen_using(gml_maker, file_name='testfile4', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=False)
 35
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> gexf_maker('testfile', 0, 200, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(gexf_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(8)
->>> gexf_maker('testfile2',0,50,30,0,4,True,True,True,True)
+>>> pyrgg_gen_using(gexf_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=True)
 35
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> gexf_maker('testfile3',0,50,30,0,4,True,False,True,True)
+>>> pyrgg_gen_using(gexf_maker, file_name='testfile3', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=True)
 35
 >>> gexf3 = read_gexf("testfile3.gexf")
 >>> type(gexf3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> gexf_maker('testfile4',0,50,30,0,4,True,False,True,False)
+>>> pyrgg_gen_using(gexf_maker, file_name='testfile4', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=False)
 35
 >>> gexf4 = read_gexf("testfile4.gexf")
 >>> type(gexf4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(120)
->>> gexf_maker('testfile5',0,50.2,30,0,4,True,False,True,False)
+>>> pyrgg_gen_using(gexf_maker, file_name='testfile5', min_weight=0, max_weight=50.2, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=False)
 40
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.22, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile4', min_weight=0.0, max_weight=200.22, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -1689,7 +1685,7 @@ a 26 3 -13
 10,10,-181.75
 <BLANKLINE>
 >>> random.seed(2)
->>> csv_maker('testfile4', 0.0, 200.222, 10, 0, 2, True,True,True,False)
+>>> pyrgg_gen_using(csv_maker, file_name='testfile4', min_weight=0.0, max_weight=200.222, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -1701,45 +1697,37 @@ a 26 3 -13
 <BLANKLINE>
 >>> import pydot
 >>> random.seed(4)
->>> dot_maker('testfile',0,50,30,0,4,True,True,False,False)
+>>> pyrgg_gen_using(dot_maker, file_name='testfile', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=False, multigraph=False)
 37
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
->>> type(g1[0])
-<class 'pydot.Dot'>
 >>> g1[0].get_type()
 'digraph'
 >>> len(g1[0].get_edge_list())
 37
 >>> random.seed(4)
->>> dot_maker('testfile2',0,50,30,0,4,True,False,False,False)
+>>> pyrgg_gen_using(dot_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=False)
 37
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())
->>> type(g2[0])
-<class 'pydot.Dot'>
 >>> g2[0].get_type()
 'graph'
 >>> len(g2[0].get_edge_list())
 37
 >>> random.seed(4)
->>> dot_maker('testfile3',0,50,30,0,4,True,False,False,True)
+>>> pyrgg_gen_using(dot_maker, file_name='testfile3', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=True)
 40
 >>> file=open('testfile3.gv','r')
 >>> g3 = pydot.graph_from_dot_data(file.read())
->>> type(g3[0])
-<class 'pydot.Dot'>
 >>> g3[0].get_type()
 'graph'
 >>> len(g3[0].get_edge_list())
 40
 >>> random.seed(4)
->>> dot_maker('testfile4',1,1,30,0,4,True,False,False,True)
+>>> pyrgg_gen_using(dot_maker, file_name='testfile4', min_weight=1, max_weight=1, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=True)
 42
 >>> file=open('testfile4.gv','r')
 >>> g4 = pydot.graph_from_dot_data(file.read())
->>> type(g4[0])
-<class 'pydot.Dot'>
 >>> g4[0].get_type()
 'graph'
 >>> len(g4[0].get_edge_list())

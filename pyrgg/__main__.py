@@ -25,8 +25,12 @@ GENERATOR_MENU = {
     13: gdf_maker,
     14: gml_maker,
     15: gexf_maker,
-    16: dot_maker}
+    16: dot_maker,
+}
 
+ENGINE_GENERATOR = {
+    1: pyrgg_gen_using,
+}
 
 def gen_graph(input_dict, file_name):
     """
@@ -39,7 +43,6 @@ def gen_graph(input_dict, file_name):
     :return: None
     """
     first_time = time.perf_counter()
-    weight = input_dict["weight"]
     min_weight = input_dict["min_weight"]
     max_weight = input_dict["max_weight"]
     vertices_number = input_dict["vertices"]
@@ -51,17 +54,18 @@ def gen_graph(input_dict, file_name):
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
-    edge_number = GENERATOR_MENU[output_format](
-        file_name,
-        min_weight,
-        max_weight,
-        vertices_number,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph)
+    edge_number = ENGINE_GENERATOR[engine](
+        GENERATOR_MENU[output_format],
+        file_name=file_name,
+        min_weight=min_weight,
+        max_weight=max_weight,
+        vertices_number=vertices_number,
+        min_edge=min_edge,
+        max_edge=max_edge,
+        sign=sign,
+        direct=direct,
+        self_loop=self_loop,
+        multigraph=multigraph)
     if output_format == 4:
         json_to_yaml(file_name)
     if output_format == 7:
