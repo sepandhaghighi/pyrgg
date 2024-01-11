@@ -153,7 +153,7 @@ False
 >>> branch_gen(40,1,20,1)
 Traceback (most recent call last):
         ...
-TypeError: branch_gen() missing 1 required positional argument: 'sign'
+TypeError: branch_gen() missing 9 required positional arguments: 'max_weight', 'precision', 'sign', 'direct', 'self_loop', 'multigraph', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
 >>> random.seed(2)
 >>> edge_gen(20,0,400,2,10,True,True,True,False)
 [{1: [3, 7], 2: [4, 17, 20, 9, 11], 3: [14, 8, 5, 12, 16, 19, 15], 4: [15, 17, 12, 8, 14, 13], 5: [16, 9, 7, 20, 19, 18, 13, 5], 6: [6, 10], 7: [18, 10, 11], 8: [], 9: [], 10: [12, 18, 8, 1, 14], 11: [9, 11], 12: [], 13: [], 14: [19, 16, 17, 20, 15], 15: [6, 1, 19], 16: [12, 13, 8, 9, 17], 17: [], 18: [9, 12, 17, 6, 20, 19, 1], 19: [13], 20: []}, {1: [184, -128], 2: [220, -278, -257, 14, -163], 3: [286, 118, 166, 261, -263, 228, -303], 4: [-82, -335, 250, -256, -338, -179], 5: [-337, -358, -395, -155, -159, 250, -350, -371], 6: [30, -302], 7: [386, -125, 216], 8: [], 9: [], 10: [127, 42, 12, 191, 80], 11: [-301, 77], 12: [], 13: [], 14: [146, -15, -282, 135, 242], 15: [-52, -65, -249], 16: [-132, -334, 343, -17, 87], 17: [], 18: [126, -37, 302, -131, -142, 77, -209], 19: [123], 20: []}, 61]
@@ -163,7 +163,7 @@ TypeError: branch_gen() missing 1 required positional argument: 'sign'
 >>> edge_gen(0,400,2,10,1)
 Traceback (most recent call last):
         ...
-TypeError: edge_gen() missing 1 required positional argument: 'sign'
+TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> prev_item = ""
 >>> input_func_dict = {"vertices":"120","max_weight":"110","min_weight":"0","min_edge":"1","max_edge":"1000","sign":"1","direct":"1","self_loop":"1","multigraph":"0","file_name":"File 1","output_format":"2","weight":"1","error":"120","number_of_files":"3","config":"0","engine":"1"}
 >>> def input_func_test(input_data):
