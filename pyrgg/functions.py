@@ -769,7 +769,6 @@ def pyrgg_gen_using(
     gen_function(
         edge_dic,
         weight_dic,
-        edge_number,
         {
         "file_name": kwargs['file_name'],
         "min_weight": kwargs['min_weight'],
@@ -781,5 +780,6 @@ def pyrgg_gen_using(
         "direct": kwargs['direct'],
         "self_loop": kwargs['self_loop'],
         "multigraph": kwargs['multigraph'],
+        'edge_number': edge_number
     })
     return edge_number
