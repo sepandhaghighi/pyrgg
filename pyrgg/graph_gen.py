@@ -12,7 +12,6 @@ random_system = random
 def dimacs_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file and fill in.
@@ -21,8 +20,6 @@ def dimacs_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -32,7 +29,7 @@ def dimacs_maker(
             DIMACS_FIX.format(
                 mdata['file_name'],
                 str(mdata['vertices_number']),
-                str(edge_number),
+                str(mdata['edge_number']),
                 str(mdata['max_weight']),
                 str(mdata['min_weight']),
                 str(mdata['min_edge']),
@@ -45,7 +42,6 @@ def dimacs_maker(
 def json_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in json format.
@@ -54,8 +50,6 @@ def json_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -200,7 +194,6 @@ def _write_edges_to_json(buf, edge_dic, weight_dic):
 def csv_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in csv format.
@@ -209,8 +202,6 @@ def csv_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -222,7 +213,6 @@ def csv_maker(
 def tsv_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in tsv format.
@@ -231,8 +221,6 @@ def tsv_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -274,7 +262,6 @@ def _write_separated_file(buf, edge_dic, weight_dic, separator, prefix=''):
 def wel_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in wel format.
@@ -283,8 +270,6 @@ def wel_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -296,7 +281,6 @@ def wel_maker(
 def mtx_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in Matrix Market format.
@@ -305,8 +289,6 @@ def mtx_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -315,7 +297,7 @@ def mtx_maker(
     with open(mdata['file_name'] + ".mtx", "w") as buf:
         buf.write("%%MatrixMarket matrix coordinate real general\n")
         buf.write(
-            "{0}    {0}    {1}\n".format(str(mdata['vertices_number']), str(edge_number))
+            "{0}    {0}    {1}\n".format(str(mdata['vertices_number']), str(mdata['edge_number']))
         )
         for key, edge_val in edge_dic.items():
             for j, value in enumerate(edge_val):
@@ -328,7 +310,6 @@ def mtx_maker(
 def lp_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in ASP format.
@@ -337,8 +318,6 @@ def lp_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -355,7 +334,6 @@ def lp_maker(
 def tgf_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in Trivial Graph Format (TGF).
@@ -364,8 +342,6 @@ def tgf_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -380,7 +356,6 @@ def tgf_maker(
 def gl_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in Graph Line(GL).
@@ -389,8 +364,6 @@ def gl_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -409,7 +382,6 @@ def gl_maker(
 def dl_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in UCINET DL Format.
@@ -418,8 +390,6 @@ def dl_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -432,7 +402,6 @@ def dl_maker(
 def gdf_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in GDF Format.
@@ -441,8 +410,6 @@ def gdf_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -458,7 +425,6 @@ def gdf_maker(
 def gml_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in GML Format.
@@ -467,8 +433,6 @@ def gml_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -504,7 +468,6 @@ def gml_maker(
 def gexf_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in GEXF Format.
@@ -513,8 +476,6 @@ def gexf_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
@@ -569,7 +530,6 @@ def gexf_maker(
 def dot_maker(
         edge_dic,
         weight_dic,
-        edge_number,
         mdata):
     """
     Create output file in Dot Format.
@@ -578,8 +538,6 @@ def dot_maker(
     :type edge_dic: dict
     :param weight_dic: dictionary containing weights data
     :type weight_dic: dict
-    :param edge_number: number of edges
-    :type edge_number: int
     :param mdata: meta data
     :type mdata: dict
     :return: None
