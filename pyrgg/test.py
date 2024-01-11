@@ -335,7 +335,7 @@ a 100 40 11
 >>> dimacs_maker({})
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+TypeError: dimacs_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
 >>> random.seed(2)
 >>> pyrgg_gen_using(json_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
@@ -429,7 +429,7 @@ TypeError: dimacs_maker() missing 3 required positional arguments: 'weight_dic',
 >>> json_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
+TypeError: json_maker() missing 1 required positional argument: 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']
@@ -846,7 +846,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> csv_maker({})
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+TypeError: csv_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
 >>> random.seed(2)
 >>> pyrgg_gen_using(wel_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
@@ -1047,7 +1047,7 @@ TypeError: csv_maker() missing 3 required positional arguments: 'weight_dic', 'e
 >>> wel_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
+TypeError: wel_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> pyrgg_gen_using(lp_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
