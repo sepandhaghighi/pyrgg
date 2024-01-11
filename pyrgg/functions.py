@@ -780,6 +780,6 @@ def pyrgg_gen_using(
             "direct": kwargs['direct'],
             "self_loop": kwargs['self_loop'],
             "multigraph": kwargs['multigraph'],
-            'edge_number': edge_number
+            "edge_number": edge_number
         })
     return edge_number
