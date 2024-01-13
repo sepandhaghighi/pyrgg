@@ -32,6 +32,7 @@ ENGINE_GENERATOR = {
     1: pyrgg_gen_using,
 }
 
+
 def gen_graph(input_dict, file_name):
     """
     Generate a single graph.

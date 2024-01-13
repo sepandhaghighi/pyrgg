@@ -749,7 +749,7 @@ def pyrgg_gen_using(
         **kwargs):
     """
     Generate graph using given function.
-    
+
     :param gen_function: generation function
     :type gen_function: function object
     :param kwargs: input data as keyword arguments
@@ -769,17 +769,17 @@ def pyrgg_gen_using(
     gen_function(
         edge_dic,
         weight_dic,
-        edge_number,
         {
-        "file_name": kwargs['file_name'],
-        "min_weight": kwargs['min_weight'],
-        "max_weight": kwargs['max_weight'],
-        "vertices_number": kwargs['vertices_number'],
-        "min_edge": kwargs['min_edge'],
-        "max_edge": kwargs['max_edge'],
-        "sign": kwargs['sign'],
-        "direct": kwargs['direct'],
-        "self_loop": kwargs['self_loop'],
-        "multigraph": kwargs['multigraph'],
-    })
+            "file_name": kwargs['file_name'],
+            "min_weight": kwargs['min_weight'],
+            "max_weight": kwargs['max_weight'],
+            "vertices_number": kwargs['vertices_number'],
+            "min_edge": kwargs['min_edge'],
+            "max_edge": kwargs['max_edge'],
+            "sign": kwargs['sign'],
+            "direct": kwargs['direct'],
+            "self_loop": kwargs['self_loop'],
+            "multigraph": kwargs['multigraph'],
+            "edge_number": edge_number
+        })
     return edge_number

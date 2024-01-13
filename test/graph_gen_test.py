@@ -376,7 +376,7 @@ a 97 95 14
 a 98 1 15
 a 98 1 13
 a 99 35 28
->>> dimacs_maker({}, {}, 0)
+>>> dimacs_maker({}, {})
 Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
@@ -550,7 +550,7 @@ True
 [Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
 [Error] Failed to generate Pickle file!
->>> json_maker({}, {}, 1)
+>>> json_maker({}, {})
 Traceback (most recent call last):
         ...
 TypeError: json_maker() missing 1 required positional argument: 'mdata'
@@ -1099,19 +1099,19 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> gl_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gl_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
->>> csv_maker({}, {}, 0)
+TypeError: gl_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
+>>> csv_maker({}, {})
 Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 1 required positional argument: 'mdata'
 >>> gdf_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gdf_maker() missing 3 required positional arguments: 'weight_dic', 'edge_number', and 'mdata'
+TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
 >>> tsv_maker({}, {})
 Traceback (most recent call last):
         ...
-TypeError: tsv_maker() missing 2 required positional arguments: 'edge_number' and 'mdata'
+TypeError: tsv_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> pyrgg_gen_using(wel_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7
@@ -1312,7 +1312,7 @@ TypeError: tsv_maker() missing 2 required positional arguments: 'edge_number' an
 >>> random.seed(20)
 >>> pyrgg_gen_using(wel_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=False, self_loop=True, multigraph=True)
 131
->>> wel_maker({}, {}, 0)
+>>> wel_maker({}, {})
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'mdata'
