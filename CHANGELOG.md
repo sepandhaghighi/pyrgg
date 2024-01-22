@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- `Erdős-Rényi-Gilbert` generation model
 - `pyrgg_gen_using` function
 - Generation engine menu
 - `handle_string` function
