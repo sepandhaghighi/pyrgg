@@ -748,7 +748,7 @@ def pyrgg_gen_using(
         gen_function,
         **kwargs):
     """
-    Generate graph using given function.
+    Generate graph using given function based on PyRGG model.
 
     :param gen_function: generation function
     :type gen_function: function object
@@ -780,6 +780,6 @@ def pyrgg_gen_using(
             "direct": kwargs['direct'],
             "self_loop": kwargs['self_loop'],
             "multigraph": kwargs['multigraph'],
-            "edge_number": edge_number
+            "edge_number": edge_number,
         })
     return edge_number
