@@ -30,6 +30,7 @@ GENERATOR_MENU = {
 
 ENGINE_GENERATOR = {
     1: pyrgg_gen_using,
+    2: erdos_renyi_gilbert_gen_using,
 }
 
 
