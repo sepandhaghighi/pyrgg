@@ -8,6 +8,7 @@ MENU_ITEMS = {
         """\
         - Select generation engine :
         1- Pyrgg engine
+        2- Erdős-Rényi-Gilbert - G(n, p)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -33,7 +34,7 @@ MENU_ITEMS = {
         16- DOT(.gv)
         """
     )],
-    5: ["weight", "- Unweighted[0] or Weighted[1]"],
+    5: ["config", "- Save Config[1] or Not[0]"],
 }
 
 SUFFIX_MENU = {
@@ -59,23 +60,30 @@ PYRGG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (>=0) : "],
     2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
     3: ["max_edge", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
-    4: ["min_weight", "- Min Weight : "],
-    5: ["max_weight", "- Max Weight : "],
-    6: ["sign", "- Unsigned[0] or Signed[1]"],
-    7: ["direct", "- Undirected[0] or Directed[1]"],
-    8: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
-    9: ["multigraph", "- Simple[0] or Multigraph[1]"],
-    10: ["config", "- Save Config[1] or Not[0]"],
+    4: ["weight", "- Unweighted[0] or Weighted[1]"],
+    5: ["min_weight", "- Min Weight : "],
+    6: ["max_weight", "- Max Weight : "],
+    7: ["sign", "- Unsigned[0] or Signed[1]"],
+    8: ["direct", "- Undirected[0] or Directed[1]"],
+    9: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+    10: ["multigraph", "- Simple[0] or Multigraph[1]"],
+}
+
+ERG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (>=0) : "],
+    2: ["probability", "- Probability (0 <= p <= 1) : "],
 }
 
 ENGINE_MENU = {
     1: "pyrgg",
+    2: "erg",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
+    2: ERG_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
