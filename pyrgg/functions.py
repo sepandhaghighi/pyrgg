@@ -98,7 +98,7 @@ def handle_str_to_number(string):
     return float(string) if is_float(string) else int(string)
 
 
-def handle_str_to_float_0_1(string):
+def handle_str_prob(string):
     """
     Convert string to float and raise ValueError if string is invalid.
 
@@ -172,7 +172,7 @@ ITEM_HANDLERS = {
     "self_loop": handle_str_to_bool,
     "multigraph": handle_str_to_bool,
     "config": handle_str_to_bool,
-    "probability": handle_str_to_float_0_1,
+    "probability": handle_str_prob,
 }
 
 
