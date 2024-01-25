@@ -32,6 +32,23 @@ a 7 7 7
 a 8 2 -97
 a 9 1 60
 <BLANKLINE>
+>>> random.seed(2)
+>>> erdos_renyi_gilbert_gen_using(dimacs_maker, file_name='testfile', vertices_number=10, probability=0.1)
+3
+>>> file=open('testfile.gr','r')
+>>> print(file.read())
+c FILE                  :testfile.gr
+c No. of vertices       :10
+c No. of edges          :3
+c Max. weight           :1
+c Min. weight           :1
+c Min. edge             :3
+c Max. edge             :3
+p sp 10 3
+a 2 3 1
+a 6 9 1
+a 9 10 1
+<BLANKLINE>
 >>> random.seed(4)
 >>> pyrgg_gen_using(dimacs_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
 35
