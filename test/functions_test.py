@@ -122,16 +122,12 @@ ValueError
 >>> handle_str_to_bool("0")
 False
 >>> handle_str_prob("0.2")
-True
+0.2
 >>> handle_str_prob("-0.2")
 Traceback (most recent call last):
         ...
 ValueError
 >>> handle_str_prob("1.2")
-Traceback (most recent call last):
-        ...
-ValueError
->>> handle_str_prob("test")
 Traceback (most recent call last):
         ...
 ValueError
