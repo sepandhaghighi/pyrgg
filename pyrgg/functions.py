@@ -5,7 +5,7 @@ from json import loads as json_loads
 from json import dump as json_dump
 import os
 from pickle import dump as pickle_dump
-from random import randint, uniform, choice
+from random import randint, uniform, choice, random
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
 
@@ -98,6 +98,22 @@ def handle_str_to_number(string):
     return float(string) if is_float(string) else int(string)
 
 
+def handle_str_prob(string):
+    """
+    Convert string to float and raise ValueError if string is invalid.
+
+    :param string: input string
+    :type string: str
+    :return: result as float
+    """
+    val = handle_str_to_number(string)
+    if val < 0:
+        raise ValueError
+    if val > 1:
+        raise ValueError
+    return val
+
+
 def handle_str_to_bool(string):
     """
     Convert 0/1 string to bool and raise ValueError if string is invalid.
@@ -156,6 +172,7 @@ ITEM_HANDLERS = {
     "self_loop": handle_str_to_bool,
     "multigraph": handle_str_to_bool,
     "config": handle_str_to_bool,
+    "probability": handle_str_prob,
 }
 
 
@@ -365,6 +382,7 @@ def get_input(input_func=input):
         "self_loop": True,
         "multigraph": False,
         "config": False,
+        "probability": 0.5,
     }
 
     result_dict = _update_using_menu(result_dict, input_func)
@@ -429,7 +447,7 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
 
 def _threshold_calc(min_edge, max_edge, vertex_degree):
     """
-    Calculate threshold for branch_gen function.
+    Calculate threshold for branch_gen_pyrgg function.
 
     :param min_edge: minimum number of edges (connected to each vertex)
     :type min_edge: int
@@ -449,7 +467,7 @@ def _threshold_calc(min_edge, max_edge, vertex_degree):
     return threshold
 
 
-def branch_gen(
+def branch_gen_pyrgg(
         vertex_index,
         max_edge,
         min_edge,
@@ -562,7 +580,7 @@ def branch_gen(
     return [branch_list, weight_list]
 
 
-def edge_gen(
+def edge_gen_pyrgg(
         vertices_number,
         min_weight,
         max_weight,
@@ -622,7 +640,7 @@ def edge_gen(
         "degree_sort_dict": degree_sort_dict,
         "precision": precision}
     for i in vertices_id:
-        temp_list = branch_gen(vertex_index=i, **branch_gen_params)
+        temp_list = branch_gen_pyrgg(vertex_index=i, **branch_gen_params)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
         temp = temp + len(temp_list[0])
@@ -748,7 +766,7 @@ def pyrgg_gen_using(
         gen_function,
         **kwargs):
     """
-    Generate graph using given function.
+    Generate graph using given function based on PyRGG model.
 
     :param gen_function: generation function
     :type gen_function: function object
@@ -756,7 +774,7 @@ def pyrgg_gen_using(
     :type kwargs: dict
     :return: number of edges as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen_pyrgg(
         kwargs['vertices_number'],
         kwargs['min_weight'],
         kwargs['max_weight'],
@@ -780,6 +798,64 @@ def pyrgg_gen_using(
             "direct": kwargs['direct'],
             "self_loop": kwargs['self_loop'],
             "multigraph": kwargs['multigraph'],
-            "edge_number": edge_number
+            "edge_number": edge_number,
+        })
+    return edge_number
+
+
+def edge_gen_erg(n, p):
+    """
+    Generate each vertex connection number.
+
+    :param n: number of vertices
+    :type n: int
+    :param p: probability
+    :type p: float
+    :return: list of dicts
+    """
+    edge_dic = {}
+    edge_number = 0
+    for i in range(1, n + 1):
+        edge_dic[i] = []
+        for j in range(i + 1, n + 1):
+            if random() < p:
+                edge_dic[i].append(j)
+                edge_number += 1
+    return edge_dic, edge_number
+
+
+def erdos_renyi_gilbert_gen_using(
+        gen_function,
+        **kwargs):
+    """
+    Generate graph using given function based on Erdos Renyi Gilbert model.
+
+    Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model)
+
+    :param gen_function: generation function
+    :type gen_function: function object
+    :param kwargs: input data as keyword arguments
+    :type kwargs: dict
+    :return: number of edges as int
+    """
+    edge_dic, edge_number = edge_gen_erg(
+        kwargs['vertices_number'],
+        kwargs['probability'])
+    weight_dic = {key: [1] * edge_number for key in range(1, kwargs['vertices_number'] + 1)}
+    gen_function(
+        edge_dic,
+        weight_dic,
+        {
+            "file_name": kwargs['file_name'],
+            "vertices_number": kwargs['vertices_number'],
+            "max_weight": 1,
+            "min_weight": 1,
+            "min_edge": edge_number,
+            "max_edge": edge_number,
+            "sign": False,
+            "direct": False,
+            "self_loop": False,
+            "multigraph": False,
+            "edge_number": edge_number,
         })
     return edge_number

@@ -30,6 +30,7 @@ GENERATOR_MENU = {
 
 ENGINE_GENERATOR = {
     1: pyrgg_gen_using,
+    2: erdos_renyi_gilbert_gen_using,
 }
 
 
@@ -54,6 +55,7 @@ def gen_graph(input_dict, file_name):
     self_loop = input_dict["self_loop"]
     multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
+    probability = input_dict["probability"]
     engine = input_dict["engine"]
     edge_number = ENGINE_GENERATOR[engine](
         GENERATOR_MENU[output_format],
@@ -66,7 +68,8 @@ def gen_graph(input_dict, file_name):
         sign=sign,
         direct=direct,
         self_loop=self_loop,
-        multigraph=multigraph)
+        multigraph=multigraph,
+        probability=probability)
     if output_format == 4:
         json_to_yaml(file_name)
     if output_format == 7:
