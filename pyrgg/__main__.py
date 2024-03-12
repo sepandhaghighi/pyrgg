@@ -8,6 +8,8 @@ import sys
 import argparse
 import doctest
 from art import tprint
+import pyrgg.engines.pyrgg as pyrgg_engine
+import pyrgg.engines.erdos_reyni_gilbert as erg_engine
 
 GENERATOR_MENU = {
     1: dimacs_maker,
@@ -29,8 +31,8 @@ GENERATOR_MENU = {
 }
 
 ENGINE_GENERATOR = {
-    1: pyrgg_gen_using,
-    2: erdos_renyi_gilbert_gen_using,
+    1: pyrgg_engine.gen_using,
+    2: erg_engine.gen_using,
 }
 
 
