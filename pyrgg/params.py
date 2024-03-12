@@ -132,24 +132,6 @@ PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
 
-PYRGG_LOGGER_TEMPLATE = """{0}
-Filename : {1}
-Vertices : {2}
-Total Edges : {3}
-Max Edge : {4}
-Min Edge : {5}
-Directed : {6}
-Signed : {7}
-Multigraph : {8}
-Self Loop : {9}
-Weighted : {10}
-Max Weight : {11}
-Min Weight : {12}
-Engine : {13} ({14})
-Elapsed Time : {15}
--------------------------------
-"""
-
 DIMACS_FIX = dedent(
     """\
     c FILE                  :{0}.gr

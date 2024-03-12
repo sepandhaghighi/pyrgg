@@ -30,9 +30,9 @@ GENERATOR_MENU = {
     16: dot_maker,
 }
 
-ENGINE_GENERATOR = {
-    1: pyrgg_engine.gen_using,
-    2: erg_engine.gen_using,
+ENGINE_MAPPER = {
+    1: pyrgg_engine,
+    2: erg_engine,
 }
 
 
@@ -47,31 +47,12 @@ def gen_graph(input_dict, file_name):
     :return: None
     """
     first_time = time.perf_counter()
-    min_weight = input_dict["min_weight"]
-    max_weight = input_dict["max_weight"]
-    vertices_number = input_dict["vertices"]
-    min_edge = input_dict["min_edge"]
-    max_edge = input_dict["max_edge"]
-    sign = input_dict["sign"]
-    direct = input_dict["direct"]
-    self_loop = input_dict["self_loop"]
-    multigraph = input_dict["multigraph"]
     output_format = input_dict["output_format"]
-    probability = input_dict["probability"]
     engine = input_dict["engine"]
-    edge_number = ENGINE_GENERATOR[engine](
+    input_dict["edge_number"] = ENGINE_MAPPER[engine].gen_using(
         GENERATOR_MENU[output_format],
-        file_name=file_name,
-        min_weight=min_weight,
-        max_weight=max_weight,
-        vertices_number=vertices_number,
-        min_edge=min_edge,
-        max_edge=max_edge,
-        sign=sign,
-        direct=direct,
-        self_loop=self_loop,
-        multigraph=multigraph,
-        probability=probability)
+        file_name,
+        input_dict)
     if output_format == 4:
         json_to_yaml(file_name)
     if output_format == 7:
@@ -80,23 +61,17 @@ def gen_graph(input_dict, file_name):
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = time_convert(elapsed_time)
-    print("Total Number of Edges : " + str(edge_number))
+    print("Total Number of Edges : " + str(input_dict["edge_number"]))
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
-    logger(
-        file_name + SUFFIX_MENU[output_format],
-        vertices_number,
-        edge_number,
-        max_edge,
-        min_edge,
-        direct,
-        sign,
-        multigraph,
-        self_loop,
-        max_weight,
-        min_weight,
-        engine,
-        elapsed_time_format)
+    try:
+        with open("logfile.log", "a") as file:
+            ENGINE_MAPPER[engine].logger(file,
+                                         file_name,
+                                         elapsed_time_format,
+                                         input_dict)
+    except Exception:
+        print(PYRGG_LOGGER_ERROR_MESSAGE)
 
 
 def run(input_dict=None):

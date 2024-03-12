@@ -1,8 +1,60 @@
 # -*- coding: utf-8 -*-
 """PyRGG Engine module."""
+import datetime
 from random import randint, uniform, choice
-from pyrgg.functions import _threshold_calc, get_precision
-from pyrgg.params import PYRGG_TEST_MODE
+from pyrgg.functions import _threshold_calc, get_precision, is_weighted
+from pyrgg.params import PYRGG_TEST_MODE, ENGINE_MENU, SUFFIX_MENU
+
+LOGGER_TEMPLATE = """{0}
+Filename : {1}
+Vertices : {2}
+Total Edges : {3}
+Max Edge : {4}
+Min Edge : {5}
+Directed : {6}
+Signed : {7}
+Multigraph : {8}
+Self Loop : {9}
+Weighted : {10}
+Max Weight : {11}
+Min Weight : {12}
+Engine : {13} ({14})
+Elapsed Time : {15}
+-------------------------------
+"""
+
+def logger(file, file_name, elapsed_time, input_dict):
+    """
+    Save generated graph logs for PyRGG engine.
+
+    :param file: file to write log into
+    :type file: file object
+    :param file_name: file name
+    :type file_name: str
+    :param elapsed_time: elapsed time
+    :type elapsed_time: str
+    :param input_dict: input data
+    :type input_dict: dict
+    :return: None
+    """
+    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                      file_name + SUFFIX_MENU[input_dict['output_format']],
+                                      str(input_dict["vertices"]),
+                                      str(input_dict["edge_number"]),
+                                      str(input_dict["max_edge"]),
+                                      str(input_dict["min_edge"]),
+                                      str(bool(input_dict["direct"])),
+                                      str(bool(input_dict["sign"])),
+                                      str(bool(input_dict["multigraph"])),
+                                      str(bool(input_dict["self_loop"])),
+                                      str(is_weighted(input_dict["max_edge"],
+                                                      input_dict["min_edge"],
+                                                      bool(input_dict["sign"]))),
+                                      str(input_dict["max_edge"]),
+                                      str(input_dict["min_edge"]),
+                                      input_dict["engine"],
+                                      ENGINE_MENU[input_dict["engine"]],
+                                      elapsed_time))
 
 
 def branch_gen(
@@ -188,40 +240,43 @@ def edge_gen(
 
 def gen_using(
         gen_function,
-        **kwargs):
+        file_name,
+        input_dict):
     """
     Generate graph using given function based on PyRGG model.
 
     :param gen_function: generation function
     :type gen_function: function object
-    :param kwargs: input data as keyword arguments
-    :type kwargs: dict
+    :param file_name: file name
+    :type file_name: str
+    :param input_dict: input data
+    :type input_dict: dict
     :return: number of edges as int
     """
     edge_dic, weight_dic, edge_number = edge_gen(
-        kwargs['vertices_number'],
-        kwargs['min_weight'],
-        kwargs['max_weight'],
-        kwargs['min_edge'],
-        kwargs['max_edge'],
-        kwargs['sign'],
-        kwargs['direct'],
-        kwargs['self_loop'],
-        kwargs['multigraph'])
+        input_dict['vertices'],
+        input_dict['min_weight'],
+        input_dict['max_weight'],
+        input_dict['min_edge'],
+        input_dict['max_edge'],
+        input_dict['sign'],
+        input_dict['direct'],
+        input_dict['self_loop'],
+        input_dict['multigraph'])
     gen_function(
         edge_dic,
         weight_dic,
         {
-            "file_name": kwargs['file_name'],
-            "min_weight": kwargs['min_weight'],
-            "max_weight": kwargs['max_weight'],
-            "vertices_number": kwargs['vertices_number'],
-            "min_edge": kwargs['min_edge'],
-            "max_edge": kwargs['max_edge'],
-            "sign": kwargs['sign'],
-            "direct": kwargs['direct'],
-            "self_loop": kwargs['self_loop'],
-            "multigraph": kwargs['multigraph'],
+            "file_name": file_name,
+            "min_weight": input_dict['min_weight'],
+            "max_weight": input_dict['max_weight'],
+            "vertices_number": input_dict['vertices'],
+            "min_edge": input_dict['min_edge'],
+            "max_edge": input_dict['max_edge'],
+            "sign": input_dict['sign'],
+            "direct": input_dict['direct'],
+            "self_loop": input_dict['self_loop'],
+            "multigraph": input_dict['multigraph'],
             "edge_number": edge_number,
         })
     return edge_number

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
-import datetime
 from json import loads as json_loads
 from json import dump as json_dump
 import os
