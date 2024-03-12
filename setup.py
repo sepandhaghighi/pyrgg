@@ -38,7 +38,7 @@ def read_description():
 
 setup(
     name='pyrgg',
-    packages=['pyrgg'],
+    packages=['pyrgg', 'pyrgg.engines'],
     version='1.4',
     description='Python Random Graph Generator',
     long_description=read_description(),
