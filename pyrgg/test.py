@@ -48,8 +48,9 @@ True
 >>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edge": 23,"max_edge": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edge': 23, 'min_edge': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1}
 True
->>> logger('test',100,50,1000,10,1,0,0,1,20,1,1,'2min')
->>> file=open('logfile.log','r')
+>>> with open('logfile.log','a') as file:
+...     pyrgg.engines.pyrgg.logger(file,'test','2min',{'vertices':100,'edge_number':50,'max_edge':1000,'min_edge':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1})
+>>> file = open('logfile.log','r')
 >>> print("\n".join(file.read().splitlines()[1:-1]))
 Filename : test
 Vertices : 100
