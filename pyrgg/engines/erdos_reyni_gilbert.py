@@ -29,7 +29,7 @@ def logger(file, file_name, elapsed_time, input_dict):
     :return: None
     """
     file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                      file_name + SUFFIX_MENU[input_dict['output_format']],
+                                      file_name,
                                       str(input_dict["probability"]),
                                       str(input_dict["vertices"]),
                                       str(input_dict["edge_number"]),

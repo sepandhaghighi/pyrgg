@@ -67,7 +67,7 @@ def gen_graph(input_dict, file_name):
     try:
         with open("logfile.log", "a") as file:
             ENGINE_MAPPER[engine].logger(file,
-                                         file_name,
+                                         file_name + SUFFIX_MENU[output_format],
                                          elapsed_time_format,
                                          input_dict)
     except Exception:
