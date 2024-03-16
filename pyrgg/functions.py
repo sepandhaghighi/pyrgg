@@ -1,11 +1,69 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
+import os
+from random import randint
 from json import loads as json_loads
 from json import dump as json_dump
-import os
 from pickle import dump as pickle_dump
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
+
+
+def is_weighted(max_weight, min_weight, signed):
+    """
+    Check the graph is weighted or not.
+
+    :param max_weight: maximum weight
+    :type max_weight: int
+    :param min_weight: minimum weight
+    :type min_weight: int
+    :param signed: weight sign flag
+    :type signed: bool
+    :return: result as bool
+    """
+    if max_weight == min_weight and min_weight == 0:
+        return False
+    if max_weight == min_weight and min_weight == 1 and not signed:
+        return False
+    return True
+
+
+def get_precision(input_number):
+    """
+    Return precision of input number.
+
+    :param input_number: input number
+    :type input_number: float
+    :return: precision as int
+    """
+    try:
+        number_str = str(input_number)
+        _, decimalpart = number_str.split(".")
+        return len(decimalpart)
+    except Exception:
+        return 0
+
+
+def threshold_calc(min_edge, max_edge, vertex_degree):
+    """
+    Calculate threshold for branch_gen_pyrgg function.
+
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
+    :param vertex_degree: vertex degree
+    :type vertex_degree: int
+    :return: threshold as int
+    """
+    threshold = min_edge
+    lower_limit = 0
+    upper_limit = max_edge - vertex_degree
+    if vertex_degree < min_edge:
+        lower_limit = min_edge - vertex_degree
+    if upper_limit > lower_limit:
+        threshold = randint(lower_limit, upper_limit)
+    return threshold
 
 
 def is_float(input_number):

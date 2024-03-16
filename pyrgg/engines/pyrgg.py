@@ -4,6 +4,7 @@ import datetime
 import os
 from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU
+from pyrgg.functions import is_weighted, get_precision, threshold_calc
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -22,63 +23,6 @@ Engine : {13} ({14})
 Elapsed Time : {15}
 -------------------------------
 """
-
-
-def _is_weighted(max_weight, min_weight, signed):
-    """
-    Check the graph is weighted or not.
-
-    :param max_weight: maximum weight
-    :type max_weight: int
-    :param min_weight: minimum weight
-    :type min_weight: int
-    :param signed: weight sign flag
-    :type signed: bool
-    :return: result as bool
-    """
-    if max_weight == min_weight and min_weight == 0:
-        return False
-    if max_weight == min_weight and min_weight == 1 and not signed:
-        return False
-    return True
-
-
-def _get_precision(input_number):
-    """
-    Return precision of input number.
-
-    :param input_number: input number
-    :type input_number: float
-    :return: precision as int
-    """
-    try:
-        number_str = str(input_number)
-        _, decimalpart = number_str.split(".")
-        return len(decimalpart)
-    except Exception:
-        return 0
-
-
-def _threshold_calc(min_edge, max_edge, vertex_degree):
-    """
-    Calculate threshold for branch_gen_pyrgg function.
-
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param vertex_degree: vertex degree
-    :type vertex_degree: int
-    :return: threshold as int
-    """
-    threshold = min_edge
-    lower_limit = 0
-    upper_limit = max_edge - vertex_degree
-    if vertex_degree < min_edge:
-        lower_limit = min_edge - vertex_degree
-    if upper_limit > lower_limit:
-        threshold = randint(lower_limit, upper_limit)
-    return threshold
 
 
 def branch_gen(
@@ -134,7 +78,7 @@ def branch_gen(
     vertex_degree = degree_dict[vertex_index]
     if vertex_degree >= max_edge:
         return [branch_list, weight_list]
-    threshold = _threshold_calc(
+    threshold = threshold_calc(
         min_edge=min_edge,
         max_edge=max_edge,
         vertex_degree=vertex_degree)
@@ -228,8 +172,8 @@ def edge_gen(
     :return: list of dicts
     """
     precision = max(
-        _get_precision(max_weight),
-        _get_precision(min_weight))
+        get_precision(max_weight),
+        get_precision(min_weight))
     temp = 0
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
@@ -330,7 +274,7 @@ def logger(file, file_name, elapsed_time, input_dict):
                                       str(bool(input_dict["sign"])),
                                       str(bool(input_dict["multigraph"])),
                                       str(bool(input_dict["self_loop"])),
-                                      str(_is_weighted(input_dict["max_weight"],
+                                      str(is_weighted(input_dict["max_weight"],
                                                       input_dict["min_weight"],
                                                       bool(input_dict["sign"]))),
                                       str(input_dict["max_weight"]),
