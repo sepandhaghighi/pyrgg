@@ -33,7 +33,7 @@ def edge_gen(n, p):
             if random() < p:
                 edge_dic[i].append(j)
                 edge_number += 1
-    return edge_dic, edge_number
+    return [edge_dic, edge_number]
 
 
 def gen_using(
