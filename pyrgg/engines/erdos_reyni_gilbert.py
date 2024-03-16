@@ -2,7 +2,7 @@
 """Erdős-Rényi-Gilbert Engine module."""
 import datetime
 from random import random
-from pyrgg.params import ENGINE_MENU, SUFFIX_MENU
+from pyrgg.params import ENGINE_MENU
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -13,29 +13,6 @@ Engine : {5} ({6})
 Elapsed Time : {7}
 -------------------------------
 """
-
-def logger(file, file_name, elapsed_time, input_dict):
-    """
-    Save generated graph logs for Erdős-Rényi-Gilbert engine.
-
-    :param file: file to write log into
-    :type file: file object
-    :param file_name: file name
-    :type file_name: str
-    :param elapsed_time: elapsed time
-    :type elapsed_time: str
-    :param input_dict: input data
-    :type input_dict: dict
-    :return: None
-    """
-    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                      file_name,
-                                      str(input_dict["probability"]),
-                                      str(input_dict["vertices"]),
-                                      str(input_dict["edge_number"]),
-                                      input_dict["engine"],
-                                      ENGINE_MENU[input_dict["engine"]],
-                                      elapsed_time))
 
 
 def edge_gen(n, p):
@@ -97,3 +74,27 @@ def gen_using(
             "edge_number": edge_number,
         })
     return edge_number
+
+
+def logger(file, file_name, elapsed_time, input_dict):
+    """
+    Save generated graph logs for Erdős-Rényi-Gilbert engine.
+
+    :param file: file to write log into
+    :type file: file object
+    :param file_name: file name
+    :type file_name: str
+    :param elapsed_time: elapsed time
+    :type elapsed_time: str
+    :param input_dict: input data
+    :type input_dict: dict
+    :return: None
+    """
+    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                      file_name,
+                                      str(input_dict["probability"]),
+                                      str(input_dict["vertices"]),
+                                      str(input_dict["edge_number"]),
+                                      input_dict["engine"],
+                                      ENGINE_MENU[input_dict["engine"]],
+                                      elapsed_time))

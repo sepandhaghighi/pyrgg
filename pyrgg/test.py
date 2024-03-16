@@ -10,13 +10,13 @@
 >>> import pickle
 >>> pyrgg.params.PYRGG_TEST_MODE = True
 >>> import pyrgg.engines.pyrgg
->>> get_precision(2)
+>>> pyrgg.engines.pyrgg._get_precision(2)
 0
->>> get_precision(2.2)
+>>> pyrgg.engines.pyrgg._get_precision(2.2)
 1
->>> get_precision(2.22)
+>>> pyrgg.engines.pyrgg._get_precision(2.22)
 2
->>> get_precision(2.223)
+>>> pyrgg.engines.pyrgg._get_precision(2.223)
 3
 >>> handle_str_to_number("20")
 20

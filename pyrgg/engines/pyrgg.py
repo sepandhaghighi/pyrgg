@@ -2,8 +2,7 @@
 """PyRGG Engine module."""
 import datetime
 from random import randint, uniform, choice
-from pyrgg.functions import _threshold_calc, get_precision, is_weighted
-from pyrgg.params import PYRGG_TEST_MODE, ENGINE_MENU, SUFFIX_MENU
+from pyrgg.params import PYRGG_TEST_MODE, ENGINE_MENU
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -23,38 +22,62 @@ Elapsed Time : {15}
 -------------------------------
 """
 
-def logger(file, file_name, elapsed_time, input_dict):
-    """
-    Save generated graph logs for PyRGG engine.
 
-    :param file: file to write log into
-    :type file: file object
-    :param file_name: file name
-    :type file_name: str
-    :param elapsed_time: elapsed time
-    :type elapsed_time: str
-    :param input_dict: input data
-    :type input_dict: dict
-    :return: None
+def _is_weighted(max_weight, min_weight, signed):
     """
-    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                      file_name,
-                                      str(input_dict["vertices"]),
-                                      str(input_dict["edge_number"]),
-                                      str(input_dict["max_edge"]),
-                                      str(input_dict["min_edge"]),
-                                      str(bool(input_dict["direct"])),
-                                      str(bool(input_dict["sign"])),
-                                      str(bool(input_dict["multigraph"])),
-                                      str(bool(input_dict["self_loop"])),
-                                      str(is_weighted(input_dict["max_weight"],
-                                                      input_dict["min_weight"],
-                                                      bool(input_dict["sign"]))),
-                                      str(input_dict["max_weight"]),
-                                      str(input_dict["min_weight"]),
-                                      input_dict["engine"],
-                                      ENGINE_MENU[input_dict["engine"]],
-                                      elapsed_time))
+    Check the graph is weighted or not.
+
+    :param max_weight: maximum weight
+    :type max_weight: int
+    :param min_weight: minimum weight
+    :type min_weight: int
+    :param signed: weight sign flag
+    :type signed: bool
+    :return: result as bool
+    """
+    if max_weight == min_weight and min_weight == 0:
+        return False
+    if max_weight == min_weight and min_weight == 1 and not signed:
+        return False
+    return True
+
+
+def _get_precision(input_number):
+    """
+    Return precision of input number.
+
+    :param input_number: input number
+    :type input_number: float
+    :return: precision as int
+    """
+    try:
+        number_str = str(input_number)
+        _, decimalpart = number_str.split(".")
+        return len(decimalpart)
+    except Exception:
+        return 0
+
+
+def _threshold_calc(min_edge, max_edge, vertex_degree):
+    """
+    Calculate threshold for branch_gen_pyrgg function.
+
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
+    :param vertex_degree: vertex degree
+    :type vertex_degree: int
+    :return: threshold as int
+    """
+    threshold = min_edge
+    lower_limit = 0
+    upper_limit = max_edge - vertex_degree
+    if vertex_degree < min_edge:
+        lower_limit = min_edge - vertex_degree
+    if upper_limit > lower_limit:
+        threshold = randint(lower_limit, upper_limit)
+    return threshold
 
 
 def branch_gen(
@@ -204,8 +227,8 @@ def edge_gen(
     :return: list of dicts
     """
     precision = max(
-        get_precision(max_weight),
-        get_precision(min_weight))
+        _get_precision(max_weight),
+        _get_precision(min_weight))
     temp = 0
     vertices_id = list(range(1, vertices_number + 1))
     vertices_edge = []
@@ -280,3 +303,37 @@ def gen_using(
             "edge_number": edge_number,
         })
     return edge_number
+
+
+def logger(file, file_name, elapsed_time, input_dict):
+    """
+    Save generated graph logs for PyRGG engine.
+
+    :param file: file to write log into
+    :type file: file object
+    :param file_name: file name
+    :type file_name: str
+    :param elapsed_time: elapsed time
+    :type elapsed_time: str
+    :param input_dict: input data
+    :type input_dict: dict
+    :return: None
+    """
+    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                      file_name,
+                                      str(input_dict["vertices"]),
+                                      str(input_dict["edge_number"]),
+                                      str(input_dict["max_edge"]),
+                                      str(input_dict["min_edge"]),
+                                      str(bool(input_dict["direct"])),
+                                      str(bool(input_dict["sign"])),
+                                      str(bool(input_dict["multigraph"])),
+                                      str(bool(input_dict["self_loop"])),
+                                      str(_is_weighted(input_dict["max_weight"],
+                                                      input_dict["min_weight"],
+                                                      bool(input_dict["sign"]))),
+                                      str(input_dict["max_weight"]),
+                                      str(input_dict["min_weight"]),
+                                      input_dict["engine"],
+                                      ENGINE_MENU[input_dict["engine"]],
+                                      elapsed_time))
