@@ -2,12 +2,13 @@
 """Profile file."""
 from pyrgg import *
 import pyrgg.params
+import pyrgg.engines.pyrgg as pyrgg_engine
 import random
 
-pyrgg.params.PYRGG_TEST_MODE = True
+os.environ["PYRGG_TEST_MODE"] = "1"
 random.seed(400)
 
-pyrgg_gen_using(
+pyrgg_engine.pyrgg_gen_using(
     dimacs_maker,
     file_name='profile',
     min_weight=1,

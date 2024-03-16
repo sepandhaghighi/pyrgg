@@ -3,6 +3,8 @@
 from textwrap import dedent, fill
 import os
 
+os.environ["PYRGG_TEST_MODE"] = "0"
+
 MENU_ITEMS = {
     1: ["engine", dedent(
         """\
@@ -93,8 +95,6 @@ OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
 
 
 PYRGG_VERSION = "1.4"
-
-PYRGG_TEST_MODE = False
 
 SOURCE_DIR = os.getcwd()
 

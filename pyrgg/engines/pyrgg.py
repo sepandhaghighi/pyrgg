@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """PyRGG Engine module."""
 import datetime
+import os
 from random import randint, uniform, choice
-from pyrgg.params import PYRGG_TEST_MODE, ENGINE_MENU
+from pyrgg.params import ENGINE_MENU
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -149,7 +150,7 @@ def branch_gen(
             set(reference_vertices) - set(used_vertices[vertex_index]))
     if not self_loop and vertex_index in reference_vertices:
         reference_vertices.remove(vertex_index)
-    if PYRGG_TEST_MODE:
+    if int(os.environ.get("PYRGG_TEST_MODE", 0)):
         reference_vertices.sort()
     while (index < threshold):
         vertex_degree = degree_dict[vertex_index]

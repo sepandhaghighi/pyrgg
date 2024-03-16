@@ -10,7 +10,7 @@
 >>> from scipy.io import mmread
 >>> from networkx.readwrite.gml import read_gml
 >>> from networkx.readwrite.gexf import read_gexf
->>> pyrgg.params.PYRGG_TEST_MODE = True
+>>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> random.seed(2)
 >>> pyrgg_gen_using(dimacs_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7

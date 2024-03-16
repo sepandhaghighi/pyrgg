@@ -4,7 +4,7 @@
 >>> import pyrgg.params
 >>> import random
 >>> import os
->>> pyrgg.params.PYRGG_TEST_MODE = True
+>>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> description_print()
 <BLANKLINE>
 Webpage : https://www.pyrgg.ir
