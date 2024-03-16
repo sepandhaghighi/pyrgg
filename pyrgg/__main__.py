@@ -64,14 +64,12 @@ def gen_graph(input_dict, file_name):
     print("Total Number of Edges : " + str(input_dict["edge_number"]))
     print("Graph Generated in " + elapsed_time_format)
     print("Where --> " + SOURCE_DIR)
-    try:
-        with open("logfile.log", "a") as file:
-            ENGINE_MAPPER[engine].logger(file,
-                                         file_name + SUFFIX_MENU[output_format],
-                                         elapsed_time_format,
-                                         input_dict)
-    except Exception:
-        print(PYRGG_LOGGER_ERROR_MESSAGE)
+    with open("logfile.log", "a") as file:
+        ENGINE_MAPPER[engine].logger(file,
+                                     file_name + SUFFIX_MENU[output_format],
+                                     elapsed_time_format,
+                                     input_dict)
+
 
 
 def run(input_dict=None):

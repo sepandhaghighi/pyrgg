@@ -2,7 +2,7 @@
 """Erdős-Rényi-Gilbert Engine module."""
 import datetime
 from random import random
-from pyrgg.params import ENGINE_MENU
+from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -90,11 +90,14 @@ def logger(file, file_name, elapsed_time, input_dict):
     :type input_dict: dict
     :return: None
     """
-    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                      file_name,
-                                      str(input_dict["probability"]),
-                                      str(input_dict["vertices"]),
-                                      str(input_dict["edge_number"]),
-                                      input_dict["engine"],
-                                      ENGINE_MENU[input_dict["engine"]],
-                                      elapsed_time))
+    try:
+        file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                          file_name,
+                                          str(input_dict["probability"]),
+                                          str(input_dict["vertices"]),
+                                          str(input_dict["edge_number"]),
+                                          input_dict["engine"],
+                                          ENGINE_MENU[input_dict["engine"]],
+                                          elapsed_time))
+    except Exception:
+        print(PYRGG_LOGGER_ERROR_MESSAGE)

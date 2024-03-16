@@ -3,7 +3,7 @@
 import datetime
 import os
 from random import randint, uniform, choice
-from pyrgg.params import ENGINE_MENU
+from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import is_weighted, get_precision, threshold_calc
 
 LOGGER_TEMPLATE = """{0}
@@ -264,21 +264,24 @@ def logger(file, file_name, elapsed_time, input_dict):
     :type input_dict: dict
     :return: None
     """
-    file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                      file_name,
-                                      str(input_dict["vertices"]),
-                                      str(input_dict["edge_number"]),
-                                      str(input_dict["max_edge"]),
-                                      str(input_dict["min_edge"]),
-                                      str(bool(input_dict["direct"])),
-                                      str(bool(input_dict["sign"])),
-                                      str(bool(input_dict["multigraph"])),
-                                      str(bool(input_dict["self_loop"])),
-                                      str(is_weighted(input_dict["max_weight"],
-                                                      input_dict["min_weight"],
-                                                      bool(input_dict["sign"]))),
-                                      str(input_dict["max_weight"]),
-                                      str(input_dict["min_weight"]),
-                                      input_dict["engine"],
-                                      ENGINE_MENU[input_dict["engine"]],
-                                      elapsed_time))
+    try:
+        file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                                          file_name,
+                                          str(input_dict["vertices"]),
+                                          str(input_dict["edge_number"]),
+                                          str(input_dict["max_edge"]),
+                                          str(input_dict["min_edge"]),
+                                          str(bool(input_dict["direct"])),
+                                          str(bool(input_dict["sign"])),
+                                          str(bool(input_dict["multigraph"])),
+                                          str(bool(input_dict["self_loop"])),
+                                          str(is_weighted(input_dict["max_weight"],
+                                                          input_dict["min_weight"],
+                                                          bool(input_dict["sign"]))),
+                                          str(input_dict["max_weight"]),
+                                          str(input_dict["min_weight"]),
+                                          input_dict["engine"],
+                                          ENGINE_MENU[input_dict["engine"]],
+                                          elapsed_time))
+    except Exception:
+        print(PYRGG_LOGGER_ERROR_MESSAGE)
