@@ -1605,6 +1605,38 @@ data:
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
 <class 'networkx.classes.graph.Graph'>
+>>> #################### gexf_maker ####################
+>>> from networkx.readwrite.gexf import read_gexf
+>>> random.seed(2)
+>>> engine.gen_using(gexf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> gexf1 = read_gexf("testfile.gexf")
+>>> type(gexf1)
+<class 'networkx.classes.digraph.DiGraph'>
+>>> random.seed(8)
+>>> engine.gen_using(gexf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
+35
+>>> gexf2 = read_gexf("testfile2.gexf")
+>>> type(gexf2)
+<class 'networkx.classes.multidigraph.MultiDiGraph'>
+>>> random.seed(20)
+>>> engine.gen_using(gexf_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+35
+>>> gexf3 = read_gexf("testfile3.gexf")
+>>> type(gexf3)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(120)
+>>> engine.gen_using(gexf_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+35
+>>> gexf4 = read_gexf("testfile4.gexf")
+>>> type(gexf4)
+<class 'networkx.classes.graph.Graph'>
+>>> random.seed(120)
+>>> engine.gen_using(gexf_maker, 'testfile5', {'min_weight':0, 'max_weight':50.2, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+40
+>>> gexf5 = read_gexf("testfile5.gexf")
+>>> type(gexf5)
+<class 'networkx.classes.graph.Graph'>
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
@@ -1671,6 +1703,11 @@ data:
 >>> os.remove('testfile2.gml')
 >>> os.remove('testfile3.gml')
 >>> os.remove('testfile4.gml')
+>>> os.remove('testfile.gexf')
+>>> os.remove('testfile2.gexf')
+>>> os.remove('testfile3.gexf')
+>>> os.remove('testfile4.gexf')
+>>> os.remove('testfile5.gexf')
 >>> os.remove('testfile.gv')
 >>> os.remove('testfile2.gv')
 >>> os.remove('testfile3.gv')

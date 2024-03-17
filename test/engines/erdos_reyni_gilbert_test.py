@@ -228,6 +228,14 @@ data:
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.graph.Graph'>
+>>> #################### gexf_maker ####################
+>>> from networkx.readwrite.gexf import read_gexf
+>>> random.seed(2)
+>>> engine.gen_using(gexf_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> gexf1 = read_gexf("testfile.gexf")
+>>> type(gexf1)
+<class 'networkx.classes.graph.Graph'>
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
@@ -251,6 +259,7 @@ data:
 >>> os.remove('testfile.tgf')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile.gml')
+>>> os.remove('testfile.gexf')
 >>> os.remove('testfile.gv')
 >>> os.remove('logfile.log')
 """
