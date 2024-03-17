@@ -629,5 +629,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile.gl')
+>>> os.remove('testfile.mtx')
+>>> os.remove('testfile.tsv')
 >>> os.remove('logfile.log')
 """
