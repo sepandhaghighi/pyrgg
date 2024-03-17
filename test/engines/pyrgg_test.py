@@ -1433,6 +1433,68 @@ edge(28,13,-13).
 28 21 28
 28 13 -13
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.dl','r')
+>>> print(file.read())
+dl
+format=edgelist1
+n=10
+data:
+4 3 -64
+5 6 148
+5 9 110
+6 10 -139
+7 7 7
+8 2 -97
+9 1 60
+<BLANKLINE>
+>>> random.seed(4)
+>>> engine.gen_using(dl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+35
+>>> file=open('testfile2.dl','r')
+>>> print(file.read())
+dl
+format=edgelist1
+n=30
+data:
+1 10 46
+2 18 5
+2 4 25
+2 22 -48
+4 23 -17
+5 7 -13
+7 15 10
+7 17 -40
+8 8 -42
+8 25 11
+9 29 -5
+10 3 -36
+10 27 -48
+11 13 -27
+11 26 -27
+11 21 14
+11 16 -2
+14 20 -44
+14 14 43
+14 12 26
+15 28 -11
+16 30 -40
+16 24 20
+19 19 7
+20 12 -29
+20 1 22
+22 24 20
+22 23 -9
+23 18 18
+23 27 28
+24 6 -24
+25 17 23
+27 6 -50
+28 21 28
+28 13 -13
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
@@ -1461,5 +1523,7 @@ edge(28,13,-13).
 >>> os.remove('testfile2.lp')
 >>> os.remove('testfile.tgf')
 >>> os.remove('testfile2.tgf')
+>>> os.remove('testfile.dl')
+>>> os.remove('testfile2.dl')
 >>> os.remove('logfile.log')
 """

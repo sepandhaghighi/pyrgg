@@ -194,6 +194,21 @@ edge(4,10,1).
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(dl_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.dl','r')
+>>> print(file.read())
+dl
+format=edgelist1
+n=10
+data:
+1 4 1
+1 5 1
+3 7 1
+3 8 1
+4 10 1
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
@@ -204,5 +219,6 @@ edge(4,10,1).
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.lp')
 >>> os.remove('testfile.tgf')
+>>> os.remove('testfile.dl')
 >>> os.remove('logfile.log')
 """
