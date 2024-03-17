@@ -196,28 +196,6 @@ TypeError: wel_maker() missing 1 required positional argument: 'mdata'
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
->>> random.seed(2)
->>> pyrgg_gen_using(csv_maker, file_name='testfile4', min_weight=0.0, max_weight=200.22, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
-5
->>> file = open("testfile4.csv")
->>> print(file.read())
-4,3,-50.37
-6,1,200.16
-6,9,-160.91
-7,7,-100.52
-10,10,-181.75
-<BLANKLINE>
->>> random.seed(2)
->>> pyrgg_gen_using(csv_maker, file_name='testfile4', min_weight=0.0, max_weight=200.222, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
-5
->>> file = open("testfile4.csv")
->>> print(file.read())
-4,3,-50.373
-6,1,200.166
-6,9,-160.912
-7,7,-100.525
-10,10,-181.752
-<BLANKLINE>
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
 >>> os.remove('testfile.gexf')

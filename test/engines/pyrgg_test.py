@@ -801,6 +801,28 @@ True
 >>> random.seed(20)
 >>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> random.seed(2)
+>>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.22, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+5
+>>> file = open("testfile4.csv")
+>>> print(file.read())
+4,3,-50.37
+6,1,200.16
+6,9,-160.91
+7,7,-100.52
+10,10,-181.75
+<BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.222, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+5
+>>> file = open("testfile4.csv")
+>>> print(file.read())
+4,3,-50.373
+6,1,200.166
+6,9,-160.912
+7,7,-100.525
+10,10,-181.752
+<BLANKLINE>
 >>> #################### gdf_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
@@ -1623,6 +1645,7 @@ data:
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile2.csv')
 >>> os.remove('testfile3.csv')
+>>> os.remove('testfile4.csv')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile2.gdf')
 >>> os.remove('testfile3.gdf')
