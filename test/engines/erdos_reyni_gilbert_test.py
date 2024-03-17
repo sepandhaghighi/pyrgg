@@ -247,6 +247,7 @@ data:
 'graph'
 >>> len(g1[0].get_edge_list())
 5
+>>> file.close()
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')

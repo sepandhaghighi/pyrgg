@@ -165,6 +165,7 @@ TypeError: tsv_maker() missing 1 required positional argument: 'mdata'
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'mdata'
+>>> file.close()
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.p')
 >>> os.remove('testfile.yaml')
