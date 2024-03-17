@@ -151,6 +151,27 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(lp_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.lp','r')
+>>> print(file.read())
+node(1).
+node(2).
+node(3).
+node(4).
+node(5).
+node(6).
+node(7).
+node(8).
+node(9).
+node(10).
+edge(1,4,1).
+edge(1,5,1).
+edge(3,7,1).
+edge(3,8,1).
+edge(4,10,1).
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
@@ -159,5 +180,6 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> os.remove('testfile.mtx')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.wel')
+>>> os.remove('testfile.lp')
 >>> os.remove('logfile.log')
 """
