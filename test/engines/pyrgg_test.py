@@ -602,6 +602,152 @@ True
 28,21,28
 28,13,-13
 <BLANKLINE>
+>>> random.seed(20)
+>>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
+137
+>>> file=open('testfile3.csv','r')
+>>> print(file.read())
+1,34,30
+3,76,15
+3,5,23
+4,13,13
+4,21,20
+4,67,28
+5,60,16
+5,32,20
+5,92,20
+6,64,12
+6,94,26
+7,62,12
+7,36,28
+7,42,11
+8,20,12
+9,47,19
+10,49,15
+10,27,10
+11,48,17
+11,51,11
+13,58,14
+13,70,29
+14,37,30
+14,61,27
+14,87,15
+15,84,13
+16,83,28
+17,45,17
+17,24,29
+17,18,26
+18,59,15
+19,98,12
+21,2,30
+21,99,20
+22,69,26
+22,96,11
+22,88,15
+24,79,20
+24,12,12
+24,82,13
+26,50,30
+26,30,19
+29,52,26
+31,25,26
+32,68,14
+33,65,13
+33,78,13
+33,55,17
+34,63,13
+35,44,27
+35,57,14
+37,74,10
+37,41,16
+37,100,30
+38,72,13
+38,56,16
+39,91,19
+39,43,13
+41,28,22
+41,81,19
+42,90,13
+42,46,28
+42,97,16
+45,86,10
+45,53,18
+46,85,13
+46,23,11
+47,71,29
+48,95,12
+48,77,19
+48,93,11
+49,75,22
+50,73,18
+50,40,24
+50,54,28
+51,80,17
+51,66,19
+51,89,20
+52,58,29
+52,16,21
+52,43,12
+53,8,13
+53,98,17
+54,55,10
+56,62,26
+56,27,10
+57,70,26
+58,44,22
+59,90,27
+59,91,19
+59,78,29
+60,87,12
+60,92,25
+61,69,14
+61,79,17
+62,25,21
+63,97,27
+63,29,30
+65,9,26
+65,64,21
+66,67,27
+66,95,19
+66,93,30
+68,30,18
+70,83,12
+70,99,15
+71,31,17
+71,89,20
+73,36,18
+75,72,12
+76,2,26
+76,12,25
+76,86,22
+78,23,19
+78,100,27
+79,40,24
+80,84,26
+80,80,14
+81,20,16
+82,15,16
+82,88,22
+83,19,19
+84,85,13
+84,28,16
+85,77,16
+85,94,23
+86,1,21
+87,74,15
+87,96,19
+90,93,22
+92,49,14
+95,98,26
+95,55,11
+97,38,28
+99,19,29
+99,89,24
+100,40,11
+<BLANKLINE>
+>>> random.seed(20)
+>>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
 >>> random.seed(2)
 >>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -630,6 +776,12 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(4)
 >>> engine.gen_using(gdf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
+>>> random.seed(20)
+>>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+137
+>>> random.seed(20)
+>>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
 >>> random.seed(2)
 >>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':1, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -669,6 +821,95 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 25 10:38 2:-37
 27 1:33
 28 23:30
+>>> random.seed(20)
+>>> engine.gen_using(gl_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':3, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+178
+>>> file=open('testfile3.gl','r')
+>>> print(file.read())
+1 34:30 13:20 76:15
+2 56:23 11:13 20:20
+3 83:24 60:16 31:20 92:20
+4 65:12 95:26 74:22 16:16
+5 9:16 22:12 37:18
+6 54:18 33:29 27:10 51:17
+7 48:11 8:30 62:18
+8 69:29 88:14
+9 86:15 41:22 32:14
+10 75:17 21:29 15:26 30:23
+11 35:12 25:19
+12 94:30 96:20 82:22
+13 70:11 85:15 28:24
+14 14:12 79:13 26:20
+15 91:12 97:19 98:11
+16 44:17 77:26
+17 42:10 81:14 57:14
+18 55:13 68:13 49:17 47:17
+19 66:14 80:14 71:12
+20 61:10 39:16 100:30
+21 58:13 50:16 59:29
+22 38:13 23:18 29:22
+23 64:22 87:13 40:28
+24 53:10 43:27 78:20 90:10
+25 63:19 93:13
+26 36:16 67:29
+27 46:28 99:21 72:24
+28 52:29 89:27
+29 73:18 45:24 84:28
+30 70:17 55:19 89:20
+31 58:29 37:21 49:12
+32 33:13 67:17 73:14
+33 91:10 43:21
+34 75:14 35:17 68:26
+35 54:22 66:27
+36 80:29 92:19 88:12
+37 60:21 47:24
+38 83:14 71:20
+39 99:27 48:18
+40 94:16 78:22
+41 98:26 74:25
+42 56:14 76:10
+43 97:15
+44 59:17 93:20 46:14
+45 63:13 53:19 51:25
+46 87:11
+47 86:22 95:13
+48 77:26
+49 64:24 96:26
+50 90:14 57:16 62:19
+51 69:24
+52 84:12 79:30 61:16
+53 100:19
+54 85:19
+55 82:13 72:26
+56 65:27
+57 75:14 80:22
+58 81:26
+59 93:12
+60 95:26
+61 68:18
+62 67:27 77:29
+63 82:23 100:11
+64 98:15
+65 86:29
+66 73:17 79:17
+69 89:20 81:27
+70 97:11
+71 74:26 84:10
+72 99:21 85:19
+73 78:21
+76 87:17
+78 91:11
+81 94:27
+82 83:19
+83 92:20
+85 88:14
+88 90:16
+91 96:13
+94 68:30
+95 89:18
+96 87:29
+98 7:10
+100 28:14
 >>> random.seed(2)
 >>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -721,6 +962,65 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (26, 5)	-50.0
   (27, 20)	28.0
   (27, 12)	-13.0
+>>> random.seed(20)
+>>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+137
+>>> g = mmread("testfile3.mtx")
+>>> print(g)
+  (0, 33)	30.0
+  (2, 75)	15.0
+  (2, 4)	23.0
+  (3, 12)	13.0
+  (3, 20)	20.0
+  (3, 66)	28.0
+  (4, 59)	16.0
+  (4, 31)	20.0
+  (4, 91)	20.0
+  (5, 63)	12.0
+  (5, 93)	26.0
+  (6, 61)	12.0
+  (6, 35)	28.0
+  (6, 41)	11.0
+  (7, 19)	12.0
+  (8, 46)	19.0
+  (9, 48)	15.0
+  (9, 26)	10.0
+  (10, 47)	17.0
+  (10, 50)	11.0
+  (12, 57)	14.0
+  (12, 69)	29.0
+  (13, 36)	30.0
+  (13, 60)	27.0
+  (13, 86)	15.0
+  :	:
+  (75, 85)	22.0
+  (77, 22)	19.0
+  (77, 99)	27.0
+  (78, 39)	24.0
+  (79, 83)	26.0
+  (79, 79)	14.0
+  (80, 19)	16.0
+  (81, 14)	16.0
+  (81, 87)	22.0
+  (82, 18)	19.0
+  (83, 84)	13.0
+  (83, 27)	16.0
+  (84, 76)	16.0
+  (84, 93)	23.0
+  (85, 0)	21.0
+  (86, 73)	15.0
+  (86, 95)	19.0
+  (89, 92)	22.0
+  (91, 48)	14.0
+  (94, 97)	26.0
+  (94, 54)	11.0
+  (96, 37)	28.0
+  (98, 18)	29.0
+  (98, 88)	24.0
+  (99, 39)	11.0
+>>> random.seed(20)
+>>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
 >>> random.seed(2)
 >>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -737,6 +1037,12 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(4)
 >>> engine.gen_using(tsv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
+>>> random.seed(20)
+>>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+137
+>>> random.seed(20)
+>>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
@@ -745,13 +1051,18 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile2.csv')
+>>> os.remove('testfile3.csv')
 >>> os.remove('testfile.gdf')
 >>> os.remove('testfile2.gdf')
+>>> os.remove('testfile3.gdf')
 >>> os.remove('testfile.gl')
 >>> os.remove('testfile2.gl')
+>>> os.remove('testfile3.gl')
 >>> os.remove('testfile.mtx')
 >>> os.remove('testfile2.mtx')
+>>> os.remove('testfile3.mtx')
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile2.tsv')
+>>> os.remove('testfile3.tsv')
 >>> os.remove('logfile.log')
 """
