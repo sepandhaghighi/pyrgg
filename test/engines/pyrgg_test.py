@@ -595,6 +595,31 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 4 10:-139 8:-9
 5 6:-81
 6 9:143
+>>> random.seed(2)
+>>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> g = mmread("testfile.mtx")
+>>> print(g)
+  (3, 2)	-64.0
+  (4, 5)	148.0
+  (4, 8)	110.0
+  (5, 9)	-139.0
+  (6, 6)	7.0
+  (7, 1)	-97.0
+  (8, 0)	60.0
+>>> random.seed(2)
+>>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.tsv','r')
+>>> print(file.read())
+4	3	-64
+5	6	148
+5	9	110
+6	10	-139
+7	7	7
+8	2	-97
+9	1	60
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
