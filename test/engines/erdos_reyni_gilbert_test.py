@@ -5,6 +5,7 @@
 >>> import pyrgg.params
 >>> import random
 >>> import os
+>>> import json
 >>> import pyrgg.engines.erdos_reyni_gilbert as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -64,6 +65,30 @@ a 3 7 1
 a 3 8 1
 a 4 10 1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(json_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.json','r')
+>>> testfile_1=json.load(file)
+>>> testfile_1['graph']['nodes'][1]
+{'id': 2}
+>>> testfile_1['graph']['edges'][1]['source']
+1
+>>> testfile_1['graph']['edges'][1]['target']
+5
+>>> random.seed(2)
+>>> engine.gen_using(csv_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.csv','r')
+>>> print(file.read())
+1,4,1
+1,5,1
+3,7,1
+3,8,1
+4,10,1
+<BLANKLINE>
 >>> os.remove('testfile.gr')
+>>> os.remove('testfile.json')
+>>> os.remove('testfile.csv')
 >>> os.remove('logfile.log')
 """

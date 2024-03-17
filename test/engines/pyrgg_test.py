@@ -5,6 +5,7 @@
 >>> import pyrgg.params
 >>> import random
 >>> import os
+>>> import json
 >>> import pyrgg.engines.pyrgg as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -517,11 +518,54 @@ True
 False
 >>> testfile_3['properties']['weighted']
 True
+>>> random.seed(20)
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['signed']
+False
+>>> testfile_3['properties']['directed']
+False
+>>> testfile_3['properties']['self_loop']
+True
+>>> testfile_3['properties']['multigraph']
+True
+>>> testfile_3['properties']['weighted']
+True
+>>> random.seed(21)
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+136
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['weighted']
+False
+>>> random.seed(21)
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+158
+>>> file=open('testfile3.json','r')
+>>> testfile_3=json.load(file)
+>>> testfile_3['properties']['weighted']
+True
+>>> random.seed(2)
+>>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.csv','r')
+>>> print(file.read())
+4,3,-64
+5,6,148
+5,9,110
+6,10,-139
+7,7,7
+8,2,-97
+9,1,60
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile2.json')
 >>> os.remove('testfile3.json')
+>>> os.remove('testfile.csv')
 >>> os.remove('logfile.log')
 """
