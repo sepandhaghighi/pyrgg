@@ -8,8 +8,6 @@
 >>> import json
 >>> import yaml
 >>> import pickle
->>> from scipy.io import mmread
->>> from networkx.readwrite.gml import read_gml
 >>> from networkx.readwrite.gexf import read_gexf
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> dimacs_maker({}, {})
@@ -168,30 +166,6 @@ TypeError: tsv_maker() missing 1 required positional argument: 'mdata'
 Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'mdata'
->>> random.seed(2)
->>> pyrgg_gen_using(gml_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
-7
->>> gml1 = read_gml("testfile.gml")
->>> type(gml1)
-<class 'networkx.classes.digraph.DiGraph'>
->>> random.seed(4)
->>> pyrgg_gen_using(gml_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=True)
-38
->>> gml2 = read_gml("testfile2.gml")
->>> type(gml2)
-<class 'networkx.classes.multidigraph.MultiDiGraph'>
->>> random.seed(20)
->>> pyrgg_gen_using(gml_maker, file_name='testfile3', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=True)
-35
->>> gml3 = read_gml("testfile3.gml")
->>> type(gml3)
-<class 'networkx.classes.multigraph.MultiGraph'>
->>> random.seed(120)
->>> pyrgg_gen_using(gml_maker, file_name='testfile4', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=True, multigraph=False)
-35
->>> gml4 = read_gml("testfile4.gml")
->>> type(gml4)
-<class 'networkx.classes.graph.Graph'>
 >>> random.seed(2)
 >>> pyrgg_gen_using(gexf_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
 7

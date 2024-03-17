@@ -1557,6 +1557,32 @@ data:
 28 21 28
 28 13 -13
 <BLANKLINE>
+>>> #################### gml_maker ####################
+>>> from networkx.readwrite.gml import read_gml
+>>> random.seed(2)
+>>> engine.gen_using(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> gml1 = read_gml("testfile.gml")
+>>> type(gml1)
+<class 'networkx.classes.digraph.DiGraph'>
+>>> random.seed(4)
+>>> engine.gen_using(gml_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
+38
+>>> gml2 = read_gml("testfile2.gml")
+>>> type(gml2)
+<class 'networkx.classes.multidigraph.MultiDiGraph'>
+>>> random.seed(20)
+>>> engine.gen_using(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+35
+>>> gml3 = read_gml("testfile3.gml")
+>>> type(gml3)
+<class 'networkx.classes.multigraph.MultiGraph'>
+>>> random.seed(120)
+>>> engine.gen_using(gml_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+35
+>>> gml4 = read_gml("testfile4.gml")
+>>> type(gml4)
+<class 'networkx.classes.graph.Graph'>
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
@@ -1618,6 +1644,10 @@ data:
 >>> os.remove('testfile2.tgf')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile2.dl')
+>>> os.remove('testfile.gml')
+>>> os.remove('testfile2.gml')
+>>> os.remove('testfile3.gml')
+>>> os.remove('testfile4.gml')
 >>> os.remove('testfile.gv')
 >>> os.remove('testfile2.gv')
 >>> os.remove('testfile3.gv')

@@ -220,6 +220,14 @@ data:
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> #################### gml_maker ####################
+>>> from networkx.readwrite.gml import read_gml
+>>> random.seed(2)
+>>> engine.gen_using(gml_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> gml1 = read_gml("testfile.gml")
+>>> type(gml1)
+<class 'networkx.classes.graph.Graph'>
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
@@ -242,6 +250,7 @@ data:
 >>> os.remove('testfile.lp')
 >>> os.remove('testfile.tgf')
 >>> os.remove('testfile.dl')
+>>> os.remove('testfile.gml')
 >>> os.remove('testfile.gv')
 >>> os.remove('logfile.log')
 """
