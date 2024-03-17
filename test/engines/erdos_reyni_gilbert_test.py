@@ -87,8 +87,41 @@ a 4 10 1
 3,8,1
 4,10,1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(gdf_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.gdf','r')
+>>> print(file.read())
+nodedef>name VARCHAR,label VARCHAR
+1,Node1
+2,Node2
+3,Node3
+4,Node4
+5,Node5
+6,Node6
+7,Node7
+8,Node8
+9,Node9
+10,Node10
+edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
+1,4,1
+1,5,1
+3,7,1
+3,8,1
+4,10,1
+<BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(gl_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.gl','r')
+>>> print(file.read())
+1 4:1 5:1
+3 7:1 8:1
+4 10:1
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.gdf')
+>>> os.remove('testfile.gl')
 >>> os.remove('logfile.log')
 """

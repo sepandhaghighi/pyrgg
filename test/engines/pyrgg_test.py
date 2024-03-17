@@ -450,7 +450,7 @@ a 98 1 15
 a 98 1 13
 a 99 35 28
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -473,7 +473,7 @@ False
 >>> testfile_1['properties']['weighted']
 True
 >>> random.seed(4)
->>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -496,7 +496,7 @@ False
 >>> testfile_2['properties']['weighted']
 True
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -519,7 +519,7 @@ False
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -534,21 +534,21 @@ True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
 136
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 False
 >>> random.seed(21)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':False, 'self_loop':True, 'multigraph':True})
 158
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -560,6 +560,41 @@ True
 8,2,-97
 9,1,60
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.gdf','r')
+>>> print(file.read())
+nodedef>name VARCHAR,label VARCHAR
+1,Node1
+2,Node2
+3,Node3
+4,Node4
+5,Node5
+6,Node6
+7,Node7
+8,Node8
+9,Node9
+10,Node10
+edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
+4,3,-64
+5,6,148
+5,9,110
+6,10,-139
+7,7,7
+8,2,-97
+9,1,60
+<BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':1, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.gl','r')
+>>> print(file.read())
+1 2:92
+3 7:155 9:110
+4 10:-139 8:-9
+5 6:-81
+6 9:143
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
@@ -567,5 +602,7 @@ True
 >>> os.remove('testfile2.json')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile.gdf')
+>>> os.remove('testfile.gl')
 >>> os.remove('logfile.log')
 """
