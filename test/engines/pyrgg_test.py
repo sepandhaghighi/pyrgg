@@ -6,8 +6,6 @@
 >>> import random
 >>> import os
 >>> import json
->>> from scipy.io import mmread
->>> import pydot
 >>> import pyrgg.engines.pyrgg as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -86,6 +84,7 @@ TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct',
 >>> #########################################
 >>> ## ========= gen_using function =========
 >>> #########################################
+>>> #################### dimacs_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -451,6 +450,7 @@ a 97 95 14
 a 98 1 15
 a 98 1 13
 a 99 35 28
+>>> #################### json_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
@@ -549,6 +549,7 @@ False
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 True
+>>> #################### csv_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
@@ -749,6 +750,7 @@ True
 >>> random.seed(20)
 >>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> #################### gdf_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -783,6 +785,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> #################### gl_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':1, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -911,6 +914,8 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 96 87:29
 98 7:10
 100 28:14
+>>> #################### mtx_maker ####################
+>>> from scipy.io import mmread
 >>> random.seed(2)
 >>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1022,6 +1027,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> #################### tsv_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1044,6 +1050,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> #################### wel_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1244,6 +1251,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
+>>> #################### lp_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1338,6 +1346,7 @@ edge(27,6,-50).
 edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
+>>> #################### tgf_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1434,6 +1443,7 @@ edge(28,13,-13).
 28 21 28
 28 13 -13
 <BLANKLINE>
+>>> #################### dl_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -1496,6 +1506,8 @@ data:
 28 21 28
 28 13 -13
 <BLANKLINE>
+>>> #################### dot_maker ####################
+>>> import pydot
 >>> random.seed(2)
 >>> engine.gen_using(dot_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7

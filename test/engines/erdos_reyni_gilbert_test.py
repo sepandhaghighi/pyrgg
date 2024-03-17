@@ -6,8 +6,6 @@
 >>> import random
 >>> import os
 >>> import json
->>> from scipy.io import mmread
->>> import pydot
 >>> import pyrgg.engines.erdos_reyni_gilbert as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -48,6 +46,7 @@ TypeError: edge_gen() missing 1 required positional argument: 'p'
 >>> #########################################
 >>> ## ========= gen_using function =========
 >>> #########################################
+>>> #################### dimacs_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(dimacs_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -67,6 +66,7 @@ a 3 7 1
 a 3 8 1
 a 4 10 1
 <BLANKLINE>
+>>> #################### json_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(json_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -78,6 +78,7 @@ a 4 10 1
 1
 >>> testfile_1['graph']['edges'][1]['target']
 5
+>>> #################### csv_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(csv_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -89,6 +90,7 @@ a 4 10 1
 3,8,1
 4,10,1
 <BLANKLINE>
+>>> #################### gdf_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(gdf_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -112,6 +114,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3,8,1
 4,10,1
 <BLANKLINE>
+>>> #################### gl_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(gl_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -120,6 +123,8 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 1 4:1 5:1
 3 7:1 8:1
 4 10:1
+>>> #################### mtx_maker ####################
+>>> from scipy.io import mmread
 >>> random.seed(2)
 >>> engine.gen_using(mtx_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -130,6 +135,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (2, 6)	1.0
   (2, 7)	1.0
   (3, 9)	1.0
+>>> #################### tsv_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(tsv_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -141,6 +147,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3	8	1
 4	10	1
 <BLANKLINE>
+>>> #################### wel_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(wel_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -152,6 +159,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> #################### lp_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(lp_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -173,6 +181,7 @@ edge(3,7,1).
 edge(3,8,1).
 edge(4,10,1).
 <BLANKLINE>
+>>> #################### tgf_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(tgf_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -195,6 +204,7 @@ edge(4,10,1).
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> #################### dl_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(dl_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
@@ -210,6 +220,8 @@ data:
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> #################### dot_maker ####################
+>>> import pydot
 >>> random.seed(2)
 >>> engine.gen_using(dot_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
