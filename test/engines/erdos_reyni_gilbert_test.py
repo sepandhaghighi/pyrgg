@@ -172,6 +172,28 @@ edge(3,7,1).
 edge(3,8,1).
 edge(4,10,1).
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(tgf_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.tgf','r')
+>>> print(file.read())
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+#
+1 4 1
+1 5 1
+3 7 1
+3 8 1
+4 10 1
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
@@ -181,5 +203,6 @@ edge(4,10,1).
 >>> os.remove('testfile.tsv')
 >>> os.remove('testfile.wel')
 >>> os.remove('testfile.lp')
+>>> os.remove('testfile.tgf')
 >>> os.remove('logfile.log')
 """
