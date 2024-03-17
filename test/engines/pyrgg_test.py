@@ -7,6 +7,7 @@
 >>> import os
 >>> import json
 >>> from scipy.io import mmread
+>>> import pydot
 >>> import pyrgg.engines.pyrgg as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -1495,6 +1496,34 @@ data:
 28 21 28
 28 13 -13
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(dot_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+7
+>>> file=open('testfile.gv','r')
+>>> g1 = pydot.graph_from_dot_data(file.read())
+>>> g1[0].get_type()
+'digraph'
+>>> len(g1[0].get_edge_list())
+7
+>>> random.seed(4)
+>>> engine.gen_using(dot_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+35
+>>> file=open('testfile2.gv','r')
+>>> g2 = pydot.graph_from_dot_data(file.read())
+>>> g2[0].get_type()
+'digraph'
+>>> len(g2[0].get_edge_list())
+35
+>>> random.seed(20)
+>>> engine.gen_using(dot_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+131
+>>> file=open('testfile3.gv','r')
+>>> g3 = pydot.graph_from_dot_data(file.read())
+>>> g3[0].get_type()
+'graph'
+>>> len(g3[0].get_edge_list())
+131
+>>> file.close()
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
@@ -1525,5 +1554,8 @@ data:
 >>> os.remove('testfile2.tgf')
 >>> os.remove('testfile.dl')
 >>> os.remove('testfile2.dl')
+>>> os.remove('testfile.gv')
+>>> os.remove('testfile2.gv')
+>>> os.remove('testfile3.gv')
 >>> os.remove('logfile.log')
 """

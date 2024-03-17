@@ -295,44 +295,6 @@ a 26 3 -13
 7,7,-100.525
 10,10,-181.752
 <BLANKLINE>
->>> import pydot
->>> random.seed(4)
->>> pyrgg_gen_using(dot_maker, file_name='testfile', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=False, multigraph=False)
-37
->>> file=open('testfile.gv','r')
->>> g1 = pydot.graph_from_dot_data(file.read())
->>> g1[0].get_type()
-'digraph'
->>> len(g1[0].get_edge_list())
-37
->>> random.seed(4)
->>> pyrgg_gen_using(dot_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=False)
-37
->>> file=open('testfile2.gv','r')
->>> g2 = pydot.graph_from_dot_data(file.read())
->>> g2[0].get_type()
-'graph'
->>> len(g2[0].get_edge_list())
-37
->>> random.seed(4)
->>> pyrgg_gen_using(dot_maker, file_name='testfile3', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=True)
-40
->>> file=open('testfile3.gv','r')
->>> g3 = pydot.graph_from_dot_data(file.read())
->>> g3[0].get_type()
-'graph'
->>> len(g3[0].get_edge_list())
-40
->>> random.seed(4)
->>> pyrgg_gen_using(dot_maker, file_name='testfile4', min_weight=1, max_weight=1, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=False, self_loop=False, multigraph=True)
-42
->>> file=open('testfile4.gv','r')
->>> g4 = pydot.graph_from_dot_data(file.read())
->>> g4[0].get_type()
-'graph'
->>> len(g4[0].get_edge_list())
-42
->>> file.close()
 >>> os.remove('testfile.csv')
 >>> os.remove('testfile.gml')
 >>> os.remove('testfile.gexf')

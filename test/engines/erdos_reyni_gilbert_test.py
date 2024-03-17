@@ -7,6 +7,7 @@
 >>> import os
 >>> import json
 >>> from scipy.io import mmread
+>>> import pydot
 >>> import pyrgg.engines.erdos_reyni_gilbert as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -209,6 +210,15 @@ data:
 3 8 1
 4 10 1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(dot_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.gv','r')
+>>> g1 = pydot.graph_from_dot_data(file.read())
+>>> g1[0].get_type()
+'graph'
+>>> len(g1[0].get_edge_list())
+5
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
@@ -220,5 +230,6 @@ data:
 >>> os.remove('testfile.lp')
 >>> os.remove('testfile.tgf')
 >>> os.remove('testfile.dl')
+>>> os.remove('testfile.gv')
 >>> os.remove('logfile.log')
 """
