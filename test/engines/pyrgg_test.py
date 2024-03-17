@@ -6,6 +6,7 @@
 >>> import random
 >>> import os
 >>> import json
+>>> from scipy.io import mmread
 >>> import pyrgg.engines.pyrgg as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -560,6 +561,47 @@ True
 8,2,-97
 9,1,60
 <BLANKLINE>
+>>> random.seed(4)
+>>> engine.gen_using(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+35
+>>> file=open('testfile2.csv','r')
+>>> print(file.read())
+1,10,46
+2,18,5
+2,4,25
+2,22,-48
+4,23,-17
+5,7,-13
+7,15,10
+7,17,-40
+8,8,-42
+8,25,11
+9,29,-5
+10,3,-36
+10,27,-48
+11,13,-27
+11,26,-27
+11,21,14
+11,16,-2
+14,20,-44
+14,14,43
+14,12,26
+15,28,-11
+16,30,-40
+16,24,20
+19,19,7
+20,12,-29
+20,1,22
+22,24,20
+22,23,-9
+23,18,18
+23,27,28
+24,6,-24
+25,17,23
+27,6,-50
+28,21,28
+28,13,-13
+<BLANKLINE>
 >>> random.seed(2)
 >>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -585,6 +627,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8,2,-97
 9,1,60
 <BLANKLINE>
+>>> random.seed(4)
+>>> engine.gen_using(gdf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+35
 >>> random.seed(2)
 >>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':1, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -595,6 +640,35 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 4 10:-139 8:-9
 5 6:-81
 6 9:143
+>>> random.seed(4)
+>>> engine.gen_using(gl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':2, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+44
+>>> file=open('testfile2.gl','r')
+>>> print(file.read())
+1 10:46 14:-9
+2 4:25 22:-48
+3 12:-17 9:16
+4 5:-17
+5 15:-18
+6 23:38 21:-32 18:15 30:-5
+7 29:0 16:-48 25:26 20:-27
+8 13:19 24:5 8:-40
+9 27:-44 19:43
+10 11:-12
+11 28:-17 17:-27 26:20
+12 13:17
+13 21:21 19:-29
+14 14:-44
+15 20:-1
+16 23:-9 30:-39
+17 18:-39 25:-18 22:-24
+18 26:-36 24:-2
+19 27:-50
+20 29:28
+22 28:3
+25 10:38 2:-37
+27 1:33
+28 23:30
 >>> random.seed(2)
 >>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -607,6 +681,46 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
   (6, 6)	7.0
   (7, 1)	-97.0
   (8, 0)	60.0
+>>> random.seed(4)
+>>> engine.gen_using(mtx_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+35
+>>> g = mmread("testfile2.mtx")
+>>> print(g)
+  (0, 9)	46.0
+  (1, 17)	5.0
+  (1, 3)	25.0
+  (1, 21)	-48.0
+  (3, 22)	-17.0
+  (4, 6)	-13.0
+  (6, 14)	10.0
+  (6, 16)	-40.0
+  (7, 7)	-42.0
+  (7, 24)	11.0
+  (8, 28)	-5.0
+  (9, 2)	-36.0
+  (9, 26)	-48.0
+  (10, 12)	-27.0
+  (10, 25)	-27.0
+  (10, 20)	14.0
+  (10, 15)	-2.0
+  (13, 19)	-44.0
+  (13, 13)	43.0
+  (13, 11)	26.0
+  (14, 27)	-11.0
+  (15, 29)	-40.0
+  (15, 23)	20.0
+  (18, 18)	7.0
+  (19, 11)	-29.0
+  (19, 0)	22.0
+  (21, 23)	20.0
+  (21, 22)	-9.0
+  (22, 17)	18.0
+  (22, 26)	28.0
+  (23, 5)	-24.0
+  (24, 16)	23.0
+  (26, 5)	-50.0
+  (27, 20)	28.0
+  (27, 12)	-13.0
 >>> random.seed(2)
 >>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
@@ -620,6 +734,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8	2	-97
 9	1	60
 <BLANKLINE>
+>>> random.seed(4)
+>>> engine.gen_using(tsv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+35
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
@@ -627,9 +744,14 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> os.remove('testfile2.json')
 >>> os.remove('testfile3.json')
 >>> os.remove('testfile.csv')
+>>> os.remove('testfile2.csv')
 >>> os.remove('testfile.gdf')
+>>> os.remove('testfile2.gdf')
 >>> os.remove('testfile.gl')
+>>> os.remove('testfile2.gl')
 >>> os.remove('testfile.mtx')
+>>> os.remove('testfile2.mtx')
 >>> os.remove('testfile.tsv')
+>>> os.remove('testfile2.tsv')
 >>> os.remove('logfile.log')
 """

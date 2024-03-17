@@ -6,6 +6,7 @@
 >>> import random
 >>> import os
 >>> import json
+>>> from scipy.io import mmread
 >>> import pyrgg.engines.erdos_reyni_gilbert as engine
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
 >>> ######################################
@@ -123,11 +124,11 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5
 >>> g = mmread("testfile.mtx")
 >>> print(g)
-  (1, 4)	1.0
-  (1, 5)	1.0
-  (3, 7)	1.0
-  (3, 8)	1.0
-  (4, 10)	1.0
+  (0, 3)	1.0
+  (0, 4)	1.0
+  (2, 6)	1.0
+  (2, 7)	1.0
+  (3, 9)	1.0
 >>> random.seed(2)
 >>> engine.gen_using(tsv_maker, 'testfile', {'vertices':10, 'probability':0.1})
 5
