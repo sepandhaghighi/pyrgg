@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 >>> from pyrgg.functions import *
+>>> from pyrgg.graph_gen import *
 >>> import pyrgg.params
 >>> import random
 >>> import os
@@ -44,5 +45,25 @@ TypeError: edge_gen() missing 1 required positional argument: 'p'
 >>> #########################################
 >>> ## ========= gen_using function =========
 >>> #########################################
+>>> random.seed(2)
+>>> engine.gen_using(dimacs_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.gr','r')
+>>> print(file.read())
+c FILE                  :testfile.gr
+c No. of vertices       :10
+c No. of edges          :5
+c Max. weight           :1
+c Min. weight           :1
+c Min. edge             :5
+c Max. edge             :5
+p sp 10 5
+a 1 4 1
+a 1 5 1
+a 3 7 1
+a 3 8 1
+a 4 10 1
+<BLANKLINE>
+>>> os.remove('testfile.gr')
 >>> os.remove('logfile.log')
 """
