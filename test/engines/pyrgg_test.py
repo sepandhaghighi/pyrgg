@@ -450,6 +450,57 @@ a 97 95 14
 a 98 1 15
 a 98 1 13
 a 99 35 28
+>>> random.seed(4)
+>>> engine.gen_using(dimacs_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':0, 'multigraph':0})
+37
+>>> file=open('testfile4.gr','r')
+>>> print(file.read())
+c FILE                  :testfile4.gr
+c No. of vertices       :30
+c No. of edges          :37
+c Max. weight           :50
+c Min. weight           :0
+c Min. edge             :0
+c Max. edge             :4
+p sp 30 37
+a 1 11 46
+a 2 19 5
+a 2 5 25
+a 2 23 -48
+a 4 24 -17
+a 5 8 -13
+a 7 16 10
+a 7 18 -40
+a 8 9 -42
+a 8 26 11
+a 9 30 -5
+a 10 29 0
+a 10 14 -48
+a 10 22 26
+a 10 20 -27
+a 11 12 19
+a 11 17 5
+a 11 3 -40
+a 12 25 -44
+a 12 15 43
+a 13 6 -12
+a 14 27 22
+a 14 28 -40
+a 14 21 -6
+a 16 19 7
+a 17 15 -29
+a 17 1 22
+a 19 25 20
+a 20 21 49
+a 20 28 -39
+a 21 4 -39
+a 21 18 -18
+a 22 24 -38
+a 23 13 23
+a 25 6 -50
+a 26 29 28
+a 26 3 -13
+<BLANKLINE>
 >>> #################### json_maker ####################
 >>> random.seed(2)
 >>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
@@ -1539,6 +1590,7 @@ data:
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile2.gr')
 >>> os.remove('testfile3.gr')
+>>> os.remove('testfile4.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile2.json')
 >>> os.remove('testfile3.json')
