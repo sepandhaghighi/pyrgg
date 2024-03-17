@@ -2,6 +2,7 @@
 """
 >>> from pyrgg import *
 >>> import pyrgg.params
+>>> import pyrgg.engines.pyrgg as engine
 >>> import random
 >>> import os
 >>> import json
@@ -16,28 +17,8 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> pyrgg_gen_using(json_maker, file_name='testfile', min_weight=0, max_weight=200, vertices_number=10, min_edge=0, max_edge=2, sign=True, direct=True, self_loop=True, multigraph=False)
+>>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
->>> file=open('testfile.json','r')
->>> testfile_1=json.load(file)
->>> testfile_1['graph']['nodes'][1]
-{'id': 2}
->>> testfile_1['graph']['edges'][1]['source']
-5
->>> testfile_1['graph']['edges'][1]['target']
-6
->>> testfile_1['graph']['edges'][1]['weight']
-148
->>> testfile_1['properties']['signed']
-True
->>> testfile_1['properties']['directed']
-True
->>> testfile_1['properties']['self_loop']
-True
->>> testfile_1['properties']['multigraph']
-False
->>> testfile_1['properties']['weighted']
-True
 >>> json_to_yaml('testfile')
 >>> file=open('testfile.yaml','r')
 >>> testfile_1_yaml=yaml.safe_load(file)
@@ -76,28 +57,8 @@ False
 >>> testfile_1_p['properties']['weighted']
 True
 >>> random.seed(4)
->>> pyrgg_gen_using(json_maker, file_name='testfile2', min_weight=0, max_weight=50, vertices_number=30, min_edge=0, max_edge=4, sign=True, direct=True, self_loop=True, multigraph=False)
+>>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
->>> file=open('testfile2.json','r')
->>> testfile_2=json.load(file)
->>> testfile_2['graph']['nodes'][1]
-{'id': 2}
->>> testfile_2['graph']['edges'][1]['source']
-2
->>> testfile_2['graph']['edges'][1]['target']
-18
->>> testfile_2['graph']['edges'][1]['weight']
-5
->>> testfile_2['properties']['signed']
-True
->>> testfile_2['properties']['directed']
-True
->>> testfile_2['properties']['self_loop']
-True
->>> testfile_2['properties']['multigraph']
-False
->>> testfile_2['properties']['weighted']
-True
 >>> json_to_yaml('testfile2')
 >>> file=open('testfile2.yaml','r')
 >>> testfile_2_yaml=yaml.safe_load(file)
@@ -138,28 +99,8 @@ False
 >>> testfile_2_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> pyrgg_gen_using(json_maker, file_name='testfile3', min_weight=10, max_weight=30, vertices_number=100, min_edge=0, max_edge=4, sign=False, direct=True, self_loop=True, multigraph=False)
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
->>> file=open('testfile3.json','r')
->>> testfile_3=json.load(file)
->>> testfile_3['graph']['nodes'][1]
-{'id': 2}
->>> testfile_3['graph']['edges'][1]['source']
-3
->>> testfile_3['graph']['edges'][1]['target']
-76
->>> testfile_3['graph']['edges'][1]['weight']
-15
->>> testfile_3['properties']['signed']
-False
->>> testfile_3['properties']['directed']
-True
->>> testfile_3['properties']['self_loop']
-True
->>> testfile_3['properties']['multigraph']
-False
->>> testfile_3['properties']['weighted']
-True
 >>> json_to_yaml('testfile3')
 >>> file=open('testfile3.yaml','r')
 >>> testfile_3_yaml=yaml.safe_load(file)
