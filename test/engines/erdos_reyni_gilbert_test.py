@@ -140,6 +140,17 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3	8	1
 4	10	1
 <BLANKLINE>
+>>> random.seed(2)
+>>> engine.gen_using(wel_maker, 'testfile', {'vertices':10, 'probability':0.1})
+5
+>>> file=open('testfile.wel','r')
+>>> print(file.read())
+1 4 1
+1 5 1
+3 7 1
+3 8 1
+4 10 1
+<BLANKLINE>
 >>> os.remove('testfile.gr')
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.csv')
@@ -147,5 +158,6 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> os.remove('testfile.gl')
 >>> os.remove('testfile.mtx')
 >>> os.remove('testfile.tsv')
+>>> os.remove('testfile.wel')
 >>> os.remove('logfile.log')
 """
