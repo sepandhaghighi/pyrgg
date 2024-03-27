@@ -3,6 +3,7 @@
 from pyrgg import *
 import pyrgg.params
 import pyrgg.engines.pyrgg as pyrgg_engine
+import pyrgg.engines.erdos_reyni_gilbert as erg_engine
 import random
 
 os.environ["PYRGG_TEST_MODE"] = "1"
@@ -22,4 +23,13 @@ pyrgg_engine.gen_using(
         'self_loop':1,
         'multigraph':1,
     }
-    )
+)
+
+erg_engine.gen_using(
+    dimacs_maker,
+    'profile',
+    {
+        'vertices':10000,
+        'probability':0.5,
+    }
+)
