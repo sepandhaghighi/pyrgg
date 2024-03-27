@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
-import datetime
+import os
+from random import randint
 from json import loads as json_loads
 from json import dump as json_dump
-import os
 from pickle import dump as pickle_dump
-from random import randint, uniform, choice, random
 from yaml import safe_dump as yaml_dump
 import pyrgg.params
 
@@ -43,6 +42,28 @@ def get_precision(input_number):
         return len(decimalpart)
     except Exception:
         return 0
+
+
+def threshold_calc(min_edge, max_edge, vertex_degree):
+    """
+    Calculate threshold for branch_gen_pyrgg function.
+
+    :param min_edge: minimum number of edges (connected to each vertex)
+    :type min_edge: int
+    :param max_edge: maximum number of edges (connected to each vertex)
+    :type max_edge: int
+    :param vertex_degree: vertex degree
+    :type vertex_degree: int
+    :return: threshold as int
+    """
+    threshold = min_edge
+    lower_limit = 0
+    upper_limit = max_edge - vertex_degree
+    if vertex_degree < min_edge:
+        lower_limit = min_edge - vertex_degree
+    if upper_limit > lower_limit:
+        threshold = randint(lower_limit, upper_limit)
+    return threshold
 
 
 def is_float(input_number):
@@ -230,75 +251,6 @@ def filesize(fileaddr):  # pragma: no cover
     print("Graph File Size : " + convert_bytes(file_size))
 
 
-def logger(
-        file_name,
-        vertices_number,
-        edge_number,
-        max_edge,
-        min_edge,
-        directed,
-        signed,
-        multigraph,
-        self_loop,
-        max_weight,
-        min_weight,
-        engine,
-        elapsed_time):
-    """
-    Save generated graphs log.
-
-    :param file_name: file name
-    :type file_name: str
-    :param vertices_number: number of vertices
-    :type vertices_number:int
-    :param edge_number: number of edges
-    :type edge_number: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param directed: directed
-    :type directed: int
-    :param signed: weight sign flag
-    :type signed: int
-    :param multigraph: multigraph flag
-    :type multigraph: int
-    :param self_loop: self loop flag
-    :type self_loop: int
-    :param max_weight: maximum weight
-    :type max_weight: int
-    :param min_weight: minimum weight
-    :type min_weight: int
-    :param engine: generation engine
-    :type engine: int
-    :param elapsed_time: elapsed time
-    :type elapsed_time : str
-    :return:  None
-    """
-    try:
-        with open("logfile.log", "a") as file:
-            file.write(pyrgg.params.PYRGG_LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                                                 file_name,
-                                                                 str(vertices_number),
-                                                                 str(edge_number),
-                                                                 str(max_edge),
-                                                                 str(min_edge),
-                                                                 str(bool(directed)),
-                                                                 str(bool(signed)),
-                                                                 str(bool(multigraph)),
-                                                                 str(bool(self_loop)),
-                                                                 str(is_weighted(max_weight,
-                                                                                 min_weight,
-                                                                                 bool(signed))),
-                                                                 str(max_weight),
-                                                                 str(min_weight),
-                                                                 engine,
-                                                                 pyrgg.params.ENGINE_MENU[engine],
-                                                                 elapsed_time))
-    except Exception:
-        print(pyrgg.params.PYRGG_LOGGER_ERROR_MESSAGE)
-
-
 def time_convert(input_time):
     """
     Convert input_time from sec to DD,HH,MM,SS format.
@@ -445,209 +397,6 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     return result_dict
 
 
-def _threshold_calc(min_edge, max_edge, vertex_degree):
-    """
-    Calculate threshold for branch_gen_pyrgg function.
-
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param vertex_degree: vertex degree
-    :type vertex_degree: int
-    :return: threshold as int
-    """
-    threshold = min_edge
-    lower_limit = 0
-    upper_limit = max_edge - vertex_degree
-    if vertex_degree < min_edge:
-        lower_limit = min_edge - vertex_degree
-    if upper_limit > lower_limit:
-        threshold = randint(lower_limit, upper_limit)
-    return threshold
-
-
-def branch_gen_pyrgg(
-        vertex_index,
-        max_edge,
-        min_edge,
-        min_weight,
-        max_weight,
-        precision,
-        sign,
-        direct,
-        self_loop,
-        multigraph,
-        used_vertices,
-        degree_dict,
-        degree_sort_dict):
-    """
-    Generate branch and weight vector of each vertex.
-
-    :param vertex_index: origin vertex index
-    :type vertex_index: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param precision: numbers precision
-    :type precision: int
-    :param sign: weight sign flag
-    :type sign: bool
-    :param direct: directed and undirected graph flag
-    :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
-    :param multigraph: multigraph flag
-    :type multigraph: bool
-    :param used_vertices: used vertices dictionary
-    :type used_vertices: dict
-    :param degree_dict: all vertices degree
-    :type degree_dict: dict
-    :param degree_sort_dict: degree to vertices list
-    :type degree_sort_dict: dict
-    :return: branch and weight list
-    """
-    index = 0
-    branch_list = []
-    weight_list = []
-    reference_vertices = []
-    random_unit = randint
-    vertex_degree = degree_dict[vertex_index]
-    if vertex_degree >= max_edge:
-        return [branch_list, weight_list]
-    threshold = _threshold_calc(
-        min_edge=min_edge,
-        max_edge=max_edge,
-        vertex_degree=vertex_degree)
-    for i in range(max_edge + 1):
-        reference_vertices.extend(list(degree_sort_dict[i].values()))
-        if len(reference_vertices) >= threshold:
-            break
-    if precision > 0:
-        random_unit = uniform
-    if not direct and (
-            vertex_index in used_vertices) and not multigraph:
-        reference_vertices = list(
-            set(reference_vertices) - set(used_vertices[vertex_index]))
-    if not self_loop and vertex_index in reference_vertices:
-        reference_vertices.remove(vertex_index)
-    if pyrgg.params.PYRGG_TEST_MODE:
-        reference_vertices.sort()
-    while (index < threshold):
-        vertex_degree = degree_dict[vertex_index]
-        if vertex_degree >= max_edge:
-            break
-        if len(reference_vertices) == 0:
-            break
-        random_tail_index = choice(
-            range(len(reference_vertices)))
-        random_tail = reference_vertices[random_tail_index]
-        random_tail_degree = degree_dict[random_tail]
-        if random_tail_degree >= max_edge or (
-            random_tail == vertex_index and random_tail_degree >= (
-                max_edge - 1)):
-            reference_vertices.pop(random_tail_index)
-            continue
-        if not direct:
-            try:
-                used_vertices[random_tail].append(vertex_index)
-            except KeyError:
-                used_vertices[random_tail] = [vertex_index]
-        weight_sign = 1
-        if sign:
-            weight_sign = choice([1, -1])
-        random_weight = weight_sign * random_unit(min_weight, max_weight)
-        random_weight = round(random_weight, precision)
-        branch_list.append(random_tail)
-        weight_list.append(random_weight)
-        index += 1
-        del degree_sort_dict[vertex_degree][vertex_index]
-        degree_dict[random_tail] += 1
-        degree_dict[vertex_index] += 1
-        degree_sort_dict[degree_dict[vertex_index]
-                         ][vertex_index] = vertex_index
-        if random_tail != vertex_index:
-            del degree_sort_dict[random_tail_degree][random_tail]
-            degree_sort_dict[degree_dict[random_tail]
-                             ][random_tail] = random_tail
-        if not multigraph:
-            reference_vertices.pop(random_tail_index)
-    return [branch_list, weight_list]
-
-
-def edge_gen_pyrgg(
-        vertices_number,
-        min_weight,
-        max_weight,
-        min_edge,
-        max_edge,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
-    """
-    Generate each vertex connection number.
-
-    :param vertices_number: number of vertices
-    :type vertices_number: int
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param sign: weight sign flag
-    :type sign: bool
-    :param direct: directed and undirected graph flag
-    :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
-    :param multigraph: multigraph flag
-    :type multigraph: bool
-    :return: list of dicts
-    """
-    precision = max(
-        get_precision(max_weight),
-        get_precision(min_weight))
-    temp = 0
-    vertices_id = list(range(1, vertices_number + 1))
-    vertices_edge = []
-    weight_list = []
-    used_vertices = {}
-    degree_sort_dict = {i: {} for i in range(max_edge + 1)}
-    degree_dict = {}
-    for i in vertices_id:
-        degree_dict[i] = 0
-        degree_sort_dict[0][i] = i
-    branch_gen_params = {
-        "max_edge": max_edge,
-        "min_edge": min_edge,
-        "min_weight": min_weight,
-        "max_weight": max_weight,
-        "sign": sign,
-        "direct": direct,
-        "self_loop": self_loop,
-        "multigraph": multigraph,
-        "used_vertices": used_vertices,
-        "degree_dict": degree_dict,
-        "degree_sort_dict": degree_sort_dict,
-        "precision": precision}
-    for i in vertices_id:
-        temp_list = branch_gen_pyrgg(vertex_index=i, **branch_gen_params)
-        vertices_edge.append(temp_list[0])
-        weight_list.append(temp_list[1])
-        temp = temp + len(temp_list[0])
-    return [dict(zip(vertices_id, vertices_edge)),
-            dict(zip(vertices_id, weight_list)), temp]
-
-
 def json_to_yaml(filename):
     """
     Convert json file to yaml file.
@@ -760,102 +509,3 @@ def check_for_config(input_func=input):
                 pyrgg.params.CONFIG_FILE_FORMAT.format("")):
             configs.append(file)
     return _print_select_config(configs, input_func)
-
-
-def pyrgg_gen_using(
-        gen_function,
-        **kwargs):
-    """
-    Generate graph using given function based on PyRGG model.
-
-    :param gen_function: generation function
-    :type gen_function: function object
-    :param kwargs: input data as keyword arguments
-    :type kwargs: dict
-    :return: number of edges as int
-    """
-    edge_dic, weight_dic, edge_number = edge_gen_pyrgg(
-        kwargs['vertices_number'],
-        kwargs['min_weight'],
-        kwargs['max_weight'],
-        kwargs['min_edge'],
-        kwargs['max_edge'],
-        kwargs['sign'],
-        kwargs['direct'],
-        kwargs['self_loop'],
-        kwargs['multigraph'])
-    gen_function(
-        edge_dic,
-        weight_dic,
-        {
-            "file_name": kwargs['file_name'],
-            "min_weight": kwargs['min_weight'],
-            "max_weight": kwargs['max_weight'],
-            "vertices_number": kwargs['vertices_number'],
-            "min_edge": kwargs['min_edge'],
-            "max_edge": kwargs['max_edge'],
-            "sign": kwargs['sign'],
-            "direct": kwargs['direct'],
-            "self_loop": kwargs['self_loop'],
-            "multigraph": kwargs['multigraph'],
-            "edge_number": edge_number,
-        })
-    return edge_number
-
-
-def edge_gen_erg(n, p):
-    """
-    Generate each vertex connection number.
-
-    :param n: number of vertices
-    :type n: int
-    :param p: probability
-    :type p: float
-    :return: list of dicts
-    """
-    edge_dic = {}
-    edge_number = 0
-    for i in range(1, n + 1):
-        edge_dic[i] = []
-        for j in range(i + 1, n + 1):
-            if random() < p:
-                edge_dic[i].append(j)
-                edge_number += 1
-    return edge_dic, edge_number
-
-
-def erdos_renyi_gilbert_gen_using(
-        gen_function,
-        **kwargs):
-    """
-    Generate graph using given function based on Erdos Renyi Gilbert model.
-
-    Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model)
-
-    :param gen_function: generation function
-    :type gen_function: function object
-    :param kwargs: input data as keyword arguments
-    :type kwargs: dict
-    :return: number of edges as int
-    """
-    edge_dic, edge_number = edge_gen_erg(
-        kwargs['vertices_number'],
-        kwargs['probability'])
-    weight_dic = {key: [1] * edge_number for key in range(1, kwargs['vertices_number'] + 1)}
-    gen_function(
-        edge_dic,
-        weight_dic,
-        {
-            "file_name": kwargs['file_name'],
-            "vertices_number": kwargs['vertices_number'],
-            "max_weight": 1,
-            "min_weight": 1,
-            "min_edge": edge_number,
-            "max_edge": edge_number,
-            "sign": False,
-            "direct": False,
-            "self_loop": False,
-            "multigraph": False,
-            "edge_number": edge_number,
-        })
-    return edge_number

@@ -6,14 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- `pyrgg.engines` package
+- `pyrgg.engines.pyrgg` module
+- `pyrgg.engines.erdos_reyni_gilbert` module
 - `Erdős-Rényi-Gilbert` generation model
-- `pyrgg_gen_using` function
 - Generation engine menu
 - `handle_string` function
 - `handle_pos_int` function
 - `handle_output_format` function
 - `handle_engine` function
 ### Changed
+- Tests separated in files for engines
 - `README.md` modified
 - `Python 3.12` added to `test.yml`
 - Menu options bug fixed

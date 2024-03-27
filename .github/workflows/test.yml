@@ -53,6 +53,9 @@ jobs:
       with:
           fail_ci_if_error: false
       if: matrix.python-version == env.TEST_PYTHON_VERSION && matrix.os == env.TEST_OS
-    - name: cProfile
+    - name: cProfile - PyRGG Engine
       run: |
-          python -m cProfile -s cumtime otherfile/pyrgg_profile.py
+          python -m cProfile -s cumtime otherfile/profiles/pyrgg_profile.py
+    - name: cProfile - Erdos Reyni Gilbert Engine
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/erg_profile.py
