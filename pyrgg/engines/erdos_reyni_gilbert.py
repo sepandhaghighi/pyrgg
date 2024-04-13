@@ -27,13 +27,17 @@ def edge_gen(n, p):
     """
     edge_dic = {}
     edge_number = 0
+    weight_list = []
     for i in range(1, n + 1):
         edge_dic[i] = []
+        temp_list = []
         for j in range(i + 1, n + 1):
+            temp_list.append(1)
             if random() < p:
                 edge_dic[i].append(j)
                 edge_number += 1
-    return [edge_dic, edge_number]
+        weight_list.append(temp_list)
+    return [edge_dic, dict(zip(range(1, n + 1), weight_list)), edge_number]
 
 
 def gen_using(
@@ -53,10 +57,9 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dic, edge_number = edge_gen(
+    edge_dic, weight_dic, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['probability'])
-    weight_dic = {key: [1] * edge_number for key in range(1, input_dict['vertices'] + 1)}
     gen_function(
         edge_dic,
         weight_dic,
