@@ -71,7 +71,6 @@ def gen_graph(input_dict, file_name):
                                      input_dict)
 
 
-
 def run(input_dict=None):
     """
     Run proper converter.
