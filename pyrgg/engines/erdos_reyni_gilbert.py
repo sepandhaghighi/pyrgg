@@ -47,7 +47,7 @@ def gen_using(
     """
     Generate graph using given function based on Erdos Renyi Gilbert model.
 
-    Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model)
+    Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model).
 
     :param gen_function: generation function
     :type gen_function: function object
