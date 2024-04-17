@@ -124,16 +124,16 @@ False
 ...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
-...    for index in pyrgg.params.PYRGG_ENINGE_PARAMS:
-...        item1, item2 = pyrgg.params.PYRGG_ENINGE_PARAMS[index]
+...    for index in pyrgg.params.PYRGG_ENGINE_PARAMS:
+...        item1, item2 = pyrgg.params.PYRGG_ENGINE_PARAMS[index]
 ...        if input_data == item2:
 ...            if item1 != prev_item :
 ...                prev_item = item1
 ...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
-...    for index in pyrgg.params.ERG_ENINGE_PARAMS:
-...        item1, item2 = pyrgg.params.ERG_ENINGE_PARAMS[index]
+...    for index in pyrgg.params.ERG_ENGINE_PARAMS:
+...        item1, item2 = pyrgg.params.ERG_ENGINE_PARAMS[index]
 ...        if input_data == item2:
 ...            if item1 != prev_item :
 ...                prev_item = item1
