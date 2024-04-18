@@ -3,6 +3,8 @@
 from textwrap import dedent, fill
 import os
 
+os.environ["PYRGG_TEST_MODE"] = "0"
+
 MENU_ITEMS = {
     1: ["engine", dedent(
         """\
@@ -56,6 +58,18 @@ SUFFIX_MENU = {
     16: ".gv"
 }
 
+ENGINE_MENU = {
+    1: "pyrgg",
+    2: "erg",
+}
+
+ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
+
+ERG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (>=0) : "],
+    2: ["probability", "- Probability (0 <= p <= 1) : "],
+}
+
 PYRGG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (>=0) : "],
     2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
@@ -69,18 +83,6 @@ PYRGG_ENGINE_PARAMS = {
     10: ["multigraph", "- Simple[0] or Multigraph[1]"],
 }
 
-ERG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
-    2: ["probability", "- Probability (0 <= p <= 1) : "],
-}
-
-ENGINE_MENU = {
-    1: "pyrgg",
-    2: "erg",
-}
-
-ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
-
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
@@ -93,8 +95,6 @@ OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
 
 
 PYRGG_VERSION = "1.4"
-
-PYRGG_TEST_MODE = False
 
 SOURCE_DIR = os.getcwd()
 
@@ -131,24 +131,6 @@ PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger failed!"
 PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
-
-PYRGG_LOGGER_TEMPLATE = """{0}
-Filename : {1}
-Vertices : {2}
-Total Edges : {3}
-Max Edge : {4}
-Min Edge : {5}
-Directed : {6}
-Signed : {7}
-Multigraph : {8}
-Self Loop : {9}
-Weighted : {10}
-Max Weight : {11}
-Min Weight : {12}
-Engine : {13} ({14})
-Elapsed Time : {15}
--------------------------------
-"""
 
 DIMACS_FIX = dedent(
     """\
