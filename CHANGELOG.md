@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- `feature_request.yml` template
+- `config.yml` for issue template
 - `pyrgg.engines` package
 - `pyrgg.engines.pyrgg` module
 - `pyrgg.engines.erdos_reyni_gilbert` module
@@ -16,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_output_format` function
 - `handle_engine` function
 ### Changed
+- Bug report template modified
 - Cprofile tests separated in files for engines
 - `README.md` modified
 - `Python 3.12` added to `test.yml`
