@@ -82,23 +82,23 @@ body:
   - type: dropdown
     id: Pyrgg-version
     attributes:
-      label: Pyrgg version
-      description: Which version of Pyrgg are you using?
+      label: PyRGG version
+      description: Which version of PyRGG are you using?
       options:
-        - Pyrgg 1.4
-        - Pyrgg 1.3
-        - Pyrgg 1.2
-        - Pyrgg 1.1
-        - Pyrgg 1.0
-        - Pyrgg 0.9
-        - Pyrgg 0.8
-        - Pyrgg 0.7
-        - Pyrgg 0.6
-        - Pyrgg 0.5
-        - Pyrgg 0.4
-        - Pyrgg 0.3
-        - Pyrgg 0.2
-        - Pyrgg 0.1
+        - PyRGG 1.4
+        - PyRGG 1.3
+        - PyRGG 1.2
+        - PyRGG 1.1
+        - PyRGG 1.0
+        - PyRGG 0.9
+        - PyRGG 0.8
+        - PyRGG 0.7
+        - PyRGG 0.6
+        - PyRGG 0.5
+        - PyRGG 0.4
+        - PyRGG 0.3
+        - PyRGG 0.2
+        - PyRGG 0.1
       default: 0
     validations:
       required: true
