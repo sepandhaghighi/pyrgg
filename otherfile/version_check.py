@@ -32,6 +32,7 @@ RC_ITEMS = [
 PARAMS_ITEMS = ['PYRGG_VERSION = "{0}"']
 META_ITEMS = ['% set version = "{0}" %']
 SPEC_ITEMS = ['pyrgg_version = "{0}"']
+ISSUE_TEMPLATE_ITEMS = ["- PyRGG {0}"]
 
 FILES = {
     "setup.py": SETUP_ITEMS,
@@ -43,7 +44,11 @@ FILES = {
         "params.py"): PARAMS_ITEMS,
     os.path.join(
         "otherfile",
-        "meta.yaml"): META_ITEMS
+        "meta.yaml"): META_ITEMS,
+    os.path.join(
+        ".github",
+        "ISSUE_TEMPLATE",
+        "bug_report.yml"): ISSUE_TEMPLATE_ITEMS,
 }
 
 TEST_NUMBER = len(FILES.keys()) + 1
