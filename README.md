@@ -19,25 +19,7 @@
 	<a href="https://discord.gg/dfYAWVMaCW">
   		<img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel">
 	</a>
-</div>	
-
-## Table of Contents					
-   * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
-   * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
-   * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
-   * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
-   * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
-   * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
-   * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
-   * [Contribution](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CONTRIBUTING.md)
-   * [References](https://github.com/sepandhaghighi/pyrgg#references)
-   * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
-   * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
-   * [License](https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE)
-   * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
-   * [Todo](https://github.com/sepandhaghighi/pyrgg/blob/master/TODO.md)
-   * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
-   * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
+</div>			
 				
 ## Overview	
 
