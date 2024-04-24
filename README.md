@@ -1,24 +1,12 @@
 <div align="center">
 	<img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/logo.png" width="450">
 	<h1>PyRGG: Python Random Graph Generator</h1>
-	<a href="http://www.shaghighi.ir/pyrgg">
-		<img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website">
-	</a>
-	<a href="https://badge.fury.io/py/pyrgg">
-		<img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18">
-	</a>
-	<a href="https://anaconda.org/sepandhaghighi/pyrgg">
-		<img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg">
-	</a>
-	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
-  		<img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov">
-	</a>
-	<a href="https://www.python.org/">
-		<img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3">
-	</a>
-	<a href="https://discord.gg/dfYAWVMaCW">
-  		<img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel">
-	</a>
+	<a href="https://www.pyrgg.site"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
+	<a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
+	<a href="https://anaconda.org/sepandhaghighi/pyrgg"><img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg"></a>
+	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg"><img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov"></a>
+	<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
+	<a href="https://discord.gg/dfYAWVMaCW"><img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel"></a>
 </div>			
 				
 ## Overview	
