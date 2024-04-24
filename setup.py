@@ -49,7 +49,7 @@ setup(
     download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.4',
     keywords='random graph python3 python generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',
     project_urls={
-        'Webpage': 'https://www.pyrgg.ir',
+        'Webpage': 'https://www.pyrgg.site',
         'Source': 'https://github.com/sepandhaghighi/pyrgg',
     },
     install_requires=get_requires(),
