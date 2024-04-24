@@ -506,38 +506,15 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 * Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
  
-## Show Your Support
+## Show your support
 								
-<h3>Star This Repo</h3>					
+<h3>Star this repo</h3>					
 
 Give a ⭐️ if this project helped you!
 
-<h3>Donate to Our Project</h3>	
+<h3>Donate to our project</h3>	
 
-<h4>Bitcoin</h4>
-1KtNLEEeUbTEK9PdN6Ya3ZAKXaqoKUuxCy
-<h4>Ethereum</h4>
-0xcD4Db18B6664A9662123D4307B074aE968535388
-<h4>Litecoin</h4>
-Ldnz5gMcEeV8BAdsyf8FstWDC6uyYR6pgZ
-<h4>Doge</h4>
-DDUnKpFQbBqLpFVZ9DfuVysBdr249HxVDh
-<h4>Tron</h4>
-TCZxzPZLcJHr2qR3uPUB1tXB6L3FDSSAx7
-<h4>Ripple</h4>
-rN7ZuRG7HDGHR5nof8nu5LrsbmSB61V1qq
-<h4>Binance Coin</h4>
-bnb1zglwcf0ac3d0s2f6ck5kgwvcru4tlctt4p5qef
-<h4>Tether</h4>
-0xcD4Db18B6664A9662123D4307B074aE968535388
-<h4>Dash</h4>
-Xd3Yn2qZJ7VE8nbKw2fS98aLxR5M6WUU3s
-<h4>Stellar</h4>		
-GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL
-<h4>Zilliqa</h4>
-zil1knmz8zj88cf0exr2ry7nav9elehxfcgqu3c5e5
-<h4>Coffeete</h4>
-<a href="http://www.coffeete.ir/opensource">
-<img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
-</a>
+If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .			
+
+<a href="http://www.pyrgg.site/donate.html" target="_blank"><img src="https://github.com/sepandhaghighi/pyrgg/raw/minor_edits/otherfile/donate-button.png" height="90px" width="270px" alt="PyRGG Donation"></a>
 
