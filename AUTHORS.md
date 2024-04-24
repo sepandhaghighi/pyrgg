@@ -1,10 +1,10 @@
-# Core Developers #
+# Core Developers
 
 ----------
-- Sepand Haghighi - Sharif University of Technology - ([@sepandhaghighi](http://github.com/sepandhaghighi)) ([sepand@pyrgg.ir](mailto:sepand@pyrgg.ir))
-- Sadra Sabouri - Sharif University of Technology - ([@sadrasabouri](https://github.com/sadrasabouri)) ([sadra@pyrgg.ir](mailto:sadra@pyrgg.ir))
+- Sepand Haghighi - Open Science Laboratory ([Github](https://github.com/sepandhaghighi))
+- Sadra Sabouri - Open Science Laboratory ([Github](https://github.com/sadrasabouri))
 
-# Other Contributors #
+# Other Contributors
 ----------
-- [ivanovmg](https://github.com/ivanovmg)
-- Ahmad Salimi - Sharif University of Technology ([@ahmadsalimi](https://github.com/ahmadsalimi)) ([ahsa9978@gmail.com](mailto:ahsa9978@gmail.com))
+- [@ivanovmg](https://github.com/ivanovmg)
+- [@ahmadsalimi](https://github.com/ahmadsalimi)
