@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `_update_using_first_menu` function changed to `_update_using_menu`
 - `_update_using_second_menu` function changed to `_update_with_engine_params`
 - `ITEM_CONVERTORS` renamed to `ITEM_HANDLERS`
+- Website changed to [https://www.pyrgg.site](https://www.pyrgg.site)
 ### Removed
 - `dimacs_init` function
 ## [1.4] - 2023-07-06
