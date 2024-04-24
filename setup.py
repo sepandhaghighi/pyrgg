@@ -44,7 +44,7 @@ setup(
     long_description=read_description(),
     long_description_content_type='text/markdown',
     author='PyRGG Development Team',
-    author_email='info@pyrgg.ir',
+    author_email='info@pyrgg.site',
     url='https://github.com/sepandhaghighi/pyrgg',
     download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.4',
     keywords='random graph python3 python generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',

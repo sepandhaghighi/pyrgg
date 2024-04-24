@@ -463,7 +463,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
-or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
+or send an email to [info@pyrgg.site](mailto:info@pyrgg.site "info@pyrgg.site"). 
 
 You can also join our discord server			
 
