@@ -516,5 +516,5 @@ Give a ⭐️ if this project helped you!
 
 If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .			
 
-<a href="http://www.pyrgg.site/donate.html" target="_blank"><img src="https://github.com/sepandhaghighi/pyrgg/raw/minor_edits/otherfile/donate-button.png" height="90px" width="270px" alt="PyRGG Donation"></a>
+<a href="http://www.pyrgg.site/donate.html" target="_blank"><img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/donate-button.png" height="90px" width="270px" alt="PyRGG Donation"></a>
 
