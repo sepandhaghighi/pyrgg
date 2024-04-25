@@ -1,43 +1,13 @@
 <div align="center">
 	<img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/logo.png" width="450">
 	<h1>PyRGG: Python Random Graph Generator</h1>
-	<a href="http://www.shaghighi.ir/pyrgg">
-		<img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website">
-	</a>
-	<a href="https://badge.fury.io/py/pyrgg">
-		<img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18">
-	</a>
-	<a href="https://anaconda.org/sepandhaghighi/pyrgg">
-		<img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg">
-	</a>
-	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg">
-  		<img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov">
-	</a>
-	<a href="https://www.python.org/">
-		<img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3">
-	</a>
-	<a href="https://discord.gg/dfYAWVMaCW">
-  		<img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel">
-	</a>
-</div>	
-
-## Table of Contents					
-   * [Overview](https://github.com/sepandhaghighi/pyrgg#overview)
-   * [Installation](https://github.com/sepandhaghighi/pyrgg#installation)
-   * [Usage](https://github.com/sepandhaghighi/pyrgg#usage)
-   * [Supported Formats](https://github.com/sepandhaghighi/pyrgg#supported-formats)
-   * [Example of Usage](https://github.com/sepandhaghighi/pyrgg#example-of-usage)
-   * [Similar Works](https://github.com/sepandhaghighi/pyrgg#similar-works)
-   * [Issues & Bug Reports](https://github.com/sepandhaghighi/pyrgg#issues--bug-reports)
-   * [Contribution](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CONTRIBUTING.md)
-   * [References](https://github.com/sepandhaghighi/pyrgg#references)
-   * [Citing](https://github.com/sepandhaghighi/pyrgg#citing)
-   * [Authors](https://github.com/sepandhaghighi/pyrgg/blob/master/AUTHORS.md)
-   * [License](https://github.com/sepandhaghighi/pyrgg/blob/master/LICENSE)
-   * [Show Your Support](https://github.com/sepandhaghighi/pyrgg#show-your-support)
-   * [Todo](https://github.com/sepandhaghighi/pyrgg/blob/master/TODO.md)
-   * [Changelog](https://github.com/sepandhaghighi/pyrgg/blob/master/CHANGELOG.md)
-   * [Code of Conduct](https://github.com/sepandhaghighi/pyrgg/blob/master/.github/CODE_OF_CONDUCT.md)			
+	<a href="https://www.pyrgg.site"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
+	<a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
+	<a href="https://anaconda.org/sepandhaghighi/pyrgg"><img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg"></a>
+	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg"><img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov"></a>
+	<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
+	<a href="https://discord.gg/dfYAWVMaCW"><img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel"></a>
+</div>			
 				
 ## Overview	
 
@@ -463,7 +433,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
-or send an email to [info@pyrgg.ir](mailto:info@pyrgg.ir "info@pyrgg.ir"). 
+or send an email to [info@pyrgg.site](mailto:info@pyrgg.site "info@pyrgg.site"). 
 
 You can also join our discord server			
 
@@ -544,30 +514,7 @@ Give a ⭐️ if this project helped you!
 
 <h3>Donate to Our Project</h3>	
 
-<h4>Bitcoin</h4>
-1KtNLEEeUbTEK9PdN6Ya3ZAKXaqoKUuxCy
-<h4>Ethereum</h4>
-0xcD4Db18B6664A9662123D4307B074aE968535388
-<h4>Litecoin</h4>
-Ldnz5gMcEeV8BAdsyf8FstWDC6uyYR6pgZ
-<h4>Doge</h4>
-DDUnKpFQbBqLpFVZ9DfuVysBdr249HxVDh
-<h4>Tron</h4>
-TCZxzPZLcJHr2qR3uPUB1tXB6L3FDSSAx7
-<h4>Ripple</h4>
-rN7ZuRG7HDGHR5nof8nu5LrsbmSB61V1qq
-<h4>Binance Coin</h4>
-bnb1zglwcf0ac3d0s2f6ck5kgwvcru4tlctt4p5qef
-<h4>Tether</h4>
-0xcD4Db18B6664A9662123D4307B074aE968535388
-<h4>Dash</h4>
-Xd3Yn2qZJ7VE8nbKw2fS98aLxR5M6WUU3s
-<h4>Stellar</h4>		
-GALPOLPISRHIYHLQER2TLJRGUSZH52RYDK6C3HIU4PSMNAV65Q36EGNL
-<h4>Zilliqa</h4>
-zil1knmz8zj88cf0exr2ry7nav9elehxfcgqu3c5e5
-<h4>Coffeete</h4>
-<a href="http://www.coffeete.ir/opensource">
-<img src="http://www.coffeete.ir/images/buttons/lemonchiffon.png" style="width:260px;" />
-</a>
+If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .			
+
+<a href="http://www.pyrgg.site/donate.html" target="_blank"><img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/donate-button.png" height="90px" width="270px" alt="PyRGG Donation"></a>
 
