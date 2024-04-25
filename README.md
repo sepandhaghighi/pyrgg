@@ -506,13 +506,13 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 * Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
  
-## Show your support
+## Show Your Support
 								
-<h3>Star this repo</h3>					
+<h3>Star This Repo</h3>					
 
 Give a ⭐️ if this project helped you!
 
-<h3>Donate to our project</h3>	
+<h3>Donate to Our Project</h3>	
 
 If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .			
 
