@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_pos_int` function
 - `handle_output_format` function
 - `handle_engine` function
+- `SECURITY.md`
 ### Changed
 - Bug report template modified
 - Cprofile tests separated in files for engines
