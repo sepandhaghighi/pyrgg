@@ -1,13 +1,13 @@
-# Security policy
+# Security Policy
 
-## Supported versions
+## Supported Versions
 
 | Version       | Supported          |
 | ------------- | ------------------ |
 | 1.4           | :white_check_mark: |
-| < 1.3         | :x:                |
+| < 1.4         | :x:                |
 
-## Reporting a vulnerability
+## Reporting a Vulnerability
 
 Please report security vulnerabilities by email to [info@pyrgg.site](mailto:info@pyrgg.site "info@pyrgg.site").
 
