@@ -1,6 +1,6 @@
 # PyRGG Release Instructions
 
-#### Last Update: 2024-05-03
+**Last Update: 2024-05-03**
 
 1. Create the `release` branch under `dev`
 2. Update all version tags
