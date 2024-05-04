@@ -68,6 +68,7 @@ ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 ERG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (>=0) : "],
     2: ["probability", "- Probability (0 <= p <= 1) : "],
+    3: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
 PYRGG_ENGINE_PARAMS = {
