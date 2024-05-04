@@ -9,13 +9,14 @@ Filename : {1}
 Probability : {2}
 Vertices : {3}
 Total Edges : {4}
-Engine : {5} ({6})
-Elapsed Time : {7}
+Directed : {5}
+Engine : {6} ({7})
+Elapsed Time : {8}
 -------------------------------
 """
 
 
-def edge_gen(n, p):
+def edge_gen(n, p, direct):
     """
     Generate each vertex connection number.
 
@@ -23,6 +24,8 @@ def edge_gen(n, p):
     :type n: int
     :param p: probability
     :type p: float
+    :param direct: directed graph flag
+    :type direct: bool
     :return: list of dicts
     """
     edge_dic = {}
@@ -31,7 +34,10 @@ def edge_gen(n, p):
     for i in range(1, n + 1):
         edge_dic[i] = []
         temp_list = []
-        for j in range(i + 1, n + 1):
+        dest_list = range(i + 1, n + 1)
+        if direct:
+            dest_list = [*range(1, i), *dest_list]
+        for j in dest_list:
             temp_list.append(1)
             if random() < p:
                 edge_dic[i].append(j)
@@ -59,7 +65,8 @@ def gen_using(
     """
     edge_dic, weight_dic, edge_number = edge_gen(
         input_dict['vertices'],
-        input_dict['probability'])
+        input_dict['probability'],
+        input_dict['direct'])
     gen_function(
         edge_dic,
         weight_dic,
@@ -71,7 +78,7 @@ def gen_using(
             "min_edge": edge_number,
             "max_edge": edge_number,
             "sign": False,
-            "direct": False,
+            "direct": input_dict['direct'],
             "self_loop": False,
             "multigraph": False,
             "edge_number": edge_number,
@@ -99,6 +106,7 @@ def logger(file, file_name, elapsed_time, input_dict):
                                           str(input_dict["probability"]),
                                           str(input_dict["vertices"]),
                                           str(input_dict["edge_number"]),
+                                          str(bool(input_dict["direct"])),
                                           input_dict["engine"],
                                           ENGINE_MENU[input_dict["engine"]],
                                           elapsed_time))
