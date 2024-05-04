@@ -13,5 +13,6 @@ erg_engine.gen_using(
     {
         'vertices':10000,
         'probability':0.5,
+        'direct':1,
     }
 )
