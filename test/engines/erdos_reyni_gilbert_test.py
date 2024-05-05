@@ -55,7 +55,7 @@ TypeError: edge_gen() missing 2 required positional arguments: 'p' and 'direct'
 >>> #########################################
 >>> #################### dimacs_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dimacs_maker, 'testfile', {'vertices':10, 'probability':0.1})
+>>> engine.gen_using(dimacs_maker, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
 5
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -72,6 +72,28 @@ a 1 5 1
 a 3 7 1
 a 3 8 1
 a 4 10 1
+<BLANKLINE>
+>>> random.seed(4)
+>>> engine.gen_using(dimacs_maker, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
+8
+>>> file=open('testfile2.gr','r')
+>>> print(file.read())
+c FILE                  :testfile2.gr
+c No. of vertices       :10
+c No. of edges          :8
+c Max. weight           :1
+c Min. weight           :1
+c Min. edge             :8
+c Max. edge             :8
+p sp 10 8
+a 1 6 1
+a 3 9 1
+a 4 6 1
+a 6 3 1
+a 6 4 1
+a 8 4 1
+a 9 3 1
+a 9 10 1
 <BLANKLINE>
 >>> #################### json_maker ####################
 >>> random.seed(2)
