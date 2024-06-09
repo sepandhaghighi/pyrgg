@@ -15,11 +15,11 @@ requirements:
     host:
         - pip
         - setuptools
-        - python >=3.5
+        - python >=3.6
     run:
         - art >=0.7
         - pyyaml >=3.12
-        - python >=3.5
+        - python >=3.6
 about:
     home: https://github.com/sepandhaghighi/pyrgg
     license: MIT
