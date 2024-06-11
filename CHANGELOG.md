@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `handle_engine` function
 - `SECURITY.md`
 ### Changed
+- `Python 3.5` support dropped
 - Bug report template modified
 - Cprofile tests separated in files for engines
 - `README.md` modified
