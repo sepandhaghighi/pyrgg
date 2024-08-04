@@ -574,6 +574,10 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 
 <blockquote>13- Ellson, John, et al. "Graphviz and dynagraph—static and dynamic graph drawing tools." Graph drawing software. Springer, Berlin, Heidelberg, 2004. 127-148.</blockquote>
 
+<blockquote>14- Gilbert, Edgar N. "Random graphs." The Annals of Mathematical Statistics 30.4 (1959): 1141-1144.</blockquote>
+
+<blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
+
 
 * Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
