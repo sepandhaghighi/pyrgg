@@ -94,6 +94,78 @@ Note that it may run on lower end equipment though good performance is not guara
 
 </div>
 
+## Engines
+
+### PyRGG
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Min Edge Number</td>
+		<td align="center">The minimum number of edges connected to each vertex</td>
+	</tr>
+	<tr>
+		<td align="center">Max Edge Number</td>
+		<td align="center">The maximum number of edges connected to each vertex</td>
+	</tr>
+	<tr>
+		<td align="center">Unweighted / Weighted</td>
+		<td align="center">Specifies whether the graph is unweighted or weighted</td>
+	</tr>
+	<tr>
+		<td align="center">Min Weight</td>
+		<td align="center">The minimum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Max Weight</td>
+		<td align="center">The maximum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Unsigned / Signed</td>
+		<td align="center">Specifies whether the edge weights are unsigned or signed</td>
+	</tr>
+	<tr>
+		<td align="center">Undirected / Directed</td>
+		<td align="center">Specifies whether the graph is undirected or directed</td>
+	</tr>
+	<tr>
+		<td align="center">No Self Loop / Self Loop</td>
+		<td align="center">Specifies whether self-loops are not allowed or allowed</td>
+	</tr>
+	<tr>
+		<td align="center">Simple / Multigraph</td>
+		<td align="center">Specifies whether the graph is a simple graph or a multigraph</td>
+	</tr>
+</table>
+
+### Erdős–Rényi-Gilbert
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Probability</td>
+		<td align="center">The probability for edge creation between any two vertices</td>
+	</tr>
+	<tr>
+		<td align="center">Undirected / Directed</td>
+		<td align="center">Specifies whether the graph is undirected or directed</td>
+	</tr>
+</table>
+
 
 ## Supported Formats 			
 
