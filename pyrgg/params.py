@@ -10,7 +10,7 @@ MENU_ITEMS = {
         """\
         - Select generation engine :
         1- Pyrgg engine
-        2- Erdős-Rényi-Gilbert - G(n, p)
+        2- Erdos-Renyi-Gilbert - G(n, p)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
