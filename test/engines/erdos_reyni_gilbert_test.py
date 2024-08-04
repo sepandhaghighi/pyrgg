@@ -220,13 +220,13 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> engine.gen_using(mtx_maker, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
 5
 >>> g = mmread("testfile.mtx")
->>> print(list(g.data))
+>>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0]
 >>> random.seed(4)
 >>> engine.gen_using(mtx_maker, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
 8
 >>> g = mmread("testfile2.mtx")
->>> print(list(g.data))
+>>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 >>> #################### tsv_maker ####################
 >>> random.seed(2)
