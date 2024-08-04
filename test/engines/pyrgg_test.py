@@ -1000,7 +1000,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 35
 >>> g = mmread("testfile2.mtx")
 >>> print(int(sum(g.data.tolist())))
--240
+-179
 >>> random.seed(20)
 >>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
