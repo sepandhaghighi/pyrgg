@@ -137,7 +137,7 @@ Note that it may run on lower end equipment though good performance is not guara
 	</tr>
 	<tr>
 		<td align="center">Self Loop / No Self Loop</td>
-		<td align="center">Specifies whether self-loops are not allowed or allowed</td>
+		<td align="center">Specifies whether self-loop is allowed or not</td>
 	</tr>
 	<tr>
 		<td align="center">Simple / Multigraph</td>
