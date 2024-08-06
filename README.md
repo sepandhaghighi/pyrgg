@@ -116,8 +116,8 @@ Note that it may run on lower end equipment though good performance is not guara
 		<td align="center">The maximum number of edges connected to each vertex</td>
 	</tr>
 	<tr>
-		<td align="center">Unweighted / Weighted</td>
-		<td align="center">Specifies whether the graph is unweighted or weighted</td>
+		<td align="center">Weighted / Unweighted</td>
+		<td align="center">Specifies whether the graph is weighted or unweighted</td>
 	</tr>
 	<tr>
 		<td align="center">Min Weight</td>
@@ -128,15 +128,15 @@ Note that it may run on lower end equipment though good performance is not guara
 		<td align="center">The maximum weight of the edges (if weighted)</td>
 	</tr>
 	<tr>
-		<td align="center">Unsigned / Signed</td>
-		<td align="center">Specifies whether the edge weights are unsigned or signed</td>
+		<td align="center">Signed / Unsigned</td>
+		<td align="center">Specifies whether the edge weights are signed or unsigned</td>
 	</tr>
 	<tr>
-		<td align="center">Undirected / Directed</td>
-		<td align="center">Specifies whether the graph is undirected or directed</td>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
 	</tr>
 	<tr>
-		<td align="center">No Self Loop / Self Loop</td>
+		<td align="center">Self Loop / No Self Loop</td>
 		<td align="center">Specifies whether self-loops are not allowed or allowed</td>
 	</tr>
 	<tr>
@@ -161,8 +161,8 @@ Note that it may run on lower end equipment though good performance is not guara
 		<td align="center">The probability for edge creation between any two vertices</td>
 	</tr>
 	<tr>
-		<td align="center">Undirected / Directed</td>
-		<td align="center">Specifies whether the graph is undirected or directed</td>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
 	</tr>
 </table>
 
