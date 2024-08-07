@@ -94,6 +94,78 @@ Note that it may run on lower end equipment though good performance is not guara
 
 </div>
 
+## Engines
+
+### PyRGG
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Min Edge Number</td>
+		<td align="center">The minimum number of edges connected to each vertex</td>
+	</tr>
+	<tr>
+		<td align="center">Max Edge Number</td>
+		<td align="center">The maximum number of edges connected to each vertex</td>
+	</tr>
+	<tr>
+		<td align="center">Weighted / Unweighted</td>
+		<td align="center">Specifies whether the graph is weighted or unweighted</td>
+	</tr>
+	<tr>
+		<td align="center">Min Weight</td>
+		<td align="center">The minimum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Max Weight</td>
+		<td align="center">The maximum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Signed / Unsigned</td>
+		<td align="center">Specifies whether the edge weights are signed or unsigned</td>
+	</tr>
+	<tr>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
+	</tr>
+	<tr>
+		<td align="center">Self Loop / No Self Loop</td>
+		<td align="center">Specifies whether self-loop is allowed or not</td>
+	</tr>
+	<tr>
+		<td align="center">Simple / Multigraph</td>
+		<td align="center">Specifies whether the graph is a simple graph or a multigraph</td>
+	</tr>
+</table>
+
+### Erdős–Rényi-Gilbert
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Probability</td>
+		<td align="center">The probability for edge creation between any two vertices</td>
+	</tr>
+	<tr>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
+	</tr>
+</table>
+
 
 ## Supported Formats 			
 
@@ -501,6 +573,10 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>12- Zhong, Jianlong, and Bingsheng He. "An overview of medusa: simplified graph processing on gpus." ACM SIGPLAN Notices 47.8 (2012): 283-284.</blockquote>
 
 <blockquote>13- Ellson, John, et al. "Graphviz and dynagraph—static and dynamic graph drawing tools." Graph drawing software. Springer, Berlin, Heidelberg, 2004. 127-148.</blockquote>
+
+<blockquote>14- Gilbert, Edgar N. "Random graphs." The Annals of Mathematical Statistics 30.4 (1959): 1141-1144.</blockquote>
+
+<blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
 
 
 * Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
