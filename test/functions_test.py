@@ -201,7 +201,7 @@ True
 >>> load_config("test123456789")
 [Error] Failed to load config file!
 >>> loaded_config = check_for_config(input_func_conf_test1)
-Config files detected in current directory are listed below:
+Config files detected in current directory are listed below :
 [1] - ...
 >>> loaded_config["vertices"] == input_data_["vertices"]
 True
