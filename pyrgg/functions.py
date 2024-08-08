@@ -103,9 +103,10 @@ def handle_pos_int(input_number):
     :type input_number: float or int or str
     :return: result as int
     """
-    if int(input_number) < 0:
+    val = int(input_number)
+    if val < 0:
         raise ValueError
-    return int(input_number)
+    return val
 
 
 def handle_str_to_number(string):
