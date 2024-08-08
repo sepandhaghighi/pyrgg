@@ -353,8 +353,7 @@ def _update_using_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS = sorted(pyrgg.params.MENU_ITEMS)
-    for index in MENU_ITEMS_KEYS:
+    for index in sorted(pyrgg.params.MENU_ITEMS):
         item1, item2 = pyrgg.params.MENU_ITEMS[index]
         while True:
             try:
