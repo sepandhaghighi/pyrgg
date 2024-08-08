@@ -158,7 +158,7 @@ def handle_output_format(string):
     :return: output format index as int
     """
     output_format = handle_pos_int(string)
-    if output_format not in pyrgg.params.SUFFIX_MENU.keys():
+    if output_format not in pyrgg.params.SUFFIX_MENU:
         raise ValueError
     return output_format
 
@@ -172,7 +172,7 @@ def handle_engine(string):
     :return: engine index as int
     """
     engine = handle_pos_int(string)
-    if engine not in pyrgg.params.ENGINE_MENU.keys():
+    if engine not in pyrgg.params.ENGINE_MENU:
         raise ValueError
     return engine
 
@@ -265,7 +265,7 @@ def time_convert(input_time):
     value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
     value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
     value_dict["m"], value_dict["s"] = divmod(value_dict["s"], 60)
-    for i in postfix_dict.keys():
+    for i in postfix_dict:
         if value_dict[i] != 1:
             postfix_dict[i] += "s"
     return ", ".join([
@@ -353,7 +353,7 @@ def _update_using_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS = sorted(list(pyrgg.params.MENU_ITEMS.keys()))
+    MENU_ITEMS_KEYS = sorted(pyrgg.params.MENU_ITEMS)
     for index in MENU_ITEMS_KEYS:
         item1, item2 = pyrgg.params.MENU_ITEMS[index]
         while True:
@@ -380,7 +380,7 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     :type engine_params: dict
     :return: result_dict as dict
     """
-    ENGINE_PARAMS = sorted(list(engine_params.keys()))
+    ENGINE_PARAMS = sorted(engine_params)
     for index in ENGINE_PARAMS:
         item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
