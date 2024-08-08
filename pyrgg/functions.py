@@ -379,8 +379,7 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     :type engine_params: dict
     :return: result_dict as dict
     """
-    ENGINE_PARAMS = sorted(engine_params)
-    for index in ENGINE_PARAMS:
+    for index in sorted(engine_params):
         item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
             continue
