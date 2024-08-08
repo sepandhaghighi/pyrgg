@@ -482,11 +482,10 @@ def _print_select_config(configs, input_func=input):
     """
     if len(configs) == 0:
         return None
-    print("Config files detected in current directory are listed below:")
+    print(pyrgg.params.PYRGG_CONFIG_LIST_MESSAGE)
     for i, config in enumerate(configs):
         print("[{}] - {}".format(i + 1, config))
-    key = input_func(
-        "Press the config index to load or any other keys to start with new one : ")
+    key = input_func(pyrgg.params.PYRGG_CONFIG_LOAD_MESSAGE)
     try:
         return load_config(configs[int(key) - 1])
     except BaseException:
