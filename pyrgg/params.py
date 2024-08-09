@@ -135,7 +135,7 @@ PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
 
 PYRGG_CONFIG_LIST_MESSAGE = "Config files detected in the current directory are listed below:"
 
-PYRGG_CONFIG_LOAD_MESSAGE = "Press the config index to load or any other keys to start with new one :"
+PYRGG_CONFIG_LOAD_MESSAGE = "Press the config index to load or any other keys to start with the new one:"
 
 DIMACS_FIX = dedent(
     """\
