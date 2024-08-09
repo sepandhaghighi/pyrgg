@@ -38,8 +38,8 @@ def get_precision(input_number):
     """
     try:
         number_str = str(input_number)
-        _, decimalpart = number_str.split(".")
-        return len(decimalpart)
+        _, decimal_part = number_str.split(".")
+        return len(decimal_part)
     except Exception:
         return 0
 
@@ -75,11 +75,11 @@ def is_float(input_number):
     :return: result as bool
     """
     try:
-        _, decimalpart = divmod(float(input_number), 1)
+        _, decimal_part = divmod(float(input_number), 1)
     except TypeError:
         return False
     else:
-        return True if decimalpart else False
+        return True if decimal_part else False
 
 
 def handle_string(string):
@@ -103,9 +103,10 @@ def handle_pos_int(input_number):
     :type input_number: float or int or str
     :return: result as int
     """
-    if int(input_number) < 0:
+    val = int(input_number)
+    if val < 0:
         raise ValueError
-    return int(input_number)
+    return val
 
 
 def handle_str_to_number(string):
@@ -158,7 +159,7 @@ def handle_output_format(string):
     :return: output format index as int
     """
     output_format = handle_pos_int(string)
-    if output_format not in pyrgg.params.SUFFIX_MENU.keys():
+    if output_format not in pyrgg.params.SUFFIX_MENU:
         raise ValueError
     return output_format
 
@@ -172,7 +173,7 @@ def handle_engine(string):
     :return: engine index as int
     """
     engine = handle_pos_int(string)
-    if engine not in pyrgg.params.ENGINE_MENU.keys():
+    if engine not in pyrgg.params.ENGINE_MENU:
         raise ValueError
     return engine
 
@@ -265,7 +266,7 @@ def time_convert(input_time):
     value_dict["d"], value_dict["s"] = divmod(value_dict["s"], 24 * 3600)
     value_dict["h"], value_dict["s"] = divmod(value_dict["s"], 3600)
     value_dict["m"], value_dict["s"] = divmod(value_dict["s"], 60)
-    for i in postfix_dict.keys():
+    for i in postfix_dict:
         if value_dict[i] != 1:
             postfix_dict[i] += "s"
     return ", ".join([
@@ -353,8 +354,7 @@ def _update_using_menu(result_dict, input_func):
     :type input_func: function object
     :return: result_dict as dict
     """
-    MENU_ITEMS_KEYS = sorted(list(pyrgg.params.MENU_ITEMS.keys()))
-    for index in MENU_ITEMS_KEYS:
+    for index in sorted(pyrgg.params.MENU_ITEMS):
         item1, item2 = pyrgg.params.MENU_ITEMS[index]
         while True:
             try:
@@ -380,8 +380,7 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     :type engine_params: dict
     :return: result_dict as dict
     """
-    ENGINE_PARAMS = sorted(list(engine_params.keys()))
-    for index in ENGINE_PARAMS:
+    for index in sorted(engine_params):
         item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
             continue
@@ -483,11 +482,10 @@ def _print_select_config(configs, input_func=input):
     """
     if len(configs) == 0:
         return None
-    print("Config files detected in current directory are listed below:")
+    print(pyrgg.params.PYRGG_CONFIG_LIST_MESSAGE)
     for i, config in enumerate(configs):
         print("[{}] - {}".format(i + 1, config))
-    key = input_func(
-        "Press the config index to load or any other keys to start with new one : ")
+    key = input_func(pyrgg.params.PYRGG_CONFIG_LOAD_MESSAGE)
     try:
         return load_config(configs[int(key) - 1])
     except BaseException:
