@@ -380,7 +380,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ### Matrix Market
 
 ```
-	%%MatrixMarket matrix coordinate real general
+    %%MatrixMarket matrix coordinate real general
     <number of vertices>  <number of vertices>  <number of edges>
     <head_1>    <tail_1>    <weight_1> 
     .
@@ -408,7 +408,7 @@ Note that it may run on lower end equipment though good performance is not guara
 ### GDF
 
 ```
-	nodedef>name VARCHAR,label VARCHAR
+    nodedef>name VARCHAR,label VARCHAR
     node_1,node_1_label
     node_2,node_2_label
     .
@@ -430,50 +430,50 @@ Note that it may run on lower end equipment though good performance is not guara
 ### GML
 
 ```
-       graph
-	   [
-         multigraph 0
-         directed  0
-         node
-         [
-          id 1
-          label "Node 1"
-         ]
-         node
-         [
-          id 2
-          label "Node 2"
-         ]
-         .
-         .
-         .
-         node
-         [
-          id n
-          label "Node n"
-         ]
-         edge
-         [
-          source 1
-          target 2
-          value W1
-         ]
-         edge
-         [
-          source 2
-          target 4
-          value W2
-         ]
-         .
-         .
-         .
-         edge
-         [
-          source n
-          target r
-          value Wn
-         ]
-       ]
+    graph
+	[
+      multigraph 0
+      directed  0
+      node
+      [
+       id 1
+       label "Node 1"
+      ]
+      node
+      [
+       id 2
+       label "Node 2"
+      ]
+      .
+      .
+      .
+      node
+      [
+       id n
+       label "Node n"
+      ]
+      edge
+      [
+       source 1
+       target 2
+       value W1
+      ]
+      edge
+      [
+       source 2
+       target 4
+       value W2
+      ]
+      .
+      .
+      .
+      edge
+      [
+       source n
+       target r
+       value Wn
+      ]
+    ]
 
 ```
 
@@ -484,24 +484,24 @@ Note that it may run on lower end equipment though good performance is not guara
 ### GEXF
 
 ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
-            <meta lastmodifieddate="2009-03-20">
-                <creator>PyRGG</creator>
-                <description>File Name</description>
-            </meta>
-            <graph defaultedgetype="directed">
-                <nodes>
-                    <node id="1" label="Node 1" />
-                    <node id="2" label="Node 2" />
-                    ...
-                </nodes>
-                <edges>
-                    <edge id="1" source="1" target="2" weight="400" />
-                    ...
-                </edges>
-            </graph>
-        </gexf>
+     <?xml version="1.0" encoding="UTF-8"?>
+     <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+         <meta lastmodifieddate="2009-03-20">
+             <creator>PyRGG</creator>
+             <description>File Name</description>
+         </meta>
+         <graph defaultedgetype="directed">
+             <nodes>
+                 <node id="1" label="Node 1" />
+                 <node id="2" label="Node 2" />
+                 ...
+             </nodes>
+             <edges>
+                 <edge id="1" source="1" target="2" weight="400" />
+                 ...
+             </edges>
+         </graph>
+     </gexf>
 ```
 
 * [Document](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
@@ -511,15 +511,15 @@ Note that it may run on lower end equipment though good performance is not guara
 ### Graphviz
 
 ```
-		graph example 
-			{
-			node1 -- node2 [weight=W1];
-			node3 -- node4 [weight=W2];
-			node1 -- node3 [weight=W3];
-			.
-			.
-			.
-			}
+	graph example 
+		{
+		node1 -- node2 [weight=W1];
+		node3 -- node4 [weight=W2];
+		node1 -- node3 [weight=W3];
+		.
+		.
+		.
+		}
 ```
 
 * [Document](https://graphviz.org/doc/info/lang.html)
@@ -529,7 +529,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ### Pickle
 
-	⚠️ Binary Format
+⚠️ Binary Format
 
 * [Document](https://docs.python.org/3.5/library/pickle.html)
 * [Sample 1](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 12KB)
