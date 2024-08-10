@@ -84,7 +84,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 
 ## Usage
-- Open `CMD` (Windows) or `Terminal` (UNIX)
+- Open `CMD` (Windows) or `Terminal` (Linux)
 - Run `pyrgg` or `python -m pyrgg` (or run `PYRGG.exe`)
 - Enter data		
 
