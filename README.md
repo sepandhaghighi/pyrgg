@@ -528,7 +528,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ### Pickle
 
-⚠️ Binary Format
+⚠️ Binary format
 
 * [Document](https://docs.python.org/3.10/library/pickle.html)
 * [Sample 1](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 12KB)
