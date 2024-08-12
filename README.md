@@ -430,7 +430,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ```
     graph
-	[
+    [
       multigraph 0
       directed  0
       node
