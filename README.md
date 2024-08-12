@@ -272,35 +272,34 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ### YAML
 ```
-	graph:
-  		edges:
-		- source: head_1
-    	  target: tail_1
-    	  weight: weight_1
-		
-		.
-		.
-		.
+ 	graph:
+ 		edges:
+ 		- source: head_1
+ 	  	target: tail_1
+ 	  	weight: weight_1
+ 	
+ 		.
+ 		.
+ 		.
 
-		- source: head_n
-    	  target: tail_n
-    	  weight: weight_n
-						
-		nodes:
-  		- id: 1
-  
-  		.
-		.
-		.
+ 		- source: head_n
+ 	  	target: tail_n
+ 	  	weight: weight_n
+ 					
+ 		nodes:
+ 		- id: 1
 
-		- id: n
-	properties:
-  		directed: true
-  		multigraph: true
-  		self_loop: true
-  		signed: true
-  		weighted: true
+ 		.
+ 		.
+ 		.
 
+ 		- id: n
+ 	properties:
+ 		directed: true
+ 		multigraph: true
+ 		self_loop: true
+ 		signed: true
+ 		weighted: true
 ```
 
 * [Document](https://en.wikipedia.org/wiki/YAML)
