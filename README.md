@@ -84,7 +84,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 
 ## Usage
-- Open `CMD` (Windows) or `Terminal` (UNIX)
+- Open `CMD` (Windows) or `Terminal` (Linux)
 - Run `pyrgg` or `python -m pyrgg` (or run `PYRGG.exe`)
 - Enter data		
 
@@ -169,322 +169,370 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ## Supported Formats 			
 
-- [DIMACS(.gr)](http://www.diag.uniroma1.it/challenge9/format.shtml)
-	```
-		p sp <number of vertices> <number of edges>
-		a <head_1> <tail_1> <weight_1>
+### DIMACS
 
-		.
-		.
-		.
+```
+	p sp <number of vertices> <number of edges>
+	a <head_1> <tail_1> <weight_1>
+
+	.
+	.
+	.
 		
-		a <head_n> <tail_n> <weight_n>
-	```
-	* [Sample 1](https://www.dropbox.com/s/i80tnwuuv4iyqet/100.gr.gz?dl=0) (100 Vertices , 3KB)
-	* [Sample 2](https://www.dropbox.com/s/lqk42pwu7o4xauv/1000.gr.gz?dl=0) (1000 Vertices , 13KB)
-	* [Sample 3](https://www.dropbox.com/s/93dp8cjs6lnu83u/1000000.gr.gz?dl=0) (1000000 Vertices , 7MB)
-	* [Sample 4](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
-- [CSV(.csv)](https://en.wikipedia.org/wiki/Comma-separated_values)
-	```
-		<head_1>,<tail_1>,<weight_1>
+	a <head_n> <tail_n> <weight_n>
+```
 
-		.
-		.
-		.
+* [Document](http://www.diag.uniroma1.it/challenge9/format.shtml)
+* [Sample 1](https://www.dropbox.com/s/i80tnwuuv4iyqet/100.gr.gz?dl=0) (100 Vertices , 3KB)
+* [Sample 2](https://www.dropbox.com/s/lqk42pwu7o4xauv/1000.gr.gz?dl=0) (1000 Vertices , 13KB)
+* [Sample 3](https://www.dropbox.com/s/93dp8cjs6lnu83u/1000000.gr.gz?dl=0) (1000000 Vertices , 7MB)
+* [Sample 4](https://www.dropbox.com/s/rrxdc4wt0ldonfk/5000000.gr.gz?dl=0) (5000000 Vertices , 37MB)
+
+### CSV
+
+```
+	<head_1>,<tail_1>,<weight_1>
+
+	.
+	.
+	.
 		
-		<head_n>,<tail_n>,<weight_n>
-	```
-	* [Sample 1](https://www.dropbox.com/s/dmld0eadftnatr5/100.csv?dl=0) (100 Vertices , 3KB)
-	* [Sample 2](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
+	<head_n>,<tail_n>,<weight_n>
+```
 
-- [TSV(.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values)
-	```
-		<head_1>	<tail_1>	<weight_1>
+* [Document](https://en.wikipedia.org/wiki/Comma-separated_values)
+* [Sample 1](https://www.dropbox.com/s/dmld0eadftnatr5/100.csv?dl=0) (100 Vertices , 3KB)
+* [Sample 2](https://www.dropbox.com/s/juxah4nwamzdegr/1000.csv?dl=0) (1000 Vertices , 51KB)
 
-		.
-		.
-		.
+### TSV
+
+```
+	<head_1>	<tail_1>	<weight_1>
+
+	.
+	.
+	.
 		
-		<head_n>	<tail_n>	<weight_n>
-	```
-	* [Sample 1](https://www.dropbox.com/s/j3zgs4kx2paxe75/100.tsv?dl=0) (100 Vertices , 29KB)
-	* [Sample 2](https://www.dropbox.com/s/ykagmjgwlpim6dq/1000.tsv?dl=0) (1000 Vertices , 420KB)
+	<head_n>	<tail_n>	<weight_n>
+```
 
-- [JSON(.json)](https://en.wikipedia.org/wiki/JSON)
+* [Document](https://en.wikipedia.org/wiki/Tab-separated_values)
+* [Sample 1](https://www.dropbox.com/s/j3zgs4kx2paxe75/100.tsv?dl=0) (100 Vertices , 29KB)
+* [Sample 2](https://www.dropbox.com/s/ykagmjgwlpim6dq/1000.tsv?dl=0) (1000 Vertices , 420KB)
 
-	```
-	{
-		"properties": {
-			"directed": true,
-			"signed": true,
-			"multigraph": true,
-			"weighted": true,
-			"self_loop": true
+### JSON
+
+```
+{
+	"properties": {
+		"directed": true,
+		"signed": true,
+		"multigraph": true,
+		"weighted": true,
+		"self_loop": true
+	},
+	"graph": {
+		"nodes":[
+		{
+			"id": 1
 		},
-		"graph": {
-			"nodes":[
-			{
-				"id": 1
-			},
 
-			.
-			.
-			.
+		.
+		.
+		.
 
-			{
-				"id": n
-			}
-			],
-			"edges":[
-			{
-				"source": head_1,
-				"target": tail_1,
-				"weight": weight_1
-			},
-
-			.
-			.
-			.
-
-			{
-				"source": head_n,
-				"target": tail_n,
-				"weight": weight_n
-			}
-			]
+		{
+			"id": n
 		}
+		],
+		"edges":[
+		{
+			"source": head_1,
+			"target": tail_1,
+			"weight": weight_1
+		},
+
+		.
+		.
+		.
+
+		{
+			"source": head_n,
+			"target": tail_n,
+			"weight": weight_n
+		}
+		]
 	}
-	```
-	* [Sample 1](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 26KB)
-	* [Sample 2](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 494KB)
-- [YAML(.yaml)](https://en.wikipedia.org/wiki/YAML)
-	```
-		graph:
-  			edges:
-			- source: head_1
-    	  	target: tail_1
-    	  	weight: weight_1
+}
+```
+
+* [Document](https://en.wikipedia.org/wiki/JSON)
+* [Sample 1](https://www.dropbox.com/s/yvevoyb8559nytb/100.json?dl=0) (100 Vertices , 26KB)
+* [Sample 2](https://www.dropbox.com/s/f6kljlch7p2rfhy/1000.json?dl=0) (1000 Vertices , 494KB)
+
+### YAML
+```
+ 	graph:
+ 		edges:
+ 		- source: head_1
+ 	  	target: tail_1
+ 	  	weight: weight_1
+ 	
+ 		.
+ 		.
+ 		.
+
+ 		- source: head_n
+ 	  	target: tail_n
+ 	  	weight: weight_n
+ 					
+ 		nodes:
+ 		- id: 1
+
+ 		.
+ 		.
+ 		.
+
+ 		- id: n
+ 	properties:
+ 		directed: true
+ 		multigraph: true
+ 		self_loop: true
+ 		signed: true
+ 		weighted: true
+```
+
+* [Document](https://en.wikipedia.org/wiki/YAML)
+* [Sample 1](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 6KB)
+* [Sample 2](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 35KB)
+
+### Weighted Edge List	
+```
+	<head_1> <tail_1> <weight_1>
 		
-			.
-			.
-			.
-
-			- source: head_n
-    	  	target: tail_n
-    	  	weight: weight_n
-						
-			nodes:
-  			- id: 1
-  
-  			.
-			.
-			.
-
-			- id: n
-		properties:
-  			directed: true
-  			multigraph: true
-  			self_loop: true
-  			signed: true
-  			weighted: true
-
-	```
-	* [Sample 1](https://www.dropbox.com/s/9seljohtoqjzjzy/30.yaml?dl=0) (30 Vertices , 6KB)
-	* [Sample 2](https://www.dropbox.com/s/wtfh38rgmn29npi/100.yaml?dl=0) (100 Vertices , 35KB)
-- [Weighted Edge List(.wel)](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)	
-	```
-		<head_1> <tail_1> <weight_1>
+	.
+	.
+	.
 		
-		.
-		.
-		.
-		
-		<head_n> <tail_n> <weight_n>	
-	```
-	* [Sample 1](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
-	* [Sample 2](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
-- [ASP(.lp)](https://www.mat.unical.it/aspcomp2013/MaximalClique)
-	```
-		node(1).
-		.
-		.
-		.
-		node(n).
-		edge(head_1,tail_1,weight_1).
-		.
-		.
-		.
-		edge(head_n,tail_n,weight_n).
-	```
-	* [Sample 1](https://www.dropbox.com/s/4bufa1m4uamv48z/100.lp?dl=0) (100 Vertices , 7KB)
-	* [Sample 2](https://www.dropbox.com/s/w79fh1qva64namw/1000.lp?dl=0) (1000 Vertices , 76KB)
-- [Trivial Graph Format(.tgf)](https://en.wikipedia.org/wiki/Trivial_Graph_Format)
-	```
-		1
-		.
-		.
-		.
-		n
-		#
-		1 2 weight_1
-		.
-		.
-		.
-		n k weight_n
-	```
-	* [Sample 1](https://www.dropbox.com/s/tehb6f3gz2o5v9c/100.tgf?dl=0) (100 Vertices , 4KB)
-	* [Sample 2](https://www.dropbox.com/s/9mjeq4w973189cc/1000.tgf?dl=0) (1000 Vertices , 61KB)
-- [UCINET DL Format(.dl)](https://sites.google.com/site/ucinetsoftware/home)
-	```
-		dl
-		format=edgelist1
-		n=<number of vertices>
-		data:
-		1 2 weight_1
-		.
-		.
-		.
-		n k weight_n	
-	```
-	* [Sample 1](https://www.dropbox.com/s/82wrl86uowwjud2/100.dl?dl=0) (100 Vertices , 8KB)
-	* [Sample 2](https://www.dropbox.com/s/kbzbsy47uvfqdsi/1000.dl?dl=0) (1000 Vertices , 729KB)
-- [Matrix Market(.mtx)](https://math.nist.gov/MatrixMarket/formats.html)
-   ```
-	   %%MatrixMarket matrix coordinate real general
-       <number of vertices>  <number of vertices>  <number of edges>
-       <head_1>    <tail_1>    <weight_1> 
-       .
-       .
-       .
-       <head_n>    <tail_n>    <weight_n> 
-   ```
-	* [Sample 1](https://www.dropbox.com/s/ztw3vg0roups82q/100.mtx?dl=0) (100 Vertices , 59KB)
-	* [Sample 2](https://www.dropbox.com/s/skjjvbbzrpvryl4/1000.mtx?dl=0) (1000 Vertices , 1.8MB)
-- Graph Line(.gl)
-	```
-	   <head_1> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
-	   <head_2> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
-	   .
-	   .
-	   .
-	   <head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
-	```
-	* [Sample 1](https://www.dropbox.com/s/obmmb5nw1lca9z3/100.gl?dl=0) (100 Vertices , 17KB)
-	* [Sample 2](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
+	<head_n> <tail_n> <weight_n>	
+```
 
-- GDF(.gdf)
-	```
-	   nodedef>name VARCHAR,label VARCHAR
-       node_1,node_1_label
-       node_2,node_2_label
-       .
-       .
-       .
-       node_n,node_n_label
-       edgedef>node1 VARCHAR,node2 VARCHAR, weight DOUBLE
-       node_1,node_2,weight_1
-       node_1,node_3,weight_2
-       .
-       .
-       .
-       node_n,node_2,weight_n 
-	```
-	* [Sample 1](https://www.dropbox.com/s/7dqox0f8e1f859s/100.gdf?dl=0) (100 Vertices , 21KB)
-	* [Sample 2](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
+* [Document](http://www.cs.cmu.edu/~pbbs/benchmarks/graphIO.html)
+* [Sample 1](https://www.dropbox.com/s/moie1xb2wj90y33/100.wel?dl=0) (100 Vertices , 5KB)
+* [Sample 2](https://www.dropbox.com/s/h6pohl60okhdnt7/1000.wel?dl=0) (1000 Vertices , 192KB)
 
-- [GML(.gml)](https://en.wikipedia.org/wiki/Graph_Modelling_Language)
-	```
-       graph
-	   [
-         multigraph 0
-         directed  0
-         node
-         [
-          id 1
-          label "Node 1"
-         ]
-         node
-         [
-          id 2
-          label "Node 2"
-         ]
-         .
-         .
-         .
-         node
-         [
-          id n
-          label "Node n"
-         ]
-         edge
-         [
-          source 1
-          target 2
-          value W1
-         ]
-         edge
-         [
-          source 2
-          target 4
-          value W2
-         ]
-         .
-         .
-         .
-         edge
-         [
-          source n
-          target r
-          value Wn
-         ]
-       ]
-	```
-	* [Sample 1](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
-	* [Sample 2](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
+### ASP
 
-- [GEXF(.gexf)](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
-    ```
-        <?xml version="1.0" encoding="UTF-8"?>
-        <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
-            <meta lastmodifieddate="2009-03-20">
-                <creator>PyRGG</creator>
-                <description>File Name</description>
-            </meta>
-            <graph defaultedgetype="directed">
-                <nodes>
-                    <node id="1" label="Node 1" />
-                    <node id="2" label="Node 2" />
-                    ...
-                </nodes>
-                <edges>
-                    <edge id="1" source="1" target="2" weight="400" />
-                    ...
-                </edges>
-            </graph>
-        </gexf>
-    ```
-	* [Sample 1](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
-	* [Sample 2](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
+```
+	node(1).
+	.
+	.
+	.
+	node(n).
+	edge(head_1,tail_1,weight_1).
+	.
+	.
+	.
+	edge(head_n,tail_n,weight_n).
+```
 
-- [Graphviz(.gv)](https://graphviz.org/doc/info/lang.html)
-    ```
-		graph example 
-			{
-			node1 -- node2 [weight=W1];
-			node3 -- node4 [weight=W2];
-			node1 -- node3 [weight=W3];
-			.
-			.
-			.
-			}
-    ```
-	* [Sample 1](https://www.dropbox.com/s/ukev1hi4kguomri/100.gv?dl=0) (100 Vertices , 11KB)
-	* [Sample 2](https://www.dropbox.com/s/vpvvliz96mdea1p/1000.gv?dl=0) (1000 Vertices , 106KB)
-	* [Online Visualization](https://dreampuf.github.io/GraphvizOnline/)
+* [Document](https://www.mat.unical.it/aspcomp2013/MaximalClique)
+* [Sample 1](https://www.dropbox.com/s/4bufa1m4uamv48z/100.lp?dl=0) (100 Vertices , 7KB)
+* [Sample 2](https://www.dropbox.com/s/w79fh1qva64namw/1000.lp?dl=0) (1000 Vertices , 76KB)
 
-- [Pickle(.p)](https://docs.python.org/3.5/library/pickle.html) (Binary Format)	
-	* [Sample 1](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 12KB)
- 	* [Sample 2](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 340KB)		
+### Trivial Graph Format
+
+```
+	1
+	.
+	.
+	.
+	n
+	#
+	1 2 weight_1
+	.
+	.
+	.
+	n k weight_n
+```
+* [Document](https://en.wikipedia.org/wiki/Trivial_Graph_Format)
+* [Sample 1](https://www.dropbox.com/s/tehb6f3gz2o5v9c/100.tgf?dl=0) (100 Vertices , 4KB)
+* [Sample 2](https://www.dropbox.com/s/9mjeq4w973189cc/1000.tgf?dl=0) (1000 Vertices , 61KB)
+
+### UCINET DL Format
+
+```
+	dl
+	format=edgelist1
+	n=<number of vertices>
+	data:
+	1 2 weight_1
+	.
+	.
+	.
+	n k weight_n	
+```
+* [Document](https://sites.google.com/site/ucinetsoftware/home)
+* [Sample 1](https://www.dropbox.com/s/82wrl86uowwjud2/100.dl?dl=0) (100 Vertices , 8KB)
+* [Sample 2](https://www.dropbox.com/s/kbzbsy47uvfqdsi/1000.dl?dl=0) (1000 Vertices , 729KB)
+
+### Matrix Market
+
+```
+    %%MatrixMarket matrix coordinate real general
+    <number of vertices>  <number of vertices>  <number of edges>
+    <head_1>    <tail_1>    <weight_1> 
+    .
+    .
+    .
+    <head_n>    <tail_n>    <weight_n> 
+```
+* [Document](https://math.nist.gov/MatrixMarket/formats.html)
+* [Sample 1](https://www.dropbox.com/s/ztw3vg0roups82q/100.mtx?dl=0) (100 Vertices , 59KB)
+* [Sample 2](https://www.dropbox.com/s/skjjvbbzrpvryl4/1000.mtx?dl=0) (1000 Vertices , 1.8MB)
+
+### Graph Line
+```
+	<head_1> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	<head_2> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+	.
+	.
+	.
+	<head_n> <tail_1>:<weight_1> <tail_2>:<weight_2>  ... <tail_n>:<weight_n>
+```
+
+* [Sample 1](https://www.dropbox.com/s/obmmb5nw1lca9z3/100.gl?dl=0) (100 Vertices , 17KB)
+* [Sample 2](https://www.dropbox.com/s/intufsbudnmfv8m/1000.gl?dl=0) (1000 Vertices , 2.4MB)
+
+### GDF
+
+```
+    nodedef>name VARCHAR,label VARCHAR
+    node_1,node_1_label
+    node_2,node_2_label
+    .
+    .
+    .
+    node_n,node_n_label
+    edgedef>node1 VARCHAR,node2 VARCHAR, weight DOUBLE
+    node_1,node_2,weight_1
+    node_1,node_3,weight_2
+    .
+    .
+    .
+    node_n,node_2,weight_n 
+```
+
+* [Sample 1](https://www.dropbox.com/s/7dqox0f8e1f859s/100.gdf?dl=0) (100 Vertices , 21KB)
+* [Sample 2](https://www.dropbox.com/s/xabjzpp0p5sr4b9/1000.gdf?dl=0) (1000 Vertices , 690KB)
+
+### GML
+
+```
+    graph
+    [
+      multigraph 0
+      directed  0
+      node
+      [
+       id 1
+       label "Node 1"
+      ]
+      node
+      [
+       id 2
+       label "Node 2"
+      ]
+      .
+      .
+      .
+      node
+      [
+       id n
+       label "Node n"
+      ]
+      edge
+      [
+       source 1
+       target 2
+       value W1
+      ]
+      edge
+      [
+       source 2
+       target 4
+       value W2
+      ]
+      .
+      .
+      .
+      edge
+      [
+       source n
+       target r
+       value Wn
+      ]
+    ]
+
+```
+
+* [Document](https://en.wikipedia.org/wiki/Graph_Modelling_Language)
+* [Sample 1](https://www.dropbox.com/s/g9uvywn1fwt9aq7/100.gml?dl=0) (100 Vertices , 120KB)
+* [Sample 2](https://www.dropbox.com/s/5gt5udezy56mlz9/1000.gml?dl=0) (1000 Vertices , 2.4MB)
+
+### GEXF
+
+```
+     <?xml version="1.0" encoding="UTF-8"?>
+     <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+         <meta lastmodifieddate="2009-03-20">
+             <creator>PyRGG</creator>
+             <description>File Name</description>
+         </meta>
+         <graph defaultedgetype="directed">
+             <nodes>
+                 <node id="1" label="Node 1" />
+                 <node id="2" label="Node 2" />
+                 ...
+             </nodes>
+             <edges>
+                 <edge id="1" source="1" target="2" weight="400" />
+                 ...
+             </edges>
+         </graph>
+     </gexf>
+```
+
+* [Document](https://github.com/gephi/gexf/wiki/Basic-Concepts#network-topology)
+* [Sample 1](https://www.dropbox.com/s/kgx8xl9j0dpk4us/100.gexf?dl=0) (100 Vertices , 63KB)
+* [Sample 2](https://www.dropbox.com/s/7a380kf35buvusr/1000.gexf?dl=0) (1000 Vertices , 6.4MB)
+
+### Graphviz
+
+```
+	graph example 
+		{
+		node1 -- node2 [weight=W1];
+		node3 -- node4 [weight=W2];
+		node1 -- node3 [weight=W3];
+		.
+		.
+		.
+		}
+```
+
+* [Document](https://graphviz.org/doc/info/lang.html)
+* [Sample 1](https://www.dropbox.com/s/ukev1hi4kguomri/100.gv?dl=0) (100 Vertices , 11KB)
+* [Sample 2](https://www.dropbox.com/s/vpvvliz96mdea1p/1000.gv?dl=0) (1000 Vertices , 106KB)
+* [Online Visualization](https://dreampuf.github.io/GraphvizOnline/)
+
+### Pickle
+
+⚠️ Binary format
+
+* [Document](https://docs.python.org/3.10/library/pickle.html)
+* [Sample 1](https://www.dropbox.com/s/4s8zt9i13z39gts/100.p?dl=0) (100 Vertices , 12KB)
+* [Sample 2](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 340KB)
 
 
 ## Example of Usage
