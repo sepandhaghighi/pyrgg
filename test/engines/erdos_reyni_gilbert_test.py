@@ -64,8 +64,6 @@ c No. of vertices       :10
 c No. of edges          :5
 c Max. weight           :1
 c Min. weight           :1
-c Min. edge             :5
-c Max. edge             :5
 p sp 10 5
 a 1 4 1
 a 1 5 1
@@ -83,8 +81,6 @@ c No. of vertices       :10
 c No. of edges          :8
 c Max. weight           :1
 c Min. weight           :1
-c Min. edge             :8
-c Max. edge             :8
 p sp 10 8
 a 1 6 1
 a 3 9 1
