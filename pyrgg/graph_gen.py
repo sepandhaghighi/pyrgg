@@ -31,9 +31,7 @@ def dimacs_maker(
                 str(mdata['vertices_number']),
                 str(mdata['edge_number']),
                 str(mdata['max_weight']),
-                str(mdata['min_weight']),
-                str(mdata['min_edge']),
-                str(mdata['max_edge'])))
+                str(mdata['min_weight'])))
         _write_separated_file(
             buf, edge_dic, weight_dic, separator=' ', prefix='a',
         )

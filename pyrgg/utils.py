@@ -28,28 +28,6 @@ def get_max_weight(weight_dic):
     pass
 
 
-def get_min_edge(edge_dic):
-    """
-    Get minimum edge value.
-
-    :param edge_dic: edge dictionary
-    :type edge_dic: dict
-    :return: minimum edge value
-    """
-    pass
-
-
-def get_max_edge(edge_dic):
-    """
-    Get maximum edge value.
-
-    :param edge_dic: edge dictionary
-    :type edge_dic: dict
-    :return: maximum edge value
-    """
-    pass
-
-
 def is_signed(weight_dic):
     """
     Check if the graph is signed.
