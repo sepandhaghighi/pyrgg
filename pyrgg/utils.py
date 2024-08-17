@@ -12,7 +12,7 @@ def get_min_weight(weight_dic):
     :type weighted: bool
     :return: minimum weight value
     """
-    pass
+    return min([min([abs(w) for w in weights]) for weights in weight_dic.values()])
 
 
 def get_max_weight(weight_dic):
@@ -25,7 +25,7 @@ def get_max_weight(weight_dic):
     :type weighted: bool
     :return: maximum weight value
     """
-    pass
+    return max([max([abs(w) for w in weights]) for weights in weight_dic.values()])
 
 
 def is_signed(weight_dic):
@@ -36,7 +36,7 @@ def is_signed(weight_dic):
     :type weight_dic: dict
     :return: signed flag
     """
-    pass
+    return any([any([w < 0 for w in weights]) for weights in weight_dic.values()])
 
 
 def has_self_loop(edge_dic):
@@ -47,7 +47,7 @@ def has_self_loop(edge_dic):
     :type edge_dic: dict
     :return: self looped flag
     """
-    pass
+    return any([v in edges for v, edges in edge_dic.items()])
 
 
 def is_multigraph(edge_dic):
@@ -58,4 +58,4 @@ def is_multigraph(edge_dic):
     :type edge_dic: dict
     :return: multigraph flag
     """
-    pass
+    return any([len(set(edges)) != len(edges) for edges in edge_dic.values()])
