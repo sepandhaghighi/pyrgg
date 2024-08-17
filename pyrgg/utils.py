@@ -12,7 +12,7 @@ def get_min_weight(weight_dic):
     :type weighted: bool
     :return: minimum weight value
     """
-    return min([min([abs(w) for w in weights]) for weights in weight_dic.values()])
+    return min([abs(w) for weights in weight_dic.values() for w in weights])
 
 
 def get_max_weight(weight_dic):
@@ -25,7 +25,7 @@ def get_max_weight(weight_dic):
     :type weighted: bool
     :return: maximum weight value
     """
-    return max([max([abs(w) for w in weights]) for weights in weight_dic.values()])
+    return max([abs(w) for weights in weight_dic.values() for w in weights])
 
 
 def is_signed(weight_dic):
