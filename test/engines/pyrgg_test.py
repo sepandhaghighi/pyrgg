@@ -1492,7 +1492,7 @@ data:
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
-<class 'networkx.classes.multidigraph.MultiDiGraph'>
+<class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(20)
 >>> engine.gen_using(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
 35
