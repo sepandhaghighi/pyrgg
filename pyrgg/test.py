@@ -121,10 +121,8 @@ TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct',
 c FILE                  :testfile.gr
 c No. of vertices       :10
 c No. of edges          :7
-c Max. weight           :200
-c Min. weight           :0
-c Min. edge             :0
-c Max. edge             :2
+c Max. weight           :148
+c Min. weight           :7
 p sp 10 7
 a 4 3 -64
 a 5 6 148
@@ -143,9 +141,7 @@ c FILE                  :testfile2.gr
 c No. of vertices       :30
 c No. of edges          :35
 c Max. weight           :50
-c Min. weight           :0
-c Min. edge             :0
-c Max. edge             :4
+c Min. weight           :2
 p sp 30 35
 a 1 10 46
 a 2 18 5
@@ -193,8 +189,6 @@ c No. of vertices       :100
 c No. of edges          :137
 c Max. weight           :30
 c Min. weight           :10
-c Min. edge             :0
-c Max. edge             :4
 p sp 100 137
 a 1 34 30
 a 3 76 15
