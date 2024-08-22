@@ -55,12 +55,8 @@ def json_maker(
     with open(mdata['file_name'] + ".json", "w") as buf:
         _write_properties_to_json(
             buf,
-            mdata['min_weight'],
-            mdata['max_weight'],
-            mdata['sign'],
-            mdata['direct'],
-            mdata['self_loop'],
-            mdata['multigraph'])
+            mdata['weighted'],
+            mdata['direct'])
         _write_data_to_json(
             buf,
             edge_dic,
@@ -88,12 +84,8 @@ def _write_data_to_json(buf, edge_dic, weight_dic):
 
 def _write_properties_to_json(
         buf,
-        min_weight,
-        max_weight,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
+        weighted,
+        direct):
     """
     Write properties to json buffer.
 
@@ -103,6 +95,8 @@ def _write_properties_to_json(
     :type min_weight: int
     :param max_weight: weight max range
     :type max_weight: int
+    :param weighted: weighted graph flag
+    :type weighted: bool
     :param sign: weight sign flag
     :type sign: bool
     :param direct: directed and undirected graph flag
@@ -115,11 +109,7 @@ def _write_properties_to_json(
     """
     buf.write('{\n\t"properties": {\n')
     buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
-    buf.write('\t\t"signed": ' + str(sign).lower() + ",\n")
-    buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
-    buf.write('\t\t"weighted": ' +
-              str(is_weighted(max_weight, min_weight, sign)).lower() + ",\n")
-    buf.write('\t\t"self_loop": ' + str(self_loop).lower() + "\n\t},")
+    buf.write('\t\t"weighted": ' + str(weighted).lower() + ",\n")
 
 
 def _write_nodes_to_json(buf, edge_dic):

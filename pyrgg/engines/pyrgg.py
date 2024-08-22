@@ -5,8 +5,7 @@ import os
 from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import is_weighted, get_precision, threshold_calc
-from pyrgg.utils import get_min_weight, get_max_weight
-from pyrgg.utils import is_signed, has_self_loop, is_multigraph
+from pyrgg.functions import get_min_max_weight
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
@@ -233,18 +232,18 @@ def gen_using(
         input_dict['direct'],
         input_dict['self_loop'],
         input_dict['multigraph'])
+    min_weight, max_weight = get_min_max_weight(weight_dic)
+    weighted = is_weighted(max_weight, min_weight, bool(input_dict['sign']))
     gen_function(
         edge_dic,
         weight_dic,
         {
             "file_name": file_name,
-            "min_weight": get_min_weight(weight_dic),
-            "max_weight": get_max_weight(weight_dic),
+            "min_weight": min_weight,
+            "max_weight": max_weight,
+            "weighted": weighted,
             "vertices_number": input_dict['vertices'],
-            "sign": is_signed(weight_dic),
             "direct": input_dict['direct'],
-            "self_loop": has_self_loop(edge_dic),
-            "multigraph": is_multigraph(edge_dic),
             "edge_number": edge_number,
         })
     return edge_number

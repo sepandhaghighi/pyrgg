@@ -28,6 +28,53 @@ def is_weighted(max_weight, min_weight, signed):
     return True
 
 
+def get_min_max_weight(weight_dic):
+    """
+    Get minimum and maximum weight values.
+
+    :param edge_dic: edge dictionary
+    :type edge_dic: dict
+    :param weighted: weighted flag
+    :type weighted: bool
+    :return: minimum and maximum weight values
+    """
+    all_weights = [abs(w) for weights in weight_dic.values() for w in weights]
+    return min(all_weights), max(all_weights)
+
+
+def is_signed(weight_dic): # pragma: no cover
+    """
+    Check if the graph is signed.
+
+    :param weight_dic: weight dictionary
+    :type weight_dic: dict
+    :return: signed flag
+    """
+    return any([any([w < 0 for w in weights]) for weights in weight_dic.values()])
+
+
+def has_self_loop(edge_dic): # pragma: no cover
+    """
+    Check if the graph has self loops.
+    
+    :param edge_dic: edge dictionary
+    :type edge_dic: dict
+    :return: self looped flag
+    """
+    return any([v in edges for v, edges in edge_dic.items()])
+
+
+def is_multigraph(edge_dic): # pragma: no cover
+    """
+    Check if the graph is a multigraph.
+
+    :param edge_dic: edge dictionary
+    :type edge_dic: dict
+    :return: multigraph flag
+    """
+    return any([len(set(edges)) != len(edges) for edges in edge_dic.values()])
+
+
 def get_precision(input_number):
     """
     Return precision of input number.
