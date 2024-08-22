@@ -109,7 +109,8 @@ def _write_properties_to_json(
     """
     buf.write('{\n\t"properties": {\n')
     buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
-    buf.write('\t\t"weighted": ' + str(weighted).lower() + ",\n")
+    buf.write('\t\t"weighted": ' + str(weighted).lower() + "\n")
+    buf.write("},\n")
 
 
 def _write_nodes_to_json(buf, edge_dic):
@@ -425,8 +426,7 @@ def gml_maker(
     :type mdata: dict
     :return: None
     """
-    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(
-        int(mdata['multigraph']), int(mdata['direct']))
+    header = 'graph\n[\n  directed  {0}\n'.format(int(mdata['direct']))
 
     with open(mdata['file_name'] + ".gml", "w") as buf:
         buf.write(header)
