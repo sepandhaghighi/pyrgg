@@ -77,6 +77,7 @@ def gen_using(
             "min_weight": 1,
             "min_edge": edge_number,
             "max_edge": edge_number,
+            "weighted": False,
             "sign": False,
             "direct": input_dict['direct'],
             "self_loop": False,
