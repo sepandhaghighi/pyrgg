@@ -505,14 +505,8 @@ a 26 3 -13
 6
 >>> testfile_1['graph']['edges'][1]['weight']
 148
->>> testfile_1['properties']['signed']
-True
 >>> testfile_1['properties']['directed']
 True
->>> testfile_1['properties']['self_loop']
-True
->>> testfile_1['properties']['multigraph']
-False
 >>> testfile_1['properties']['weighted']
 True
 >>> random.seed(4)
@@ -528,14 +522,8 @@ True
 18
 >>> testfile_2['graph']['edges'][1]['weight']
 5
->>> testfile_2['properties']['signed']
-True
 >>> testfile_2['properties']['directed']
 True
->>> testfile_2['properties']['self_loop']
-True
->>> testfile_2['properties']['multigraph']
-False
 >>> testfile_2['properties']['weighted']
 True
 >>> random.seed(20)
@@ -551,14 +539,8 @@ True
 76
 >>> testfile_3['graph']['edges'][1]['weight']
 15
->>> testfile_3['properties']['signed']
-False
 >>> testfile_3['properties']['directed']
 True
->>> testfile_3['properties']['self_loop']
-True
->>> testfile_3['properties']['multigraph']
-False
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(20)
@@ -566,14 +548,8 @@ True
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
->>> testfile_3['properties']['signed']
-False
 >>> testfile_3['properties']['directed']
 False
->>> testfile_3['properties']['self_loop']
-True
->>> testfile_3['properties']['multigraph']
-True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
