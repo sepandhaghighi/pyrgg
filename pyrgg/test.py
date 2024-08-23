@@ -444,6 +444,7 @@ TypeError: json_maker() missing 1 required positional argument: 'mdata'
 >>> print(file.read())
 graph
 [
+  multigraph 0
   directed  1
   node
   [
