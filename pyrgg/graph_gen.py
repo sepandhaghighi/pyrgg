@@ -56,7 +56,8 @@ def json_maker(
         _write_properties_to_json(
             buf,
             mdata['weighted'],
-            mdata['direct'])
+            mdata['direct'],
+            mdata['multigraph'],)
         _write_data_to_json(
             buf,
             edge_dic,
@@ -85,31 +86,25 @@ def _write_data_to_json(buf, edge_dic, weight_dic):
 def _write_properties_to_json(
         buf,
         weighted,
-        direct):
+        direct,
+        multigraph):
     """
     Write properties to json buffer.
 
     :param buf: output file object
     :type buf: file_object
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
     :param weighted: weighted graph flag
     :type weighted: bool
-    :param sign: weight sign flag
-    :type sign: bool
     :param direct: directed and undirected graph flag
     :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
     :param multigraph: multigraph flag
     :type multigraph: bool
     :return: None
     """
     buf.write('{\n\t"properties": {\n')
-    buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
-    buf.write('\t\t"weighted": ' + str(weighted).lower() + "\n")
+    buf.write('\t\t"weighted": ' + str(weighted).lower() + ",\n")
+    buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
+    buf.write('\t\t"directed": ' + str(direct).lower() + "\n")
     buf.write("},\n")
 
 
@@ -426,7 +421,8 @@ def gml_maker(
     :type mdata: dict
     :return: None
     """
-    header = 'graph\n[\n  directed  {0}\n'.format(int(mdata['direct']))
+    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(
+        int(mdata['multigraph']), int(mdata['direct']))
 
     with open(mdata['file_name'] + ".gml", "w") as buf:
         buf.write(header)

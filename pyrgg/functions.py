@@ -64,7 +64,7 @@ def has_self_loop(edge_dic): # pragma: no cover
     return any([v in edges for v, edges in edge_dic.items()])
 
 
-def is_multigraph(edge_dic): # pragma: no cover
+def is_multigraph(edge_dic):
     """
     Check if the graph is a multigraph.
 
