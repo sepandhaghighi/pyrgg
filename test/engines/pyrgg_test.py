@@ -507,6 +507,8 @@ a 26 3 -13
 148
 >>> testfile_1['properties']['directed']
 True
+>>> testfile_1['properties']['multigraph']
+False
 >>> testfile_1['properties']['weighted']
 True
 >>> random.seed(4)
@@ -522,6 +524,8 @@ True
 18
 >>> testfile_2['graph']['edges'][1]['weight']
 5
+>>> testfile_2['properties']['multigraph']
+False
 >>> testfile_2['properties']['directed']
 True
 >>> testfile_2['properties']['weighted']
@@ -541,6 +545,8 @@ True
 15
 >>> testfile_3['properties']['directed']
 True
+>>> testfile_3['properties']['multigraph']
+False
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(20)
@@ -550,6 +556,8 @@ True
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['directed']
 False
+>>> testfile_3['properties']['multigraph']
+True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
