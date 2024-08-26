@@ -61,7 +61,7 @@ True
 5
 >>> testfile_2_yaml['properties']['directed']
 True
->>> testfile_1_yaml['properties']['multigraph']
+>>> testfile_2_yaml['properties']['multigraph']
 False
 >>> testfile_2_yaml['properties']['weighted']
 True
