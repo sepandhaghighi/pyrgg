@@ -27,6 +27,8 @@ TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
 148
 >>> testfile_1_yaml['properties']['directed']
 True
+>>> testfile_1_yaml['properties']['multigraph']
+False
 >>> testfile_1_yaml['properties']['weighted']
 True
 >>> json_to_pickle('testfile')
@@ -39,6 +41,8 @@ True
 148
 >>> testfile_1_p['properties']['directed']
 True
+>>> testfile_1_p['properties']['multigraph']
+False
 >>> testfile_1_p['properties']['weighted']
 True
 >>> random.seed(4)
@@ -57,6 +61,8 @@ True
 5
 >>> testfile_2_yaml['properties']['directed']
 True
+>>> testfile_1_yaml['properties']['multigraph']
+False
 >>> testfile_2_yaml['properties']['weighted']
 True
 >>> json_to_pickle('testfile2')
@@ -69,6 +75,8 @@ True
 5
 >>> testfile_2_p['properties']['directed']
 True
+>>> testfile_2_p['properties']['multigraph']
+False
 >>> testfile_2_p['properties']['weighted']
 True
 >>> random.seed(20)
@@ -87,6 +95,8 @@ True
 15
 >>> testfile_3_yaml['properties']['directed']
 True
+>>> testfile_3_yaml['properties']['multigraph']
+False
 >>> testfile_3_yaml['properties']['weighted']
 True
 >>> json_to_yaml('testfile24')
@@ -107,6 +117,8 @@ TypeError: json_maker() missing 1 required positional argument: 'mdata'
 15
 >>> testfile_3_p['properties']['directed']
 True
+>>> testfile_3_p['properties']['multigraph']
+False
 >>> testfile_3_p['properties']['weighted']
 True
 >>> gl_maker({})
