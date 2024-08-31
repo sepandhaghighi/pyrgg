@@ -32,10 +32,8 @@ def get_min_max_weight(weight_dic):
     """
     Get minimum and maximum weight values.
 
-    :param edge_dic: edge dictionary
-    :type edge_dic: dict
-    :param weighted: weighted flag
-    :type weighted: bool
+    :param weight_dic: weight dictionary
+    :type weight_dic: dict
     :return: minimum and maximum weight values
     """
     all_weights = [abs(w) for weights in weight_dic.values() for w in weights]
