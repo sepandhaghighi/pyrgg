@@ -73,15 +73,12 @@ def gen_using(
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],
+            "edge_number": edge_number,
+            "weighted": False,
             "max_weight": 1,
             "min_weight": 1,
-            "min_edge": edge_number,
-            "max_edge": edge_number,
-            "sign": False,
             "direct": input_dict['direct'],
-            "self_loop": False,
             "multigraph": False,
-            "edge_number": edge_number,
         })
     return edge_number
 

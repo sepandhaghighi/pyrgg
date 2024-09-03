@@ -93,10 +93,8 @@ TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct',
 c FILE                  :testfile.gr
 c No. of vertices       :10
 c No. of edges          :7
-c Max. weight           :200
-c Min. weight           :0
-c Min. edge             :0
-c Max. edge             :2
+c Max. weight           :148
+c Min. weight           :7
 p sp 10 7
 a 4 3 -64
 a 5 6 148
@@ -115,9 +113,7 @@ c FILE                  :testfile2.gr
 c No. of vertices       :30
 c No. of edges          :35
 c Max. weight           :50
-c Min. weight           :0
-c Min. edge             :0
-c Max. edge             :4
+c Min. weight           :2
 p sp 30 35
 a 1 10 46
 a 2 18 5
@@ -165,8 +161,6 @@ c No. of vertices       :100
 c No. of edges          :137
 c Max. weight           :30
 c Min. weight           :10
-c Min. edge             :0
-c Max. edge             :4
 p sp 100 137
 a 1 34 30
 a 3 76 15
@@ -316,8 +310,6 @@ c No. of vertices       :100
 c No. of edges          :131
 c Max. weight           :30
 c Min. weight           :10
-c Min. edge             :0
-c Max. edge             :4
 p sp 100 131
 a 1 34 30
 a 3 76 15
@@ -460,8 +452,6 @@ c No. of vertices       :30
 c No. of edges          :37
 c Max. weight           :50
 c Min. weight           :0
-c Min. edge             :0
-c Max. edge             :4
 p sp 30 37
 a 1 11 46
 a 2 19 5
@@ -515,11 +505,7 @@ a 26 3 -13
 6
 >>> testfile_1['graph']['edges'][1]['weight']
 148
->>> testfile_1['properties']['signed']
-True
 >>> testfile_1['properties']['directed']
-True
->>> testfile_1['properties']['self_loop']
 True
 >>> testfile_1['properties']['multigraph']
 False
@@ -538,14 +524,10 @@ True
 18
 >>> testfile_2['graph']['edges'][1]['weight']
 5
->>> testfile_2['properties']['signed']
-True
->>> testfile_2['properties']['directed']
-True
->>> testfile_2['properties']['self_loop']
-True
 >>> testfile_2['properties']['multigraph']
 False
+>>> testfile_2['properties']['directed']
+True
 >>> testfile_2['properties']['weighted']
 True
 >>> random.seed(20)
@@ -561,11 +543,7 @@ True
 76
 >>> testfile_3['graph']['edges'][1]['weight']
 15
->>> testfile_3['properties']['signed']
-False
 >>> testfile_3['properties']['directed']
-True
->>> testfile_3['properties']['self_loop']
 True
 >>> testfile_3['properties']['multigraph']
 False
@@ -576,12 +554,8 @@ True
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
->>> testfile_3['properties']['signed']
-False
 >>> testfile_3['properties']['directed']
 False
->>> testfile_3['properties']['self_loop']
-True
 >>> testfile_3['properties']['multigraph']
 True
 >>> testfile_3['properties']['weighted']
@@ -1502,7 +1476,7 @@ data:
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
-<class 'networkx.classes.multidigraph.MultiDiGraph'>
+<class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(20)
 >>> engine.gen_using(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
 35

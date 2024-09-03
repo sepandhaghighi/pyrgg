@@ -31,9 +31,7 @@ def dimacs_maker(
                 str(mdata['vertices_number']),
                 str(mdata['edge_number']),
                 str(mdata['max_weight']),
-                str(mdata['min_weight']),
-                str(mdata['min_edge']),
-                str(mdata['max_edge'])))
+                str(mdata['min_weight'])))
         _write_separated_file(
             buf, edge_dic, weight_dic, separator=' ', prefix='a',
         )
@@ -57,12 +55,9 @@ def json_maker(
     with open(mdata['file_name'] + ".json", "w") as buf:
         _write_properties_to_json(
             buf,
-            mdata['min_weight'],
-            mdata['max_weight'],
-            mdata['sign'],
+            mdata['weighted'],
             mdata['direct'],
-            mdata['self_loop'],
-            mdata['multigraph'])
+            mdata['multigraph'],)
         _write_data_to_json(
             buf,
             edge_dic,
@@ -90,38 +85,27 @@ def _write_data_to_json(buf, edge_dic, weight_dic):
 
 def _write_properties_to_json(
         buf,
-        min_weight,
-        max_weight,
-        sign,
+        weighted,
         direct,
-        self_loop,
         multigraph):
     """
     Write properties to json buffer.
 
     :param buf: output file object
     :type buf: file_object
-    :param min_weight: weight min range
-    :type min_weight: int
-    :param max_weight: weight max range
-    :type max_weight: int
-    :param sign: weight sign flag
-    :type sign: bool
+    :param weighted: weighted graph flag
+    :type weighted: bool
     :param direct: directed and undirected graph flag
     :type direct: bool
-    :param self_loop: self loop flag
-    :type self_loop: bool
     :param multigraph: multigraph flag
     :type multigraph: bool
     :return: None
     """
     buf.write('{\n\t"properties": {\n')
-    buf.write('\t\t"directed": ' + str(direct).lower() + ",\n")
-    buf.write('\t\t"signed": ' + str(sign).lower() + ",\n")
+    buf.write('\t\t"weighted": ' + str(weighted).lower() + ",\n")
     buf.write('\t\t"multigraph": ' + str(multigraph).lower() + ",\n")
-    buf.write('\t\t"weighted": ' +
-              str(is_weighted(max_weight, min_weight, sign)).lower() + ",\n")
-    buf.write('\t\t"self_loop": ' + str(self_loop).lower() + "\n\t},")
+    buf.write('\t\t"directed": ' + str(direct).lower() + "\n")
+    buf.write("},\n")
 
 
 def _write_nodes_to_json(buf, edge_dic):
