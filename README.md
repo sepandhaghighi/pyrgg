@@ -60,10 +60,10 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 
 ### PyPI
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- `pip install pyrgg==1.4`						
+- `pip install pyrgg==1.5`						
 
 ### Source Code
-- Download [Version 1.4](https://github.com/sepandhaghighi/pyrgg/archive/v1.4.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
+- Download [Version 1.5](https://github.com/sepandhaghighi/pyrgg/archive/v1.5.zip) or [Latest Source ](https://github.com/sepandhaghighi/pyrgg/archive/dev.zip)
 - `pip install .`
 
 ### Conda
@@ -71,8 +71,8 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 - `conda install -c sepandhaghighi pyrgg`
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 1.4](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.4/PYRGG-1.4.exe)
-- Run `PYRGG-1.4.exe`
+- Download [Exe-Version 1.5](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.5/PYRGG-1.5.exe)
+- Run `PYRGG-1.5.exe`
 
 ### System Requirements
 Pyrgg will likely run on a modern dual core PC. Typical configuration is:
