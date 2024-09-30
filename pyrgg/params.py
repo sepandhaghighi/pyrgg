@@ -11,6 +11,7 @@ MENU_ITEMS = {
         - Select generation engine :
         1- Pyrgg engine
         2- Erdos-Renyi-Gilbert - G(n, p)
+        3- Erdos-Renyi - G(n, m)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -61,15 +62,10 @@ SUFFIX_MENU = {
 ENGINE_MENU = {
     1: "pyrgg",
     2: "erg",
+    3: "er",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
-
-ERG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
-    2: ["probability", "- Probability (0 <= p <= 1) : "],
-    3: ["direct", "- Undirected[0] or Directed[1]"],
-}
 
 PYRGG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (>=0) : "],
@@ -84,9 +80,22 @@ PYRGG_ENGINE_PARAMS = {
     10: ["multigraph", "- Simple[0] or Multigraph[1]"],
 }
 
+ERG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (>=0) : "],
+    2: ["probability", "- Probability (0 <= p <= 1) : "],
+    3: ["direct", "- Undirected[0] or Directed[1]"],
+}
+
+ER_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (>=0) : "],
+    2: ["edge_number", "- Edge Number (>=0) : "],
+    3: ["direct", "- Undirected[0] or Directed[1]"],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
+    3: ER_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
