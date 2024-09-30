@@ -38,8 +38,8 @@ def edge_gen(n, p, direct):
         if direct:
             dest_list = [*range(1, i), *dest_list]
         for j in dest_list:
-            temp_list.append(1)
             if random() < p:
+                temp_list.append(1)
                 edge_dic[i].append(j)
                 edge_number += 1
         weight_list.append(temp_list)
