@@ -11,8 +11,8 @@ erg_engine.gen_using(
     dimacs_maker,
     'profile',
     {
-        'vertices':10000,
-        'probability':0.5,
-        'direct':1,
+        'vertices': 10000,
+        'probability': 0.5,
+        'direct': 1,
     }
 )
