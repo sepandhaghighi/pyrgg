@@ -12,7 +12,7 @@
 >>> ## ========= logger function =========
 >>> ######################################
 >>> with open('logfile.log','a') as file:
-...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'direct':0,'engine':1,'probability':0.5,'output_format':1})
+...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'direct':0,'engine':2,'probability':0.5,'output_format':1})
 >>> file = open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
 Filename : test
@@ -20,7 +20,7 @@ Probability : 0.5
 Vertices : 100
 Total Edges : 50
 Directed : False
-Engine : 1 (pyrgg)
+Engine : 2 (erg)
 Elapsed Time : 2min
 >>> class StrError:
 ...     def __init__(self):
@@ -29,7 +29,7 @@ Elapsed Time : 2min
 ...         raise ValueError
 >>> str_error_object = StrError()
 >>> with open('logfile.log','a') as file:
-...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'direct':0,'engine':1,'probability':0.5,'output_format':1})
+...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'direct':0,'engine':2,'probability':0.5,'output_format':1})
 [Error] Logger failed!
 >>> ##########################################
 >>> ## ========= edge_gen function =========
