@@ -1,36 +1,41 @@
 # -*- coding: utf-8 -*-
-"""Erdős-Rényi-Gilbert Engine module."""
+"""Erdős-Rényi Engine module."""
 import datetime
-from random import random
+from random import shuffle
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 
 LOGGER_TEMPLATE = """{0}
 Filename : {1}
-Probability : {2}
-Vertices : {3}
-Total Edges : {4}
-Directed : {5}
-Engine : {6} ({7})
-Elapsed Time : {8}
+Vertices : {2}
+Total Edges : {3}
+Directed : {4}
+Engine : {5} ({6})
+Elapsed Time : {7}
 -------------------------------
 """
 
 
-def edge_gen(n, p, direct):
+def edge_gen(n, m, direct):
     """
     Generate each vertex connection number.
 
     :param n: number of vertices
     :type n: int
-    :param p: probability
-    :type p: float
+    :param m: number of edges
+    :type m: int
     :param direct: directed graph flag
     :type direct: bool
     :return: list of dicts
     """
     edge_dic = {}
-    edge_number = 0
     weight_list = []
+    edge_mold = []
+    max_edge = (n * (n - 1)) // 2
+    if direct:
+        max_edge *= 2
+    m = min(m, max_edge)
+    edge_mold = m * [1] + (max_edge - m) * [0]
+    shuffle(edge_mold)
     for i in range(1, n + 1):
         edge_dic[i] = []
         temp_list = []
@@ -38,12 +43,11 @@ def edge_gen(n, p, direct):
         if direct:
             dest_list = [*range(1, i), *dest_list]
         for j in dest_list:
-            if random() < p:
+            if edge_mold.pop() == 1:
                 temp_list.append(1)
                 edge_dic[i].append(j)
-                edge_number += 1
         weight_list.append(temp_list)
-    return [edge_dic, dict(zip(range(1, n + 1), weight_list)), edge_number]
+    return [edge_dic, dict(zip(range(1, n + 1), weight_list)), m]
 
 
 def gen_using(
@@ -51,7 +55,7 @@ def gen_using(
         file_name,
         input_dict):
     """
-    Generate graph using given function based on Erdos Renyi Gilbert - G(n, p) model.
+    Generate graph using given function based on Erdos Renyi - G(n, m) model.
 
     Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model).
 
@@ -65,7 +69,7 @@ def gen_using(
     """
     edge_dic, weight_dic, edge_number = edge_gen(
         input_dict['vertices'],
-        input_dict['probability'],
+        input_dict['edge_number'],
         input_dict['direct'])
     gen_function(
         edge_dic,
@@ -85,7 +89,7 @@ def gen_using(
 
 def logger(file, file_name, elapsed_time, input_dict):
     """
-    Save generated graph logs for Erdős-Rényi-Gilbert engine.
+    Save generated graph logs for Erdős-Rényi engine.
 
     :param file: file to write log into
     :type file: file object
@@ -100,7 +104,6 @@ def logger(file, file_name, elapsed_time, input_dict):
     try:
         file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                                           file_name,
-                                          str(input_dict["probability"]),
                                           str(input_dict["vertices"]),
                                           str(input_dict["edge_number"]),
                                           str(bool(input_dict["direct"])),

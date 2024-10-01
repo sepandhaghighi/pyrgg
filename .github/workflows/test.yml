@@ -60,3 +60,6 @@ jobs:
     - name: cProfile - Erdos Reyni Gilbert Engine
       run: |
           python -m cProfile -s cumtime otherfile/profiles/erg_profile.py
+    - name: cProfile - Erdos Reyni Engine
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/er_profile.py
