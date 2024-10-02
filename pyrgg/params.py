@@ -9,7 +9,7 @@ MENU_ITEMS = {
     1: ["engine", dedent(
         """\
         - Select generation engine :
-        1- PyRGG engine
+        1- PyRGG
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
         """
