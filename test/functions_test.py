@@ -10,7 +10,7 @@
 Webpage : https://www.pyrgg.site
 Repository : https://github.com/sepandhaghighi/pyrgg
 Paper : https://doi.org/10.21105/joss.00331
-* If you use Pyrgg in your research, please cite our paper
+* If you use PyRGG in your research, please cite our paper
 <BLANKLINE>
 ########################################
 <BLANKLINE>
