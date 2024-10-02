@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pyrgg graph generators module."""
+"""PyRGG graph generators module."""
 import random
 import datetime
 from pyrgg.params import *

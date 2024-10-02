@@ -75,7 +75,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 - Run `PYRGG-1.5.exe`
 
 ### System Requirements
-Pyrgg will likely run on a modern dual core PC. Typical configuration is:
+PyRGG will likely run on a modern dual core PC. Typical configuration is:
 
 - Dual Core CPU (2.0 Ghz+)
 - 4GB of RAM
@@ -584,7 +584,7 @@ You can also join our discord server
 
 ## Citing
 
-If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
+If you use PyRGG in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "PyRGG JOSS Paper") ;-)
 
 <pre>
 @article{Haghighi2017,

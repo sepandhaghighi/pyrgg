@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pyrgg modules."""
+"""PyRGG modules."""
 from .functions import *
 from .graph_gen import *
 from .params import *
