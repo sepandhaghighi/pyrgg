@@ -166,6 +166,26 @@ Note that it may run on lower end equipment though good performance is not guara
 	</tr>
 </table>
 
+### Erdős–Rényi
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Edge Number</td>
+		<td align="center">The total number of edges in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
+	</tr>
+</table>
 
 ## Supported Formats 			
 
