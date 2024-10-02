@@ -645,9 +645,6 @@ If you use PyRGG in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>14- Gilbert, Edgar N. "Random graphs." The Annals of Mathematical Statistics 30.4 (1959): 1141-1144.</blockquote>
 
 <blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
-
-
-* Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
  
 ## Show Your Support
