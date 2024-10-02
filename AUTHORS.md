@@ -11,5 +11,3 @@
 - [@ahmadsalimi](https://github.com/ahmadsalimi)
 
 ** Graphic designer
-
-
