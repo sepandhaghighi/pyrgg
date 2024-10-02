@@ -6,5 +6,10 @@
 
 # Other Contributors
 ----------
+- [@zhmbshr](https://github.com/zhmbshr) **
 - [@ivanovmg](https://github.com/ivanovmg)
 - [@ahmadsalimi](https://github.com/ahmadsalimi)
+
+** Graphic designer
+
+
