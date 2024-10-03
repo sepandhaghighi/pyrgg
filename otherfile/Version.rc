@@ -20,7 +20,7 @@ VSVersionInfo(
         StringStruct(u'InternalName', u'PYRGG.exe'),
         StringStruct(u'LegalCopyright', u'Copyright (c) 2024 PyRGG Development Team'),
         StringStruct(u'OriginalFilename', u'PYRGG.exe'),
-        StringStruct(u'ProductName', u'PYRGG'),
+        StringStruct(u'ProductName', u'PyRGG'),
         StringStruct(u'ProductVersion', u'1, 5, 0, 0')])
     ]), 
     VarFileInfo([VarStruct(u'Translation', [1033, 1200])])

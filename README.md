@@ -75,7 +75,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 - Run `PYRGG-1.5.exe`
 
 ### System Requirements
-Pyrgg will likely run on a modern dual core PC. Typical configuration is:
+PyRGG will likely run on a modern dual core PC. Typical configuration is:
 
 - Dual Core CPU (2.0 Ghz+)
 - 4GB of RAM
@@ -555,21 +555,6 @@ Note that it may run on lower end equipment though good performance is not guara
 * [Sample 2](https://www.dropbox.com/s/fzurqu5au0p1b54/1000.p?dl=0) (1000 Vertices , 340KB)
 
 
-## Example of Usage
-
-- Generate synthetic data for graph processing frameworks (some of them mentioned here) performance-analysis 			 
-	- [Medusa](https://github.com/JianlongZhong/Medusa "Medusa") 
-	- [Totem](https://github.com/netsyslab/Totem "Totem")
-	- [Frog](https://github.com/AndrewStallman/Frog "Frog")
-	- [CuSha](https://github.com/farkhor/CuSha "CuSha")
-- Generate synthetic data for graph benchmark suite like [GAP](https://github.com/sbeamer/gapbs) 
-
-## Similar Works
-- [Random Modular Network Generator](https://github.com/prathasah/random-modular-network-generator) Generates random graphs with tunable strength of community structure
-- [randomGraph](https://github.com/sdghafouri/randomGraph) very simple random graph generator in MATLAB
-- [Graph1](https://github.com/Saptaparni/Graph1) Random Graph Generator with Max capacity paths (C++)
-
-
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
@@ -584,7 +569,7 @@ You can also join our discord server
 
 ## Citing
 
-If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "Pyrgg JOSS Paper") ;-)
+If you use PyRGG in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "PyRGG JOSS Paper") ;-)
 
 <pre>
 @article{Haghighi2017,
@@ -645,9 +630,6 @@ If you use pyrgg in your research, please cite the [JOSS paper](http://joss.theo
 <blockquote>14- Gilbert, Edgar N. "Random graphs." The Annals of Mathematical Statistics 30.4 (1959): 1141-1144.</blockquote>
 
 <blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
-
-
-* Logo designed by [Zahra Mobasher](https://www.instagram.com/littleblackoyster)	
 					
  
 ## Show Your Support

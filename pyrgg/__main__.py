@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pyrgg main."""
+"""PyRGG main."""
 from pyrgg.graph_gen import *
 from pyrgg.functions import *
 from pyrgg.params import *
@@ -117,7 +117,7 @@ def main():
             print("Done!")
         sys.exit(error_flag)
     else:
-        tprint("Pyrgg", "larry3d")
+        tprint("PyRGG", "larry3d")
         tprint("v" + PYRGG_VERSION)
         description_print()
         EXIT_FLAG = False
@@ -129,7 +129,7 @@ def main():
                 input_dict = check_for_config()
             run(input_dict)
             INPUTINDEX = str(
-                input("Press [R] to restart Pyrgg or any other key to exit."))
+                input("Press [R] to restart PyRGG or any other key to exit."))
             if INPUTINDEX.upper() != "R":
                 EXIT_FLAG = True
 

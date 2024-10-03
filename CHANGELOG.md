@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - `pyrgg.engines.erdos_reyni` module
+### Changed
+- `README.md` modified
 ## [1.5] - 2024-09-16
 ### Added
 - `feature_request.yml` template
