@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `pyrgg.engines.erdos_reyni` module
 ### Changed
 - `README.md` modified
+- `build_exe.bat` modified
 ## [1.5] - 2024-09-16
 ### Added
 - `feature_request.yml` template
