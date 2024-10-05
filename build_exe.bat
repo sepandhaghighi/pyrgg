@@ -1,11 +1,12 @@
 @echo off
-python --version | find /i "Python 3.4" > nul
-echo -----
-if errorlevel 1 (
-	echo Warning : Please use Python 3.4.x
-) else (
-	echo Python version check done!
+FOR /F "tokens=* USEBACKQ" %%F IN (`python --version`) DO (
+SET py_version_str=%%F
 )
+SET py_version=%py_version_str:~7%
+
+echo Your Python Version : %py_version%
+echo Recommended Python Version : ^>= 3.6
+echo -----
 echo -----
 python -m PyInstaller PYRGG.spec
 pause
