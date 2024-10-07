@@ -74,7 +74,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 
 ⚠️ Only Windows
 
-⚠️ For PyRGG targeting Windows < 10, the user needs to take special care to include the Visual C++ run-time .dlls: Python >=3.5 uses Visual Studio 2015 run-time, which has been renamed into “Universal CRT“ and has become part of Windows 10. For Windows Vista through Windows 8.1 there are Windows update packages, which may or may not be installed in the target-system
+⚠️ For PyRGG targeting Windows < 10, the user needs to take special care to include the Visual C++ run-time `.dlls`(for more information visit [here](https://pyinstaller.org/en/v3.3.1/usage.html#windows))
 
 - Download [Exe-Version 1.5](https://github.com/sepandhaghighi/pyrgg/releases/download/v1.5/PYRGG-1.5.exe)
 - Run `PYRGG-1.5.exe`
