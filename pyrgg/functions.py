@@ -6,6 +6,7 @@ from json import loads as json_loads
 from json import dump as json_dump
 from pickle import dump as pickle_dump
 from yaml import safe_dump as yaml_dump
+import datetime
 import pyrgg.params
 
 
@@ -554,3 +555,25 @@ def check_for_config(input_func=input):
                 pyrgg.params.CONFIG_FILE_FORMAT.format("")):
             configs.append(file)
     return _print_select_config(configs, input_func)
+
+
+def log(file, file_name, elapsed_time, text):
+    """
+    Save generated graph logs.
+
+    :param file: file to write log into
+    :type file: file object
+    :param file_name: file name
+    :type file_name: str
+    :param elapsed_time: elapsed time
+    :type elapsed_time: str
+    :param text: rest part of the text to write
+    :type text: str
+    :return: None
+    """
+    text2file = f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+    text2file += f"Filename : {file_name}\n"
+    text2file += text
+    text2file += f"Elapsed Time : {elapsed_time}\n"
+    text2file += "-------------------------------\n"
+    file.write(text2file)
