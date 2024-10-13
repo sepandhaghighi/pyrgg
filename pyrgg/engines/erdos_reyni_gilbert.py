@@ -1,19 +1,8 @@
 # -*- coding: utf-8 -*-
 """Erdős-Rényi-Gilbert Engine module."""
-import datetime
 from random import random
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
-
-LOGGER_TEMPLATE = """{0}
-Filename : {1}
-Probability : {2}
-Vertices : {3}
-Total Edges : {4}
-Directed : {5}
-Engine : {6} ({7})
-Elapsed Time : {8}
--------------------------------
-"""
+from pyrgg.functions import log
 
 
 def edge_gen(n, p, direct):
@@ -98,14 +87,11 @@ def logger(file, file_name, elapsed_time, input_dict):
     :return: None
     """
     try:
-        file.write(LOGGER_TEMPLATE.format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                                          file_name,
-                                          str(input_dict["probability"]),
-                                          str(input_dict["vertices"]),
-                                          str(input_dict["edge_number"]),
-                                          str(bool(input_dict["direct"])),
-                                          input_dict["engine"],
-                                          ENGINE_MENU[input_dict["engine"]],
-                                          elapsed_time))
+        text = f"Vertices : {str(input_dict['vertices'])}\n"
+        text += f"Probability : {str(input_dict['probability'])}\n"
+        text += f"Total Edges : {str(input_dict['edge_number'])}\n"
+        text += f"Directed : {str(bool(input_dict['direct']))}\n"
+        text += f"Engine : {input_dict['engine']} ({ENGINE_MENU[input_dict['engine']]})\n"
+        log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
