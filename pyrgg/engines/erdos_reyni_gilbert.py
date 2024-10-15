@@ -90,7 +90,7 @@ def logger(file, file_name, elapsed_time, input_dict):
         text = "Vertices : {0}\n".format(input_dict['vertices'])
         text += "Probability : {0}\n".format(input_dict['probability'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
-        text += "Directed : {0}\n".format(input_dict['direct'])
+        text += "Directed : {0}\n".format(bool(input_dict['direct']))
         text += "Engine : {0} ({1})\n".format(input_dict['engine'], ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
