@@ -16,8 +16,8 @@
 >>> file = open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
 Filename : test
-Probability : 0.5
 Vertices : 100
+Probability : 0.5
 Total Edges : 50
 Directed : False
 Engine : 2 (erg)
