@@ -557,7 +557,7 @@ def check_for_config(input_func=input):
     return _print_select_config(configs, input_func)
 
 
-def log(file, file_name, elapsed_time, text):
+def save_log(file, file_name, elapsed_time, text):
     """
     Save generated graph logs.
 

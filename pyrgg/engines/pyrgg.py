@@ -5,7 +5,7 @@ from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import is_weighted, get_precision, threshold_calc
 from pyrgg.functions import get_min_max_weight, is_multigraph
-from pyrgg.functions import log
+from pyrgg.functions import save_log
 
 
 def branch_gen(
@@ -259,6 +259,6 @@ def logger(file, file_name, elapsed_time, input_dict):
         text += f"Max Weight : {str(input_dict['max_weight'])}\n"
         text += f"Min Weight : { str(input_dict['min_weight'])}\n"
         text += f"Engine : {input_dict['engine']} ({ENGINE_MENU[input_dict['engine']]})\n"
-        log(file, file_name, elapsed_time, text)
+        save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

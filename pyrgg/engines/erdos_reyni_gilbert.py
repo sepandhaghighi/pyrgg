@@ -2,7 +2,7 @@
 """Erdős-Rényi-Gilbert Engine module."""
 from random import random
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
-from pyrgg.functions import log
+from pyrgg.functions import save_log
 
 
 def edge_gen(n, p, direct):
@@ -92,6 +92,6 @@ def logger(file, file_name, elapsed_time, input_dict):
         text += f"Total Edges : {str(input_dict['edge_number'])}\n"
         text += f"Directed : {str(bool(input_dict['direct']))}\n"
         text += f"Engine : {input_dict['engine']} ({ENGINE_MENU[input_dict['engine']]})\n"
-        log(file, file_name, elapsed_time, text)
+        save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)
