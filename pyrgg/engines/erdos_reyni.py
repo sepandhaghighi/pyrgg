@@ -92,10 +92,10 @@ def logger(file, file_name, elapsed_time, input_dict):
     :return: None
     """
     try:
-        text = f"Vertices : {str(input_dict['vertices'])}\n"
-        text += f"Total Edges : {str(input_dict['edge_number'])}\n"
-        text += f"Directed : {str(bool(input_dict['direct']))}\n"
-        text += f"Engine : {input_dict['engine']} ({ENGINE_MENU[input_dict['engine']]})\n"
+        text = "Vertices : {0}\n".format(input_dict['vertices'])
+        text += "Total Edges : {0}\n".format(input_dict['edge_number'])
+        text += "Directed : {0}\n".format(bool(input_dict['direct']))
+        text += "Engine : {0} ({1})\n".format(input_dict['engine'], ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

@@ -571,9 +571,9 @@ def save_log(file, file_name, elapsed_time, text):
     :type text: str
     :return: None
     """
-    text2file = f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-    text2file += f"Filename : {file_name}\n"
+    text2file = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n"
+    text2file += "Filename : {0}\n".format(file_name)
     text2file += text
-    text2file += f"Elapsed Time : {elapsed_time}\n"
+    text2file += "Elapsed Time : {0}\n".format(elapsed_time)
     text2file += "-------------------------------\n"
     file.write(text2file)
