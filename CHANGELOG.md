@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `logger` function format for `erdos_reyni_gilbert` changed
 - `log` function added
+- GitHub actions are limited to the `dev` and `master` branches
 - `README.md` modified
 - `build_exe.bat` modified
 - `Python 3.13` added to `test.yml`
