@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `pyrgg.engines.erdos_reyni` module
 - `save_log` function
 ### Changed
+- PyPI badge in `README.md`
 - `logger` function format for `erdos_reyni_gilbert` changed
 - GitHub actions are limited to the `dev` and `master` branches
 - `README.md` modified
