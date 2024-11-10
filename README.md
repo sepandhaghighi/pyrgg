@@ -22,7 +22,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 	</tr>
 	<tr>
 		<td align="center">PyPI Counter</td>
-		<td align="center"><a href="http://pepy.tech/project/pyrgg"><img src="http://pepy.tech/badge/pyrgg"></a></td>
+		<td align="center"><a href="https://pepy.tech/projects/pyrgg"><img src="https://static.pepy.tech/badge/pyrgg" alt="PyPI Downloads"></a></td>
 	</tr>
 	<tr>
 		<td align="center">Github Stars</td>
