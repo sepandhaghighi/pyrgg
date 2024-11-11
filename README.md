@@ -40,8 +40,8 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 	</tr>
 	<tr>
 		<td align="center">CI</td>
-		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=master"></td>
-		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/workflows/CI/badge.svg?branch=dev"></td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/actions/workflows/test.yml/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/sepandhaghighi/pyrgg/actions/workflows/test.yml/badge.svg?branch=dev"></td>
 	</tr>
 </table>
 
