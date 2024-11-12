@@ -104,7 +104,7 @@ OUTPUT_FORMAT = {i: output_format[1:].upper()
 OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
 
 
-PYRGG_VERSION = "1.5"
+PYRGG_VERSION = "1.6"
 
 SOURCE_DIR = os.getcwd()
 
