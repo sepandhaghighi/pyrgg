@@ -109,7 +109,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td align="center">Vertices Number</td>
+		<td align="center">Vertices Number (n)</td>
 		<td align="center">The total number of vertices in the graph</td>
 	</tr>
 	<tr>
@@ -158,11 +158,11 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td align="center">Vertices Number</td>
+		<td align="center">Vertices Number (n)</td>
 		<td align="center">The total number of vertices in the graph</td>
 	</tr>
 	<tr>
-		<td align="center">Probability</td>
+		<td align="center">Probability (p)</td>
 		<td align="center">The probability for edge creation between any two vertices</td>
 	</tr>
 	<tr>
@@ -179,11 +179,11 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td align="center">Vertices Number</td>
+		<td align="center">Vertices Number (n)</td>
 		<td align="center">The total number of vertices in the graph</td>
 	</tr>
 	<tr>
-		<td align="center">Edge Number</td>
+		<td align="center">Edge Number (m)</td>
 		<td align="center">The total number of edges in the graph</td>
 	</tr>
 	<tr>

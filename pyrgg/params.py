@@ -68,7 +68,7 @@ ENGINE_MENU = {
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
 PYRGG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
     3: ["max_edge", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
     4: ["weight", "- Unweighted[0] or Weighted[1]"],
@@ -81,14 +81,14 @@ PYRGG_ENGINE_PARAMS = {
 }
 
 ERG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["probability", "- Probability (0 <= p <= 1) : "],
     3: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
 ER_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
-    2: ["edge_number", "- Edge Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["edge_number", "- Edge Number (m >= 0) : "],
     3: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
