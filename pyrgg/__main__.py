@@ -11,6 +11,7 @@ from art import tprint
 import pyrgg.engines.pyrgg as pyrgg_engine
 import pyrgg.engines.erdos_reyni_gilbert as erg_engine
 import pyrgg.engines.erdos_reyni as er_engine
+import pyrgg.engines.stochastic_block_model as sbm_engine
 
 GENERATOR_MENU = {
     1: dimacs_maker,
@@ -35,6 +36,7 @@ ENGINE_MAPPER = {
     1: pyrgg_engine,
     2: erg_engine,
     3: er_engine,
+    4: sbm_engine,
 }
 
 

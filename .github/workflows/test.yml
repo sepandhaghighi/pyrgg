@@ -72,3 +72,6 @@ jobs:
     - name: cProfile - Erdos Reyni Engine
       run: |
           python -m cProfile -s cumtime otherfile/profiles/er_profile.py
+    - name: cProfile - Stochastic Block Model Engine
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/sbm_profile.py
