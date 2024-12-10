@@ -192,6 +192,39 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
+### Stochastic Block Model
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Block Number (k)</td>
+		<td align="center">The number of blocks (disjoint subsets)</td>
+	</tr>
+	<tr>
+		<td align="center">Block Sizes ([|C1|, |C2|, ... |Ck|])</td>
+		<td align="center">List of block sizes. The should sum up to n (n = |C1|+|C2|+...+|Ck|).</td>
+	</tr>
+	<tr>
+		<td align="center">Probability Matrix ([[P11, P12, ..., P1k], ... [Pk1, Pk2, ..., Pkk]])</td>
+		<td align="center">Edge probability for between and within block connection probability. For undirected graph only the upper triangular indices would be counted.</td>
+	</tr>
+	<tr>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
+	</tr>
+	<tr>
+		<td align="center">Self Loop / No Self Loop</td>
+		<td align="center">Specifies whether self-loop is allowed or not</td>
+	</tr>
+</table>
+
 ## Supported Formats 			
 
 ### DIMACS
