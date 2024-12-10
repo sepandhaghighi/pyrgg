@@ -224,6 +224,31 @@ def handle_engine(string):
     return engine
 
 
+def handle_pos_list(string):
+    """
+    Convert string to positive integer list.
+
+    :param string: input string
+    :type string: str
+    :return: result as list
+    """
+    return [handle_pos_int(i) for i in string.split()]
+
+
+def handle_prob_matrix(string):
+    """
+    Convert string to probability matrix.
+
+    :param string: input string
+    :type string: str
+    :return: result as list of lists
+    """
+    matrix = []
+    for row in string.split(","):
+        matrix.append([handle_str_prob(i) for i in row.split()])
+    return matrix
+
+
 ITEM_HANDLERS = {
     "file_name": handle_string,
     "output_format": handle_output_format,
@@ -242,6 +267,8 @@ ITEM_HANDLERS = {
     "multigraph": handle_str_to_bool,
     "config": handle_str_to_bool,
     "probability": handle_str_prob,
+    "block_sizes": handle_pos_list,
+    "probability_matrix": handle_prob_matrix,
 }
 
 
@@ -384,6 +411,8 @@ def get_input(input_func=input):
         "multigraph": False,
         "config": False,
         "probability": 0.5,
+        "block_sizes": [],
+        "probability_matrix": [],
     }
 
     result_dict = _update_using_menu(result_dict, input_func)

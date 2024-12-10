@@ -12,6 +12,7 @@ MENU_ITEMS = {
         1- PyRGG
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
+        4- Stochastic Block Model - {C1, C2, ..., Ck}
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -63,6 +64,7 @@ ENGINE_MENU = {
     1: "pyrgg",
     2: "erg",
     3: "er",
+    4: "sbm",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
@@ -92,10 +94,19 @@ ER_ENGINE_PARAMS = {
     3: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
+SBM_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["block_sizes", "- Block Sizes (|Ci|>=0) - |C1| |C2| ... |Ck| : "],
+    3: ["probability_matrix", "- Probability Matrix (0 <= Pij <= 1) - P11 P12 ... P1k, ..., Pk1 Pk2 ... Pkk : "],
+    4: ["direct", "- Undirected[0] or Directed[1]"],
+    5: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
     3: ER_ENGINE_PARAMS,
+    4: SBM_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
