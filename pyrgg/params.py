@@ -96,10 +96,11 @@ ER_ENGINE_PARAMS = {
 
 SBM_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
-    2: ["block_sizes", "- Block Sizes (|Ci|>=0) - |C1| |C2| ... |Ck| : "],
-    3: ["probability_matrix", "- Probability Matrix (0 <= Pij <= 1) - P11 P12 ... P1k, ..., Pk1 Pk2 ... Pkk : "],
-    4: ["direct", "- Undirected[0] or Directed[1]"],
-    5: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
+    2: ["blocks", "- Blocks Number (k >= 0) : "],
+    3: ["intra_probability", "- Intra Block Probability (0 <= p_intra <= 1): "],
+    4: ["inter_probability", "- Inter Block Probability (0 <= p_inter <= 1): "],
+    5: ["direct", "- Undirected[0] or Directed[1]"],
+    6: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
 }
 
 ENGINE_PARAM_MAP = {
@@ -152,6 +153,10 @@ PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger failed!"
 PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
+
+PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "Warning : Vertices are not divisible by blocks. The last block will have the remaining vertices."
+
+PYRGG_SBM_WARNING_MESSAGE = "[Warning] - In CLI mode, Stochastic Block Model gets the number of blocks and inter/intra probabilities. To get more detailed configuration, please save and edit the config file."
 
 PYRGG_CONFIG_LIST_MESSAGE = "Config files detected in the current directory are listed below:"
 
