@@ -12,6 +12,7 @@ MENU_ITEMS = {
         1- PyRGG
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
+        4- Stochastic Block Model - {C1, C2, ..., Ck}
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -63,12 +64,13 @@ ENGINE_MENU = {
     1: "pyrgg",
     2: "erg",
     3: "er",
+    4: "sbm",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
 PYRGG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
     3: ["max_edge", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
     4: ["weight", "- Unweighted[0] or Weighted[1]"],
@@ -81,21 +83,31 @@ PYRGG_ENGINE_PARAMS = {
 }
 
 ERG_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["probability", "- Probability (0 <= p <= 1) : "],
     3: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
 ER_ENGINE_PARAMS = {
-    1: ["vertices", "- Vertices Number (>=0) : "],
-    2: ["edge_number", "- Edge Number (>=0) : "],
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["edge_number", "- Edge Number (m >= 0) : "],
     3: ["direct", "- Undirected[0] or Directed[1]"],
+}
+
+SBM_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["blocks", "- Blocks Number (k >= 0) : "],
+    3: ["intra_probability", "- Intra Block Probability (0 <= p_intra <= 1): "],
+    4: ["inter_probability", "- Inter Block Probability (0 <= p_inter <= 1): "],
+    5: ["direct", "- Undirected[0] or Directed[1]"],
+    6: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
 }
 
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
     3: ER_ENGINE_PARAMS,
+    4: SBM_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
@@ -141,6 +153,10 @@ PYRGG_LOGGER_ERROR_MESSAGE = "[Error] Logger failed!"
 PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
+
+PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "[Warning] Vertices are not divisible by blocks. The last block will have the remaining vertices."
+
+PYRGG_SBM_WARNING_MESSAGE = "[Warning] Stochastic Block Model gets the number of blocks and inter/intra probabilities. To get more detailed configuration, please save and edit the config file."
 
 PYRGG_CONFIG_LIST_MESSAGE = "Config files detected in the current directory are listed below:"
 
