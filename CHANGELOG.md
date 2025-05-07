@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - `pyrgg.engines.stochastic_block_model` module
+### Changed
+- `Python 3.6` support dropped
+- Test system modified
 ## [1.6] - 2024-11-13
 ### Added
 - `pyrgg.engines.erdos_reyni` module
