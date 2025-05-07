@@ -148,6 +148,14 @@ False
 ...                return input_func_dict[item1]
 ...            else:
 ...                return input_func_dict["error"]
+...    for index in pyrgg.params.SBM_ENGINE_PARAMS:
+...        item1, item2 = pyrgg.params.SBM_ENGINE_PARAMS[index]
+...        if input_data == item2:
+...            if item1 != prev_item :
+...                prev_item = item1
+...                return input_func_dict[item1]
+...            else:
+...                return input_func_dict["error"]
 >>> def input_func_conf_test1(input_data):
 ...     return "1"
 >>> def input_func_conf_test2(input_data):

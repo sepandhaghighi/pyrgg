@@ -155,6 +155,19 @@ def handle_pos_int(input_number):
     return val
 
 
+def handle_natural_number(input_number):
+    """
+    Handle input number and raise ValueError if it is not a natural number.
+
+    :param input_number: input number
+    :type input_number: float or int or str
+    :return: result as int
+    """
+    val = int(input_number)
+    if val < 1:
+        raise ValueError
+    return val
+
 def handle_str_to_number(string):
     """
     Convert string to float or int.
@@ -224,6 +237,31 @@ def handle_engine(string):
     return engine
 
 
+def handle_pos_list(string):
+    """
+    Convert string to positive integer list.
+
+    :param string: input string
+    :type string: str
+    :return: result as list
+    """
+    return [handle_pos_int(i) for i in string.split()]
+
+
+def handle_prob_matrix(string):
+    """
+    Convert string to probability matrix.
+
+    :param string: input string
+    :type string: str
+    :return: result as list of lists
+    """
+    matrix = []
+    for row in string.split(","):
+        matrix.append([handle_str_prob(i) for i in row.split()])
+    return matrix
+
+
 ITEM_HANDLERS = {
     "file_name": handle_string,
     "output_format": handle_output_format,
@@ -242,6 +280,9 @@ ITEM_HANDLERS = {
     "multigraph": handle_str_to_bool,
     "config": handle_str_to_bool,
     "probability": handle_str_prob,
+    "blocks": handle_natural_number,
+    "inter_probability": handle_str_prob,
+    "intra_probability": handle_str_prob,
 }
 
 
@@ -384,11 +425,15 @@ def get_input(input_func=input):
         "multigraph": False,
         "config": False,
         "probability": 0.5,
+        "blocks": 1,
+        "inter_probability": 0.75,
+        "intra_probability": 0.25,
     }
 
     result_dict = _update_using_menu(result_dict, input_func)
     result_dict = _update_with_engine_params(
         result_dict, input_func, pyrgg.params.ENGINE_PARAM_MAP[result_dict['engine']])
+    result_dict = _post_input_update(result_dict)
     return input_filter(result_dict)
 
 
@@ -428,6 +473,8 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     :type engine_params: dict
     :return: result_dict as dict
     """
+    if result_dict['engine'] == 4:
+        print(pyrgg.params.PYRGG_SBM_WARNING_MESSAGE)
     for index in sorted(engine_params):
         item1, item2 = engine_params[index]
         if not result_dict["weight"] and item1 in ["max_weight", "min_weight"]:
@@ -441,6 +488,26 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
                 print(pyrgg.params.PYRGG_INPUT_ERROR_MESSAGE)
             else:
                 break
+    return result_dict
+
+
+def _post_input_update(result_dict):
+    """
+    Update result_dict after getting user input.
+
+    :param result_dict: result data
+    :type result_dict: dict
+    :return: result_dict as dict
+    """
+    result_dict["block_sizes"] = [result_dict["vertices"] // result_dict["blocks"]] * (result_dict["blocks"])
+    if result_dict["vertices"] % result_dict["blocks"] != 0:
+        result_dict["block_sizes"][-1] += result_dict["vertices"] % result_dict["blocks"]
+        print(pyrgg.params.PYRGG_UNDIVISIBLE_WARNING_MESSAGE)
+    result_dict["probability_matrix"] = [
+        [result_dict["intra_probability"] if i == j else result_dict["inter_probability"]
+            for j in range(result_dict["blocks"])]
+        for i in range(result_dict["blocks"])
+    ]
     return result_dict
 
 
