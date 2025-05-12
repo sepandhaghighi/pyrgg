@@ -3,6 +3,8 @@
 from textwrap import dedent, fill
 import os
 
+PYRGG_VERSION = "1.7"
+
 os.environ["PYRGG_TEST_MODE"] = "0"
 
 MENU_ITEMS = {
@@ -115,8 +117,6 @@ OUTPUT_FORMAT = {i: output_format[1:].upper()
 
 OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
 
-
-PYRGG_VERSION = "1.6"
 
 SOURCE_DIR = os.getcwd()
 
