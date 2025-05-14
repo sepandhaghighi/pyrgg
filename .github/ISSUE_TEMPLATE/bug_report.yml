@@ -86,6 +86,7 @@ body:
       label: PyRGG version
       description: Which version of PyRGG are you using?
       options:
+        - PyRGG 1.7
         - PyRGG 1.6
         - PyRGG 1.5
         - PyRGG 1.4
