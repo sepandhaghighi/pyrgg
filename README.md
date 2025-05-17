@@ -605,11 +605,13 @@ You can also join our discord server
 </a>
 
 
-## Citing
+## Cite
 
-If you use PyRGG in your research, please cite the [JOSS paper](http://joss.theoj.org/papers/da33f691984d9a35f66ff93a391bbc26 "PyRGG JOSS Paper") ;-)
+If you use PyRGG in your research, we would appreciate citations to the following paper:
 
-<pre>
+[Haghighi, S., 2017. Pyrgg: Python Random Graph Generator. *Journal of Open Source Software*, 2(17), p.331.](https://joss.theoj.org/papers/10.21105/joss.00331)
+
+```bibtex
 @article{Haghighi2017,
   doi = {10.21105/joss.00331},
   url = {https://doi.org/10.21105/joss.00331},
@@ -622,7 +624,7 @@ If you use PyRGG in your research, please cite the [JOSS paper](http://joss.theo
   title = {Pyrgg: Python Random Graph Generator},
   journal = {The Journal of Open Source Software}
 }
-</pre>
+```
 
 <table>
 	<tr> 
