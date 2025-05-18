@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
+- Unused handler function removed
+- CLI messages for stochastic block model updated
 - `README.md` modified
 ## [1.7] - 2025-05-15
 ### Added
