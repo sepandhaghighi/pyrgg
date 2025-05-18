@@ -14,7 +14,7 @@ MENU_ITEMS = {
         1- PyRGG
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
-        4- Stochastic Block Model - {C1, C2, ..., Ck}
+        4- Stochastic Block Model - G(C, P)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
