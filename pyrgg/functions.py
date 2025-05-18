@@ -157,7 +157,7 @@ def handle_pos_int(input_number):
 
 def handle_natural_number(input_number):
     """
-    Handle input number to check if is a natural number and raise ValueError if not.
+    Check if the input number is a natural number and raise a ValueError if it is not.
 
     :param input_number: input number
     :type input_number: float or int or str
