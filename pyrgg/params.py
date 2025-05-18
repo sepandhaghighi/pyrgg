@@ -154,9 +154,9 @@ PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
 
-PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "[Warning] Vertices are not divisible by blocks. The last block will have the remaining vertices."
+PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "[Warning] Number of vertices is not divisible by the number of blocks. The last block would contain the remainder."
 
-PYRGG_SBM_WARNING_MESSAGE = "[Warning] Stochastic Block Model gets the number of blocks and inter/intra probabilities. To get more detailed configuration, please save and edit the config file."
+PYRGG_SBM_WARNING_MESSAGE = "[Warning] Stochastic block model gets the number of blocks and between/within block probabilities. To get more detailed configuration, please save and edit the config file."
 
 PYRGG_CONFIG_LIST_MESSAGE = "Config files detected in the current directory are listed below:"
 
