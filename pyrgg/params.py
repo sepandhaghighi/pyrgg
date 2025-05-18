@@ -99,8 +99,8 @@ ER_ENGINE_PARAMS = {
 SBM_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["blocks", "- Blocks Number (k >= 0) : "],
-    3: ["intra_probability", "- Intra Block Probability (0 <= p_intra <= 1): "],
-    4: ["inter_probability", "- Inter Block Probability (0 <= p_inter <= 1): "],
+    3: ["intra_probability", "- Within Block Probability (0 <= p <= 1): "],
+    4: ["inter_probability", "- Between Block Probability (0 <= p <= 1): "],
     5: ["direct", "- Undirected[0] or Directed[1]"],
     6: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
 }
