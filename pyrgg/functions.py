@@ -157,7 +157,7 @@ def handle_pos_int(input_number):
 
 def handle_natural_number(input_number):
     """
-    Handle input number and raise ValueError if it is not a natural number.
+    Check if the input number is a natural number and raise a ValueError if it is not.
 
     :param input_number: input number
     :type input_number: float or int or str
@@ -235,31 +235,6 @@ def handle_engine(string):
     if engine not in pyrgg.params.ENGINE_MENU:
         raise ValueError
     return engine
-
-
-def handle_pos_list(string):
-    """
-    Convert string to positive integer list.
-
-    :param string: input string
-    :type string: str
-    :return: result as list
-    """
-    return [handle_pos_int(i) for i in string.split()]
-
-
-def handle_prob_matrix(string):
-    """
-    Convert string to probability matrix.
-
-    :param string: input string
-    :type string: str
-    :return: result as list of lists
-    """
-    matrix = []
-    for row in string.split(","):
-        matrix.append([handle_str_prob(i) for i in row.split()])
-    return matrix
 
 
 ITEM_HANDLERS = {

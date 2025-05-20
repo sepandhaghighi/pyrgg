@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
+- CLI messages for stochastic block model updated
 - `README.md` modified
+### Removed
+- `handle_prob_matrix` function
+- `handle_pos_list` function
 ## [1.7] - 2025-05-15
 ### Added
 - `pyrgg.engines.stochastic_block_model` module

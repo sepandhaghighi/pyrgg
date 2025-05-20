@@ -14,7 +14,7 @@ MENU_ITEMS = {
         1- PyRGG
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
-        4- Stochastic Block Model - {C1, C2, ..., Ck}
+        4- Stochastic Block Model - G(C, P)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -99,8 +99,8 @@ ER_ENGINE_PARAMS = {
 SBM_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["blocks", "- Blocks Number (k >= 0) : "],
-    3: ["intra_probability", "- Intra Block Probability (0 <= p_intra <= 1): "],
-    4: ["inter_probability", "- Inter Block Probability (0 <= p_inter <= 1): "],
+    3: ["intra_probability", "- Within Block Probability (0 <= p <= 1): "],
+    4: ["inter_probability", "- Between Block Probability (0 <= p <= 1): "],
     5: ["direct", "- Undirected[0] or Directed[1]"],
     6: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
 }
@@ -154,9 +154,9 @@ PYRGG_CONFIG_LOAD_ERROR_MESSAGE = "[Error] Failed to load config file!"
 
 PYRGG_CONFIG_SAVE_ERROR_MESSAGE = "[Error] Failed to save config file!"
 
-PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "[Warning] Vertices are not divisible by blocks. The last block will have the remaining vertices."
+PYRGG_UNDIVISIBLE_WARNING_MESSAGE = "[Warning] Number of vertices is not divisible by the number of blocks. The last block would contain the remainder."
 
-PYRGG_SBM_WARNING_MESSAGE = "[Warning] Stochastic Block Model gets the number of blocks and inter/intra probabilities. To get more detailed configuration, please save and edit the config file."
+PYRGG_SBM_WARNING_MESSAGE = "[Warning] Stochastic block model gets the number of blocks and between/within block probabilities. To get more detailed configuration, please save and edit the config file."
 
 PYRGG_CONFIG_LIST_MESSAGE = "Config files detected in the current directory are listed below:"
 
