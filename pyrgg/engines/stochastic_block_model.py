@@ -30,10 +30,10 @@ def edge_gen(
     edge_number = 0
     edge_dic = {x: [] for x in range(1, vertices + 1)}
     weight_dic = {x: [] for x in range(1, vertices + 1)}
-    vertices2block = {}
+    vertices2blocks = {}
     for c, r in enumerate(block_sizes):
-        n0 = len(vertices2block)
-        vertices2block.update({i: c for i in range(n0 + 1, n0 + r + 1)})
+        n0 = len(vertices2blocks)
+        vertices2blocks.update({i: c for i in range(n0 + 1, n0 + r + 1)})
     
     vertices_pairs = list(combinations(range(1, vertices + 1), 2))
     if direct:
@@ -41,8 +41,8 @@ def edge_gen(
     if self_loop:
         vertices_pairs += [(i, i) for i in range(1, vertices + 1)]
     for v1, v2 in sorted(vertices_pairs):
-        c1 = vertices2block[v1]
-        c2 = vertices2block[v2]
+        c1 = vertices2blocks[v1]
+        c2 = vertices2blocks[v2]
         if random() < probability_matrix[c1][c2]:
             edge_dic[v1].append(v2)
             weight_dic[v1].append(1)
@@ -55,7 +55,7 @@ def gen_using(
         file_name,
         input_dict):
     """
-    Generate graph using given function based on Stochastic Block Model model.
+    Generate graph using given function based on Stochastic Block model.
 
     Refer to (https://en.wikipedia.org/wiki/Stochastic_block_model).
 
