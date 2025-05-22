@@ -14,7 +14,7 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> json_to_yaml('testfile')
 >>> file=open('testfile.yaml','r')
@@ -46,7 +46,7 @@ False
 >>> testfile_1_p['properties']['weighted']
 True
 >>> random.seed(4)
->>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 35
 >>> json_to_yaml('testfile2')
 >>> file=open('testfile2.yaml','r')
@@ -80,7 +80,7 @@ False
 >>> testfile_2_p['properties']['weighted']
 True
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
 137
 >>> json_to_yaml('testfile3')
 >>> file=open('testfile3.yaml','r')

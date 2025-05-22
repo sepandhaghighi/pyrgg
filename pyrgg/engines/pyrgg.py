@@ -10,8 +10,8 @@ from pyrgg.functions import save_log
 
 def branch_gen(
         vertex_index,
-        max_edge,
-        min_edge,
+        max_edges,
+        min_edges,
         min_weight,
         max_weight,
         precision,
@@ -27,10 +27,10 @@ def branch_gen(
 
     :param vertex_index: origin vertex index
     :type vertex_index: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
+    :param max_edges: maximum number of edges (connected to each vertex)
+    :type max_edges: int
+    :param min_edges: minimum number of edges (connected to each vertex)
+    :type min_edges: int
     :param min_weight: weight min range
     :type min_weight: int
     :param max_weight: weight max range
@@ -59,13 +59,13 @@ def branch_gen(
     reference_vertices = []
     random_unit = randint
     vertex_degree = degree_dict[vertex_index]
-    if vertex_degree >= max_edge:
+    if vertex_degree >= max_edges:
         return [branch_list, weight_list]
     threshold = threshold_calc(
-        min_edge=min_edge,
-        max_edge=max_edge,
+        min_edges=min_edges,
+        max_edges=max_edges,
         vertex_degree=vertex_degree)
-    for i in range(max_edge + 1):
+    for i in range(max_edges + 1):
         reference_vertices.extend(list(degree_sort_dict[i].values()))
         if len(reference_vertices) >= threshold:
             break
@@ -81,7 +81,7 @@ def branch_gen(
         reference_vertices.sort()
     while (index < threshold):
         vertex_degree = degree_dict[vertex_index]
-        if vertex_degree >= max_edge:
+        if vertex_degree >= max_edges:
             break
         if len(reference_vertices) == 0:
             break
@@ -89,9 +89,9 @@ def branch_gen(
             range(len(reference_vertices)))
         random_tail = reference_vertices[random_tail_index]
         random_tail_degree = degree_dict[random_tail]
-        if random_tail_degree >= max_edge or (
+        if random_tail_degree >= max_edges or (
             random_tail == vertex_index and random_tail_degree >= (
-                max_edge - 1)):
+                max_edges - 1)):
             reference_vertices.pop(random_tail_index)
             continue
         if not direct:
@@ -125,8 +125,8 @@ def edge_gen(
         vertices_number,
         min_weight,
         max_weight,
-        min_edge,
-        max_edge,
+        min_edges,
+        max_edges,
         sign,
         direct,
         self_loop,
@@ -140,10 +140,10 @@ def edge_gen(
     :type min_weight: int
     :param max_weight: weight max range
     :type max_weight: int
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
+    :param min_edges: minimum number of edges (connected to each vertex)
+    :type min_edges: int
+    :param max_edges: maximum number of edges (connected to each vertex)
+    :type max_edges: int
     :param sign: weight sign flag
     :type sign: bool
     :param direct: directed and undirected graph flag
@@ -162,14 +162,14 @@ def edge_gen(
     vertices_edge = []
     weight_list = []
     used_vertices = {}
-    degree_sort_dict = {i: {} for i in range(max_edge + 1)}
+    degree_sort_dict = {i: {} for i in range(max_edges + 1)}
     degree_dict = {}
     for i in vertices_id:
         degree_dict[i] = 0
         degree_sort_dict[0][i] = i
     branch_gen_params = {
-        "max_edge": max_edge,
-        "min_edge": min_edge,
+        "max_edges": max_edges,
+        "min_edges": min_edges,
         "min_weight": min_weight,
         "max_weight": max_weight,
         "sign": sign,
@@ -208,8 +208,8 @@ def gen_using(
         input_dict['vertices'],
         input_dict['min_weight'],
         input_dict['max_weight'],
-        input_dict['min_edge'],
-        input_dict['max_edge'],
+        input_dict['min_edges'],
+        input_dict['max_edges'],
         input_dict['sign'],
         input_dict['direct'],
         input_dict['self_loop'],
@@ -249,8 +249,8 @@ def logger(file, file_name, elapsed_time, input_dict):
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
-        text += "Max Edge : {0}\n".format(input_dict['max_edge'])
-        text += "Min Edge : {0}\n".format(input_dict['min_edge'])
+        text += "Max Edge : {0}\n".format(input_dict['max_edges'])
+        text += "Min Edge : {0}\n".format(input_dict['min_edges'])
         text += "Directed : {0}\n".format(bool(input_dict['direct']))
         text += "Signed : {0}\n".format(bool(input_dict['sign']))
         text += "Multigraph : {0}\n".format(bool(input_dict['multigraph']))

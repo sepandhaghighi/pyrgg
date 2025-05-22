@@ -73,8 +73,8 @@ ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
 
 PYRGG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
-    2: ["min_edge", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
-    3: ["max_edge", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
+    2: ["min_edges", "- Min Edge Number - Connected to Each Vertex (>=0) : "],
+    3: ["max_edges", "- Max Edge Number - Connected to Each Vertex (>=0) : "],
     4: ["weight", "- Unweighted[0] or Weighted[1]"],
     5: ["min_weight", "- Min Weight : "],
     6: ["max_weight", "- Max Weight : "],
