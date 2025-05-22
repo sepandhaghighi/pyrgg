@@ -249,8 +249,8 @@ def logger(file, file_name, elapsed_time, input_dict):
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
-        text += "Max Edge : {0}\n".format(input_dict['max_edges'])
-        text += "Min Edge : {0}\n".format(input_dict['min_edges'])
+        text += "Max Edges : {0}\n".format(input_dict['max_edges'])
+        text += "Min Edges : {0}\n".format(input_dict['min_edges'])
         text += "Directed : {0}\n".format(bool(input_dict['direct']))
         text += "Signed : {0}\n".format(bool(input_dict['sign']))
         text += "Multigraph : {0}\n".format(bool(input_dict['multigraph']))

@@ -18,8 +18,8 @@
 Filename : test
 Vertices : 100
 Total Edges : 50
-Max Edge : 1000
-Min Edge : 10
+Max Edges : 1000
+Min Edges : 10
 Directed : True
 Signed : False
 Multigraph : False
