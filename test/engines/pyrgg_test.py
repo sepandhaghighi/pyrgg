@@ -12,14 +12,14 @@
 >>> ## ========= logger function =========
 >>> ######################################
 >>> with open('logfile.log','a') as file:
-...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'max_edge':1000,'min_edge':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1,'output_format':1})
+...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'max_edges':1000,'min_edges':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1,'output_format':1})
 >>> file = open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
 Filename : test
 Vertices : 100
 Total Edges : 50
-Max Edge : 1000
-Min Edge : 10
+Max Edges : 1000
+Min Edges : 10
 Directed : True
 Signed : False
 Multigraph : False
@@ -36,7 +36,7 @@ Elapsed Time : 2min
 ...         raise ValueError
 >>> str_error_object = StrError()
 >>> with open('logfile.log','a') as file:
-...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'max_edge':1000,'min_edge':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1,'output_format':1})
+...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'max_edges':1000,'min_edges':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1,'output_format':1})
 [Error] Logger failed!
 >>> ##########################################
 >>> ## ========= branch_gen function =========
@@ -86,7 +86,7 @@ TypeError: edge_gen() missing 4 required positional arguments: 'sign', 'direct',
 >>> #########################################
 >>> #################### dimacs_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -105,7 +105,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dimacs_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dimacs_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -152,7 +152,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -301,7 +301,7 @@ a 99 89 24
 a 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -443,7 +443,7 @@ a 98 1 15
 a 98 1 13
 a 99 35 28
 >>> random.seed(4)
->>> engine.gen_using(dimacs_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':0, 'multigraph':0})
+>>> engine.gen_using(dimacs_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':0, 'multigraph':0})
 37
 >>> file=open('testfile4.gr','r')
 >>> print(file.read())
@@ -493,7 +493,7 @@ a 26 3 -13
 <BLANKLINE>
 >>> #################### json_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -512,7 +512,7 @@ False
 >>> testfile_1['properties']['weighted']
 True
 >>> random.seed(4)
->>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -531,7 +531,7 @@ True
 >>> testfile_2['properties']['weighted']
 True
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -550,7 +550,7 @@ False
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
 131
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -561,14 +561,14 @@ True
 >>> testfile_3['properties']['weighted']
 True
 >>> random.seed(21)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':False, 'self_loop':True, 'multigraph':True})
 136
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 False
 >>> random.seed(21)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':False, 'self_loop':True, 'multigraph':True})
+>>> engine.gen_using(json_maker, 'testfile3', {'min_weight':1, 'max_weight':1, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':False, 'self_loop':True, 'multigraph':True})
 158
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -576,7 +576,7 @@ False
 True
 >>> #################### csv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -589,7 +589,7 @@ True
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 35
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -630,7 +630,7 @@ True
 28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
 137
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -773,10 +773,10 @@ True
 100,40,11
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.22, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.22, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -787,7 +787,7 @@ True
 10,10,-181.75
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.222, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.222, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -799,7 +799,7 @@ True
 <BLANKLINE>
 >>> #################### gdf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -824,17 +824,17 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(gdf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gdf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> random.seed(20)
->>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> random.seed(20)
->>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> #################### gl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':1, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':1, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -844,7 +844,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5 6:-81
 6 9:143
 >>> random.seed(4)
->>> engine.gen_using(gl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':2, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':2, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 44
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -873,7 +873,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 27 1:33
 28 23:30
 >>> random.seed(20)
->>> engine.gen_using(gl_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':3, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gl_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':3, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())
@@ -964,29 +964,29 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> #################### mtx_maker ####################
 >>> from scipy.io import mmread
 >>> random.seed(2)
->>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
 [-64.0, 148.0, 110.0, -139.0, 7.0, -97.0, 60.0]
 >>> random.seed(4)
->>> engine.gen_using(mtx_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(mtx_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> g = mmread("testfile2.mtx")
 >>> print(int(sum(g.data.tolist())))
 -179
 >>> random.seed(20)
->>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> g = mmread("testfile3.mtx")
 >>> print(int(sum(g.data.tolist())))
 2644
 >>> random.seed(20)
->>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> #################### tsv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -999,17 +999,17 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	1	60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(tsv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(tsv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> random.seed(20)
->>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> random.seed(20)
->>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> #################### wel_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -1022,7 +1022,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(wel_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(wel_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -1063,7 +1063,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1206,11 +1206,11 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 100 40 11
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> #################### lp_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1233,7 +1233,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(lp_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(lp_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1305,7 +1305,7 @@ edge(28,13,-13).
 <BLANKLINE>
 >>> #################### tgf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1329,7 +1329,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(tgf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(tgf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1402,7 +1402,7 @@ edge(28,13,-13).
 <BLANKLINE>
 >>> #################### dl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1419,7 +1419,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
@@ -1466,25 +1466,25 @@ data:
 >>> #################### gml_maker ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.gen_using(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
->>> engine.gen_using(gml_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(gml_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(20)
->>> engine.gen_using(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
 35
 >>> gml3 = read_gml("testfile3.gml")
 >>> type(gml3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> engine.gen_using(gml_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gml_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
 35
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)
@@ -1492,31 +1492,31 @@ data:
 >>> #################### gexf_maker ####################
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> engine.gen_using(gexf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gexf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(8)
->>> engine.gen_using(gexf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(gexf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
 35
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
 <class 'networkx.classes.multidigraph.MultiDiGraph'>
 >>> random.seed(20)
->>> engine.gen_using(gexf_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(gexf_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
 35
 >>> gexf3 = read_gexf("testfile3.gexf")
 >>> type(gexf3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> engine.gen_using(gexf_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gexf_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
 35
 >>> gexf4 = read_gexf("testfile4.gexf")
 >>> type(gexf4)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(120)
->>> engine.gen_using(gexf_maker, 'testfile5', {'min_weight':0, 'max_weight':50.2, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(gexf_maker, 'testfile5', {'min_weight':0, 'max_weight':50.2, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
 40
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
@@ -1524,7 +1524,7 @@ data:
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.gen_using(dot_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edge':0, 'max_edge':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dot_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
@@ -1533,7 +1533,7 @@ data:
 >>> len(g1[0].get_edge_list())
 7
 >>> random.seed(4)
->>> engine.gen_using(dot_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edge':0, 'max_edge':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.gen_using(dot_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())
@@ -1542,7 +1542,7 @@ data:
 >>> len(g2[0].get_edge_list())
 35
 >>> random.seed(20)
->>> engine.gen_using(dot_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edge':0, 'max_edge':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.gen_using(dot_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> file=open('testfile3.gv','r')
 >>> g3 = pydot.graph_from_dot_data(file.read())

@@ -20,11 +20,11 @@ def edge_gen(n, m, direct):
     edge_dic = {}
     weight_list = []
     edge_mold = []
-    max_edge = (n * (n - 1)) // 2
+    max_edges = (n * (n - 1)) // 2
     if direct:
-        max_edge *= 2
-    m = min(m, max_edge)
-    edge_mold = m * [1] + (max_edge - m) * [0]
+        max_edges *= 2
+    m = min(m, max_edges)
+    edge_mold = m * [1] + (max_edges - m) * [0]
     shuffle(edge_mold)
     for i in range(1, n + 1):
         edge_dic[i] = []

@@ -163,7 +163,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 	<tr>
 		<td align="center">Probability (p)</td>
-		<td align="center">The probability for edge creation between any two vertices</td>
+		<td align="center">The probability for an edge creation between any two vertices</td>
 	</tr>
 	<tr>
 		<td align="center">Directed / Undirected</td>
@@ -213,7 +213,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 	<tr>
 		<td align="center">Probability Matrix ([[P11, P12, ..., P1k], ... [Pk1, Pk2, ..., Pkk]])</td>
-		<td align="center">Edge probability for between and within block connection probability. For undirected graph only the upper triangular indices would be counted.</td>
+		<td align="center">Edge probabilities for between and within block connections. For undirected graph only the upper triangular indices would be counted.</td>
 	</tr>
 	<tr>
 		<td align="center">Directed / Undirected</td>

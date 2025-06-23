@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - CLI messages for stochastic block model updated
 - `README.md` modified
+- `min_edge` renamed to `min_edges`
+- `max_edge` renamed to `max_edges`
 ### Removed
 - `handle_prob_matrix` function
 - `handle_pos_list` function

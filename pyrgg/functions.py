@@ -90,23 +90,23 @@ def get_precision(input_number):
         return 0
 
 
-def threshold_calc(min_edge, max_edge, vertex_degree):
+def threshold_calc(min_edges, max_edges, vertex_degree):
     """
     Calculate threshold for branch_gen_pyrgg function.
 
-    :param min_edge: minimum number of edges (connected to each vertex)
-    :type min_edge: int
-    :param max_edge: maximum number of edges (connected to each vertex)
-    :type max_edge: int
+    :param min_edges: minimum number of edges (connected to each vertex)
+    :type min_edges: int
+    :param max_edges: maximum number of edges (connected to each vertex)
+    :type max_edges: int
     :param vertex_degree: vertex degree
     :type vertex_degree: int
     :return: threshold as int
     """
-    threshold = min_edge
+    threshold = min_edges
     lower_limit = 0
-    upper_limit = max_edge - vertex_degree
-    if vertex_degree < min_edge:
-        lower_limit = min_edge - vertex_degree
+    upper_limit = max_edges - vertex_degree
+    if vertex_degree < min_edges:
+        lower_limit = min_edges - vertex_degree
     if upper_limit > lower_limit:
         threshold = randint(lower_limit, upper_limit)
     return threshold
@@ -246,8 +246,8 @@ ITEM_HANDLERS = {
     "number_of_files": handle_pos_int,
     "max_weight": handle_str_to_number,
     "min_weight": handle_str_to_number,
-    "min_edge": handle_pos_int,
-    "max_edge": handle_pos_int,
+    "min_edges": handle_pos_int,
+    "max_edges": handle_pos_int,
     "edge_number": handle_pos_int,
     "sign": handle_str_to_bool,
     "direct": handle_str_to_bool,
@@ -349,8 +349,8 @@ def input_filter(input_dict):
     :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
-    edge_upper_threshold = filtered_dict["vertices"]
-    for key in ["min_edge", "max_edge", "vertices"]:
+    edges_upper_threshold = filtered_dict["vertices"]
+    for key in ["min_edges", "max_edges", "vertices"]:
         if filtered_dict[key] < 0:
             filtered_dict[key] *= -1
 
@@ -359,17 +359,17 @@ def input_filter(input_dict):
             filtered_dict["max_weight"], filtered_dict["min_weight"]
         )
 
-    if filtered_dict["min_edge"] > filtered_dict["max_edge"]:
-        filtered_dict["min_edge"], filtered_dict["max_edge"] = (
-            filtered_dict["max_edge"], filtered_dict["min_edge"]
+    if filtered_dict["min_edges"] > filtered_dict["max_edges"]:
+        filtered_dict["min_edges"], filtered_dict["max_edges"] = (
+            filtered_dict["max_edges"], filtered_dict["min_edges"]
         )
 
     if not filtered_dict["self_loop"]:
-        edge_upper_threshold -= 1
+        edges_upper_threshold -= 1
 
     if not filtered_dict["multigraph"]:
-        for key in ["min_edge", "max_edge"]:
-            filtered_dict[key] = min(filtered_dict[key], edge_upper_threshold)
+        for key in ["min_edges", "max_edges"]:
+            filtered_dict[key] = min(filtered_dict[key], edges_upper_threshold)
 
     return filtered_dict
 
@@ -388,8 +388,8 @@ def get_input(input_func=input):
         "vertices": 0,
         "max_weight": 1,
         "min_weight": 1,
-        "min_edge": 0,
-        "max_edge": 0,
+        "min_edges": 0,
+        "max_edges": 0,
         "edge_number": 0,
         "sign": True,
         "output_format": 1,
