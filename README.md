@@ -238,7 +238,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 	<tr>
 		<td align="center">Attaching Edge Number (m_)</td>
-		<td align="center">The number of edges to be attached to a new node</td>
+		<td align="center">The number of edges to attach to a new node</td>
 	</tr>
 </table>
 

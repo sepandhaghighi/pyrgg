@@ -11,7 +11,7 @@ def edge_gen(n, m_):
 
     :param n: number of vertices
     :type n: int
-    :param m_: number of edges to be attached to a new node
+    :param m_: number of edges to attach to a new node
     :type m_: int
     :return: list of dicts
     """
