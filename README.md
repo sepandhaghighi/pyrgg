@@ -225,6 +225,23 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
+### Barabási-Albert
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Attaching Edge Number (m_)</td>
+		<td align="center">The number of edges to be attached to a new node</td>
+	</tr>
+</table>
+
 ## Supported Formats 			
 
 ### DIMACS
