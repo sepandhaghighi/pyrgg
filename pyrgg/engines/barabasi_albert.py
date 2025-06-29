@@ -85,6 +85,7 @@ def logger(file, file_name, elapsed_time, input_dict):
     """
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
+        text += "Edges to Attach to a New Node : {0}\n".format(input_dict['attaching_edge_number'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
         text += "Engine : {0} ({1})\n".format(input_dict['engine'], ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
