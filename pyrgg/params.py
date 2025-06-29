@@ -15,7 +15,7 @@ MENU_ITEMS = {
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
         4- Stochastic Block Model - G(C, P)
-        5- Barabási-Albert - G(n, m_)
+        5- Barabási-Albert - G(n, k)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -109,7 +109,7 @@ SBM_ENGINE_PARAMS = {
 
 BA_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
-    2: ["attaching_edge_number", "- Number of Edges to Attach to a New Node (0 < m_ < n) : "],
+    2: ["attaching_edge_number", "- Number of Edges to Attach to a New Node (0 < k < n) : "],
 }
 
 ENGINE_PARAM_MAP = {

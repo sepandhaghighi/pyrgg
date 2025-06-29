@@ -5,30 +5,31 @@ from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n, m_):
+def edge_gen(n, k):
     """
     Generate each vertex connection number.
 
     :param n: number of vertices
     :type n: int
-    :param m_: number of edges to attach to a new node
-    :type m_: int
+    :param k: number of edges to attach to a new node in each iteration, m in the Barabási-Albert model
+    :type k: int
     :return: list of dicts
     """
-    edge_dic = {i: [] for i in range(1, m_ + 1)}
-    weight_dict = {i: [] for i in range(1, m_ + 1)}
-    node_from = m_ + 1
-    node_to = list(range(1, m_ + 1))
+    # We assume m0 is the same as k, similar to the original paper examples
+    edge_dic = {i: [] for i in range(1, k + 1)}
+    weight_dict = {i: [] for i in range(1, k + 1)}
+    node_from = k + 1
+    node_to = list(range(1, k + 1))
     nodes_history = []
     while node_from <= n:
         edge_dic[node_from] = [i for i in node_to]
-        weight_dict[node_from] = [1] * m_
+        weight_dict[node_from] = [1] * k
         nodes_history.extend(node_to)
-        nodes_history.extend([node_from] * m_)
-        node_to = sample(nodes_history, m_)
+        nodes_history.extend([node_from] * k)
+        node_to = sample(nodes_history, k)
         node_from += 1
     
-    return [edge_dic, weight_dict, (n - m_) * m_]
+    return [edge_dic, weight_dict, (n - k) * k]
 
 
 def gen_using(
@@ -39,7 +40,7 @@ def gen_using(
     Generate graph using given function based on Barabási-Albert model.
 
     Refer to (https://en.wikipedia.org/wiki/Barab%C3%A1si%E2%80%93Albert_model).
-    We assume that m0 is the same as m_ and m_ is the number of edges to attach to a new node.
+    We assume that m0 is the same as k and k is the number of edges to attach to a new node.
 
     :param gen_function: generation function
     :type gen_function: function object
