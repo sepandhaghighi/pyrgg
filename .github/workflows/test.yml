@@ -75,3 +75,6 @@ jobs:
     - name: cProfile - Stochastic Block Model Engine
       run: |
           python -m cProfile -s cumtime otherfile/profiles/sbm_profile.py
+    - name: cProfile - Barabasi-Albert Engine
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/ba_profile.py

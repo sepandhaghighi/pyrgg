@@ -225,6 +225,23 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
+### Barabási-Albert
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Attaching Edge Number (k)</td>
+		<td align="center">The number of edges to attach to a new node</td>
+	</tr>
+</table>
+
 ## Supported Formats 			
 
 ### DIMACS
@@ -670,8 +687,9 @@ If you use PyRGG in your research, we would appreciate citations to the followin
 <blockquote>14- Gilbert, Edgar N. "Random graphs." The Annals of Mathematical Statistics 30.4 (1959): 1141-1144.</blockquote>
 
 <blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
-					
- 
+
+<blockquote>16- Barabási, Albert-László, and Réka Albert. "Emergence of scaling in random networks." science 286.5439 (1999): 509-512.</blockquote>
+
 ## Show Your Support
 								
 <h3>Star This Repo</h3>					

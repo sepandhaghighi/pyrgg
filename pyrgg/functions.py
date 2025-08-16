@@ -258,6 +258,7 @@ ITEM_HANDLERS = {
     "blocks": handle_natural_number,
     "inter_probability": handle_str_prob,
     "intra_probability": handle_str_prob,
+    "attaching_edge_number": handle_natural_number,
 }
 
 
@@ -403,6 +404,7 @@ def get_input(input_func=input):
         "blocks": 1,
         "inter_probability": 0.75,
         "intra_probability": 0.25,
+        "attaching_edge_number": 1,
     }
 
     result_dict = _update_using_menu(result_dict, input_func)

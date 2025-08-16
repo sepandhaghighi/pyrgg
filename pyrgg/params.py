@@ -15,6 +15,7 @@ MENU_ITEMS = {
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
         4- Stochastic Block Model - G(C, P)
+        5- Barabási-Albert - G(n, k)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -67,6 +68,7 @@ ENGINE_MENU = {
     2: "erg",
     3: "er",
     4: "sbm",
+    5: "ba",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
@@ -105,11 +107,17 @@ SBM_ENGINE_PARAMS = {
     6: ["self_loop", "- No Self Loop[0] or Self Loop[1]"],
 }
 
+BA_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["attaching_edge_number", "- Number of Edges to Attach to a New Node (0 < k < n) : "],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
     3: ER_ENGINE_PARAMS,
     4: SBM_ENGINE_PARAMS,
+    5: BA_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
