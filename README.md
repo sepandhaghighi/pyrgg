@@ -49,7 +49,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 <table>
 	<tr> 
 		<td align="center">Code Quality</td>
-		<td align="center"><a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
+		<td align="center"><a href="https://app.codacy.com/gh/sepandhaghighi/pyrgg/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
 		<td align="center"><a href="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg"><img src="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg/badge" alt="CodeFactor" /></a></td>	
 	</tr>
 </table>
