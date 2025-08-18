@@ -2,7 +2,7 @@
 	<img src="https://github.com/sepandhaghighi/pyrgg/raw/master/otherfile/logo.png" width="450">
 	<h1>PyRGG: Python Random Graph Generator</h1>
 	<a href="https://www.pyrgg.site"><img src="https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=website"></a>
-	<a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version" height="18"></a>
+	<a href="https://badge.fury.io/py/pyrgg"><img src="https://badge.fury.io/py/pyrgg.svg" alt="PyPI version"></a>
 	<a href="https://anaconda.org/sepandhaghighi/pyrgg"><img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg"></a>
 	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg"><img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov"></a>
 	<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
@@ -49,8 +49,7 @@ PyRGG is a user-friendly synthetic random graph generator that is written in Pyt
 <table>
 	<tr> 
 		<td align="center">Code Quality</td>
-		<td align="center"><a href="https://www.codacy.com/app/sepand-haghighi/pyrgg?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sepandhaghighi/pyrgg&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
-        <td align="center"><a href="https://codebeat.co/projects/github-com-sepandhaghighi-pyrgg-dev"><img alt="codebeat badge" src="https://codebeat.co/badges/3f6c7449-3dfc-406b-b233-9fe615c2d103" /></a></td>	
+		<td align="center"><a href="https://app.codacy.com/gh/sepandhaghighi/pyrgg/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/11ec048bcd594d84997380b64d2d4add"/></a></td>	
 		<td align="center"><a href="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg"><img src="https://www.codefactor.io/repository/github/sepandhaghighi/pyrgg/badge" alt="CodeFactor" /></a></td>	
 	</tr>
 </table>
