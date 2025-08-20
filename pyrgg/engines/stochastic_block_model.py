@@ -29,7 +29,7 @@ def edge_gen(
     """
     edge_number = 0
     edge_dict = {x: [] for x in range(1, vertices + 1)}
-    weight_dic = {x: [] for x in range(1, vertices + 1)}
+    weight_dict = {x: [] for x in range(1, vertices + 1)}
     vertices2blocks = {}
     for c, r in enumerate(block_sizes):
         n0 = len(vertices2blocks)
@@ -45,9 +45,9 @@ def edge_gen(
         c2 = vertices2blocks[v2]
         if random() < probability_matrix[c1][c2]:
             edge_dict[v1].append(v2)
-            weight_dic[v1].append(1)
+            weight_dict[v1].append(1)
             edge_number += 1
-    return [edge_dict, weight_dic, edge_number]
+    return [edge_dict, weight_dict, edge_number]
  
 
 def gen_using(
@@ -67,7 +67,7 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dict, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['block_sizes'],
         input_dict['probability_matrix'],
@@ -75,7 +75,7 @@ def gen_using(
         input_dict['self_loop'])
     gen_function(
         edge_dict,
-        weight_dic,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],

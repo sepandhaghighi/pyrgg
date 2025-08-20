@@ -50,12 +50,12 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dict, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['attaching_edge_number'])
     gen_function(
         edge_dict,
-        weight_dic,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],
