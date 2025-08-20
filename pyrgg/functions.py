@@ -52,26 +52,26 @@ def is_signed(weight_dic): # pragma: no cover
     return any([any([w < 0 for w in weights]) for weights in weight_dic.values()])
 
 
-def has_self_loop(edge_dic): # pragma: no cover
+def has_self_loop(edge_dict): # pragma: no cover
     """
     Check if the graph has self loops.
     
-    :param edge_dic: edge dictionary
-    :type edge_dic: dict
+    :param edge_dict: edge dictionary
+    :type edge_dict: dict
     :return: self looped flag
     """
-    return any([v in edges for v, edges in edge_dic.items()])
+    return any([v in edges for v, edges in edge_dict.items()])
 
 
-def is_multigraph(edge_dic):
+def is_multigraph(edge_dict):
     """
     Check if the graph is a multigraph.
 
-    :param edge_dic: edge dictionary
-    :type edge_dic: dict
+    :param edge_dict: edge dictionary
+    :type edge_dict: dict
     :return: multigraph flag
     """
-    return any([len(set(edges)) != len(edges) for edges in edge_dic.values()])
+    return any([len(set(edges)) != len(edges) for edges in edge_dict.values()])
 
 
 def get_precision(input_number):

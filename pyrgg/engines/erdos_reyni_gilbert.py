@@ -17,11 +17,11 @@ def edge_gen(n, p, direct):
     :type direct: bool
     :return: list of dicts
     """
-    edge_dic = {}
+    edge_dict = {}
     edge_number = 0
     weight_list = []
     for i in range(1, n + 1):
-        edge_dic[i] = []
+        edge_dict[i] = []
         temp_list = []
         dest_list = range(i + 1, n + 1)
         if direct:
@@ -29,10 +29,10 @@ def edge_gen(n, p, direct):
         for j in dest_list:
             if random() < p:
                 temp_list.append(1)
-                edge_dic[i].append(j)
+                edge_dict[i].append(j)
                 edge_number += 1
         weight_list.append(temp_list)
-    return [edge_dic, dict(zip(range(1, n + 1), weight_list)), edge_number]
+    return [edge_dict, dict(zip(range(1, n + 1), weight_list)), edge_number]
 
 
 def gen_using(
@@ -52,12 +52,12 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dic, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['probability'],
         input_dict['direct'])
     gen_function(
-        edge_dic,
+        edge_dict,
         weight_dic,
         {
             "file_name": file_name,

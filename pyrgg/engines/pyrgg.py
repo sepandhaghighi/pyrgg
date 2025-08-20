@@ -204,7 +204,7 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dic, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['min_weight'],
         input_dict['max_weight'],
@@ -217,7 +217,7 @@ def gen_using(
     min_weight, max_weight = get_min_max_weight(weight_dic)
     weighted = is_weighted(max_weight, min_weight, bool(input_dict['sign']))
     gen_function(
-        edge_dic,
+        edge_dict,
         weight_dic,
         {
             "file_name": file_name,
@@ -227,7 +227,7 @@ def gen_using(
             "min_weight": min_weight,
             "max_weight": max_weight,
             "direct": input_dict['direct'],
-            "multigraph": is_multigraph(edge_dic),
+            "multigraph": is_multigraph(edge_dict),
         })
     return edge_number
 
