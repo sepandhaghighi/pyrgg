@@ -34,8 +34,8 @@ Elapsed Time : 2min
 >>> ## ========= edge_gen function =========
 >>> ##########################################
 >>> random.seed(2)
->>> edge_dic, weight_dic, edge_number = engine.edge_gen(10, 3)
->>> edge_dic == {1: [], 2: [], 3: [], 4: [1, 2, 3], 5: [1, 4, 4], 6: [4, 3, 4], 7: [4, 1, 2], 8: [4, 7, 4], 9: [3, 2, 4], 10: [4, 7, 9]}
+>>> edge_dict, weight_dict, edge_number = engine.edge_gen(10, 3)
+>>> edge_dict == {1: [], 2: [], 3: [], 4: [1, 2, 3], 5: [1, 4, 4], 6: [4, 3, 4], 7: [4, 1, 2], 8: [4, 7, 4], 9: [3, 2, 4], 10: [4, 7, 9]}
 True
 >>> edge_number == 21
 True

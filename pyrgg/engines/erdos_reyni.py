@@ -17,7 +17,7 @@ def edge_gen(n, m, direct):
     :type direct: bool
     :return: list of dicts
     """
-    edge_dic = {}
+    edge_dict = {}
     weight_list = []
     edge_mold = []
     max_edges = (n * (n - 1)) // 2
@@ -27,7 +27,7 @@ def edge_gen(n, m, direct):
     edge_mold = m * [1] + (max_edges - m) * [0]
     shuffle(edge_mold)
     for i in range(1, n + 1):
-        edge_dic[i] = []
+        edge_dict[i] = []
         temp_list = []
         dest_list = range(i + 1, n + 1)
         if direct:
@@ -35,9 +35,9 @@ def edge_gen(n, m, direct):
         for j in dest_list:
             if edge_mold.pop() == 1:
                 temp_list.append(1)
-                edge_dic[i].append(j)
+                edge_dict[i].append(j)
         weight_list.append(temp_list)
-    return [edge_dic, dict(zip(range(1, n + 1), weight_list)), m]
+    return [edge_dict, dict(zip(range(1, n + 1), weight_list)), m]
 
 
 def gen_using(
@@ -57,13 +57,13 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['edge_number'],
         input_dict['direct'])
     gen_function(
-        edge_dic,
-        weight_dic,
+        edge_dict,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],

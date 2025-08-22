@@ -16,20 +16,20 @@ def edge_gen(n, k):
     :return: list of dicts
     """
     # We assume m0 is the same as k, similar to the original paper examples
-    edge_dic = {i: [] for i in range(1, k + 1)}
+    edge_dict = {i: [] for i in range(1, k + 1)}
     weight_dict = {i: [] for i in range(1, k + 1)}
     node_from = k + 1
     node_to = list(range(1, k + 1))
     nodes_history = []
     while node_from <= n:
-        edge_dic[node_from] = [i for i in node_to]
+        edge_dict[node_from] = [i for i in node_to]
         weight_dict[node_from] = [1] * k
         nodes_history.extend(node_to)
         nodes_history.extend([node_from] * k)
         node_to = sample(nodes_history, k)
         node_from += 1
     
-    return [edge_dic, weight_dict, (n - k) * k]
+    return [edge_dict, weight_dict, (n - k) * k]
 
 
 def gen_using(
@@ -50,12 +50,12 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges as int
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['attaching_edge_number'])
     gen_function(
-        edge_dic,
-        weight_dic,
+        edge_dict,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],

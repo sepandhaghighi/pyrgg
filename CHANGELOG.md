@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `README.md` modified
 - `min_edge` renamed to `min_edges`
 - `max_edge` renamed to `max_edges`
+- `weight_dic` renamed to `weight_dict`
+- `edge_dic` renamed to `edge_dict`
 ### Removed
 - `handle_prob_matrix` function
 - `handle_pos_list` function

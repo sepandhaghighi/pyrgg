@@ -124,7 +124,7 @@ True
 >>> gl_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gl_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
+TypeError: gl_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> csv_maker({}, {})
 Traceback (most recent call last):
         ...
@@ -132,7 +132,7 @@ TypeError: csv_maker() missing 1 required positional argument: 'mdata'
 >>> gdf_maker({})
 Traceback (most recent call last):
         ...
-TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dic' and 'mdata'
+TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> tsv_maker({}, {})
 Traceback (most recent call last):
         ...
