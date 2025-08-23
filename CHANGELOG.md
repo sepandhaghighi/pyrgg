@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.8] - 2025-08-25
 ### Added
 - `pyrgg.engines.barabasi_albert` module
 ### Changed
@@ -230,7 +231,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - JSON format
 - README
 
-[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.7...dev
+[Unreleased]: https://github.com/sepandhaghighi/pyrgg/compare/v1.8...dev
+[1.8]: https://github.com/sepandhaghighi/pyrgg/compare/v1.7...v1.8
 [1.7]: https://github.com/sepandhaghighi/pyrgg/compare/v1.6...v1.7
 [1.6]: https://github.com/sepandhaghighi/pyrgg/compare/v1.5...v1.6
 [1.5]: https://github.com/sepandhaghighi/pyrgg/compare/v1.4...v1.5

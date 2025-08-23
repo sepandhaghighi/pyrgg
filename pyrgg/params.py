@@ -3,7 +3,7 @@
 from textwrap import dedent, fill
 import os
 
-PYRGG_VERSION = "1.7"
+PYRGG_VERSION = "1.8"
 
 os.environ["PYRGG_TEST_MODE"] = "0"
 
