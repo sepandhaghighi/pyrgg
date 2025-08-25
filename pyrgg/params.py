@@ -15,7 +15,7 @@ MENU_ITEMS = {
         2- Erdos-Renyi-Gilbert - G(n, p)
         3- Erdos-Renyi - G(n, m)
         4- Stochastic Block Model - G(C, P)
-        5- Barabási-Albert - G(n, k)
+        5- Barabasi-Albert - G(n, k)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
