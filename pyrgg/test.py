@@ -80,7 +80,7 @@ Elapsed Time : 2min
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
->>> line(12,"*")
+>>> print_line(12,"*")
 ************
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}

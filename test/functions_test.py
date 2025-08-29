@@ -64,7 +64,7 @@ True
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
->>> line(12,"*")
+>>> print_line(12,"*")
 ************
 >>> is_weighted(0,0,False)
 False

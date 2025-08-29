@@ -269,14 +269,14 @@ def print_description():
     :return: None
     """
     print(pyrgg.params.PYRGG_LINKS)
-    line(40)
+    print_line(40)
     print("\n")
     print(pyrgg.params.PYRGG_DESCRIPTION)
     print("\n")
-    line(40)
+    print_line(40)
 
 
-def line(num=11, char="#"):
+def print_line(num=11, char="#"):
     """
     Print line of char.
 
