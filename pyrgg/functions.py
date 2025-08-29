@@ -341,7 +341,7 @@ def time_convert(input_time):
     ])
 
 
-def input_filter(input_dict):
+def filter_input(input_dict):
     """
     Filter input data.
 
@@ -411,7 +411,7 @@ def get_input(input_func=input):
     result_dict = _update_with_engine_params(
         result_dict, input_func, pyrgg.params.ENGINE_PARAM_MAP[result_dict['engine']])
     result_dict = _post_input_update(result_dict)
-    return input_filter(result_dict)
+    return filter_input(result_dict)
 
 
 def _update_using_menu(result_dict, input_func):
@@ -557,7 +557,7 @@ def load_config(path):
             config = json_loads(json_file.read())
             config['output_format'] = pyrgg.params.OUTPUT_FORMAT_INV[config['output_format']]
             config['engine'] = pyrgg.params.ENGINE_MENU_INV[config['engine']]
-            return input_filter(config)
+            return filter_input(config)
     except BaseException:
         print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)
 
