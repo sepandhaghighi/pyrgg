@@ -5,7 +5,7 @@
 >>> import random
 >>> import os
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
->>> description_print()
+>>> print_description()
 <BLANKLINE>
 Webpage : https://www.pyrgg.site
 Repository : https://github.com/sepandhaghighi/pyrgg

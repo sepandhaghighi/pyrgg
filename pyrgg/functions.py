@@ -262,7 +262,7 @@ ITEM_HANDLERS = {
 }
 
 
-def description_print():
+def print_description():
     """
     Print justified description for overview in console.
 

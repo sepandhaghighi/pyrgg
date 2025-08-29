@@ -123,7 +123,7 @@ def main():
     else:
         tprint("PyRGG", "larry3d")
         tprint("v" + PYRGG_VERSION)
-        description_print()
+        print_description()
         EXIT_FLAG = False
         input_dict = None
         while not EXIT_FLAG:
