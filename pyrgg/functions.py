@@ -90,7 +90,7 @@ def get_precision(input_number):
         return 0
 
 
-def threshold_calc(min_edges, max_edges, vertex_degree):
+def calculate_threshold(min_edges, max_edges, vertex_degree):
     """
     Calculate threshold for branch_gen_pyrgg function.
 

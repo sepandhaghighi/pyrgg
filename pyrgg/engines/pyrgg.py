@@ -3,7 +3,7 @@
 import os
 from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
-from pyrgg.functions import is_weighted, get_precision, threshold_calc
+from pyrgg.functions import is_weighted, get_precision, calculate_threshold
 from pyrgg.functions import get_min_max_weight, is_multigraph
 from pyrgg.functions import save_log
 
@@ -61,7 +61,7 @@ def branch_gen(
     vertex_degree = degree_dict[vertex_index]
     if vertex_degree >= max_edges:
         return [branch_list, weight_list]
-    threshold = threshold_calc(
+    threshold = calculate_threshold(
         min_edges=min_edges,
         max_edges=max_edges,
         vertex_degree=vertex_degree)

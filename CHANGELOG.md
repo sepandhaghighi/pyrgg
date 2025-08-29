@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- `threshold_calc`function renamed to `calculate_threshold`
 ## [1.8] - 2025-08-26
 ### Added
 - `pyrgg.engines.barabasi_albert` module
