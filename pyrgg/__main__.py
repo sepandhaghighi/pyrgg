@@ -91,14 +91,14 @@ def run(input_dict=None):
             print("Config --> " + save_config(input_dict))
     file_name = input_dict["file_name"]
     number_of_files = input_dict["number_of_files"]
-    line(40)
+    print_line(40)
     for i in range(number_of_files):
         print("Generating {0} from {1}".format(i + 1, number_of_files))
         file_name_temp = file_name
         if number_of_files > 1:
             file_name_temp = file_name + "_" + str(i + 1)
         gen_graph(input_dict, file_name_temp)
-        line(40)
+        print_line(40)
 
 
 def main():
@@ -123,7 +123,7 @@ def main():
     else:
         tprint("PyRGG", "larry3d")
         tprint("v" + PYRGG_VERSION)
-        description_print()
+        print_description()
         EXIT_FLAG = False
         input_dict = None
         while not EXIT_FLAG:

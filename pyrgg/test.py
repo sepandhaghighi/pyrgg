@@ -36,16 +36,16 @@ False
 True
 >>> is_float(None)
 False
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
+>>> result = filter_input({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edges': 5, 'max_edges': 5, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2,"engine":1})
+>>> result = filter_input({"file_name": "test","vertices": 5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edges': 4, 'max_edges': 4, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":False,"number_of_files":2,"engine":1}
 True
->>> result = input_filter({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
+>>> result = filter_input({"file_name": "test","vertices": -5,"max_weight": 1000,"min_weight":455,"min_edges": -45,"max_edges": -11,"sign": False,"output_format": 1, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1})
 >>> result == {'output_format': 1, 'min_weight': 455, 'min_edges': 11, 'max_edges': 45, 'file_name': 'test', 'vertices': 5, 'max_weight': 1000, 'sign': False, "direct": False,"self_loop": False,"multigraph":True,"number_of_files":1,"engine":1}
 True
->>> result = input_filter({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edges": 23,"max_edges": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1})
+>>> result = filter_input({"file_name": "test2","vertices": 23,"max_weight": 2,"min_weight": 80,"min_edges": 23,"max_edges": 1,"sign": True,"output_format": 1, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1})
 >>> result == {'min_weight': 2, 'vertices': 23, 'file_name': 'test2', 'max_edges': 23, 'min_edges': 1, 'max_weight': 80, 'output_format': 1, 'sign': True, "direct": False,"self_loop": True,"multigraph":False,"number_of_files":100,"engine":1}
 True
 >>> with open('logfile.log','a') as file:
@@ -80,7 +80,7 @@ Elapsed Time : 2min
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
->>> line(12,"*")
+>>> print_line(12,"*")
 ************
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
