@@ -316,7 +316,7 @@ def get_file_size(file_addr):  # pragma: no cover
     print("Graph File Size : " + convert_bytes(file_size))
 
 
-def time_convert(input_time):
+def convert_time(input_time):
     """
     Convert input_time from sec to DD,HH,MM,SS format.
 
