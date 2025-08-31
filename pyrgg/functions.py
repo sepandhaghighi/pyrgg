@@ -303,15 +303,15 @@ def convert_bytes(num):
         num /= 1024.0
 
 
-def filesize(fileaddr):  # pragma: no cover
+def get_file_size(file_addr):  # pragma: no cover
     """
-    Calculate output file size.
+    Get output file size.
 
-    :param fileaddr: file addresses
-    :type fileaddr: str
+    :param file_addr: file addresses
+    :type file_addr: str
     :return: file size for print as string
     """
-    file_info = os.stat(fileaddr)
+    file_info = os.stat(file_addr)
     file_size = file_info.st_size
     print("Graph File Size : " + convert_bytes(file_size))
 

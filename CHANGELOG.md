@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `description_print` function renamed to `print_description`
 - `line` function renamed to `print_line`
 - `input_filter` function renamed to `filter_input`
+- `filesize` function renamed to `get_file_size`
 ## [1.8] - 2025-08-26
 ### Added
 - `pyrgg.engines.barabasi_albert` module
