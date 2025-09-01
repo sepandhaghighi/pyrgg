@@ -6,6 +6,7 @@
 	<a href="https://anaconda.org/sepandhaghighi/pyrgg"><img src="https://anaconda.org/sepandhaghighi/pyrgg/badges/version.svg"></a>
 	<a href="https://codecov.io/gh/sepandhaghighi/pyrgg"><img src="https://codecov.io/gh/sepandhaghighi/pyrgg/branch/master/graph/badge.svg" alt="Codecov"></a>
 	<a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3"></a>
+	<a href="https://github.com/sepandhaghighi/pyrgg"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/sepandhaghighi/pyrgg"></a>
 	<a href="https://discord.gg/dfYAWVMaCW"><img src="https://img.shields.io/discord/1013411447130308669.svg" alt="Discord Channel"></a>
 </div>			
 				

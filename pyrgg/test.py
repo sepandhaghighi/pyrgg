@@ -72,11 +72,11 @@ Elapsed Time : 2min
 '5.9 KB'
 >>> convert_bytes(80000)
 '78.1 KB'
->>> time_convert(33)
+>>> convert_time(33)
 '00 days, 00 hours, 00 minutes, 33 seconds'
->>> time_convert(15000)
+>>> convert_time(15000)
 '00 days, 04 hours, 10 minutes, 00 seconds'
->>> time_convert('sadasdasd')
+>>> convert_time('sadasdasd')
 Traceback (most recent call last):
         ...
 ValueError: could not convert string to float: 'sadasdasd'
