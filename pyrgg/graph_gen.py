@@ -281,7 +281,7 @@ def mtx_maker(
     with open(mdata['file_name'] + ".mtx", "w") as buf:
         buf.write("%%MatrixMarket matrix coordinate real general\n")
         buf.write(
-            "{0}    {0}    {1}\n".format(str(mdata['vertices_number']), str(mdata['edge_number']))
+            "{vertices_number}    {vertices_number}    {edge_number}\n".format(str(mdata['vertices_number']), str(mdata['edge_number']))
         )
         for key, edge_vals in edge_dict.items():
             for j, value in enumerate(edge_vals):
@@ -401,7 +401,7 @@ def gdf_maker(
     with open(mdata['file_name'] + ".gdf", "w") as buf:
         buf.write("nodedef>name VARCHAR,label VARCHAR\n")
         for key in edge_dict:
-            buf.write(str(key) + "," + "Node{0}".format(str(key)) + "\n")
+            buf.write(str(key) + "," + "Node{index}".format(index=str(key)) + "\n")
         buf.write("edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE\n")
         _write_separated_file(buf, edge_dict, weight_dict, separator=',')
 
@@ -421,8 +421,8 @@ def gml_maker(
     :type mdata: dict
     :return: None
     """
-    header = 'graph\n[\n  multigraph {0}\n  directed  {1}\n'.format(
-        int(mdata['multigraph']), int(mdata['direct']))
+    header = 'graph\n[\n  multigraph {is_multigraph}\n  directed  {is_directed}\n'.format(
+        is_multigraph=int(mdata['multigraph']), is_directed=int(mdata['direct']))
 
     with open(mdata['file_name'] + ".gml", "w") as buf:
         buf.write(header)
@@ -431,8 +431,8 @@ def gml_maker(
                 "  node\n  [\n   id " +
                 str(key) +
                 "\n" +
-                '   label "Node {0}"\n'.format(
-                    str(key)) +
+                '   label "Node {index}"\n'.format(
+                    index = str(key)) +
                 "  ]\n")
         for key, edge_vals in edge_dict.items():
             for j, value in enumerate(edge_vals):
@@ -467,9 +467,9 @@ def gexf_maker(
     header = '<?xml version="1.0" encoding="UTF-8"?>\n'
     header += '<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">\n'
     date = datetime.datetime.now().date()
-    meta = " " * 4 + '<meta lastmodifieddate="{0}">\n'.format(date)
+    meta = " " * 4 + '<meta lastmodifieddate="{date}">\n'.format(date=date)
     meta += " " * 8 + '<creator>PyRGG</creator>\n'
-    meta += " " * 8 + '<description>{0}</description>\n'.format(mdata['file_name'])
+    meta += " " * 8 + '<description>{file_name}</description>\n'.format(file_name=mdata['file_name'])
     meta += " " * 4 + '</meta>\n'
     if mdata['direct']:
         defaultedgetype = "directed"
@@ -488,8 +488,8 @@ def gexf_maker(
                 " " * 12 +
                 '<node id="' +
                 str(key) + '"' +
-                ' label="Node {0}" />'.format(
-                    str(key)) + "\n")
+                ' label="Node {index}" />'.format(
+                    index = str(key)) + "\n")
         buf.write(" " * 8 + "</nodes>\n")
         buf.write(" " * 8 + "<edges>\n")
         edge_id = 1
@@ -503,8 +503,8 @@ def gexf_maker(
                     str(key) + '"'
                     ' target="' +
                     str(value) + '"' +
-                    ' weight="{0}" />'.format(
-                        str(weight_dict[key][j])) + "\n")
+                    ' weight="{weight}" />'.format(
+                        weight=str(weight_dict[key][j])) + "\n")
                 edge_id += 1
         buf.write(" " * 8 + "</edges>\n")
         buf.write(" " * 4 + "</graph>\n")
@@ -526,13 +526,13 @@ def dot_maker(
     :type mdata: dict
     :return: None
     """
-    header = "{0} {1}"
+    header = "{graph_type} {file_name}"
     linker = "--"
     if mdata['direct']:
-        header = header.format("digraph", mdata['file_name'])
+        header = header.format(graph_type="digraph", file_name=mdata['file_name'])
         linker = "->"
     else:
-        header = header.format("graph", mdata['file_name'])
+        header = header.format(graph_type="graph", file_name=mdata['file_name'])
 
     with open(mdata['file_name'] + ".gv", "w") as buf:
         buf.write(header + " {")
@@ -545,7 +545,7 @@ def dot_maker(
                     linker +
                     " " +
                     str(value) +
-                    " [weight={}]".format(
-                        weight_dict[key][j]) +
+                    " [weight={weight}]".format(
+                        weight=weight_dict[key][j]) +
                     ";")
         buf.write("\n}")
