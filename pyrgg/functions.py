@@ -536,7 +536,7 @@ def save_config(input_dict):
         input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(
-            input_dict_temp['file_name'])
+            file_name=input_dict_temp['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict_temp, json_file, indent=2)
         return os.path.abspath(fname)
@@ -596,7 +596,7 @@ def check_for_config(input_func=input):
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
         file = os.path.join(pyrgg.params.SOURCE_DIR, filename)
         if os.path.isfile(file) and filename.endswith(
-                pyrgg.params.CONFIG_FILE_FORMAT.format("")):
+                pyrgg.params.CONFIG_FILE_FORMAT.format(file_name="")):
             configs.append(file)
     return _print_select_config(configs, input_func)
 

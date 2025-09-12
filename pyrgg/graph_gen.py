@@ -27,11 +27,11 @@ def dimacs_maker(
     with open(mdata['file_name'] + ".gr", "w") as buf:
         buf.write(
             DIMACS_FIX.format(
-                mdata['file_name'],
-                str(mdata['vertices_number']),
-                str(mdata['edge_number']),
-                str(mdata['max_weight']),
-                str(mdata['min_weight'])))
+                file_name=mdata['file_name'],
+                vertices_number=str(mdata['vertices_number']),
+                edge_number=str(mdata['edge_number']),
+                max_weight=str(mdata['max_weight']),
+                min_weight=str(mdata['min_weight'])))
         _write_separated_file(
             buf, edge_dict, weight_dict, separator=' ', prefix='a',
         )
