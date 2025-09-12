@@ -28,7 +28,7 @@ def edge_gen(n, k):
         nodes_history.extend([node_from] * k)
         node_to = sample(nodes_history, k)
         node_from += 1
-    
+
     return [edge_dict, weight_dict, (n - k) * k]
 
 
@@ -85,9 +85,11 @@ def logger(file, file_name, elapsed_time, input_dict):
     """
     try:
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])
-        text += "Edges to Attach to a New Node : {attaching_edge_number}\n".format(attaching_edge_number=input_dict['attaching_edge_number'])
+        text += "Edges to Attach to a New Node : {attaching_edge_number}\n".format(
+            attaching_edge_number=input_dict['attaching_edge_number'])
         text += "Total Edges : {edge_number}\n".format(edge_number=input_dict['edge_number'])
-        text += "Engine : {engine_index} ({engine_name})\n".format(engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
+        text += "Engine : {engine_index} ({engine_name})\n".format(
+            engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

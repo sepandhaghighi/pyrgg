@@ -280,9 +280,8 @@ def mtx_maker(
     max_edges_length = len(str(mdata['vertices_number']))
     with open(mdata['file_name'] + ".mtx", "w") as buf:
         buf.write("%%MatrixMarket matrix coordinate real general\n")
-        buf.write(
-            "{vertices_number}    {vertices_number}    {edge_number}\n".format(str(mdata['vertices_number']), str(mdata['edge_number']))
-        )
+        buf.write("{vertices_number}    {vertices_number}    {edge_number}\n".format(
+            str(mdata['vertices_number']), str(mdata['edge_number'])))
         for key, edge_vals in edge_dict.items():
             for j, value in enumerate(edge_vals):
                 shift1 = (max_edges_length - len(str(key))) + 4
@@ -432,7 +431,7 @@ def gml_maker(
                 str(key) +
                 "\n" +
                 '   label "Node {index}"\n'.format(
-                    index = str(key)) +
+                    index=str(key)) +
                 "  ]\n")
         for key, edge_vals in edge_dict.items():
             for j, value in enumerate(edge_vals):
@@ -489,7 +488,7 @@ def gexf_maker(
                 '<node id="' +
                 str(key) + '"' +
                 ' label="Node {index}" />'.format(
-                    index = str(key)) + "\n")
+                    index=str(key)) + "\n")
         buf.write(" " * 8 + "</nodes>\n")
         buf.write(" " * 8 + "<edges>\n")
         edge_id = 1

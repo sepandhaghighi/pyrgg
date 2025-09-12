@@ -34,7 +34,7 @@ def edge_gen(
     for c, r in enumerate(block_sizes):
         n0 = len(vertices2blocks)
         vertices2blocks.update({i: c for i in range(n0 + 1, n0 + r + 1)})
-    
+
     vertices_pairs = list(combinations(range(1, vertices + 1), 2))
     if direct:
         vertices_pairs += [(j, i) for i, j in vertices_pairs]
@@ -48,7 +48,7 @@ def edge_gen(
             weight_dict[v1].append(1)
             edge_number += 1
     return [edge_dict, weight_dict, edge_number]
- 
+
 
 def gen_using(
         gen_function,
@@ -107,10 +107,12 @@ def logger(file, file_name, elapsed_time, input_dict):
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])
         text += "Total Edges : {edge_number}\n".format(edge_number=input_dict['edge_number'])
         text += "Block Sizes : {block_sizes}\n".format(block_sizes=input_dict['block_sizes'])
-        text += "Probability Matrix : {probability_matrix}\n".format(probability_matrix=input_dict['probability_matrix'])
+        text += "Probability Matrix : {probability_matrix}\n".format(
+            probability_matrix=input_dict['probability_matrix'])
         text += "Directed : {is_directed}\n".format(is_directed=bool(input_dict['direct']))
         text += "Self Loop : {has_self_loop}\n".format(has_self_loop=bool(input_dict['self_loop']))
-        text += "Engine : {engine_index} ({engine_name})\n".format(engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
+        text += "Engine : {engine_index} ({engine_name})\n".format(
+            engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

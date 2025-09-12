@@ -91,7 +91,8 @@ def logger(file, file_name, elapsed_time, input_dict):
         text += "Probability : {probability}\n".format(probability=input_dict['probability'])
         text += "Total Edges : {edge_number}\n".format(edge_number=input_dict['edge_number'])
         text += "Directed : {is_directed}\n".format(is_directed=bool(input_dict['direct']))
-        text += "Engine : {engine_index} ({engine_name})\n".format(engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
+        text += "Engine : {engine_index} ({engine_name})\n".format(
+            engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

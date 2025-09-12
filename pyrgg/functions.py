@@ -41,7 +41,7 @@ def get_min_max_weight(weight_dict):
     return min(all_weights), max(all_weights)
 
 
-def is_signed(weight_dict): # pragma: no cover
+def is_signed(weight_dict):  # pragma: no cover
     """
     Check if the graph is signed.
 
@@ -52,10 +52,10 @@ def is_signed(weight_dict): # pragma: no cover
     return any([any([w < 0 for w in weights]) for weights in weight_dict.values()])
 
 
-def has_self_loop(edge_dict): # pragma: no cover
+def has_self_loop(edge_dict):  # pragma: no cover
     """
     Check if the graph has self loops.
-    
+
     :param edge_dict: edge dictionary
     :type edge_dict: dict
     :return: self looped flag
@@ -167,6 +167,7 @@ def handle_natural_number(input_number):
     if val < 1:
         raise ValueError
     return val
+
 
 def handle_str_to_number(string):
     """
