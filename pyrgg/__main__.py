@@ -93,7 +93,7 @@ def run(input_dict=None):
     number_of_files = input_dict["number_of_files"]
     print_line(40)
     for i in range(number_of_files):
-        print("Generating {0} from {1}".format(i + 1, number_of_files))
+        print("Generating {index} from {number_of_files}".format(index=i + 1, number_of_files=number_of_files))
         file_name_temp = file_name
         if number_of_files > 1:
             file_name_temp = file_name + "_" + str(i + 1)
