@@ -281,7 +281,7 @@ def mtx_maker(
     with open(mdata['file_name'] + ".mtx", "w") as buf:
         buf.write("%%MatrixMarket matrix coordinate real general\n")
         buf.write("{vertices_number}    {vertices_number}    {edge_number}\n".format(
-            str(mdata['vertices_number']), str(mdata['edge_number'])))
+            vertices_number=str(mdata['vertices_number']), edge_number=str(mdata['edge_number'])))
         for key, edge_vals in edge_dict.items():
             for j, value in enumerate(edge_vals):
                 shift1 = (max_edges_length - len(str(key))) + 4
