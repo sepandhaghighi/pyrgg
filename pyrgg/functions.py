@@ -576,7 +576,7 @@ def _print_select_config(configs, input_func=input):
         return None
     print(pyrgg.params.PYRGG_CONFIG_LIST_MESSAGE)
     for i, config in enumerate(configs):
-        print("[{}] - {}".format(i + 1, config))
+        print("[{index}] - {config}".format(index=i + 1, config=config))
     key = input_func(pyrgg.params.PYRGG_CONFIG_LOAD_MESSAGE)
     try:
         return load_config(configs[int(key) - 1])
@@ -616,8 +616,8 @@ def save_log(file, file_name, elapsed_time, text):
     :return: None
     """
     text2file = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n"
-    text2file += "Filename : {0}\n".format(file_name)
+    text2file += "Filename : {file_name}\n".format(file_name=file_name)
     text2file += text
-    text2file += "Elapsed Time : {0}\n".format(elapsed_time)
+    text2file += "Elapsed Time : {elapsed_time}\n".format(elapsed_time=elapsed_time)
     text2file += "-------------------------------\n"
     file.write(text2file)
