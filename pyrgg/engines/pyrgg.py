@@ -247,20 +247,20 @@ def logger(file, file_name, elapsed_time, input_dict):
     :return: None
     """
     try:
-        text = "Vertices : {0}\n".format(input_dict['vertices'])
-        text += "Total Edges : {0}\n".format(input_dict['edge_number'])
-        text += "Max Edges : {0}\n".format(input_dict['max_edges'])
-        text += "Min Edges : {0}\n".format(input_dict['min_edges'])
-        text += "Directed : {0}\n".format(bool(input_dict['direct']))
-        text += "Signed : {0}\n".format(bool(input_dict['sign']))
-        text += "Multigraph : {0}\n".format(bool(input_dict['multigraph']))
-        text += "Self Loop : {0}\n".format(bool(input_dict['self_loop']))
-        text += "Weighted : {0}\n".format(
-            is_weighted(input_dict['max_weight'], input_dict['min_weight'], bool(input_dict['sign'])))
-        text += "Max Weight : {0}\n".format(input_dict['max_weight'])
-        text += "Min Weight : {0}\n".format(input_dict['min_weight'])
-        text += "Engine : {0} ({1})\n".format(
-            input_dict['engine'], ENGINE_MENU[input_dict['engine']])
+        text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])
+        text += "Total Edges : {edge_number}\n".format(edge_number=input_dict['edge_number'])
+        text += "Max Edges : {max_edges}\n".format(max_edges=input_dict['max_edges'])
+        text += "Min Edges : {min_edges}\n".format(min_edges=input_dict['min_edges'])
+        text += "Directed : {is_directed}\n".format(is_directed=bool(input_dict['direct']))
+        text += "Signed : {is_signed}\n".format(is_signed=bool(input_dict['sign']))
+        text += "Multigraph : {is_multigraph}\n".format(is_multigraph=bool(input_dict['multigraph']))
+        text += "Self Loop : {has_self_loop}\n".format(has_self_loop=bool(input_dict['self_loop']))
+        text += "Weighted : {is_weighted}\n".format(
+            is_weighted=is_weighted(input_dict['max_weight'], input_dict['min_weight'], bool(input_dict['sign'])))
+        text += "Max Weight : {max_weight}\n".format(max_weight=input_dict['max_weight'])
+        text += "Min Weight : {min_weight}\n".format(min_weight=input_dict['min_weight'])
+        text += "Engine : {engine_index} ({engine_name})\n".format(
+            engine_index=input_dict['engine'], engine_name=ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
     except Exception:
         print(PYRGG_LOGGER_ERROR_MESSAGE)

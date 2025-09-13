@@ -128,7 +128,7 @@ OUTPUT_FORMAT_INV = {v: k for k, v in OUTPUT_FORMAT.items()}
 
 SOURCE_DIR = os.getcwd()
 
-CONFIG_FILE_FORMAT = "{}.pyrgg.config.json"
+CONFIG_FILE_FORMAT = "{file_name}.pyrgg.config.json"
 
 PYRGG_LINKS = """
 Webpage : https://www.pyrgg.site
@@ -172,11 +172,11 @@ PYRGG_CONFIG_LOAD_MESSAGE = "Press the config index to load or any other keys to
 
 DIMACS_FIX = dedent(
     """\
-    c FILE                  :{0}.gr
-    c No. of vertices       :{1}
-    c No. of edges          :{2}
-    c Max. weight           :{3}
-    c Min. weight           :{4}
-    p sp {1} {2}
+    c FILE                  :{file_name}.gr
+    c No. of vertices       :{vertices_number}
+    c No. of edges          :{edge_number}
+    c Max. weight           :{max_weight}
+    c Min. weight           :{min_weight}
+    p sp {vertices_number} {edge_number}
     """
 )

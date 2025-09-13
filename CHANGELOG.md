@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `input_filter` function renamed to `filter_input`
 - `filesize` function renamed to `get_file_size`
 - `time_convert` function renamed to `convert_time`
+- String templates modified
 - Test system modified
 - `README.md` modified
 ## [1.8] - 2025-08-26

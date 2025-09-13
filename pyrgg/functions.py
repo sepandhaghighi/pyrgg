@@ -41,7 +41,7 @@ def get_min_max_weight(weight_dict):
     return min(all_weights), max(all_weights)
 
 
-def is_signed(weight_dict): # pragma: no cover
+def is_signed(weight_dict):  # pragma: no cover
     """
     Check if the graph is signed.
 
@@ -52,10 +52,10 @@ def is_signed(weight_dict): # pragma: no cover
     return any([any([w < 0 for w in weights]) for weights in weight_dict.values()])
 
 
-def has_self_loop(edge_dict): # pragma: no cover
+def has_self_loop(edge_dict):  # pragma: no cover
     """
     Check if the graph has self loops.
-    
+
     :param edge_dict: edge dictionary
     :type edge_dict: dict
     :return: self looped flag
@@ -167,6 +167,7 @@ def handle_natural_number(input_number):
     if val < 1:
         raise ValueError
     return val
+
 
 def handle_str_to_number(string):
     """
@@ -536,7 +537,7 @@ def save_config(input_dict):
         input_dict_temp['pyrgg_version'] = pyrgg.params.PYRGG_VERSION
         input_dict_temp['output_format'] = pyrgg.params.OUTPUT_FORMAT[input_dict_temp['output_format']]
         fname = pyrgg.params.CONFIG_FILE_FORMAT.format(
-            input_dict_temp['file_name'])
+            file_name=input_dict_temp['file_name'])
         with open(fname, "w") as json_file:
             json_dump(input_dict_temp, json_file, indent=2)
         return os.path.abspath(fname)
@@ -576,7 +577,7 @@ def _print_select_config(configs, input_func=input):
         return None
     print(pyrgg.params.PYRGG_CONFIG_LIST_MESSAGE)
     for i, config in enumerate(configs):
-        print("[{}] - {}".format(i + 1, config))
+        print("[{index}] - {config}".format(index=i + 1, config=config))
     key = input_func(pyrgg.params.PYRGG_CONFIG_LOAD_MESSAGE)
     try:
         return load_config(configs[int(key) - 1])
@@ -596,7 +597,7 @@ def check_for_config(input_func=input):
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
         file = os.path.join(pyrgg.params.SOURCE_DIR, filename)
         if os.path.isfile(file) and filename.endswith(
-                pyrgg.params.CONFIG_FILE_FORMAT.format("")):
+                pyrgg.params.CONFIG_FILE_FORMAT.format(file_name="")):
             configs.append(file)
     return _print_select_config(configs, input_func)
 
@@ -616,8 +617,8 @@ def save_log(file, file_name, elapsed_time, text):
     :return: None
     """
     text2file = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n"
-    text2file += "Filename : {0}\n".format(file_name)
+    text2file += "Filename : {file_name}\n".format(file_name=file_name)
     text2file += text
-    text2file += "Elapsed Time : {0}\n".format(elapsed_time)
+    text2file += "Elapsed Time : {elapsed_time}\n".format(elapsed_time=elapsed_time)
     text2file += "-------------------------------\n"
     file.write(text2file)
