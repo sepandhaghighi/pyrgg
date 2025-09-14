@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - String templates modified
 - Test system modified
 - `README.md` modified
+### Added
+- `pyrgg.engines.watts_strogatz` module
 ## [1.8] - 2025-08-26
 ### Added
 - `pyrgg.engines.barabasi_albert` module
