@@ -711,6 +711,8 @@ If you use PyRGG in your research, we would appreciate citations to the followin
 
 <blockquote>16- Barabási, Albert-László, and Réka Albert. "Emergence of scaling in random networks." science 286.5439 (1999): 509-512.</blockquote>
 
+<blockquote>17- Watts, Duncan J., and Steven H. Strogatz. "Collective dynamics of ‘small-world’networks." nature 393.6684 (1998): 440-442.</blockquote>
+
 ## Show Your Support
 								
 <h3>Star This Repo</h3>					
