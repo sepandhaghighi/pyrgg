@@ -13,6 +13,6 @@ ws_engine.gen_using(
     {
         'vertices': 10000,
         'mean_degree': 500,
-        'beta': 0.3,
+        'rewiring_probability': 0.3,
     }
 )
