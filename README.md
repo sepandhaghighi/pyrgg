@@ -258,7 +258,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 		<td align="center">The number of connections in the initial lattice (should be an even</td>
 	</tr>
 	<tr>
-		<td align="center">Rewiring Probability (beta)</td>
+		<td align="center">Rewiring Probability (p)</td>
 		<td align="center">The probability by which each node would be rewired to another node</td>
 	</tr>
 </table>
