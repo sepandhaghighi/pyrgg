@@ -11,8 +11,8 @@ ws_engine.gen_using(
     dimacs_maker,
     'profile',
     {
-        'vertices': 10000,
-        'mean_degree': 500,
+        'vertices': 10,
+        'mean_degree': 2,
         'rewiring_probability': 0.3,
     }
 )
