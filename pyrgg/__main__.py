@@ -13,6 +13,7 @@ import pyrgg.engines.erdos_reyni_gilbert as erg_engine
 import pyrgg.engines.erdos_reyni as er_engine
 import pyrgg.engines.stochastic_block_model as sbm_engine
 import pyrgg.engines.barabasi_albert as ba_engine
+import pyrgg.engines.watts_strogatz as ws_engine
 
 GENERATOR_MENU = {
     1: dimacs_maker,
@@ -39,6 +40,7 @@ ENGINE_MAPPER = {
     3: er_engine,
     4: sbm_engine,
     5: ba_engine,
+    6: ws_engine,
 }
 
 
