@@ -44,8 +44,8 @@ def edge_gen(n, k, beta):
             if i < j <= rot_idx(i + k // 2) and random() < beta:
                 candidates = [x for x in range(1, n + 1)
                               if x != i and
-                              (x not in init_edge_dict[i] or i not in edge_dict[x]) and
-                              (x not in edge_dict[i] or i not in init_edge_dict[x])]
+                              (x not in init_edge_dict[i] and i not in edge_dict[x]) and
+                              (x not in edge_dict[i] and i not in init_edge_dict[x])]
                 node_to = choice(candidates)
             edge_dict[i].append(node_to)
     return edge_dict, weight_dict, edge_number
