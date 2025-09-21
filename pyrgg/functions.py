@@ -155,6 +155,20 @@ def handle_pos_int(input_number):
     return val
 
 
+def handle_pos_even(input_number):
+    """
+    Check if the input number is a positive even number and raise a ValueError if it is not.
+
+    :param input_number: input number
+    :type input_number: float or int or str
+    :return: result as int
+    """
+    val = handle_pos_int(input_number)
+    if val % 2 != 0:
+        raise ValueError
+    return val
+
+
 def handle_natural_number(input_number):
     """
     Check if the input number is a natural number and raise a ValueError if it is not.
@@ -260,6 +274,8 @@ ITEM_HANDLERS = {
     "inter_probability": handle_str_prob,
     "intra_probability": handle_str_prob,
     "attaching_edge_number": handle_natural_number,
+    "mean_degree": handle_pos_even,
+    "rewiring_probability": handle_str_prob,
 }
 
 
@@ -406,6 +422,8 @@ def get_input(input_func=input):
         "inter_probability": 0.75,
         "intra_probability": 0.25,
         "attaching_edge_number": 1,
+        "mean_degree": 2,
+        "rewiring_probability": 0.5,
     }
 
     result_dict = _update_using_menu(result_dict, input_func)
