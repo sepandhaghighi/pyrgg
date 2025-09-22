@@ -17,6 +17,10 @@ def edge_gen(n, k, beta):
     :type beta: float
     :return: list of dicts
     """
+    if n <= k:
+        return {i: [j for j in range(i + 1, n + 1)] for i in range(1, n + 1)}, \
+               {i: [1] * (n - i) for i in range(1, n + 1)}, \
+                n * (n - 1) // 2
     def rot_idx(i: int) -> int:
         """Wrap around indices in a ring."""
         return (i - 1) % n + 1
@@ -25,27 +29,26 @@ def edge_gen(n, k, beta):
         """Return k neighbors of node i in a ring lattice."""
         return [rot_idx(i + j) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
-    init_edge_dict = {i: [] for i in range(1, n + 1)}
+    lattice_edge_dict = {i: [] for i in range(1, n + 1)}
     weight_dict = {i: [] for i in range(1, n + 1)}
     edge_number = 0
 
     # Create ring lattice (n, k)
     for i in range(1, n + 1):
-        neighbors = [j for j in get_neighbors(i, k) if i not in init_edge_dict[j]]
-        init_edge_dict[i].extend(neighbors)
+        neighbors = [j for j in get_neighbors(i, k) if i not in lattice_edge_dict[j]]
+        lattice_edge_dict[i].extend(neighbors)
         weight_dict[i].extend([1] * len(neighbors))
         edge_number += len(neighbors)
 
     # Rewire edges
     edge_dict = {i: [] for i in range(1, n + 1)}
     for i in range(1, n + 1):
-        for j in init_edge_dict[i]:
+        for j in lattice_edge_dict[i]:
             node_to = j
             if i < j <= rot_idx(i + k // 2) and random() < beta:
                 candidates = [x for x in range(1, n + 1)
-                              if x != i and
-                              (x not in init_edge_dict[i] and i not in edge_dict[x]) and
-                              (x not in edge_dict[i] and i not in init_edge_dict[x])]
+                              if x != i and # no self-loops
+                              x not in edge_dict[i] and i not in edge_dict[x]] # no duplicate edges
                 node_to = choice(candidates)
             edge_dict[i].append(node_to)
     return edge_dict, weight_dict, edge_number
