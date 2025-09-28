@@ -5,14 +5,14 @@ from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def _rot_idx(i: int) -> int:
+def _rot_idx(i, n):
     """Wrap around indices in a ring."""
     return (i - 1) % n + 1
 
 
-def _get_neighbors(i: int, k: int) -> list[int]:
+def _get_neighbors(i, k, n):
     """Return k neighbors of node i in a ring lattice."""
-    return [_rot_idx(i + j) for j in range(-k // 2, k // 2 + 1) if j != 0]
+    return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
 def edge_gen(n, k, beta):
@@ -38,7 +38,7 @@ def edge_gen(n, k, beta):
 
     # Create ring lattice (n, k)
     for i in range(1, n + 1):
-        neighbors = [j for j in _get_neighbors(i, k) if i not in lattice_edge_dict[j]]
+        neighbors = [j for j in _get_neighbors(i, k, n) if i not in lattice_edge_dict[j]]
         lattice_edge_dict[i].extend(neighbors)
         weight_dict[i].extend([1] * len(neighbors))
         edge_number += len(neighbors)
@@ -48,7 +48,7 @@ def edge_gen(n, k, beta):
     for i in range(1, n + 1):
         for j in lattice_edge_dict[i]:
             node_to = j
-            if i < j <= _rot_idx(i + k // 2) and random() < beta:
+            if i < j <= _rot_idx(i + k // 2, n) and random() < beta:
                 candidates = [x for x in range(1, n + 1)
                               if x != i and # no self-loops
                               x not in edge_dict[i] and i not in edge_dict[x]] # no duplicate edges
