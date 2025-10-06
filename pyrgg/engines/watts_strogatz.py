@@ -6,12 +6,25 @@ from pyrgg.functions import save_log
 
 
 def _rot_idx(i, n):
-    """Wrap around indices in a ring."""
+    """
+    Wrap around indices in a ring.
+
+    :param i: node index
+    :param n: total number of nodes
+    :return: wrapped index
+    """
     return (i - 1) % n + 1
 
 
 def _get_neighbors(i, k, n):
-    """Return k neighbors of node i in a ring lattice."""
+    """
+    Return k neighbors of node i in a ring lattice.
+
+    :param i: node index
+    :param k: number of neighbors in each side
+    :param n: total number of nodes
+    :return: list of neighbor indices
+    """
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
