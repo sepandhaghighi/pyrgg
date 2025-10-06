@@ -255,7 +255,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 	<tr>
 		<td align="center">Mean Degree (k)</td>
-		<td align="center">The number of connections in the initial lattice (should be an even</td>
+		<td align="center">The number of connections in the initial lattice (should be a positive even number)</td>
 	</tr>
 	<tr>
 		<td align="center">Rewiring Probability (p)</td>
