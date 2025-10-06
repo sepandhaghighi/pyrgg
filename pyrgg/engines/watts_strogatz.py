@@ -51,7 +51,8 @@ def edge_gen(n, k, beta):
             if i < j <= _rot_idx(i + k // 2, n) and random() < beta:
                 candidates = [x for x in range(1, n + 1)
                               if x != i and # no self-loops
-                              x not in edge_dict[i] and i not in edge_dict[x]] # no duplicate edges
+                              x not in edge_dict[i] and i not in edge_dict[x] and # no duplicate edges
+                              x not in [y for y in lattice_edge_dict[i] if j <= y]] # no original neighbors
                 node_to = choice(candidates)
             edge_dict[i].append(node_to)
     return edge_dict, weight_dict, edge_number
