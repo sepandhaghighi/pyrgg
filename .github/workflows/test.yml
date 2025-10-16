@@ -79,4 +79,5 @@ jobs:
       run: |
           python -m cProfile -s cumtime otherfile/profiles/ba_profile.py
     - name: cProfile - Watts-Strogatz Engine
+      run: |
           python -m cProfile -s cumtime otherfile/profiles/ws_profile.py
