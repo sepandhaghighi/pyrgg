@@ -242,7 +242,28 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
-## Supported Formats 			
+### Watts-Strogatz
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Mean Degree (k)</td>
+		<td align="center">The number of connections in the initial lattice (should be a positive even number)</td>
+	</tr>
+	<tr>
+		<td align="center">Rewiring Probability (p)</td>
+		<td align="center">The probability by which each node would be rewired to another node</td>
+	</tr>
+</table>
+
+## Supported Formats
 
 ### DIMACS
 
@@ -689,6 +710,8 @@ If you use PyRGG in your research, we would appreciate citations to the followin
 <blockquote>15- Erdős, Paul, and Alfréd Rényi. "On the strength of connectedness of a random graph." Acta Mathematica Hungarica 12.1 (1961): 261-267.</blockquote>
 
 <blockquote>16- Barabási, Albert-László, and Réka Albert. "Emergence of scaling in random networks." science 286.5439 (1999): 509-512.</blockquote>
+
+<blockquote>17- Watts, Duncan J., and Steven H. Strogatz. "Collective dynamics of ‘small-world’networks." nature 393.6684 (1998): 440-442.</blockquote>
 
 ## Show Your Support
 								
