@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `time_convert` function renamed to `convert_time`
 - String templates modified
 - Test system modified
+- `Python 3.14` added to `test.yml`
 - `README.md` modified
 ## [1.8] - 2025-08-26
 ### Added
