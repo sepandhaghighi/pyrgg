@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Profile file."""
+"""PyRGG Engine Profile."""
 from pyrgg import *
 import pyrgg.engines.pyrgg as pyrgg_engine
 import random
