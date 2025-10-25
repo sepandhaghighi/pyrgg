@@ -88,13 +88,13 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['mean_degree'],
         input_dict['rewiring_probability'])
     gen_function(
-        edge_dic,
-        weight_dic,
+        edge_dict,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],
