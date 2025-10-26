@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Profile file."""
+"""Watts-Strogatz Engine Profile."""
 from pyrgg import *
 import pyrgg.engines.watts_strogatz as ws_engine
 import random

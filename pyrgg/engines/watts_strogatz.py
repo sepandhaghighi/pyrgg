@@ -10,7 +10,9 @@ def _rot_idx(i, n):
     Wrap around indices in a ring.
 
     :param i: node index
+    :type i: int
     :param n: total number of nodes
+    :type n: int
     :return: wrapped index
     """
     return (i - 1) % n + 1
@@ -21,8 +23,11 @@ def _get_neighbors(i, k, n):
     Return k neighbors of node i in a ring lattice.
 
     :param i: node index
+    :type i: int
     :param k: number of neighbors in each side
+    :type k: int
     :param n: total number of nodes
+    :type n: int
     :return: list of neighbor indices
     """
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
@@ -88,13 +93,13 @@ def gen_using(
     :type input_dict: dict
     :return: number of edges
     """
-    edge_dic, weight_dic, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
         input_dict['mean_degree'],
         input_dict['rewiring_probability'])
     gen_function(
-        edge_dic,
-        weight_dic,
+        edge_dict,
+        weight_dict,
         {
             "file_name": file_name,
             "vertices_number": input_dict['vertices'],

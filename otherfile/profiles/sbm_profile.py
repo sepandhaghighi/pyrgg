@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Profile file."""
+"""Stochastic Block Model Engine Profile."""
 from pyrgg import *
 import pyrgg.engines.stochastic_block_model as sbm_engine
 import random
