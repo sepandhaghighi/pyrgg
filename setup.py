@@ -39,15 +39,15 @@ def read_description():
 setup(
     name='pyrgg',
     packages=['pyrgg', 'pyrgg.engines'],
-    version='1.8',
+    version='1.9',
     description='Python Random Graph Generator',
     long_description=read_description(),
     long_description_content_type='text/markdown',
     author='PyRGG Development Team',
     author_email='info@pyrgg.site',
     url='https://github.com/sepandhaghighi/pyrgg',
-    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.8',
-    keywords='random graph python3 python generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',
+    download_url='https://github.com/sepandhaghighi/pyrgg/tarball/v1.9',
+    keywords='random graph generator graph-process generator DIMACS JSON YAML Pickle CSV TSV WEL ASP TGF UCINET',
     project_urls={
         'Webpage': 'https://www.pyrgg.site',
         'Source': 'https://github.com/sepandhaghighi/pyrgg',
