@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Stochastic Block Model Engine module."""
-from typing import List, Dict, Callable, Any, IO
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import random
 from itertools import combinations
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
@@ -12,7 +12,7 @@ def edge_gen(
         block_sizes: List[int],
         probability_matrix: List[List[float]],
         direct: bool,
-        self_loop: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
+        self_loop: bool) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 

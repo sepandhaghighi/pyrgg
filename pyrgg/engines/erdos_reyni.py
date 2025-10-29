@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Erdős-Rényi Engine module."""
-from typing import List, Dict, Callable, Any, IO
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import shuffle
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n: int, m: int, direct: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
+def edge_gen(n: int, m: int, direct: bool) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 

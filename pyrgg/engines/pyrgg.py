@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """PyRGG Engine module."""
-from typing import List, Dict, Callable, Any, IO
+from typing import List, Dict, Callable, Any, IO, Tuple
 import os
 from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
@@ -22,7 +22,7 @@ def branch_gen(
         multigraph: bool,
         used_vertices: Dict[int, List[int]],
         degree_dict: Dict[int, int],
-        degree_sort_dict: Dict[int, List[int]]) -> List[List[int], List[float]]:
+        degree_sort_dict: Dict[int, List[int]]) -> Tuple[List[int], List[float]]:
     """
     Generate branch and weight vector of each vertex.
 
@@ -117,7 +117,7 @@ def edge_gen(
         sign: bool,
         direct: bool,
         self_loop: bool,
-        multigraph: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
+        multigraph: bool) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 

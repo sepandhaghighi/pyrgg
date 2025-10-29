@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Barabási-Albert Engine module."""
-from typing import List, Dict, Callable, Any, IO
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import sample
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n: int, k: int) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
+def edge_gen(n: int, k: int) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 

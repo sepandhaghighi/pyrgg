@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Watts-Strogatz Engine module."""
-from typing import List, Dict, Callable, Any, IO
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import random, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
@@ -27,7 +27,7 @@ def _get_neighbors(i: int, k: int, n: int) -> List[int]:
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
-def edge_gen(n: int, k: int, beta: float) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
+def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
