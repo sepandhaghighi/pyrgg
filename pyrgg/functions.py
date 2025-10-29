@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Pyrgg functions module."""
+from typing import Dict, List, Tuple, Union, Any, IO, Callable
 import os
 from random import randint
 from json import loads as json_loads
@@ -10,17 +11,13 @@ import datetime
 import pyrgg.params
 
 
-def is_weighted(max_weight, min_weight, signed):
+def is_weighted(max_weight: int, min_weight: int, signed: bool) -> bool:
     """
     Check the graph is weighted or not.
 
     :param max_weight: maximum weight
-    :type max_weight: int
     :param min_weight: minimum weight
-    :type min_weight: int
     :param signed: weight sign flag
-    :type signed: bool
-    :return: result as bool
     """
     if max_weight == min_weight and min_weight == 0:
         return False
@@ -29,58 +26,49 @@ def is_weighted(max_weight, min_weight, signed):
     return True
 
 
-def get_min_max_weight(weight_dict):
+def get_min_max_weight(weight_dict: Dict[int, List[float]]) -> Tuple[float, float]:
     """
     Get minimum and maximum weight values.
 
     :param weight_dict: weight dictionary
-    :type weight_dict: dict
     :return: minimum and maximum weight values
     """
     all_weights = [abs(w) for weights in weight_dict.values() for w in weights]
     return min(all_weights), max(all_weights)
 
 
-def is_signed(weight_dict):  # pragma: no cover
+def is_signed(weight_dict: Dict[int, List[float]]) -> bool:  # pragma: no cover
     """
     Check if the graph is signed.
 
     :param weight_dict: weight dictionary
-    :type weight_dict: dict
-    :return: signed flag
     """
     return any([any([w < 0 for w in weights]) for weights in weight_dict.values()])
 
 
-def has_self_loop(edge_dict):  # pragma: no cover
+def has_self_loop(edge_dict: Dict[int, List[int]]) -> bool:  # pragma: no cover
     """
     Check if the graph has self loops.
 
     :param edge_dict: edge dictionary
-    :type edge_dict: dict
-    :return: self looped flag
     """
     return any([v in edges for v, edges in edge_dict.items()])
 
 
-def is_multigraph(edge_dict):
+def is_multigraph(edge_dict: Dict[int, List[int]]) -> bool:
     """
     Check if the graph is a multigraph.
 
     :param edge_dict: edge dictionary
-    :type edge_dict: dict
-    :return: multigraph flag
     """
     return any([len(set(edges)) != len(edges) for edges in edge_dict.values()])
 
 
-def get_precision(input_number):
+def get_precision(input_number: float) -> int:
     """
     Return precision of input number.
 
     :param input_number: input number
-    :type input_number: float
-    :return: precision as int
     """
     try:
         number_str = str(input_number)
@@ -90,17 +78,13 @@ def get_precision(input_number):
         return 0
 
 
-def calculate_threshold(min_edges, max_edges, vertex_degree):
+def calculate_threshold(min_edges: int, max_edges: int, vertex_degree: int) -> int:
     """
     Calculate threshold for branch_gen_pyrgg function.
 
     :param min_edges: minimum number of edges (connected to each vertex)
-    :type min_edges: int
     :param max_edges: maximum number of edges (connected to each vertex)
-    :type max_edges: int
     :param vertex_degree: vertex degree
-    :type vertex_degree: int
-    :return: threshold as int
     """
     threshold = min_edges
     lower_limit = 0
@@ -112,13 +96,11 @@ def calculate_threshold(min_edges, max_edges, vertex_degree):
     return threshold
 
 
-def is_float(input_number):
+def is_float(input_number: Union[float, int, str]) -> bool:
     """
     Check input for float conversion.
 
     :param input_number: input number
-    :type input_number: float or int or str
-    :return: result as bool
     """
     try:
         _, decimal_part = divmod(float(input_number), 1)
@@ -128,26 +110,22 @@ def is_float(input_number):
         return True if decimal_part else False
 
 
-def handle_string(string):
+def handle_string(string: str) -> str:
     """
     Handle string and raise ValueError if it is empty.
 
     :param string: input string
-    :type string: str
-    :return: result as str
     """
     if string == "":
         raise ValueError
     return string
 
 
-def handle_pos_int(input_number):
+def handle_pos_int(input_number: Union[float, int, str]) -> int:
     """
     Handle input number and raise ValueError if it is negative.
 
     :param input_number: input number
-    :type input_number: float or int or str
-    :return: result as int
     """
     val = int(input_number)
     if val < 0:
@@ -155,13 +133,11 @@ def handle_pos_int(input_number):
     return val
 
 
-def handle_pos_even(input_number):
+def handle_pos_even(input_number: Union[float, int, str]) -> int:
     """
     Check if the input number is a positive even number and raise a ValueError if it is not.
 
     :param input_number: input number
-    :type input_number: float or int or str
-    :return: result as int
     """
     val = handle_pos_int(input_number)
     if val % 2 != 0:
@@ -169,13 +145,11 @@ def handle_pos_even(input_number):
     return val
 
 
-def handle_natural_number(input_number):
+def handle_natural_number(input_number: Union[float, int, str]) -> int:
     """
     Check if the input number is a natural number and raise a ValueError if it is not.
 
     :param input_number: input number
-    :type input_number: float or int or str
-    :return: result as int
     """
     val = int(input_number)
     if val < 1:
@@ -183,24 +157,20 @@ def handle_natural_number(input_number):
     return val
 
 
-def handle_str_to_number(string):
+def handle_str_to_number(string: str) -> Union[float, int]:
     """
     Convert string to float or int.
 
     :param string: input string
-    :type string: str
-    :return: result as float or int
     """
     return float(string) if is_float(string) else int(string)
 
 
-def handle_str_prob(string):
+def handle_str_prob(string: str) -> float:
     """
     Convert string to float and raise ValueError if string is invalid.
 
     :param string: input string
-    :type string: str
-    :return: result as float
     """
     val = handle_str_to_number(string)
     if val < 0:
@@ -210,13 +180,11 @@ def handle_str_prob(string):
     return val
 
 
-def handle_str_to_bool(string):
+def handle_str_to_bool(string: str) -> bool:
     """
     Convert 0/1 string to bool and raise ValueError if string is invalid.
 
     :param string: input string
-    :type string: str
-    :return: result as bool
     """
     val = int(string)
     if val not in [0, 1]:
@@ -224,13 +192,11 @@ def handle_str_to_bool(string):
     return bool(val)
 
 
-def handle_output_format(string):
+def handle_output_format(string: str) -> int:
     """
     Convert string to output format index.
 
     :param string: input string
-    :type string: str
-    :return: output format index as int
     """
     output_format = handle_pos_int(string)
     if output_format not in pyrgg.params.SUFFIX_MENU:
@@ -238,13 +204,11 @@ def handle_output_format(string):
     return output_format
 
 
-def handle_engine(string):
+def handle_engine(string: str) -> int:
     """
     Convert string to engine index.
 
     :param string: input string
-    :type string: str
-    :return: engine index as int
     """
     engine = handle_pos_int(string)
     if engine not in pyrgg.params.ENGINE_MENU:
@@ -279,12 +243,8 @@ ITEM_HANDLERS = {
 }
 
 
-def print_description():
-    """
-    Print justified description for overview in console.
-
-    :return: None
-    """
+def print_description() -> None:
+    """Print justified description for overview in console."""
     print(pyrgg.params.PYRGG_LINKS)
     print_line(40)
     print("\n")
@@ -293,26 +253,21 @@ def print_description():
     print_line(40)
 
 
-def print_line(num=11, char="#"):
+def print_line(num: int = 11, char: str = "#") -> None:
     """
     Print line of char.
 
     :param num: number of character in this line
-    :type num : int
     :param char: character
-    :type char: str
-    :return: None
     """
     print(char * num)
 
 
-def convert_bytes(num):
+def convert_bytes(num: int) -> str:
     """
     Convert num to idiomatic byte unit.
 
     :param num: the input number.
-    :type num: int
-    :return: result as str
     """
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
         if num < 1024.0:
@@ -320,26 +275,22 @@ def convert_bytes(num):
         num /= 1024.0
 
 
-def get_file_size(file_addr):  # pragma: no cover
+def get_file_size(file_addr: str) -> None:  # pragma: no cover
     """
     Get output file size.
 
     :param file_addr: file addresses
-    :type file_addr: str
-    :return: file size for print as string
     """
     file_info = os.stat(file_addr)
     file_size = file_info.st_size
     print("Graph File Size : " + convert_bytes(file_size))
 
 
-def convert_time(input_time):
+def convert_time(input_time: float) -> str:
     """
     Convert input_time from sec to DD,HH,MM,SS format.
 
     :param input_time: input time in sec
-    :type input_time: float
-    :return: converted time as str
     """
     postfix_dict = {"s": "second", "d": "day", "h": "hour", "m": "minute"}
     value_dict = {"s": 0, "d": 0, "h": 0, "m": 0}
@@ -358,13 +309,11 @@ def convert_time(input_time):
     ])
 
 
-def filter_input(input_dict):
+def filter_input(input_dict: Dict[str, Any]) -> Dict[str, Any]:
     """
     Filter input data.
 
     :param input_dict: input dictionary
-    :type input_dict: dict
-    :return: filtered data as dict
     """
     filtered_dict = input_dict.copy()
     edges_upper_threshold = filtered_dict["vertices"]
@@ -392,13 +341,11 @@ def filter_input(input_dict):
     return filtered_dict
 
 
-def get_input(input_func=input):
+def get_input(input_func: Callable[[str], str] = input) -> Dict[str, Any]:
     """
     Get input from user and return as dictionary.
 
     :param input_func: input function
-    :type input_func: function object
-    :return: inputs as dict
     """
     result_dict = {
         "file_name": "",
@@ -433,15 +380,12 @@ def get_input(input_func=input):
     return filter_input(result_dict)
 
 
-def _update_using_menu(result_dict, input_func):
+def _update_using_menu(result_dict: Dict[str, Any], input_func: Callable[[str], str]) -> Dict[str, Any]:
     """
     Update result_dict using user input from the menu.
 
     :param result_dict: result data
-    :type result_dict: dict
     :param input_func: input function
-    :type input_func: function object
-    :return: result_dict as dict
     """
     for index in sorted(pyrgg.params.MENU_ITEMS):
         item1, item2 = pyrgg.params.MENU_ITEMS[index]
@@ -457,17 +401,13 @@ def _update_using_menu(result_dict, input_func):
     return result_dict
 
 
-def _update_with_engine_params(result_dict, input_func, engine_params):
+def _update_with_engine_params(result_dict: Dict[str, Any], input_func: Callable[[str], str], engine_params: Dict[int, Tuple[str, str]]) -> Dict[str, Any]:
     """
     Update result_dict using user input based on given engine requirements.
 
     :param result_dict: result data
-    :type result_dict: dict
     :param input_func: input function
-    :type input_func: function object
     :param engine_params: engine parameters
-    :type engine_params: dict
-    :return: result_dict as dict
     """
     if result_dict['engine'] == 4:
         print(pyrgg.params.PYRGG_SBM_WARNING_MESSAGE)
@@ -487,13 +427,11 @@ def _update_with_engine_params(result_dict, input_func, engine_params):
     return result_dict
 
 
-def _post_input_update(result_dict):
+def _post_input_update(result_dict: Dict[str, Any]) -> Dict[str, Any]:
     """
     Update result_dict after getting user input.
 
     :param result_dict: result data
-    :type result_dict: dict
-    :return: result_dict as dict
     """
     result_dict["block_sizes"] = [result_dict["vertices"] // result_dict["blocks"]] * (result_dict["blocks"])
     if result_dict["vertices"] % result_dict["blocks"] != 0:
@@ -507,13 +445,11 @@ def _post_input_update(result_dict):
     return result_dict
 
 
-def json_to_yaml(filename):
+def json_to_yaml(filename: str) -> None:
     """
     Convert json file to yaml file.
 
     :param filename: filename
-    :type filename: str
-    :return: None
     """
     try:
         with open(filename + ".json", "r") as json_file:
@@ -524,13 +460,11 @@ def json_to_yaml(filename):
         print(pyrgg.params.PYRGG_YAML_ERROR_MESSAGE)
 
 
-def json_to_pickle(filename):
+def json_to_pickle(filename: str) -> None:
     """
     Convert json file to pickle file.
 
     :param filename: filename
-    :type filename: str
-    :return: None
     """
     try:
         with open(filename + ".json", "r") as json_file:
@@ -541,13 +475,11 @@ def json_to_pickle(filename):
         print(pyrgg.params.PYRGG_PICKLE_ERROR_MESSAGE)
 
 
-def save_config(input_dict):
+def save_config(input_dict: Dict[str, Any]) -> str:
     """
     Save input_dict as the generation config.
 
     :param input_dict: input data
-    :type input_dict: dict
-    :return: path to file as str
     """
     try:
         input_dict_temp = input_dict.copy()
@@ -563,13 +495,11 @@ def save_config(input_dict):
         print(pyrgg.params.PYRGG_CONFIG_SAVE_ERROR_MESSAGE)
 
 
-def load_config(path):
+def load_config(path: str) -> Dict[str, Any]:
     """
     Load config based on given path.
 
     :param path: path to config file
-    :type path: str
-    :return: input data as dict
     """
     try:
         with open(path, "r") as json_file:
@@ -581,15 +511,12 @@ def load_config(path):
         print(pyrgg.params.PYRGG_CONFIG_LOAD_ERROR_MESSAGE)
 
 
-def _print_select_config(configs, input_func=input):
+def _print_select_config(configs: List[str], input_func: Callable[[str], str]) -> Union[Dict[str, Any], None]:
     """
     Print configs in current directory and get input from user.
 
     :param configs: configs path
-    :type configs: list
     :param input_func: input function
-    :type input_func: function object
-    :return: input data as dict
     """
     if len(configs) == 0:
         return None
@@ -603,13 +530,11 @@ def _print_select_config(configs, input_func=input):
         return None
 
 
-def check_for_config(input_func=input):
+def check_for_config(input_func: Callable[[str], str] = input) -> Union[Dict[str, Any], None]:
     """
     Check for config files in source directory.
 
     :param input_func: input function
-    :type input_func: function object
-    :return: input data as dict
     """
     configs = []
     for filename in os.listdir(pyrgg.params.SOURCE_DIR):
@@ -620,19 +545,14 @@ def check_for_config(input_func=input):
     return _print_select_config(configs, input_func)
 
 
-def save_log(file, file_name, elapsed_time, text):
+def save_log(file: IO, file_name: str, elapsed_time: str, text: str) -> None:
     """
     Save generated graph logs.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param text: rest part of the text to write
-    :type text: str
-    :return: None
     """
     text2file = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "\n"
     text2file += "Filename : {file_name}\n".format(file_name=file_name)
