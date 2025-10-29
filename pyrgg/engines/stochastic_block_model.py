@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Stochastic Block Model Engine module."""
+from typing import List, Dict, Callable, Any, IO
 from random import random
 from itertools import combinations
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
@@ -7,25 +8,19 @@ from pyrgg.functions import save_log
 
 
 def edge_gen(
-        vertices,
-        block_sizes,
-        probability_matrix,
-        direct,
-        self_loop):
+        vertices: int,
+        block_sizes: List[int],
+        probability_matrix: List[List[float]],
+        direct: bool,
+        self_loop: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
     :param vertices: number of vertices
-    :type vertices: int
     :param block_sizes: block sizes
-    :type block_sizes: list
     :param probability_matrix: probability matrix
-    :type probability_matrix: list
     :param direct: directed graph flag
-    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: bool
-    :return: list of dicts
     """
     edge_number = 0
     edge_dict = {x: [] for x in range(1, vertices + 1)}
@@ -51,21 +46,17 @@ def edge_gen(
 
 
 def gen_using(
-        gen_function,
-        file_name,
-        input_dict):
+        gen_function: Callable,
+        file_name: str,
+        input_dict: Dict[str, Any]) -> int:
     """
-    Generate graph using given function based on Stochastic Block model.
+    Generate graph using given function based on Stochastic Block model and return the number of edges.
 
     Refer to (https://en.wikipedia.org/wiki/Stochastic_block_model).
 
     :param gen_function: generation function
-    :type gen_function: function object
     :param file_name: file name
-    :type file_name: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: number of edges as int
     """
     edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
@@ -89,19 +80,14 @@ def gen_using(
     return edge_number
 
 
-def logger(file, file_name, elapsed_time, input_dict):
+def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, Any]) -> None:
     """
     Save generated graph logs for Stochastic Block Model engine.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     try:
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])

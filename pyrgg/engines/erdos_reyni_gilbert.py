@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 """Erdős-Rényi-Gilbert Engine module."""
+from typing import List, Dict, Callable, Any, IO
 from random import random
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n, p, direct):
+def edge_gen(n: int, p: float, direct: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
     :param n: number of vertices
-    :type n: int
     :param p: probability
-    :type p: float
     :param direct: directed graph flag
-    :type direct: bool
-    :return: list of dicts
     """
     edge_dict = {}
     edge_number = 0
@@ -36,21 +33,17 @@ def edge_gen(n, p, direct):
 
 
 def gen_using(
-        gen_function,
-        file_name,
-        input_dict):
+        gen_function: Callable,
+        file_name: str,
+        input_dict: Dict[str, Any]) -> int:
     """
-    Generate graph using given function based on Erdos Renyi Gilbert - G(n, p) model.
+    Generate graph using given function based on Erdos Renyi Gilbert - G(n, p) model and return the number of edges.
 
     Refer to (https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model).
 
     :param gen_function: generation function
-    :type gen_function: function object
     :param file_name: file name
-    :type file_name: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: number of edges as int
     """
     edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
@@ -72,19 +65,14 @@ def gen_using(
     return edge_number
 
 
-def logger(file, file_name, elapsed_time, input_dict):
+def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, Any]) -> None:
     """
     Save generated graph logs for Erdős-Rényi-Gilbert engine.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     try:
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])

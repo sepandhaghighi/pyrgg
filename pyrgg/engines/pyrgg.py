@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """PyRGG Engine module."""
+from typing import List, Dict, Callable, Any, IO
 import os
 from random import randint, uniform, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
@@ -9,49 +10,35 @@ from pyrgg.functions import save_log
 
 
 def branch_gen(
-        vertex_index,
-        max_edges,
-        min_edges,
-        min_weight,
-        max_weight,
-        precision,
-        sign,
-        direct,
-        self_loop,
-        multigraph,
-        used_vertices,
-        degree_dict,
-        degree_sort_dict):
+        vertex_index: int,
+        max_edges: int,
+        min_edges: int,
+        min_weight: float,
+        max_weight: float,
+        precision: int,
+        sign: bool,
+        direct: bool,
+        self_loop: bool,
+        multigraph: bool,
+        used_vertices: Dict[int, List[int]],
+        degree_dict: Dict[int, int],
+        degree_sort_dict: Dict[int, List[int]]) -> List[List[int], List[float]]:
     """
     Generate branch and weight vector of each vertex.
 
     :param vertex_index: origin vertex index
-    :type vertex_index: int
     :param max_edges: maximum number of edges (connected to each vertex)
-    :type max_edges: int
     :param min_edges: minimum number of edges (connected to each vertex)
-    :type min_edges: int
     :param min_weight: weight min range
-    :type min_weight: int
     :param max_weight: weight max range
-    :type max_weight: int
     :param precision: numbers precision
-    :type precision: int
     :param sign: weight sign flag
-    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: bool
     :param used_vertices: used vertices dictionary
-    :type used_vertices: dict
     :param degree_dict: all vertices degree
-    :type degree_dict: dict
     :param degree_sort_dict: degree to vertices list
-    :type degree_sort_dict: dict
-    :return: branch and weight list
     """
     index = 0
     branch_list = []
@@ -122,37 +109,27 @@ def branch_gen(
 
 
 def edge_gen(
-        vertices_number,
-        min_weight,
-        max_weight,
-        min_edges,
-        max_edges,
-        sign,
-        direct,
-        self_loop,
-        multigraph):
+        vertices_number: int,
+        min_weight: float,
+        max_weight: float,
+        min_edges: int,
+        max_edges: int,
+        sign: bool,
+        direct: bool,
+        self_loop: bool,
+        multigraph: bool) -> List[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
     :param vertices_number: number of vertices
-    :type vertices_number: int
     :param min_weight: weight min range
-    :type min_weight: int
     :param max_weight: weight max range
-    :type max_weight: int
     :param min_edges: minimum number of edges (connected to each vertex)
-    :type min_edges: int
     :param max_edges: maximum number of edges (connected to each vertex)
-    :type max_edges: int
     :param sign: weight sign flag
-    :type sign: bool
     :param direct: directed and undirected graph flag
-    :type direct: bool
     :param self_loop: self loop flag
-    :type self_loop: bool
     :param multigraph: multigraph flag
-    :type multigraph: bool
-    :return: list of dicts
     """
     precision = max(
         get_precision(max_weight),
@@ -190,19 +167,15 @@ def edge_gen(
 
 
 def gen_using(
-        gen_function,
-        file_name,
-        input_dict):
+        gen_function: Callable,
+        file_name: str,
+        input_dict: Dict[str, Any]) -> int:
     """
-    Generate graph using given function based on PyRGG model.
+    Generate graph using given function based on PyRGG model and return the number of edges.
 
     :param gen_function: generation function
-    :type gen_function: function object
     :param file_name: file name
-    :type file_name: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: number of edges as int
     """
     edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
@@ -232,19 +205,14 @@ def gen_using(
     return edge_number
 
 
-def logger(file, file_name, elapsed_time, input_dict):
+def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, Any]) -> None:
     """
     Save generated graph logs for PyRGG engine.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     try:
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])
