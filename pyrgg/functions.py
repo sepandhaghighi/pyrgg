@@ -11,7 +11,7 @@ import datetime
 import pyrgg.params
 
 
-def is_weighted(max_weight: int, min_weight: int, signed: bool) -> bool:
+def is_weighted(max_weight: float, min_weight: float, signed: bool) -> bool:
     """
     Check the graph is weighted or not.
 
@@ -31,7 +31,6 @@ def get_min_max_weight(weight_dict: Dict[int, List[float]]) -> Tuple[float, floa
     Get minimum and maximum weight values.
 
     :param weight_dict: weight dictionary
-    :return: minimum and maximum weight values
     """
     all_weights = [abs(w) for weights in weight_dict.values() for w in weights]
     return min(all_weights), max(all_weights)
