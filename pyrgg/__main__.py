@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """PyRGG main."""
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from pyrgg.graph_gen import *
 from pyrgg.functions import *
 from pyrgg.params import *
@@ -77,7 +77,7 @@ def gen_graph(input_dict: Dict[str, Any], file_name: str) -> None:
                                      input_dict)
 
 
-def run(input_dict: Dict[str, Any] = None) -> None:
+def run(input_dict: Optional[Dict[str, Any]] = None) -> None:
     """
     Run proper converter.
 
