@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """PyRGG main."""
+from typing import Dict, Any, Optional
 from pyrgg.graph_gen import *
 from pyrgg.functions import *
 from pyrgg.params import *
@@ -44,15 +45,12 @@ ENGINE_MAPPER = {
 }
 
 
-def gen_graph(input_dict, file_name):
+def gen_graph(input_dict: Dict[str, Any], file_name: str) -> None:
     """
     Generate a single graph.
 
     :param input_dict: input data
-    :type input_dict: dict
     :param file_name: file name
-    :type file_name: str
-    :return: None
     """
     first_time = time.perf_counter()
     output_format = input_dict["output_format"]
@@ -79,13 +77,11 @@ def gen_graph(input_dict, file_name):
                                      input_dict)
 
 
-def run(input_dict=None):
+def run(input_dict: Optional[Dict[str, Any]] = None) -> None:
     """
     Run proper converter.
 
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     if input_dict is None:
         input_dict = get_input()
@@ -103,12 +99,8 @@ def run(input_dict=None):
         print_line(40)
 
 
-def main():
-    """
-    CLI main function.
-
-    :return: None
-    """
+def main() -> None:
+    """CLI main function."""
     parser = argparse.ArgumentParser()
     parser.add_argument('--version', help='version', nargs="?", const=1)
     parser.add_argument('--config', help='config')

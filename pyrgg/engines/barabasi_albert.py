@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 """Barabási-Albert Engine module."""
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import sample
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n, k):
+def edge_gen(n: int, k: int) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
     :param n: number of vertices
-    :type n: int
     :param k: number of edges to attach to a new node in each iteration, m in the Barabási-Albert model
-    :type k: int
-    :return: list of dicts
     """
     # We assume m0 is the same as k, similar to the original paper examples
     edge_dict = {i: [] for i in range(1, k + 1)}
@@ -33,22 +31,18 @@ def edge_gen(n, k):
 
 
 def gen_using(
-        gen_function,
-        file_name,
-        input_dict):
+        gen_function: Callable,
+        file_name: str,
+        input_dict: Dict[str, Any]) -> int:
     """
-    Generate graph using given function based on Barabási-Albert model.
+    Generate graph using given function based on Barabási-Albert model and return number of edges.
 
     Refer to (https://en.wikipedia.org/wiki/Barab%C3%A1si%E2%80%93Albert_model).
     We assume that m0 is the same as k and k is the number of edges to attach to a new node.
 
     :param gen_function: generation function
-    :type gen_function: function object
     :param file_name: file name
-    :type file_name: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: number of edges as int
     """
     edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
@@ -69,19 +63,14 @@ def gen_using(
     return edge_number
 
 
-def logger(file, file_name, elapsed_time, input_dict):
+def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, Any]) -> None:
     """
     Save generated graph logs for Barabási-Albert engine.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     try:
         text = "Vertices : {vertices}\n".format(vertices=input_dict['vertices'])

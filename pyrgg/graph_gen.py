@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """PyRGG graph generators module."""
+from typing import List, Dict, Callable, Any, IO
 import random
 import datetime
 from pyrgg.params import *
@@ -10,19 +11,15 @@ random_system = random
 
 
 def dimacs_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file and fill in.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".gr", "w") as buf:
         buf.write(
@@ -38,19 +35,15 @@ def dimacs_maker(
 
 
 def json_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in json format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".json", "w") as buf:
         _write_properties_to_json(
@@ -65,16 +58,13 @@ def json_maker(
         )
 
 
-def _write_data_to_json(buf, edge_dict, weight_dict):
-    """Write data to json buffer.
+def _write_data_to_json(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: Dict[int, List[float]]) -> None:
+    """
+    Write data to json buffer.
 
     :param buf: output file object
-    :type buf: file_object
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
-    :return: None
     """
     buf.write('\n\t"graph": {\n')
     _write_nodes_to_json(buf, edge_dict)
@@ -84,22 +74,17 @@ def _write_data_to_json(buf, edge_dict, weight_dict):
 
 
 def _write_properties_to_json(
-        buf,
-        weighted,
-        direct,
-        multigraph):
+        buf: IO,
+        weighted: bool,
+        direct: bool,
+        multigraph: bool) -> None:
     """
     Write properties to json buffer.
 
     :param buf: output file object
-    :type buf: file_object
     :param weighted: weighted graph flag
-    :type weighted: bool
     :param direct: directed and undirected graph flag
-    :type direct: bool
     :param multigraph: multigraph flag
-    :type multigraph: bool
-    :return: None
     """
     buf.write('{\n\t"properties": {\n')
     buf.write('\t\t"weighted": ' + str(weighted).lower() + ",\n")
@@ -108,14 +93,12 @@ def _write_properties_to_json(
     buf.write("},\n")
 
 
-def _write_nodes_to_json(buf, edge_dict):
-    """Write nodes to json.
+def _write_nodes_to_json(buf: IO, edge_dict: Dict[int, List[int]]) -> None:
+    """
+    Write nodes to json.
 
     :param buf: output file object
-    :type buf: file_object
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
-    :return: None
     """
     first_line = True
     nodes = '\t\t"nodes":[\n'
@@ -137,16 +120,13 @@ def _write_nodes_to_json(buf, edge_dict):
         buf.write(nodes)
 
 
-def _write_edges_to_json(buf, edge_dict, weight_dict):
-    """Write edges to json.
+def _write_edges_to_json(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: Dict[int, List[float]]) -> None:
+    """
+    Write edges to json.
 
     :param buf: output file object
-    :type buf: file_object
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
-    :return: None
     """
     edges = '\t\t"edges":[\n'
 
@@ -176,57 +156,44 @@ def _write_edges_to_json(buf, edge_dict, weight_dict):
 
 
 def csv_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in csv format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".csv", "w") as buf:
         _write_separated_file(buf, edge_dict, weight_dict, separator=',')
 
 
 def tsv_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in tsv format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".tsv", "w") as buf:
         _write_separated_file(buf, edge_dict, weight_dict, separator='\t')
 
 
-def _write_separated_file(buf, edge_dict, weight_dict, separator, prefix=''):
-    r"""Write data to buffer separated with ``separator``.
+def _write_separated_file(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: Dict[int, List[float]], separator: str, prefix: str = '') -> None:
+    r"""
+    Write data to buffer separated with ``separator``.
 
     :param buf: output file object
-    :type buf: file_object
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param separator: separator in a separated file, like ',', '\t', ' ', etc.
-    :type separator: str
     :param prefix: prefix to be added in front of each line
-    :type prefix: str
-    :return: None
     """
     dummy_prefix = object()
     prefix = prefix or dummy_prefix
@@ -244,38 +211,30 @@ def _write_separated_file(buf, edge_dict, weight_dict, separator, prefix=''):
 
 
 def wel_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in wel format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".wel", "w") as buf:
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
 def mtx_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in Matrix Market format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     max_edges_length = len(str(mdata['vertices_number']))
     with open(mdata['file_name'] + ".mtx", "w") as buf:
@@ -291,19 +250,15 @@ def mtx_maker(
 
 
 def lp_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in ASP format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".lp", "w") as buf:
         for key in edge_dict:
@@ -315,19 +270,15 @@ def lp_maker(
 
 
 def tgf_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in Trivial Graph Format (TGF).
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".tgf", "w") as buf:
         for key in edge_dict:
@@ -337,19 +288,15 @@ def tgf_maker(
 
 
 def gl_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in Graph Line(GL).
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".gl", "w") as buf:
         for key, edge_val in edge_dict.items():
@@ -363,19 +310,15 @@ def gl_maker(
 
 
 def dl_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in UCINET DL Format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".dl", "w") as buf:
         buf.write("dl\nformat=edgelist1\nn=" + str(mdata['vertices_number']) + "\ndata:\n")
@@ -383,19 +326,15 @@ def dl_maker(
 
 
 def gdf_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in GDF Format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     with open(mdata['file_name'] + ".gdf", "w") as buf:
         buf.write("nodedef>name VARCHAR,label VARCHAR\n")
@@ -406,19 +345,15 @@ def gdf_maker(
 
 
 def gml_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in GML Format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     header = 'graph\n[\n  multigraph {is_multigraph}\n  directed  {is_directed}\n'.format(
         is_multigraph=int(mdata['multigraph']), is_directed=int(mdata['direct']))
@@ -449,19 +384,15 @@ def gml_maker(
 
 
 def gexf_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in GEXF Format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     header = '<?xml version="1.0" encoding="UTF-8"?>\n'
     header += '<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">\n'
@@ -511,19 +442,15 @@ def gexf_maker(
 
 
 def dot_maker(
-        edge_dict,
-        weight_dict,
-        mdata):
+        edge_dict: Dict[int, List[int]],
+        weight_dict: Dict[int, List[float]],
+        mdata: Dict[str, Any]) -> None:
     """
     Create output file in Dot Format.
 
     :param edge_dict: dictionary containing edges data
-    :type edge_dict: dict
     :param weight_dict: dictionary containing weights data
-    :type weight_dict: dict
     :param mdata: meta data
-    :type mdata: dict
-    :return: None
     """
     header = "{graph_type} {file_name}"
     linker = "--"

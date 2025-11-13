@@ -56,13 +56,11 @@ FILES = {
 TEST_NUMBER = len(FILES.keys()) + 1
 
 
-def print_result(failed=False):
+def print_result(failed: bool = False) -> None:
     """
     Print final result.
 
     :param failed: failed flag
-    :type failed: bool
-    :return: None
     """
     message = "Version tag tests "
     if not failed:

@@ -1,49 +1,39 @@
 # -*- coding: utf-8 -*-
 """Watts-Strogatz Engine module."""
+from typing import List, Dict, Callable, Any, IO, Tuple
 from random import random, choice
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def _rot_idx(i, n):
+def _rot_idx(i: int, n: int) -> int:
     """
-    Wrap around indices in a ring.
+    Wrap around an index in a ring and return it.
 
     :param i: node index
-    :type i: int
     :param n: total number of nodes
-    :type n: int
-    :return: wrapped index
     """
     return (i - 1) % n + 1
 
 
-def _get_neighbors(i, k, n):
+def _get_neighbors(i: int, k: int, n: int) -> List[int]:
     """
     Return k neighbors of node i in a ring lattice.
 
     :param i: node index
-    :type i: int
     :param k: number of neighbors in each side
-    :type k: int
     :param n: total number of nodes
-    :type n: int
-    :return: list of neighbor indices
     """
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
-def edge_gen(n, k, beta):
+def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
     :param n: number of vertices
-    :type n: int
     :param k: mean degree (should be a positive even number)
-    :type k: int
     :param beta: rewiring probability (0 <= beta <= 1)
-    :type beta: float
-    :return: list of dicts
     """
     if n <= k:
         return {i: [j for j in range(i + 1, n + 1)] for i in range(1, n + 1)}, \
@@ -77,21 +67,17 @@ def edge_gen(n, k, beta):
 
 
 def gen_using(
-        gen_function,
-        file_name,
-        input_dict):
+        gen_function: Callable,
+        file_name: str,
+        input_dict: Dict[str, Any]) -> int:
     """
-    Generate a graph using Watts-Strogatz model.
+    Generate a graph using Watts-Strogatz model and return the number of edges.
 
     Refer to (https://en.wikipedia.org/wiki/Watts%E2%80%93Strogatz_model).
 
     :param gen_function: graph generator function
-    :type gen_function: function
     :param file_name: file name
-    :type file_name: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: number of edges
     """
     edge_dict, weight_dict, edge_number = edge_gen(
         input_dict['vertices'],
@@ -113,19 +99,14 @@ def gen_using(
     return edge_number
 
 
-def logger(file, file_name, elapsed_time, input_dict):
+def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, Any]) -> None:
     """
     Save generated graph logs for Watts-Strogatz engine.
 
     :param file: file to write log into
-    :type file: file object
     :param file_name: file name
-    :type file_name: str
     :param elapsed_time: elapsed time
-    :type elapsed_time: str
     :param input_dict: input data
-    :type input_dict: dict
-    :return: None
     """
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
