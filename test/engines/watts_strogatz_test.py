@@ -32,18 +32,18 @@ Elapsed Time : 2min
 ...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':500,'mean_degree':10,'rewiring_probability':0.5,'engine':6,'output_format':1})
 [Error] Logger failed!
 >>> ##########################################
->>> ## ========= edge_gen function =========
+>>> ## ========= generate_edges function =========
 >>> ##########################################
 >>> random.seed(2)
->>> edge_dict, weight_dict, edge_number = engine.edge_gen(10, 4, 0.5)
+>>> edge_dict, weight_dict, edge_number = engine.generate_edges(10, 4, 0.5)
 >>> edge_dict == {1: [9, 10, 2, 3], 2: [10, 5, 6], 3: [4, 5], 4: [9, 1], 5: [6, 9], 6: [7, 8], 7: [8, 9], 8: [4, 10], 9: [10], 10: []}
 True
 >>> edge_number == 20
 True
->>> engine.edge_gen(0)
+>>> engine.generate_edges(0)
 Traceback (most recent call last):
         ...
-TypeError: edge_gen() missing 2 required positional arguments: 'k' and 'beta'
+TypeError: generate_edges() missing 2 required positional arguments: 'k' and 'beta'
 >>> #########################################
 >>> ## ========= gen_using function =========
 >>> #########################################

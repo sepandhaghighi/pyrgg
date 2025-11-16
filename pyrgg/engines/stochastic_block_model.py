@@ -7,7 +7,7 @@ from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(
+def generate_edges(
         vertices: int,
         block_sizes: List[int],
         probability_matrix: List[List[float]],
@@ -58,7 +58,7 @@ def gen_using(
     :param file_name: file name
     :param input_dict: input data
     """
-    edge_dict, weight_dict, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = generate_edges(
         input_dict['vertices'],
         input_dict['block_sizes'],
         input_dict['probability_matrix'],

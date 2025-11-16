@@ -27,7 +27,7 @@ def _get_neighbors(i: int, k: int, n: int) -> List[int]:
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
-def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
+def generate_edges(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
@@ -79,7 +79,7 @@ def gen_using(
     :param file_name: file name
     :param input_dict: input data
     """
-    edge_dict, weight_dict, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = generate_edges(
         input_dict['vertices'],
         input_dict['mean_degree'],
         input_dict['rewiring_probability'])
