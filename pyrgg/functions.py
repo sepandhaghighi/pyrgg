@@ -400,7 +400,8 @@ def _update_using_menu(result_dict: Dict[str, Any], input_func: Callable[[str], 
     return result_dict
 
 
-def _update_with_engine_params(result_dict: Dict[str, Any], input_func: Callable[[str], str], engine_params: Dict[int, Tuple[str, str]]) -> Dict[str, Any]:
+def _update_with_engine_params(result_dict: Dict[str, Any], input_func: Callable[[
+                               str], str], engine_params: Dict[int, Tuple[str, str]]) -> Dict[str, Any]:
     """
     Update result_dict using user input based on given engine requirements.
 
