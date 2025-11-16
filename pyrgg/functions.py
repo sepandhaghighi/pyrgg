@@ -274,15 +274,15 @@ def convert_bytes(num: int) -> str:
         num /= 1024.0
 
 
-def get_file_size(file_addr: str) -> None:  # pragma: no cover
+def get_file_size(path: str) -> str:  # pragma: no cover
     """
     Get output file size.
 
-    :param file_addr: file addresses
+    :param path: file path
     """
-    file_info = os.stat(file_addr)
+    file_info = os.stat(path)
     file_size = file_info.st_size
-    print("Graph File Size : " + convert_bytes(file_size))
+    return convert_bytes(file_size)
 
 
 def convert_time(input_time: float) -> str:

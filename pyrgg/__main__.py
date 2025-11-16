@@ -63,7 +63,7 @@ def gen_graph(input_dict: Dict[str, Any], file_name: str) -> None:
         json_to_yaml(file_name)
     if output_format == 7:
         json_to_pickle(file_name)
-    get_file_size(file_name + SUFFIX_MENU[output_format])
+    print("Graph File Size : " + get_file_size(file_name + SUFFIX_MENU[output_format]))
     second_time = time.perf_counter()
     elapsed_time = second_time - first_time
     elapsed_time_format = convert_time(elapsed_time)
