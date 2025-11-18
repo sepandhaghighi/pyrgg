@@ -185,7 +185,13 @@ def tsv_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator='\t')
 
 
-def _write_separated_file(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: Dict[int, List[float]], separator: str, prefix: str = '') -> None:
+def _write_separated_file(buf: IO,
+                          edge_dict: Dict[int,
+                                          List[int]],
+                          weight_dict: Dict[int,
+                                            List[float]],
+                          separator: str,
+                          prefix: str = '') -> None:
     r"""
     Write data to buffer separated with ``separator``.
 
