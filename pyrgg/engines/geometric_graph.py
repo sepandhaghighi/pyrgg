@@ -2,7 +2,7 @@
 """Random Geometric Graph Engine module."""
 from typing import List, Dict, Callable, Any, IO, Tuple
 from math import sqrt
-from random import random, choice
+from random import random
 from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import is_weighted, get_min_max_weight, save_log
 
