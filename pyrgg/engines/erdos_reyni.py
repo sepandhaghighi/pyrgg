@@ -6,7 +6,7 @@ from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import save_log
 
 
-def edge_gen(n: int, m: int, direct: bool) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
+def generate_edges(n: int, m: int, direct: bool) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
@@ -50,7 +50,7 @@ def gen_using(
     :param file_name: file name
     :param input_dict: input data
     """
-    edge_dict, weight_dict, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = generate_edges(
         input_dict['vertices'],
         input_dict['edge_number'],
         input_dict['direct'])

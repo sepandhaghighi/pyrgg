@@ -27,7 +27,7 @@ def _get_neighbors(i: int, k: int, n: int) -> List[int]:
     return [_rot_idx(i + j, n) for j in range(-k // 2, k // 2 + 1) if j != 0]
 
 
-def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
+def generate_edges(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
 
@@ -38,7 +38,7 @@ def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[in
     if n <= k:
         return {i: [j for j in range(i + 1, n + 1)] for i in range(1, n + 1)}, \
                {i: [1] * (n - i) for i in range(1, n + 1)}, \
-                n * (n - 1) // 2
+            n * (n - 1) // 2
 
     lattice_edge_dict = {i: [] for i in range(1, n + 1)}
     weight_dict = {i: [] for i in range(1, n + 1)}
@@ -58,9 +58,9 @@ def edge_gen(n: int, k: int, beta: float) -> Tuple[Dict[int, List[int]], Dict[in
             node_to = j
             if i < j <= _rot_idx(i + k // 2, n) and random() < beta:
                 candidates = [x for x in range(1, n + 1)
-                              if x != i and # no self-loops
-                              x not in edge_dict[i] and i not in edge_dict[x] and # no duplicate edges
-                              x not in [y for y in lattice_edge_dict[i] if j <= y]] # no original neighbors
+                              if x != i and  # no self-loops
+                              x not in edge_dict[i] and i not in edge_dict[x] and  # no duplicate edges
+                              x not in [y for y in lattice_edge_dict[i] if j <= y]]  # no original neighbors
                 node_to = choice(candidates)
             edge_dict[i].append(node_to)
     return edge_dict, weight_dict, edge_number
@@ -79,7 +79,7 @@ def gen_using(
     :param file_name: file name
     :param input_dict: input data
     """
-    edge_dict, weight_dict, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = generate_edges(
         input_dict['vertices'],
         input_dict['mean_degree'],
         input_dict['rewiring_probability'])

@@ -108,7 +108,7 @@ def branch_gen(
     return [branch_list, weight_list]
 
 
-def edge_gen(
+def generate_edges(
         vertices_number: int,
         min_weight: float,
         max_weight: float,
@@ -177,7 +177,7 @@ def gen_using(
     :param file_name: file name
     :param input_dict: input data
     """
-    edge_dict, weight_dict, edge_number = edge_gen(
+    edge_dict, weight_dict, edge_number = generate_edges(
         input_dict['vertices'],
         input_dict['min_weight'],
         input_dict['max_weight'],

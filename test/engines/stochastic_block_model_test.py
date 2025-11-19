@@ -34,24 +34,24 @@ Elapsed Time : 2min
 ...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'block_sizes':[50,50],'probability_matrix':[[0.5,0.5],[0.5,0.5]],'direct':0,'self_loop':0,'engine':4,'output_format':1})
 [Error] Logger failed!
 >>> ##########################################
->>> ## ========= edge_gen function =========
+>>> ## ========= generate_edges function =========
 >>> ##########################################
 >>> random.seed(2)
->>> edge_dict, weight_dict, edge_number = engine.edge_gen(20, [5, 15], [[0.9, 0.1], [0.1, 0.1]], False, False)
+>>> edge_dict, weight_dict, edge_number = engine.generate_edges(20, [5, 15], [[0.9, 0.1], [0.1, 0.1]], False, False)
 >>> edge_dict == {1: [4, 5], 2: [3, 4, 5, 13], 3: [4, 5], 4: [5], 5: [17], 6: [9], 7: [9, 13, 15, 17], 8: [12, 15], 9: [10], 10: [], 11: [15, 18, 19], 12: [13], 13: [], 14: [16, 17], 15: [17], 16: [], 17: [], 18: [], 19: [], 20: []}
 True
 >>> edge_number == 25
 True
 >>> random.seed(11)
->>> edge_dict, weight_dict, edge_number = engine.edge_gen(20, [5, 15], [[0.5, 0.1], [0.1, 0.1]], True, True)
+>>> edge_dict, weight_dict, edge_number = engine.generate_edges(20, [5, 15], [[0.5, 0.1], [0.1, 0.1]], True, True)
 >>> edge_dict == {1: [1, 4, 11, 13, 16], 2: [1, 2, 4, 5, 7], 3: [1, 2, 3, 4, 11, 17], 4: [1, 2, 5, 8], 5: [3, 5, 16, 17], 6: [], 7: [1, 11, 19], 8: [2, 14, 15, 19], 9: [5], 10: [5, 15, 17], 11: [6], 12: [], 13: [3, 4, 6, 11, 14, 18], 14: [9], 15: [2], 16: [11, 16, 18], 17: [12], 18: [14], 19: [2, 20], 20: []}
 True
 >>> edge_number == 51
 True
->>> engine.edge_gen(0)
+>>> engine.generate_edges(0)
 Traceback (most recent call last):
         ...
-TypeError: edge_gen() missing 4 required positional arguments: 'block_sizes', 'probability_matrix', 'direct', and 'self_loop'
+TypeError: generate_edges() missing 4 required positional arguments: 'block_sizes', 'probability_matrix', 'direct', and 'self_loop'
 >>> #########################################
 >>> ## ========= gen_using function =========
 >>> #########################################
