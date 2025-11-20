@@ -7,6 +7,9 @@ from pyrgg.params import ENGINE_MENU, PYRGG_LOGGER_ERROR_MESSAGE
 from pyrgg.functions import is_weighted, get_min_max_weight, save_log
 
 
+WEIGHT_DIGIT_PRECISION = 5
+
+
 def generate_edges(n: int, d: int, r: float) -> Tuple[Dict[int, List[int]], Dict[int, List[float]], int]:
     """
     Generate each vertex connection number.
@@ -27,7 +30,7 @@ def generate_edges(n: int, d: int, r: float) -> Tuple[Dict[int, List[int]], Dict
             distance = sqrt(sum([(x - y)**2 for x, y in zip(pi, pj)]))
             if distance < r:
                 edge_dict[i].append(j)
-                weight_dict[i].append(distance)
+                weight_dict[i].append(round(distance, WEIGHT_DIGIT_PRECISION))
                 edge_number += 1 
     return edge_dict, weight_dict, edge_number
 
