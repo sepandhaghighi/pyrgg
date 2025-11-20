@@ -12,7 +12,14 @@
 >>> ## ========= logger function =========
 >>> ######################################
 >>> with open('logfile.log','a') as file:
-...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'direct':0,'engine':7,'output_format':1})
+...     engine.logger(file,'test','2min',{'vertices':100,'edge_number':50,'space_dimension':2,'cutoff_threshold':0.5,'engine':7,'output_format':1})
 >>> file = open('logfile.log','r')
 >>> print("\\n".join(file.read().splitlines()[1:-1]))
+Filename : test
+Vertices : 100
+Space Dimension : 2
+Cut-off Threshold : 0.5
+Total Edges : 50
+Engine : 7 (gg)
+Elapsed Time : 2min
 """

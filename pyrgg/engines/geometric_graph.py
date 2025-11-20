@@ -78,8 +78,8 @@ def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, An
     """
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
-        text = "Space Dimension : {0}\n".format(input_dict['space_dimension'])
-        text = "Cut-off Threshold : {0}\n".format(input_dict['cutoff_threshold'])
+        text += "Space Dimension : {0}\n".format(input_dict['space_dimension'])
+        text += "Cut-off Threshold : {0}\n".format(input_dict['cutoff_threshold'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
         text += "Engine : {0} ({1})\n".format(input_dict['engine'], ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)
