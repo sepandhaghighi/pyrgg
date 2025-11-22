@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Profile file."""
+"""Random Geometric Graph Engine Profile."""
 from pyrgg import *
 import pyrgg.engines.geometric_graph as gg_engine
 import random
