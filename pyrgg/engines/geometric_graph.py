@@ -16,7 +16,7 @@ def generate_edges(n: int, d: int, r: float) -> Tuple[Dict[int, List[int]], Dict
 
     :param n: number of vertices
     :param d: space dimension
-    :param r: cutoff threshold for existent of edge
+    :param r: cutoff threshold for the existence of an edge
     """
     edge_dict = {}
     edge_number = 0
