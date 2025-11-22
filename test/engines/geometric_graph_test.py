@@ -18,7 +18,7 @@
 Filename : test
 Vertices : 100
 Space Dimension : 2
-Cut-off Threshold : 0.5
+Cutoff Threshold : 0.5
 Total Edges : 50
 Engine : 7 (gg)
 Elapsed Time : 2min

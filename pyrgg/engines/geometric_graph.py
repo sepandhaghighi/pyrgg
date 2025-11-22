@@ -16,7 +16,7 @@ def generate_edges(n: int, d: int, r: float) -> Tuple[Dict[int, List[int]], Dict
 
     :param n: number of vertices
     :param d: space dimension
-    :param r: cut-off threshold for existent of edge
+    :param r: cutoff threshold for existent of edge
     """
     edge_dict = {}
     edge_number = 0
@@ -82,7 +82,7 @@ def logger(file: IO, file_name: str, elapsed_time: str, input_dict: Dict[str, An
     try:
         text = "Vertices : {0}\n".format(input_dict['vertices'])
         text += "Space Dimension : {0}\n".format(input_dict['space_dimension'])
-        text += "Cut-off Threshold : {0}\n".format(input_dict['cutoff_threshold'])
+        text += "Cutoff Threshold : {0}\n".format(input_dict['cutoff_threshold'])
         text += "Total Edges : {0}\n".format(input_dict['edge_number'])
         text += "Engine : {0} ({1})\n".format(input_dict['engine'], ENGINE_MENU[input_dict['engine']])
         save_log(file, file_name, elapsed_time, text)

@@ -125,7 +125,7 @@ WS_ENGINE_PARAMS = {
 GG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
     2: ["space_dimension", "- The space dimension (d > 0) : "],
-    3: ["cutoff_threshold", "- Cut-off threshold distance (0 <= r <= 1) : "],
+    3: ["cutoff_threshold", "- Cutoff threshold distance (0 <= r <= 1) : "],
 }
 
 ENGINE_PARAM_MAP = {
