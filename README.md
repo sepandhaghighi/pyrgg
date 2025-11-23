@@ -263,6 +263,27 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
+### Random Geometric Graph
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+	<tr>
+		<td align="center">Space Dimension (d)</td>
+		<td align="center">The dimension of the space in which the points would be generated</td>
+	</tr>
+	<tr>
+		<td align="center">Cutoff Threshold (r)</td>
+		<td align="center">The distance below which two points are considered connected.</td>
+	</tr>
+</table>
+
 ## Supported Formats
 
 ### DIMACS
@@ -712,6 +733,8 @@ If you use PyRGG in your research, we would appreciate citations to the followin
 <blockquote>16- Barabási, Albert-László, and Réka Albert. "Emergence of scaling in random networks." science 286.5439 (1999): 509-512.</blockquote>
 
 <blockquote>17- Watts, Duncan J., and Steven H. Strogatz. "Collective dynamics of ‘small-world’networks." nature 393.6684 (1998): 440-442.</blockquote>
+
+<blockquote>18- Gilbert, Edward N. "Random plane networks." Journal of the society for industrial and applied mathematics 9.4 (1961): 533-543.</blockquote>
 
 ## Show Your Support
 								

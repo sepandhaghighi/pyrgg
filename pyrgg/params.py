@@ -17,6 +17,7 @@ MENU_ITEMS = {
         4- Stochastic Block Model - G(C, P)
         5- Barabasi-Albert - G(n, k)
         6- Watts-Strogatz - G(n, k, p)
+        7- Random Geometric Graph - G(d, r)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -71,6 +72,7 @@ ENGINE_MENU = {
     4: "sbm",
     5: "ba",
     6: "ws",
+    7: "gg",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
@@ -120,6 +122,12 @@ WS_ENGINE_PARAMS = {
     3: ["rewiring_probability", "- Rewiring Probability (0 <= p <= 1) : "],
 }
 
+GG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["space_dimension", "- The space dimension (d > 0) : "],
+    3: ["cutoff_threshold", "- Cutoff threshold distance (0 <= r <= 1) : "],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
@@ -127,6 +135,7 @@ ENGINE_PARAM_MAP = {
     4: SBM_ENGINE_PARAMS,
     5: BA_ENGINE_PARAMS,
     6: WS_ENGINE_PARAMS,
+    7: GG_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()

@@ -239,6 +239,8 @@ ITEM_HANDLERS = {
     "attaching_edge_number": handle_natural_number,
     "mean_degree": handle_pos_even,
     "rewiring_probability": handle_str_prob,
+    "space_dimension": handle_natural_number,
+    "cutoff_threshold": handle_str_prob,
 }
 
 
@@ -370,6 +372,8 @@ def get_input(input_func: Callable[[str], str] = input) -> Dict[str, Any]:
         "attaching_edge_number": 1,
         "mean_degree": 2,
         "rewiring_probability": 0.5,
+        "space_dimension": 2,
+        "cutoff_threshold": 0.5,
     }
 
     result_dict = _update_using_menu(result_dict, input_func)

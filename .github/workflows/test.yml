@@ -81,3 +81,6 @@ jobs:
     - name: cProfile - Watts-Strogatz Engine
       run: |
           python -m cProfile -s cumtime otherfile/profiles/ws_profile.py
+    - name: cProfile - Random Geometric Graph Engine
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/gg_profile.py
