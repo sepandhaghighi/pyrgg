@@ -31,7 +31,7 @@ def generate_edges(n: int, d: int, r: float) -> Tuple[Dict[int, List[int]], Dict
             if distance < r:
                 edge_dict[i].append(j)
                 weight_dict[i].append(round(distance, WEIGHT_DIGIT_PRECISION))
-                edge_number += 1 
+                edge_number += 1
     return edge_dict, weight_dict, edge_number
 
 
