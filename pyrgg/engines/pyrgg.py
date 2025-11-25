@@ -9,7 +9,7 @@ from pyrgg.functions import get_min_max_weight, is_multigraph
 from pyrgg.functions import save_log
 
 
-def branch_gen(
+def generate_branches(
         vertex_index: int,
         max_edges: int,
         min_edges: int,
@@ -144,7 +144,7 @@ def generate_edges(
     for i in vertices_id:
         degree_dict[i] = 0
         degree_sort_dict[0][i] = i
-    branch_gen_params = {
+    generate_branches_params = {
         "max_edges": max_edges,
         "min_edges": min_edges,
         "min_weight": min_weight,
@@ -158,7 +158,7 @@ def generate_edges(
         "degree_sort_dict": degree_sort_dict,
         "precision": precision}
     for i in vertices_id:
-        temp_list = branch_gen(vertex_index=i, **branch_gen_params)
+        temp_list = generate_branches(vertex_index=i, **generate_branches_params)
         vertices_edge.append(temp_list[0])
         weight_list.append(temp_list[1])
         temp = temp + len(temp_list[0])

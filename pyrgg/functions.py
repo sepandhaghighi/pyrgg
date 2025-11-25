@@ -79,7 +79,7 @@ def get_precision(input_number: float) -> int:
 
 def calculate_threshold(min_edges: int, max_edges: int, vertex_degree: int) -> int:
     """
-    Calculate threshold for branch_gen_pyrgg function.
+    Calculate threshold for generate_branches function.
 
     :param min_edges: minimum number of edges (connected to each vertex)
     :param max_edges: maximum number of edges (connected to each vertex)

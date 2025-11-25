@@ -39,13 +39,13 @@ Elapsed Time : 2min
 ...     engine.logger(file,'test','2min',{'vertices':str_error_object,'edge_number':50,'max_edges':1000,'min_edges':10,'direct':1,'sign':0,'multigraph':0,'self_loop':1,'max_weight':20,'min_weight':1,'engine':1,'output_format':1})
 [Error] Logger failed!
 >>> ##########################################
->>> ## ========= branch_gen function =========
+>>> ## ========= generate_branches function =========
 >>> ##########################################
 >>> used_vertices = {k:[] for k in range(1,6)}
 >>> degree_dict = {1:2,2:3,3:3,4:3,5:3}
 >>> degree_dict_sort = {0:{},1:{},2:{1:1},3:{2:2,3:3,4:4,5:5},4:{},5:{}}
 >>> all_vertices = list(range(1, 6))
->>> engine.branch_gen(1,3,3,300,3000,0,True,False,False,False,used_vertices,degree_dict,degree_dict_sort)
+>>> engine.generate_branches(1,3,3,300,3000,0,True,False,False,False,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
@@ -53,21 +53,21 @@ Elapsed Time : 2min
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
 >>> all_vertices = list(range(1, 41))
 >>> random.seed(2)
->>> engine.branch_gen(1,10,10,1,20,0,True,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+>>> engine.generate_branches(1,10,10,1,20,0,True,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[4, 25, 18, 3, 30, 34, 2, 26, 14, 11], [3, 10, 20, 14, -18, -2, -15, -14, 8, 6]]
 >>> random.seed(20)
->>> engine.branch_gen(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+>>> engine.generate_branches(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[], []]
 >>> used_vertices = {k:[] for k in range(1,41)}
 >>> degree_dict = {k:0 for k in range(1,41)}
 >>> degree_dict_sort = {k:{} for k in range(41)}
 >>> degree_dict_sort[0] = {i:i for i in range(1,41)}
->>> engine.branch_gen(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
+>>> engine.generate_branches(1,10,4,1,20,0,False,True,True,False,used_vertices,degree_dict,degree_dict_sort)
 [[10, 7, 39, 2, 30, 9, 25, 35, 18], [9, 11, 6, 14, 3, 5, 16, 14, 7]]
->>> engine.branch_gen(40,1,20,1)
+>>> engine.generate_branches(40,1,20,1)
 Traceback (most recent call last):
         ...
-TypeError: branch_gen() missing 9 required positional arguments: 'max_weight', 'precision', 'sign', 'direct', 'self_loop', 'multigraph', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
+TypeError: generate_branches() missing 9 required positional arguments: 'max_weight', 'precision', 'sign', 'direct', 'self_loop', 'multigraph', 'used_vertices', 'degree_dict', and 'degree_sort_dict'
 >>> ##########################################
 >>> ## ========= generate_edges function =========
 >>> ##########################################
