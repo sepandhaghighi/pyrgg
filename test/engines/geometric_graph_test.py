@@ -47,11 +47,11 @@ Traceback (most recent call last):
         ...
 TypeError: generate_edges() missing 2 required positional arguments: 'd' and 'r'
 >>> #########################################
->>> ## ========= gen_using function =========
+>>> ## ========= generate_graph function =========
 >>> #########################################
 >>> #################### dimacs_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dimacs_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(dimacs_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -87,7 +87,7 @@ a 7 10 0.12609
 <BLANKLINE>
 >>> #################### json_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(json_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -99,7 +99,7 @@ a 7 10 0.12609
 5
 >>> #################### csv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(csv_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -129,7 +129,7 @@ a 7 10 0.12609
 <BLANKLINE>
 >>> #################### gdf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gdf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(gdf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -171,7 +171,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### gl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gl_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(gl_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -186,14 +186,14 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> #################### mtx_maker ####################
 >>> from scipy.io import mmread
 >>> random.seed(2)
->>> engine.gen_using(mtx_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(mtx_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
 [0.24375, 0.48873, 0.23771, 0.40371, 0.48501, 0.42942, 0.45883, 0.2634, 0.28223, 0.22306, 0.3054, 0.17396, 0.25386, 0.36596, 0.22839, 0.4491, 0.27605, 0.40529, 0.34911, 0.37493, 0.27921, 0.1751, 0.12609]
 >>> #################### tsv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tsv_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(tsv_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -223,7 +223,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### wel_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(wel_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(wel_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -253,7 +253,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### lp_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(lp_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(lp_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -293,7 +293,7 @@ edge(7,10,0.12609).
 <BLANKLINE>
 >>> #################### tgf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tgf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(tgf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -334,7 +334,7 @@ edge(7,10,0.12609).
 <BLANKLINE>
 >>> #################### dl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dl_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(dl_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -369,7 +369,7 @@ data:
 >>> #################### gml_maker ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.gen_using(gml_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(gml_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
@@ -377,7 +377,7 @@ data:
 >>> #################### gexf_maker ####################
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> engine.gen_using(gexf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(gexf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
@@ -385,7 +385,7 @@ data:
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.gen_using(dot_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(dot_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())

@@ -114,7 +114,7 @@ Traceback (most recent call last):
         ...
 TypeError: generate_edges() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> engine.gen_using(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -133,7 +133,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dimacs_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(dimacs_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -180,7 +180,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -333,7 +333,7 @@ Traceback (most recent call last):
         ...
 TypeError: dimacs_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -363,7 +363,7 @@ TypeError: dimacs_maker() missing 2 required positional arguments: 'weight_dict'
 >>> testfile_1_p['graph']['edges'][1]['weight']
 148
 >>> random.seed(4)
->>> engine.gen_using(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -395,7 +395,7 @@ TypeError: dimacs_maker() missing 2 required positional arguments: 'weight_dict'
 >>> testfile_2_p['graph']['edges'][1]['weight']
 5
 >>> random.seed(20)
->>> engine.gen_using(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -435,10 +435,10 @@ TypeError: json_maker() missing 1 required positional argument: 'mdata'
 >>> testfile_3_p['graph']['edges'][1]['weight']
 15
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> random.seed(2)
->>> engine.gen_using(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gml','r')
 >>> print(file.read())
@@ -540,14 +540,14 @@ graph
   ]
 ]
 >>> random.seed(2)
->>> engine.gen_using(gexf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(gexf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gexf', 'r')
 >>> random.seed(2)
->>> engine.gen_using(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(mtx_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> random.seed(2)
->>> engine.gen_using(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.mtx','r')
 >>> print(file.read())
@@ -562,7 +562,7 @@ graph
 9     1     60
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.gen_using(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(gdf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -587,7 +587,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.gen_using(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -609,7 +609,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -650,7 +650,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 28,13,-13
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(csv_maker, 'testfile4', {'min_weight':0, 'max_weight':50.2, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(csv_maker, 'testfile4', {'min_weight':0, 'max_weight':50.2, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 41
 >>> file=open('testfile4.csv','r')
 >>> print(file.read())
@@ -697,7 +697,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 29,20,26.4
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -844,7 +844,7 @@ Traceback (most recent call last):
         ...
 TypeError: csv_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> random.seed(2)
->>> engine.gen_using(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -857,7 +857,7 @@ TypeError: csv_maker() missing 2 required positional arguments: 'weight_dict' an
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(wel_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(wel_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -898,7 +898,7 @@ TypeError: csv_maker() missing 2 required positional arguments: 'weight_dict' an
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.gen_using(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1045,7 +1045,7 @@ Traceback (most recent call last):
         ...
 TypeError: wel_maker() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> engine.gen_using(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1068,7 +1068,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(lp_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(lp_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -1139,7 +1139,7 @@ edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.gen_using(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1163,7 +1163,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(tgf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(tgf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -1235,7 +1235,7 @@ edge(28,13,-13).
 28 13 -13
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.gen_using(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(dl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -1252,7 +1252,7 @@ data:
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(dl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())

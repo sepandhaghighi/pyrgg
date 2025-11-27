@@ -57,7 +57,7 @@ def gen_graph(input_dict: Dict[str, Any], file_name: str) -> None:
     first_time = time.perf_counter()
     output_format = input_dict["output_format"]
     engine = input_dict["engine"]
-    input_dict["edge_number"] = ENGINE_MAPPER[engine].gen_using(
+    input_dict["edge_number"] = ENGINE_MAPPER[engine].generate_graph(
         GENERATOR_MENU[output_format],
         file_name,
         input_dict)

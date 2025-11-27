@@ -7,7 +7,7 @@ import random
 os.environ["PYRGG_TEST_MODE"] = "1"
 random.seed(400)
 
-pyrgg_engine.gen_using(
+pyrgg_engine.generate_graph(
     dimacs_maker,
     'profile',
     {
