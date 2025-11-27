@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `get_file_size` function modified
 - `edge_gen` function renamed to `generate_edges`
 - `branch_gen` function renamed to `generate_branches`
+- `gen_using` function renamed to `generate_graph`
 ## [1.9] - 2025-10-28
 ### Added
 - `pyrgg.engines.watts_strogatz` module
