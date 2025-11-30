@@ -53,11 +53,11 @@ Traceback (most recent call last):
         ...
 TypeError: generate_edges() missing 4 required positional arguments: 'block_sizes', 'probability_matrix', 'direct', and 'self_loop'
 >>> #########################################
->>> ## ========= gen_using function =========
+>>> ## ========= generate_graph function =========
 >>> #########################################
 >>> #################### dimacs_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dimacs_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(dimacs_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -77,7 +77,7 @@ a 3 8 1
 a 4 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dimacs_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(dimacs_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -110,7 +110,7 @@ a 9 10 1
 <BLANKLINE>
 >>> #################### json_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(json_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(json_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -121,7 +121,7 @@ a 9 10 1
 >>> testfile_1['graph']['edges'][1]['target']
 5
 >>> random.seed(4)
->>> engine.gen_using(json_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(json_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -133,7 +133,7 @@ a 9 10 1
 3
 >>> #################### csv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(csv_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(csv_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -147,7 +147,7 @@ a 9 10 1
 4,10,1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(csv_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(csv_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -174,7 +174,7 @@ a 9 10 1
 <BLANKLINE>
 >>> #################### gdf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gdf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(gdf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -200,7 +200,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 4,10,1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(gdf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(gdf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.gdf','r')
 >>> print(file.read())
@@ -239,7 +239,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### gl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(gl_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(gl_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -248,7 +248,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3 4:1 7:1 8:1
 4 10:1
 >>> random.seed(4)
->>> engine.gen_using(gl_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(gl_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -263,20 +263,20 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> #################### mtx_maker ####################
 >>> from scipy.io import mmread
 >>> random.seed(2)
->>> engine.gen_using(mtx_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(mtx_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 >>> random.seed(4)
->>> engine.gen_using(mtx_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(mtx_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> g = mmread("testfile2.mtx")
 >>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 >>> #################### tsv_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tsv_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(tsv_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -290,7 +290,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 4	10	1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(tsv_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(tsv_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.tsv','r')
 >>> print(file.read())
@@ -317,7 +317,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### wel_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(wel_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(wel_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -331,7 +331,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 4 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(wel_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(wel_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -358,7 +358,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 <BLANKLINE>
 >>> #################### lp_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(lp_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(lp_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -382,7 +382,7 @@ edge(3,8,1).
 edge(4,10,1).
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(lp_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(lp_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())
@@ -419,7 +419,7 @@ edge(9,10,1).
 <BLANKLINE>
 >>> #################### tgf_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(tgf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(tgf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -444,7 +444,7 @@ edge(9,10,1).
 4 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(tgf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(tgf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())
@@ -482,7 +482,7 @@ edge(9,10,1).
 <BLANKLINE>
 >>> #################### dl_maker ####################
 >>> random.seed(2)
->>> engine.gen_using(dl_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(dl_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -500,7 +500,7 @@ data:
 4 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.gen_using(dl_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(dl_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.dl','r')
 >>> print(file.read())
@@ -532,13 +532,13 @@ data:
 >>> #################### gml_maker ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.gen_using(gml_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(gml_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(4)
->>> engine.gen_using(gml_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(gml_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
@@ -546,13 +546,13 @@ data:
 >>> #################### gexf_maker ####################
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> engine.gen_using(gexf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(gexf_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(4)
->>> engine.gen_using(gexf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(gexf_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
@@ -560,7 +560,7 @@ data:
 >>> #################### dot_maker ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.gen_using(dot_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(dot_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
@@ -569,7 +569,7 @@ data:
 >>> len(g1[0].get_edge_list())
 8
 >>> random.seed(4)
->>> engine.gen_using(dot_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(dot_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())

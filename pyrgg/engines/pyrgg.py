@@ -166,7 +166,7 @@ def generate_edges(
             dict(zip(vertices_id, weight_list)), temp]
 
 
-def gen_using(
+def generate_graph(
         gen_function: Callable,
         file_name: str,
         input_dict: Dict[str, Any]) -> int:

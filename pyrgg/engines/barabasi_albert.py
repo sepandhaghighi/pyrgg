@@ -30,7 +30,7 @@ def generate_edges(n: int, k: int) -> Tuple[Dict[int, List[int]], Dict[int, List
     return [edge_dict, weight_dict, (n - k) * k]
 
 
-def gen_using(
+def generate_graph(
         gen_function: Callable,
         file_name: str,
         input_dict: Dict[str, Any]) -> int:
