@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `branch_gen` function renamed to `generate_branches`
 - `gen_using` function renamed to `generate_graph`
 - `dimacs_maker` function renamed to `generate_dimacs_file`
+- `json_maker` function renamed to `generate_json_file`
 ## [1.9] - 2025-10-28
 ### Added
 - `pyrgg.engines.watts_strogatz` module

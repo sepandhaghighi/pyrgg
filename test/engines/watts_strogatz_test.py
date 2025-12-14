@@ -80,9 +80,9 @@ a 8 4 1
 a 8 10 1
 a 9 10 1
 <BLANKLINE>
->>> #################### json_maker ####################
+>>> #################### generate_json_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(json_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_json_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)

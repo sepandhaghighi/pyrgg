@@ -333,7 +333,7 @@ Traceback (most recent call last):
         ...
 TypeError: generate_dimacs_file() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> random.seed(2)
->>> engine.generate_graph(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_json_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -363,7 +363,7 @@ TypeError: generate_dimacs_file() missing 2 required positional arguments: 'weig
 >>> testfile_1_p['graph']['edges'][1]['weight']
 148
 >>> random.seed(4)
->>> engine.generate_graph(json_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_json_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
@@ -395,7 +395,7 @@ TypeError: generate_dimacs_file() missing 2 required positional arguments: 'weig
 >>> testfile_2_p['graph']['edges'][1]['weight']
 5
 >>> random.seed(20)
->>> engine.generate_graph(json_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_json_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.json','r')
 >>> testfile_3=json.load(file)
@@ -422,10 +422,10 @@ TypeError: generate_dimacs_file() missing 2 required positional arguments: 'weig
 [Error] Failed to generate YAML file!
 >>> json_to_pickle('testfile24')
 [Error] Failed to generate Pickle file!
->>> json_maker({}, {})
+>>> generate_json_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: json_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_json_file() missing 1 required positional argument: 'mdata'
 >>> json_to_pickle('testfile3')
 >>> testfile_3_p=pickle.load( open( 'testfile3.p', 'rb' ) )
 >>> testfile_3_p['graph']['edges'][1]['source']

@@ -108,9 +108,9 @@ a 8 4 1
 a 9 3 1
 a 9 10 1
 <BLANKLINE>
->>> #################### json_maker ####################
+>>> #################### generate_json_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(json_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(generate_json_file, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -121,7 +121,7 @@ a 9 10 1
 >>> testfile_1['graph']['edges'][1]['target']
 5
 >>> random.seed(4)
->>> engine.generate_graph(json_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(generate_json_file, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.json','r')
 >>> testfile_2=json.load(file)
