@@ -251,9 +251,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	8	1
 10	2	1
 <BLANKLINE>
->>> #################### wel_maker ####################
+>>> #################### generate_wel_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(wel_maker, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
+>>> engine.generate_graph(generate_wel_file, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
 5
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -264,7 +264,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 6 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(wel_maker, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
+>>> engine.generate_graph(generate_wel_file, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
 8
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())

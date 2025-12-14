@@ -844,7 +844,7 @@ Traceback (most recent call last):
         ...
 TypeError: generate_csv_file() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> random.seed(2)
->>> engine.generate_graph(wel_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_wel_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -857,7 +857,7 @@ TypeError: generate_csv_file() missing 2 required positional arguments: 'weight_
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(wel_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_wel_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.wel','r')
 >>> print(file.read())
@@ -898,7 +898,7 @@ TypeError: generate_csv_file() missing 2 required positional arguments: 'weight_
 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.generate_graph(wel_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_wel_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.wel','r')
 >>> print(file.read())
@@ -1040,10 +1040,10 @@ TypeError: generate_csv_file() missing 2 required positional arguments: 'weight_
 99 89 24
 100 40 11
 <BLANKLINE>
->>> wel_maker({}, {})
+>>> generate_wel_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_wel_file() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> engine.generate_graph(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7

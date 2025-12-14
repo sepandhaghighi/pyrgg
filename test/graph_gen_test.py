@@ -137,10 +137,10 @@ TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dict' an
 Traceback (most recent call last):
         ...
 TypeError: generate_tsv_file() missing 1 required positional argument: 'mdata'
->>> wel_maker({}, {})
+>>> generate_wel_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: wel_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_wel_file() missing 1 required positional argument: 'mdata'
 >>> file.close()
 >>> os.remove('testfile.json')
 >>> os.remove('testfile.p')

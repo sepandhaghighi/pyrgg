@@ -221,9 +221,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 6   10  0.1751
 7   10  0.12609
 <BLANKLINE>
->>> #################### wel_maker ####################
+>>> #################### generate_wel_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(wel_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(generate_wel_file, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.wel','r')
 >>> print(file.read())

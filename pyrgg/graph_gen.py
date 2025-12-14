@@ -216,7 +216,7 @@ def _write_separated_file(buf: IO,
             buf.write(string)
 
 
-def wel_maker(
+def generate_wel_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
