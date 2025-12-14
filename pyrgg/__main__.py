@@ -26,7 +26,7 @@ GENERATOR_MENU = {
     6: generate_lp_file,
     7: generate_json_file,
     8: dl_maker,
-    9: tgf_maker,
+    9: generate_tgf_file,
     10: generate_tsv_file,
     11: generate_mtx_file,
     12: gl_maker,

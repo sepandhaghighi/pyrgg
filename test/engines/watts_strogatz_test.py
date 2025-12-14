@@ -273,9 +273,9 @@ edge(8,4,1).
 edge(8,10,1).
 edge(9,10,1).
 <BLANKLINE>
->>> #################### tgf_maker ####################
+>>> #################### generate_tgf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tgf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_tgf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())

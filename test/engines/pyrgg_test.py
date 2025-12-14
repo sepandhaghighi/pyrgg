@@ -1303,9 +1303,9 @@ edge(27,6,-50).
 edge(28,21,28).
 edge(28,13,-13).
 <BLANKLINE>
->>> #################### tgf_maker ####################
+>>> #################### generate_tgf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tgf_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_tgf_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -1329,7 +1329,7 @@ edge(28,13,-13).
 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(tgf_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_tgf_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.tgf','r')
 >>> print(file.read())

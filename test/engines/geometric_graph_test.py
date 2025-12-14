@@ -291,9 +291,9 @@ edge(6,7,0.27921).
 edge(6,10,0.1751).
 edge(7,10,0.12609).
 <BLANKLINE>
->>> #################### tgf_maker ####################
+>>> #################### generate_tgf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tgf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(generate_tgf_file, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
