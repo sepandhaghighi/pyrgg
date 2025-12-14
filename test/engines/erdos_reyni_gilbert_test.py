@@ -431,10 +431,10 @@ data:
 >>> gexf2 = read_gexf("testfile2.gexf")
 >>> type(gexf2)
 <class 'networkx.classes.digraph.DiGraph'>
->>> #################### dot_maker ####################
+>>> #################### generate_dot_file ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.generate_graph(dot_maker, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
+>>> engine.generate_graph(generate_dot_file, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
 5
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
@@ -443,7 +443,7 @@ data:
 >>> len(g1[0].get_edge_list())
 5
 >>> random.seed(4)
->>> engine.generate_graph(dot_maker, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
+>>> engine.generate_graph(generate_dot_file, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
 8
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())

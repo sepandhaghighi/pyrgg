@@ -363,10 +363,10 @@ data:
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.multigraph.MultiGraph'>
->>> #################### dot_maker ####################
+>>> #################### generate_dot_file ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.generate_graph(dot_maker, 'testfile', {'vertices':10, 'attaching_edge_number':3})
+>>> engine.generate_graph(generate_dot_file, 'testfile', {'vertices':10, 'attaching_edge_number':3})
 21
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())

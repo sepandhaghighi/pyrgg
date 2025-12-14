@@ -33,7 +33,7 @@ GENERATOR_MENU = {
     13: generate_gdf_file,
     14: generate_gml_file,
     15: generate_gexf_file,
-    16: dot_maker,
+    16: generate_dot_file,
 }
 
 ENGINE_MAPPER = {

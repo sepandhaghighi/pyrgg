@@ -1521,10 +1521,10 @@ data:
 >>> gexf5 = read_gexf("testfile5.gexf")
 >>> type(gexf5)
 <class 'networkx.classes.graph.Graph'>
->>> #################### dot_maker ####################
+>>> #################### generate_dot_file ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.generate_graph(dot_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_dot_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
@@ -1533,7 +1533,7 @@ data:
 >>> len(g1[0].get_edge_list())
 7
 >>> random.seed(4)
->>> engine.generate_graph(dot_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_dot_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.gv','r')
 >>> g2 = pydot.graph_from_dot_data(file.read())
@@ -1542,7 +1542,7 @@ data:
 >>> len(g2[0].get_edge_list())
 35
 >>> random.seed(20)
->>> engine.generate_graph(dot_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.generate_graph(generate_dot_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> file=open('testfile3.gv','r')
 >>> g3 = pydot.graph_from_dot_data(file.read())
