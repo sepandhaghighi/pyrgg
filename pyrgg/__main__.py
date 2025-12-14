@@ -32,7 +32,7 @@ GENERATOR_MENU = {
     12: generate_gl_file,
     13: generate_gdf_file,
     14: generate_gml_file,
-    15: gexf_maker,
+    15: generate_gexf_file,
     16: dot_maker,
 }
 

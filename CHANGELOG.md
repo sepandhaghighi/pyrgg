@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `dl_maker` function renamed to `generate_dl_file`
 - `gdf_maker` function renamed to `generate_gdf_file`
 - `gml_maker` function renamed to `generate_gml_file`
+- `gexf_maker` function renamed to `generate_gexf_file`
 ## [1.9] - 2025-10-28
 ### Added
 - `pyrgg.engines.watts_strogatz` module

@@ -350,10 +350,10 @@ data:
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.graph.Graph'>
->>> #################### gexf_maker ####################
+>>> #################### generate_gexf_file ####################
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> engine.generate_graph(gexf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gexf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)

@@ -389,7 +389,7 @@ def generate_gml_file(
         buf.write("]")
 
 
-def gexf_maker(
+def generate_gexf_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
