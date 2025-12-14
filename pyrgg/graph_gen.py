@@ -315,7 +315,7 @@ def generate_gl_file(
                 buf.write(line_data + "\n")
 
 
-def dl_maker(
+def generate_dl_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

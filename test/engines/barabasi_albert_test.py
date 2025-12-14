@@ -315,9 +315,9 @@ edge(10,9,1).
 10 7 1
 10 9 1
 <BLANKLINE>
->>> #################### dl_maker ####################
+>>> #################### generate_dl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dl_maker, 'testfile', {'vertices':10, 'attaching_edge_number':3})
+>>> engine.generate_graph(generate_dl_file, 'testfile', {'vertices':10, 'attaching_edge_number':3})
 21
 >>> file=open('testfile.dl','r')
 >>> print(file.read())

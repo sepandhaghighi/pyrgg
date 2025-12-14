@@ -311,9 +311,9 @@ edge(9,10,1).
 8 10 1
 9 10 1
 <BLANKLINE>
->>> #################### dl_maker ####################
+>>> #################### generate_dl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dl_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_dl_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
