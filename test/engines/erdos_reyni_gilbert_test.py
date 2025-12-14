@@ -275,9 +275,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9 3 1
 9 10 1
 <BLANKLINE>
->>> #################### lp_maker ####################
+>>> #################### generate_lp_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(lp_maker, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
+>>> engine.generate_graph(generate_lp_file, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
 5
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -298,7 +298,7 @@ edge(3,8,1).
 edge(4,10,1).
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(lp_maker, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
+>>> engine.generate_graph(generate_lp_file, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
 8
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())

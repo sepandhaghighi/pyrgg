@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `tsv_maker` function renamed to `generate_tsv_file`
 - `wel_maker` function renamed to `generate_wel_file`
 - `mtx_maker` function renamed to `generate_mtx_file`
+- `lp_maker` function renamed to `generate_lp_file`
 ## [1.9] - 2025-10-28
 ### Added
 - `pyrgg.engines.watts_strogatz` module

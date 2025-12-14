@@ -255,7 +255,7 @@ def generate_mtx_file(
                           str(weight_dict[key][j]) + "\n")
 
 
-def lp_maker(
+def generate_lp_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

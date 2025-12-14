@@ -1045,7 +1045,7 @@ Traceback (most recent call last):
         ...
 TypeError: generate_wel_file() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
->>> engine.generate_graph(lp_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_lp_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -1068,7 +1068,7 @@ edge(8,2,-97).
 edge(9,1,60).
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(lp_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_lp_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.lp','r')
 >>> print(file.read())

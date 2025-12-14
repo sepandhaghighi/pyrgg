@@ -251,9 +251,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 6 10 0.1751
 7 10 0.12609
 <BLANKLINE>
->>> #################### lp_maker ####################
+>>> #################### generate_lp_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(lp_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(generate_lp_file, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.lp','r')
 >>> print(file.read())

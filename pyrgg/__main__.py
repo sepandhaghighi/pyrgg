@@ -23,7 +23,7 @@ GENERATOR_MENU = {
     3: generate_csv_file,
     4: generate_json_file,
     5: generate_wel_file,
-    6: lp_maker,
+    6: generate_lp_file,
     7: generate_json_file,
     8: dl_maker,
     9: tgf_maker,
