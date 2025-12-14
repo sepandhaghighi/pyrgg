@@ -155,7 +155,7 @@ def _write_edges_to_json(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: 
             buf.write(edges)
 
 
-def csv_maker(
+def generate_csv_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

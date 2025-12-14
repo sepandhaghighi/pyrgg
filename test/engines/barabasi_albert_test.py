@@ -92,9 +92,9 @@ a 10 9 1
 4
 >>> testfile_1['graph']['edges'][1]['target']
 2
->>> #################### csv_maker ####################
+>>> #################### generate_csv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile', {'vertices':10, 'attaching_edge_number':3})
+>>> engine.generate_graph(generate_csv_file, 'testfile', {'vertices':10, 'attaching_edge_number':3})
 21
 >>> file=open('testfile.csv','r')
 >>> print(file.read())

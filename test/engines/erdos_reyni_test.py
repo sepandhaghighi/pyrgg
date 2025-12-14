@@ -113,9 +113,9 @@ a 10 2 1
 2
 >>> testfile_2['graph']['edges'][1]['target']
 5
->>> #################### csv_maker ####################
+>>> #################### generate_csv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
+>>> engine.generate_graph(generate_csv_file, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
 5
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -126,7 +126,7 @@ a 10 2 1
 6,10,1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(csv_maker, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
+>>> engine.generate_graph(generate_csv_file, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
 8
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())

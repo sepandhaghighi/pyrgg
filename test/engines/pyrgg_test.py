@@ -574,9 +574,9 @@ False
 >>> testfile_3=json.load(file)
 >>> testfile_3['properties']['weighted']
 True
->>> #################### csv_maker ####################
+>>> #################### generate_csv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.generate_graph(generate_csv_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -589,7 +589,7 @@ True
 9,1,60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(csv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.generate_graph(generate_csv_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 35
 >>> file=open('testfile2.csv','r')
 >>> print(file.read())
@@ -630,7 +630,7 @@ True
 28,13,-13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.generate_graph(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
+>>> engine.generate_graph(generate_csv_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':False, 'direct':True, 'self_loop':True, 'multigraph':False})
 137
 >>> file=open('testfile3.csv','r')
 >>> print(file.read())
@@ -773,10 +773,10 @@ True
 100,40,11
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.generate_graph(csv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.generate_graph(generate_csv_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.22, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_csv_file, 'testfile4', {'min_weight':0.0, 'max_weight':200.22, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())
@@ -787,7 +787,7 @@ True
 10,10,-181.75
 <BLANKLINE>
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile4', {'min_weight':0.0, 'max_weight':200.222, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_csv_file, 'testfile4', {'min_weight':0.0, 'max_weight':200.222, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 5
 >>> file = open("testfile4.csv")
 >>> print(file.read())

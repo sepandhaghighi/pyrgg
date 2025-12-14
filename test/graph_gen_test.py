@@ -125,10 +125,10 @@ True
 Traceback (most recent call last):
         ...
 TypeError: gl_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
->>> csv_maker({}, {})
+>>> generate_csv_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: csv_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_csv_file() missing 1 required positional argument: 'mdata'
 >>> gdf_maker({})
 Traceback (most recent call last):
         ...

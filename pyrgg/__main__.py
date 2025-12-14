@@ -20,7 +20,7 @@ import pyrgg.engines.geometric_graph as gg_engine
 GENERATOR_MENU = {
     1: generate_dimacs_file,
     2: generate_json_file,
-    3: csv_maker,
+    3: generate_csv_file,
     4: generate_json_file,
     5: wel_maker,
     6: lp_maker,
