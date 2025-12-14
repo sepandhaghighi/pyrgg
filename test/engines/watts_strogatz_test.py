@@ -47,9 +47,9 @@ TypeError: generate_edges() missing 2 required positional arguments: 'k' and 'be
 >>> #########################################
 >>> ## ========= generate_graph function =========
 >>> #########################################
->>> #################### dimacs_maker ####################
+>>> #################### generate_dimacs_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dimacs_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gr','r')
 >>> print(file.read())

@@ -114,7 +114,7 @@ Traceback (most recent call last):
         ...
 TypeError: generate_edges() missing 4 required positional arguments: 'sign', 'direct', 'self_loop', and 'multigraph'
 >>> random.seed(2)
->>> engine.generate_graph(dimacs_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -133,7 +133,7 @@ a 8 2 -97
 a 9 1 60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(dimacs_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())
@@ -180,7 +180,7 @@ a 28 21 28
 a 28 13 -13
 <BLANKLINE>
 >>> random.seed(20)
->>> engine.generate_graph(dimacs_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> file=open('testfile3.gr','r')
 >>> print(file.read())
@@ -328,10 +328,10 @@ a 99 19 29
 a 99 89 24
 a 100 40 11
 <BLANKLINE>
->>> dimacs_maker({})
+>>> generate_dimacs_file({})
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
+TypeError: generate_dimacs_file() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> random.seed(2)
 >>> engine.generate_graph(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7

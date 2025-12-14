@@ -53,9 +53,9 @@ TypeError: generate_edges() missing 2 required positional arguments: 'p' and 'di
 >>> #########################################
 >>> ## ========= generate_graph function =========
 >>> #########################################
->>> #################### dimacs_maker ####################
+>>> #################### generate_dimacs_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dimacs_maker, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile', {'vertices':10, 'probability':0.1, 'direct':0})
 5
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -72,7 +72,7 @@ a 3 8 1
 a 4 10 1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(dimacs_maker, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile2', {'vertices':10, 'probability':0.1, 'direct':1})
 8
 >>> file=open('testfile2.gr','r')
 >>> print(file.read())

@@ -18,7 +18,7 @@ import pyrgg.engines.watts_strogatz as ws_engine
 import pyrgg.engines.geometric_graph as gg_engine
 
 GENERATOR_MENU = {
-    1: dimacs_maker,
+    1: generate_dimacs_file,
     2: json_maker,
     3: csv_maker,
     4: json_maker,

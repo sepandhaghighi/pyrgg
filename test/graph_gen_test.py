@@ -9,10 +9,10 @@
 >>> import yaml
 >>> import pickle
 >>> os.environ["PYRGG_TEST_MODE"] = "1"
->>> dimacs_maker({}, {})
+>>> generate_dimacs_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: dimacs_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_dimacs_file() missing 1 required positional argument: 'mdata'
 >>> random.seed(2)
 >>> engine.generate_graph(json_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':True, 'direct':True, 'self_loop':True, 'multigraph':False})
 7

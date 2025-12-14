@@ -10,7 +10,7 @@ from pyrgg.functions import *
 random_system = random
 
 
-def dimacs_maker(
+def generate_dimacs_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
