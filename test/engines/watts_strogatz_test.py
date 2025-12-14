@@ -182,9 +182,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
->>> #################### tsv_maker ####################
+>>> #################### generate_tsv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tsv_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_tsv_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())

@@ -984,9 +984,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.generate_graph(mtx_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
->>> #################### tsv_maker ####################
+>>> #################### generate_tsv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tsv_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_tsv_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -999,13 +999,13 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9	1	60
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(tsv_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_tsv_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 35
 >>> random.seed(20)
->>> engine.generate_graph(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_tsv_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 137
 >>> random.seed(20)
->>> engine.generate_graph(tsv_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.generate_graph(generate_tsv_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
 >>> #################### wel_maker ####################
 >>> random.seed(2)

@@ -133,10 +133,10 @@ TypeError: generate_csv_file() missing 1 required positional argument: 'mdata'
 Traceback (most recent call last):
         ...
 TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
->>> tsv_maker({}, {})
+>>> generate_tsv_file({}, {})
 Traceback (most recent call last):
         ...
-TypeError: tsv_maker() missing 1 required positional argument: 'mdata'
+TypeError: generate_tsv_file() missing 1 required positional argument: 'mdata'
 >>> wel_maker({}, {})
 Traceback (most recent call last):
         ...
