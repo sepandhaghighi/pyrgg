@@ -28,7 +28,7 @@ GENERATOR_MENU = {
     8: dl_maker,
     9: tgf_maker,
     10: generate_tsv_file,
-    11: mtx_maker,
+    11: generate_mtx_file,
     12: gl_maker,
     13: gdf_maker,
     14: gml_maker,

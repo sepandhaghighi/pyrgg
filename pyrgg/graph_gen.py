@@ -231,7 +231,7 @@ def generate_wel_file(
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
-def mtx_maker(
+def generate_mtx_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

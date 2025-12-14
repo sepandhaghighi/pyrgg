@@ -174,10 +174,10 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8 4:1 10:1
 9 10:1
 <BLANKLINE>
->>> #################### mtx_maker ####################
+>>> #################### generate_mtx_file ####################
 >>> from scipy.io import mmread
 >>> random.seed(2)
->>> engine.generate_graph(mtx_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_mtx_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
