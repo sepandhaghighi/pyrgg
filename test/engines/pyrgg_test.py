@@ -832,9 +832,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 >>> random.seed(20)
 >>> engine.generate_graph(gdf_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':0, 'max_edges':4, 'sign':0, 'direct':0, 'self_loop':1, 'multigraph':1})
 131
->>> #################### gl_maker ####################
+>>> #################### generate_gl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gl_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':1, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_gl_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':1, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -844,7 +844,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 5 6:-81
 6 9:143
 >>> random.seed(4)
->>> engine.generate_graph(gl_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':2, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_gl_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':2, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 44
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
@@ -873,7 +873,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 27 1:33
 28 23:30
 >>> random.seed(20)
->>> engine.generate_graph(gl_maker, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':3, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_gl_file, 'testfile3', {'min_weight':10, 'max_weight':30, 'vertices':100, 'min_edges':3, 'max_edges':4, 'sign':0, 'direct':1, 'self_loop':1, 'multigraph':0})
 178
 >>> file=open('testfile3.gl','r')
 >>> print(file.read())

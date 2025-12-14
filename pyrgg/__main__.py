@@ -29,7 +29,7 @@ GENERATOR_MENU = {
     9: generate_tgf_file,
     10: generate_tsv_file,
     11: generate_mtx_file,
-    12: gl_maker,
+    12: generate_gl_file,
     13: gdf_maker,
     14: gml_maker,
     15: gexf_maker,

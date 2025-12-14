@@ -121,10 +121,10 @@ True
 False
 >>> testfile_3_p['properties']['weighted']
 True
->>> gl_maker({})
+>>> generate_gl_file({})
 Traceback (most recent call last):
         ...
-TypeError: gl_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
+TypeError: generate_gl_file() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> generate_csv_file({}, {})
 Traceback (most recent call last):
         ...

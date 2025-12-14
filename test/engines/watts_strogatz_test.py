@@ -158,9 +158,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8,10,1
 9,10,1
 <BLANKLINE>
->>> #################### gl_maker ####################
+>>> #################### generate_gl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gl_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gl_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gl','r')
 >>> print(file.read())

@@ -293,7 +293,7 @@ def generate_tgf_file(
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
-def gl_maker(
+def generate_gl_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

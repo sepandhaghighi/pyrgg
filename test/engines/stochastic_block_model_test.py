@@ -237,9 +237,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 9,3,1
 9,10,1
 <BLANKLINE>
->>> #################### gl_maker ####################
+>>> #################### generate_gl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gl_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(generate_gl_file, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -248,7 +248,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 3 4:1 7:1 8:1
 4 10:1
 >>> random.seed(4)
->>> engine.generate_graph(gl_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(generate_gl_file, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> file=open('testfile2.gl','r')
 >>> print(file.read())
