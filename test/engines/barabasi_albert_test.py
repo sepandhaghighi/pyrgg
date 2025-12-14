@@ -347,10 +347,10 @@ data:
 10 7 1
 10 9 1
 <BLANKLINE>
->>> #################### gml_maker ####################
+>>> #################### generate_gml_file ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.generate_graph(gml_maker, 'testfile', {'vertices':10, 'attaching_edge_number':3})
+>>> engine.generate_graph(generate_gml_file, 'testfile', {'vertices':10, 'attaching_edge_number':3})
 21
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)

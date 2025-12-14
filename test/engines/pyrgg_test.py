@@ -1463,28 +1463,28 @@ data:
 28 21 28
 28 13 -13
 <BLANKLINE>
->>> #################### gml_maker ####################
+>>> #################### generate_gml_file ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.generate_graph(gml_maker, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_gml_file, 'testfile', {'min_weight':0, 'max_weight':200, 'vertices':10, 'min_edges':0, 'max_edges':2, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':0})
 7
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(4)
->>> engine.generate_graph(gml_maker, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
+>>> engine.generate_graph(generate_gml_file, 'testfile2', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':1, 'self_loop':1, 'multigraph':1})
 38
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
 <class 'networkx.classes.digraph.DiGraph'>
 >>> random.seed(20)
->>> engine.generate_graph(gml_maker, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
+>>> engine.generate_graph(generate_gml_file, 'testfile3', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':1})
 35
 >>> gml3 = read_gml("testfile3.gml")
 >>> type(gml3)
 <class 'networkx.classes.multigraph.MultiGraph'>
 >>> random.seed(120)
->>> engine.generate_graph(gml_maker, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
+>>> engine.generate_graph(generate_gml_file, 'testfile4', {'min_weight':0, 'max_weight':50, 'vertices':30, 'min_edges':0, 'max_edges':4, 'sign':1, 'direct':0, 'self_loop':1, 'multigraph':0})
 35
 >>> gml4 = read_gml("testfile4.gml")
 >>> type(gml4)

@@ -31,7 +31,7 @@ GENERATOR_MENU = {
     11: generate_mtx_file,
     12: generate_gl_file,
     13: generate_gdf_file,
-    14: gml_maker,
+    14: generate_gml_file,
     15: gexf_maker,
     16: dot_maker,
 }

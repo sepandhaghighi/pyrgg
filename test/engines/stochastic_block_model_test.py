@@ -529,16 +529,16 @@ data:
 9 3 1
 9 10 1
 <BLANKLINE>
->>> #################### gml_maker ####################
+>>> #################### generate_gml_file ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.generate_graph(gml_maker, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
+>>> engine.generate_graph(generate_gml_file, 'testfile', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':0, 'self_loop':0})
 8
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.graph.Graph'>
 >>> random.seed(4)
->>> engine.generate_graph(gml_maker, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
+>>> engine.generate_graph(generate_gml_file, 'testfile2', {'vertices':10, 'block_sizes':[4, 6], 'probability_matrix': [[0.9, 0.1], [0.1, 0.1]], 'direct':1, 'self_loop':0})
 20
 >>> gml2 = read_gml("testfile2.gml")
 >>> type(gml2)
