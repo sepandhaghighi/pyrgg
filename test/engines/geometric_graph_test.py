@@ -127,9 +127,9 @@ a 7 10 0.12609
 6,10,0.1751
 7,10,0.12609
 <BLANKLINE>
->>> #################### gdf_maker ####################
+>>> #################### generate_gdf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gdf_maker, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
+>>> engine.generate_graph(generate_gdf_file, 'testfile', {'vertices': 10, 'space_dimension': 2, 'cutoff_threshold': 0.5})
 23
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())

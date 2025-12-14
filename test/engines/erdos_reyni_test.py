@@ -139,9 +139,9 @@ a 10 2 1
 9,8,1
 10,2,1
 <BLANKLINE>
->>> #################### gdf_maker ####################
+>>> #################### generate_gdf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gdf_maker, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
+>>> engine.generate_graph(generate_gdf_file, 'testfile', {'vertices':10, 'edge_number':5, 'direct':0})
 5
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -164,7 +164,7 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 6,10,1
 <BLANKLINE>
 >>> random.seed(4)
->>> engine.generate_graph(gdf_maker, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
+>>> engine.generate_graph(generate_gdf_file, 'testfile2', {'vertices':10, 'edge_number':8, 'direct':1})
 8
 >>> file=open('testfile2.gdf','r')
 >>> print(file.read())

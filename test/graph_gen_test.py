@@ -129,10 +129,10 @@ TypeError: generate_gl_file() missing 2 required positional arguments: 'weight_d
 Traceback (most recent call last):
         ...
 TypeError: generate_csv_file() missing 1 required positional argument: 'mdata'
->>> gdf_maker({})
+>>> generate_gdf_file({})
 Traceback (most recent call last):
         ...
-TypeError: gdf_maker() missing 2 required positional arguments: 'weight_dict' and 'mdata'
+TypeError: generate_gdf_file() missing 2 required positional arguments: 'weight_dict' and 'mdata'
 >>> generate_tsv_file({}, {})
 Traceback (most recent call last):
         ...

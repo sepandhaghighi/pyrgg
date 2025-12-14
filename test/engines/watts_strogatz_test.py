@@ -119,9 +119,9 @@ a 9 10 1
 8,10,1
 9,10,1
 <BLANKLINE>
->>> #################### gdf_maker ####################
+>>> #################### generate_gdf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gdf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gdf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
