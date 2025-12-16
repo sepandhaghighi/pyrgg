@@ -18,22 +18,22 @@ import pyrgg.engines.watts_strogatz as ws_engine
 import pyrgg.engines.geometric_graph as gg_engine
 
 GENERATOR_MENU = {
-    1: dimacs_maker,
-    2: json_maker,
-    3: csv_maker,
-    4: json_maker,
-    5: wel_maker,
-    6: lp_maker,
-    7: json_maker,
-    8: dl_maker,
-    9: tgf_maker,
-    10: tsv_maker,
-    11: mtx_maker,
-    12: gl_maker,
-    13: gdf_maker,
-    14: gml_maker,
-    15: gexf_maker,
-    16: dot_maker,
+    1: generate_dimacs_file,
+    2: generate_json_file,
+    3: generate_csv_file,
+    4: generate_json_file,
+    5: generate_wel_file,
+    6: generate_lp_file,
+    7: generate_json_file,
+    8: generate_dl_file,
+    9: generate_tgf_file,
+    10: generate_tsv_file,
+    11: generate_mtx_file,
+    12: generate_gl_file,
+    13: generate_gdf_file,
+    14: generate_gml_file,
+    15: generate_gexf_file,
+    16: generate_dot_file,
 }
 
 ENGINE_MAPPER = {

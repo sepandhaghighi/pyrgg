@@ -13,6 +13,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `edge_gen` function renamed to `generate_edges`
 - `branch_gen` function renamed to `generate_branches`
 - `gen_using` function renamed to `generate_graph`
+- `dimacs_maker` function renamed to `generate_dimacs_file`
+- `json_maker` function renamed to `generate_json_file`
+- `csv_maker` function renamed to `generate_csv_file`
+- `tsv_maker` function renamed to `generate_tsv_file`
+- `wel_maker` function renamed to `generate_wel_file`
+- `mtx_maker` function renamed to `generate_mtx_file`
+- `lp_maker` function renamed to `generate_lp_file`
+- `tgf_maker` function renamed to `generate_tgf_file`
+- `gl_maker` function renamed to `generate_gl_file`
+- `dl_maker` function renamed to `generate_dl_file`
+- `gdf_maker` function renamed to `generate_gdf_file`
+- `gml_maker` function renamed to `generate_gml_file`
+- `gexf_maker` function renamed to `generate_gexf_file`
+- `dot_maker` function renamed to `generate_dot_file`
 ## [1.9] - 2025-10-28
 ### Added
 - `pyrgg.engines.watts_strogatz` module

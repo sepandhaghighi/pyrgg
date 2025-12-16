@@ -10,7 +10,7 @@ from pyrgg.functions import *
 random_system = random
 
 
-def dimacs_maker(
+def generate_dimacs_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -34,7 +34,7 @@ def dimacs_maker(
         )
 
 
-def json_maker(
+def generate_json_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -155,7 +155,7 @@ def _write_edges_to_json(buf: IO, edge_dict: Dict[int, List[int]], weight_dict: 
             buf.write(edges)
 
 
-def csv_maker(
+def generate_csv_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -170,7 +170,7 @@ def csv_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator=',')
 
 
-def tsv_maker(
+def generate_tsv_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -216,7 +216,7 @@ def _write_separated_file(buf: IO,
             buf.write(string)
 
 
-def wel_maker(
+def generate_wel_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -231,7 +231,7 @@ def wel_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
-def mtx_maker(
+def generate_mtx_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -255,7 +255,7 @@ def mtx_maker(
                           str(weight_dict[key][j]) + "\n")
 
 
-def lp_maker(
+def generate_lp_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -275,7 +275,7 @@ def lp_maker(
                           "," + str(weight_dict[key][j]) + ").\n")
 
 
-def tgf_maker(
+def generate_tgf_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -293,7 +293,7 @@ def tgf_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
-def gl_maker(
+def generate_gl_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -315,7 +315,7 @@ def gl_maker(
                 buf.write(line_data + "\n")
 
 
-def dl_maker(
+def generate_dl_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -331,7 +331,7 @@ def dl_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator=' ')
 
 
-def gdf_maker(
+def generate_gdf_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -350,7 +350,7 @@ def gdf_maker(
         _write_separated_file(buf, edge_dict, weight_dict, separator=',')
 
 
-def gml_maker(
+def generate_gml_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -389,7 +389,7 @@ def gml_maker(
         buf.write("]")
 
 
-def gexf_maker(
+def generate_gexf_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:
@@ -447,7 +447,7 @@ def gexf_maker(
         buf.write("</gexf>")
 
 
-def dot_maker(
+def generate_dot_file(
         edge_dict: Dict[int, List[int]],
         weight_dict: Dict[int, List[float]],
         mdata: Dict[str, Any]) -> None:

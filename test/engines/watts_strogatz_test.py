@@ -47,9 +47,9 @@ TypeError: generate_edges() missing 2 required positional arguments: 'k' and 'be
 >>> #########################################
 >>> ## ========= generate_graph function =========
 >>> #########################################
->>> #################### dimacs_maker ####################
+>>> #################### generate_dimacs_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dimacs_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_dimacs_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gr','r')
 >>> print(file.read())
@@ -80,9 +80,9 @@ a 8 4 1
 a 8 10 1
 a 9 10 1
 <BLANKLINE>
->>> #################### json_maker ####################
+>>> #################### generate_json_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(json_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_json_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.json','r')
 >>> testfile_1=json.load(file)
@@ -92,9 +92,9 @@ a 9 10 1
 1
 >>> testfile_1['graph']['edges'][1]['target']
 10
->>> #################### csv_maker ####################
+>>> #################### generate_csv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(csv_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_csv_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.csv','r')
 >>> print(file.read())
@@ -119,9 +119,9 @@ a 9 10 1
 8,10,1
 9,10,1
 <BLANKLINE>
->>> #################### gdf_maker ####################
+>>> #################### generate_gdf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gdf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gdf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gdf','r')
 >>> print(file.read())
@@ -158,9 +158,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8,10,1
 9,10,1
 <BLANKLINE>
->>> #################### gl_maker ####################
+>>> #################### generate_gl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(gl_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gl_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gl','r')
 >>> print(file.read())
@@ -174,17 +174,17 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8 4:1 10:1
 9 10:1
 <BLANKLINE>
->>> #################### mtx_maker ####################
+>>> #################### generate_mtx_file ####################
 >>> from scipy.io import mmread
 >>> random.seed(2)
->>> engine.generate_graph(mtx_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_mtx_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> g = mmread("testfile.mtx")
 >>> print(g.data.tolist())
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
->>> #################### tsv_maker ####################
+>>> #################### generate_tsv_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tsv_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_tsv_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.tsv','r')
 >>> print(file.read())
@@ -209,9 +209,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8	10	1
 9	10	1
 <BLANKLINE>
->>> #################### wel_maker ####################
+>>> #################### generate_wel_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(wel_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_wel_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.wel','r')
 >>> print(file.read())
@@ -236,9 +236,9 @@ edgedef>node1 VARCHAR,node2 VARCHAR,weight DOUBLE
 8 10 1
 9 10 1
 <BLANKLINE>
->>> #################### lp_maker ####################
+>>> #################### generate_lp_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(lp_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_lp_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.lp','r')
 >>> print(file.read())
@@ -273,9 +273,9 @@ edge(8,4,1).
 edge(8,10,1).
 edge(9,10,1).
 <BLANKLINE>
->>> #################### tgf_maker ####################
+>>> #################### generate_tgf_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(tgf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_tgf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.tgf','r')
 >>> print(file.read())
@@ -311,9 +311,9 @@ edge(9,10,1).
 8 10 1
 9 10 1
 <BLANKLINE>
->>> #################### dl_maker ####################
+>>> #################### generate_dl_file ####################
 >>> random.seed(2)
->>> engine.generate_graph(dl_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_dl_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.dl','r')
 >>> print(file.read())
@@ -342,26 +342,26 @@ data:
 8 10 1
 9 10 1
 <BLANKLINE>
->>> #################### gml_maker ####################
+>>> #################### generate_gml_file ####################
 >>> from networkx.readwrite.gml import read_gml
 >>> random.seed(2)
->>> engine.generate_graph(gml_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gml_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> gml1 = read_gml("testfile.gml")
 >>> type(gml1)
 <class 'networkx.classes.graph.Graph'>
->>> #################### gexf_maker ####################
+>>> #################### generate_gexf_file ####################
 >>> from networkx.readwrite.gexf import read_gexf
 >>> random.seed(2)
->>> engine.generate_graph(gexf_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_gexf_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> gexf1 = read_gexf("testfile.gexf")
 >>> type(gexf1)
 <class 'networkx.classes.graph.Graph'>
->>> #################### dot_maker ####################
+>>> #################### generate_dot_file ####################
 >>> import pydot
 >>> random.seed(2)
->>> engine.generate_graph(dot_maker, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
+>>> engine.generate_graph(generate_dot_file, 'testfile', {'vertices': 10, 'mean_degree': 4, 'rewiring_probability': 0.5})
 20
 >>> file=open('testfile.gv','r')
 >>> g1 = pydot.graph_from_dot_data(file.read())
