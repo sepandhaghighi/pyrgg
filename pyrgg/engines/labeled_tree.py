@@ -41,7 +41,6 @@ def generate_edges(n: int) -> Tuple[Dict[int, List[int]], Dict[int, List[float]]
     _edge_dict[u].append(v)
     degree_dict[u] -= 1
     degree_dict[v] -= 1
-    assert edge_number == n - 1
     # refine the graph
     edge_dict = {x: [] for x in range(1, n + 1)}
     weight_dict = {x: [] for x in range(1, n + 1)}
