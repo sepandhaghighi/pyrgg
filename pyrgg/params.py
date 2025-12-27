@@ -18,6 +18,7 @@ MENU_ITEMS = {
         5- Barabasi-Albert - G(n, k)
         6- Watts-Strogatz - G(n, k, p)
         7- Random Geometric Graph - G(d, r)
+        8- Labeled Tree Generator - T(n)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -73,6 +74,7 @@ ENGINE_MENU = {
     5: "ba",
     6: "ws",
     7: "gg",
+    8: "lt",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
@@ -128,6 +130,10 @@ GG_ENGINE_PARAMS = {
     3: ["cutoff_threshold", "- Cutoff threshold distance (0 <= r <= 1) : "],
 }
 
+LT_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n > 2) : "],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
@@ -136,6 +142,7 @@ ENGINE_PARAM_MAP = {
     5: BA_ENGINE_PARAMS,
     6: WS_ENGINE_PARAMS,
     7: GG_ENGINE_PARAMS,
+    8: LT_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
