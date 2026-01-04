@@ -284,7 +284,7 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
-### Labeled Tree Generator (using Prüfer sequence)
+### Labeled Tree Generator
 
 <table>
 	<tr>
