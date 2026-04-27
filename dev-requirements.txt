@@ -2,7 +2,7 @@ art==6.5
 pyyaml==6.0.3
 scipy>=1.2.0
 networkx>=2.1
-pydot>=1.2.4
+pydot>=4.0.1
 pytest>=4.3.1
 pytest-cov>=2.6.1
 setuptools>=40.8.0
