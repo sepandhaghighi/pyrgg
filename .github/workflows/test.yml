@@ -87,3 +87,6 @@ jobs:
     - name: cProfile - Random Tree Generator
       run: |
           python -m cProfile -s cumtime otherfile/profiles/lt_profile.py
+    - name: cProfile - Complete Graph Generator
+      run: |
+          python -m cProfile -s cumtime otherfile/profiles/cg_profile.py
