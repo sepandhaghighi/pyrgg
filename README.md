@@ -297,6 +297,19 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 	</tr>
 </table>
 
+### Complete Graph Generator
+
+<table>
+	<tr>
+		<th>Parameter</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center">Vertices Number (n)</td>
+		<td align="center">The total number of vertices in the graph</td>
+	</tr>
+</table>
+
 ## Supported Formats
 
 ### DIMACS
@@ -752,6 +765,8 @@ If you use PyRGG in your research, we would appreciate citations to the followin
 <blockquote>19- Prüfer, Heinz. "Neuer beweis eines satzes über permutationen." Arch. Math. Phys 27.1918 (1918): 742-744.</blockquote>
 
 <blockquote>20- Gottlieb, Jens, et al. "Prüfer numbers: A poor representation of spanning trees for evolutionary search." Proceedings of the genetic and evolutionary computation conference. Vol. 343. 2001.</blockquote>
+
+<blockquote>21- Bang-Jensen, Jørgen, and Gregory Gutin. "Basic terminology, notation and results." Classes of directed graphs. Cham: Springer International Publishing, 2018. 1-34.</blockquote>
 
 ## Show Your Support
 								
