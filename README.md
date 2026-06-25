@@ -308,6 +308,22 @@ PyRGG will likely run on a modern dual core PC. Typical configuration is:
 		<td align="center">Vertices Number (n)</td>
 		<td align="center">The total number of vertices in the graph</td>
 	</tr>
+		<tr>
+		<td align="center">Weighted / Unweighted</td>
+		<td align="center">Specifies whether the graph is weighted or unweighted</td>
+	</tr>
+	<tr>
+		<td align="center">Min Weight</td>
+		<td align="center">The minimum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Max Weight</td>
+		<td align="center">The maximum weight of the edges (if weighted)</td>
+	</tr>
+	<tr>
+		<td align="center">Directed / Undirected</td>
+		<td align="center">Specifies whether the graph is directed or undirected</td>
+	</tr>
 </table>
 
 ## Supported Formats

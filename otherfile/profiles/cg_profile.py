@@ -12,5 +12,8 @@ cg_engine.generate_graph(
     'profile',
     {
         'vertices': 10000,
+        'min_weight':1,
+        'max_weight':5000,
+        'direct': 1,
     }
 )

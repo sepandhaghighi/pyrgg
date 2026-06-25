@@ -138,6 +138,10 @@ LT_ENGINE_PARAMS = {
 
 CG_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["weight", "- Unweighted[0] or Weighted[1]"],
+    3: ["min_weight", "- Min Weight : "],
+    4: ["max_weight", "- Max Weight : "],
+    5: ["direct", "- Undirected[0] or Directed[1]"],
 }
 
 ENGINE_PARAM_MAP = {
