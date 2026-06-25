@@ -33,6 +33,8 @@ def get_min_max_weight(weight_dict: Dict[int, List[float]]) -> Tuple[float, floa
     :param weight_dict: weight dictionary
     """
     all_weights = [abs(w) for weights in weight_dict.values() for w in weights]
+    if all_weights == []:
+        all_weights = [1]
     return min(all_weights), max(all_weights)
 
 

@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `pyrgg.engines.labeled_tree` module
 - `pyrgg.engines.complete_graph` module
+### Changed
+- `get_min_max_weight` function modified
 ## [2.0] - 2025-12-23
 ### Added
 - `pyrgg.engines.geometric_graph` module
