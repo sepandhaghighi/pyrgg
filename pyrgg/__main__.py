@@ -17,6 +17,7 @@ import pyrgg.engines.barabasi_albert as ba_engine
 import pyrgg.engines.watts_strogatz as ws_engine
 import pyrgg.engines.geometric_graph as gg_engine
 import pyrgg.engines.labeled_tree as lt_engine
+import pyrgg.engines.complete_graph as cg_engine
 
 GENERATOR_MENU = {
     1: generate_dimacs_file,
@@ -46,6 +47,7 @@ ENGINE_MAPPER = {
     6: ws_engine,
     7: gg_engine,
     8: lt_engine,
+    9: cg_engine,
 }
 
 

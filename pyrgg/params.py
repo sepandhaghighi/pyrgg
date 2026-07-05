@@ -19,6 +19,7 @@ MENU_ITEMS = {
         6- Watts-Strogatz - G(n, k, p)
         7- Random Geometric Graph - G(d, r)
         8- Labeled Tree Generator - T(n)
+        9- Complete Graph - K(n)
         """
     )],
     2: ["file_name", "- File Name (Not Empty) : "],
@@ -75,6 +76,7 @@ ENGINE_MENU = {
     6: "ws",
     7: "gg",
     8: "lt",
+    9: "cg",
 }
 
 ENGINE_MENU_INV = {v: k for k, v in ENGINE_MENU.items()}
@@ -134,6 +136,14 @@ LT_ENGINE_PARAMS = {
     1: ["vertices", "- Vertices Number (n > 2) : "],
 }
 
+CG_ENGINE_PARAMS = {
+    1: ["vertices", "- Vertices Number (n >= 0) : "],
+    2: ["weight", "- Unweighted[0] or Weighted[1]"],
+    3: ["min_weight", "- Min Weight : "],
+    4: ["max_weight", "- Max Weight : "],
+    5: ["direct", "- Undirected[0] or Directed[1]"],
+}
+
 ENGINE_PARAM_MAP = {
     1: PYRGG_ENGINE_PARAMS,
     2: ERG_ENGINE_PARAMS,
@@ -143,6 +153,7 @@ ENGINE_PARAM_MAP = {
     6: WS_ENGINE_PARAMS,
     7: GG_ENGINE_PARAMS,
     8: LT_ENGINE_PARAMS,
+    9: CG_ENGINE_PARAMS,
 }
 
 OUTPUT_FORMAT = {i: output_format[1:].upper()
